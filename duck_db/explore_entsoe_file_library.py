@@ -42,6 +42,38 @@ def _(project_root):
     return (fms_client,)
 
 
+@app.cell
+def _(fms_client):
+    def download_latest_df_by_index(folders_list, index):
+
+        target_folder = folders_list[index]
+
+        file_list = fms_client.list_folder(target_folder)
+
+        file_list_sorted = sorted(file_list.keys())
+        target_file = file_list_sorted[-1]
+
+        dataframe = fms_client.download_single_file(
+            folder=target_folder, 
+            filename=target_file
+        )
+        return dataframe, file_list_sorted
+
+    return (download_latest_df_by_index,)
+
+
+@app.cell
+def _():
+    folders = [
+        "EnergyPrices_12.1.D_r3",
+        "ActualTotalLoad_6.1.A_r3",
+        "AggregatedGenerationPerType_16.1.B_C_r3",
+        "BalancingEnergyBids_12.3.B_C_r3",
+        "ProductionAndGenerationUnits_r3"
+    ]
+    return (folders,)
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -51,38 +83,9 @@ def _(mo):
 
 
 @app.cell
-def _(fms_client):
-    def download_latest_df_by_index(folders_list, index):
-    
-        target_folder = folders_list[index]
-    
-        file_list = fms_client.list_folder(target_folder)
-        
-        file_list_sorted = sorted(file_list.keys())
-        target_file = file_list_sorted[-1]
-
-        dataframe = fms_client.download_single_file(
-            folder=target_folder, 
-            filename=target_file
-        )
-        return dataframe
-
-    return (download_latest_df_by_index,)
-
-
-@app.cell
-def _(download_latest_df_by_index):
-    folders = [
-        "EnergyPrices_12.1.D_r3",
-        "ActualTotalLoad_6.1.A_r3",
-        "AggregatedGenerationPerType_16.1.B_C_r3",
-        "BalancingEnergyBids_12.3.B_C_r3",
-        "ProductionAndGenerationUnits_r3"
-    ]
-
-
-    df_units = download_latest_df_by_index(folders, index=4)
-    return df_units, folders
+def _(download_latest_df_by_index, folders):
+    df_units, units_files_sorted = download_latest_df_by_index(folders, index=4)
+    return (df_units,)
 
 
 @app.cell
@@ -147,7 +150,7 @@ def _(mo):
 
 @app.cell
 def _(download_latest_df_by_index, folders):
-    df_prices = download_latest_df_by_index(folders, index=0)
+    df_prices, prices_files_sorted = download_latest_df_by_index(folders, index=0)
     return (df_prices,)
 
 
@@ -202,106 +205,133 @@ def _(mo):
 def _(df_prices, mo):
     _df = mo.sql(
         f"""
-        WITH normalized_prices AS (
-            SELECT 
-                AreaDisplayName AS bidding_zone,
-                "DateTime(UTC)" AS dt,
-                CASE 
-                    WHEN Currency = 'UAH' THEN "Price[Currency/MWh]" * 0.023 -- Переводим в EUR
-                    ELSE "Price[Currency/MWh]"
-                END AS price_eur
-            FROM df_prices
-        )
-        SELECT bidding_zone, ROUND(AVG(price_eur), 2) AS avg_price_eur
-        FROM normalized_prices
-        GROUP BY 1
-        ORDER BY 2 DESC;
-        """
-    )
-    return
-
-
-@app.cell
-def _(df_prices, mo):
-    _df = mo.sql(
-        f"""
-        WITH normalized_prices AS (
-            -- Шаг 1: Приводим все к единой валюте, как мы делали ранее
-            SELECT 
-                AreaDisplayName AS bidding_zone,
-                CASE 
-                    WHEN Currency = 'UAH' THEN "Price[Currency/MWh]" * 0.023
-                    ELSE "Price[Currency/MWh]"
-                END AS price_eur
-            FROM df_prices
-        )
-        -- Шаг 2: Создаем корзины (bins) по 10 евро и считаем частоту
-        SELECT 
+        WITH
+            normalized_prices AS (
+                SELECT
+                    AreaDisplayName AS bidding_zone,
+                    "DateTime(UTC)" AS dt,
+                    CASE
+                        WHEN Currency = 'UAH' THEN "Price[Currency/MWh]" * 0.023 -- Переводим в EUR
+                        ELSE "Price[Currency/MWh]"
+                    END AS price_eur
+                FROM
+                    df_prices
+            )
+        SELECT
             bidding_zone,
-            -- Делим на 10, отбрасываем остаток и умножаем на 10. 
-            -- Так цена 47 превратится в корзину "40", а 105 в "100".
-            CAST(FLOOR(price_eur / 10.0) * 10 AS INTEGER) AS price_bin_eur,
-            COUNT(*) AS hours_count
-        FROM normalized_prices
-        -- Если у тебя в marimo есть UI-кнопочка (dropdown), ты можешь передавать ее значение сюда:
-        -- WHERE bidding_zone = 'Germany (DE)' 
-        GROUP BY bidding_zone, price_bin_eur
-        ORDER BY bidding_zone, price_bin_eur;
+            ROUND(AVG(price_eur), 2) AS avg_price_eur
+        FROM
+            normalized_prices
+        GROUP BY
+            1
+        ORDER BY
+            2 DESC;
         """
     )
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(df_prices, mo):
     _df = mo.sql(
         f"""
-        WITH normalized_prices AS (
-            -- Шаг 1: Нормализуем валюту
-            SELECT 
-                AreaDisplayName AS bidding_zone,
-                CASE 
-                    WHEN Currency = 'UAH' THEN "Price[Currency/MWh]" * 0.023
-                    ELSE "Price[Currency/MWh]" 
-                END AS price_eur
-            FROM df_prices
-        ),
-        binned_prices AS (
-            -- Шаг 2: Группируем по ценовым корзинам (размер шага — 10 евро)
-            SELECT 
-                bidding_zone,
-                CAST(FLOOR(price_eur / 10.0) * 10 AS INTEGER) AS price_bin_eur,
-                COUNT(*) AS hours_count
-            FROM normalized_prices
-            GROUP BY 1, 2
-        )
-        -- Шаг 3: Накатываем продвинутую аналитику через окна
-        SELECT 
+        WITH
+            normalized_prices AS (
+                -- Шаг 1: Нормализуем валюту
+                SELECT
+                    AreaDisplayName AS bidding_zone,
+                    CASE
+                        WHEN Currency = 'UAH' THEN "Price[Currency/MWh]" * 0.023
+                        ELSE "Price[Currency/MWh]"
+                    END AS price_eur
+                FROM
+                    df_prices
+            ),
+            binned_prices AS (
+                -- Шаг 2: Группируем по ценовым корзинам (размер шага — 10 евро)
+                SELECT
+                    bidding_zone,
+                    CAST(FLOOR(price_eur / 10.0) * 10 AS INTEGER) AS price_bin_eur,
+                    COUNT(*) AS hours_count
+                FROM
+                    normalized_prices
+                GROUP BY
+                    1,
+                    2
+            )
+            -- Шаг 3: Накатываем продвинутую аналитику через окна
+        SELECT
             bidding_zone,
             price_bin_eur,
             hours_count,
-
             -- 1. Доля текущей корзины от общего объема часов в этой стране
-            ROUND(100.0 * hours_count / SUM(hours_count) OVER(PARTITION BY bidding_zone), 2) AS bin_share_pct,
-
+            ROUND(
+                100.0 * hours_count / SUM(hours_count) OVER (
+                    PARTITION BY
+                        bidding_zone
+                ),
+                2
+            ) AS bin_share_pct,
             -- 2. Кумулятивная доля (Running Total от 0% до 100%) — идеальный график CDF
-            ROUND(100.0 * SUM(hours_count) OVER(
-                w_zone 
-                ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
-            ) / SUM(hours_count) OVER(PARTITION BY bidding_zone), 2) AS cumulative_share_pct,
-
+            ROUND(
+                100.0 * SUM(hours_count) OVER (
+                    w_zone ROWS BETWEEN UNBOUNDED PRECEDING
+                    AND CURRENT ROW
+                ) / SUM(hours_count) OVER (
+                    PARTITION BY
+                        bidding_zone
+                ),
+                2
+            ) AS cumulative_share_pct,
             -- 3. Сглаживание Гауссианы: Скользящее среднее по центральному окну (предыдущая + текущая + следующая корзина)
-            ROUND(AVG(hours_count) OVER(
-                w_zone 
-                ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
-            ), 1) AS smoothed_hours_count
-
-        FROM binned_prices
-        -- Используем Именованное Окно (Named Window), чтобы не дублировать код PARTITION/ORDER BY
-        WINDOW w_zone AS (PARTITION BY bidding_zone ORDER BY price_bin_eur ASC)
-        ORDER BY bidding_zone, price_bin_eur;
+            ROUND(
+                AVG(hours_count) OVER (
+                    w_zone ROWS BETWEEN 1 PRECEDING
+                    AND 1 FOLLOWING
+                ),
+                1
+            ) AS smoothed_hours_count
+        FROM
+            binned_prices
+            -- Используем Именованное Окно (Named Window), чтобы не дублировать код PARTITION/ORDER BY
+        WINDOW
+            w_zone AS (
+                PARTITION BY
+                    bidding_zone
+                ORDER BY
+                    price_bin_eur ASC
+            )
+        ORDER BY
+            bidding_zone,
+            price_bin_eur;
         """
     )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Explore energy load
+    """)
+    return
+
+
+@app.cell
+def _(download_latest_df_by_index, folders):
+    df_load, load_files_sorted = download_latest_df_by_index(folders, index=1)
+    return df_load, load_files_sorted
+
+
+@app.cell
+def _(df_load):
+    df_load
+    return
+
+
+@app.cell
+def _(load_files_sorted):
+    load_files_sorted[::-1]
     return
 
 
