@@ -24,7 +24,6 @@ def _(project_root):
     from dotenv import load_dotenv
     from entsoe import EntsoePandasClient
     from entsoe.files import EntsoeFileClient
-    import pandas as pd
 
     dotenv_path = project_root(".env")
 
@@ -54,8 +53,7 @@ def _(fms_client):
         target_file = file_list_sorted[-1]
 
         dataframe = fms_client.download_single_file(
-            folder=target_folder, 
-            filename=target_file
+            folder=target_folder, filename=target_file
         )
         return dataframe, file_list_sorted
 
@@ -69,7 +67,7 @@ def _():
         "ActualTotalLoad_6.1.A_r3",
         "AggregatedGenerationPerType_16.1.B_C_r3",
         "BalancingEnergyBids_12.3.B_C_r3",
-        "ProductionAndGenerationUnits_r3"
+        "ProductionAndGenerationUnits_r3",
     ]
     return (folders,)
 
@@ -91,7 +89,7 @@ def _(download_latest_df_by_index, folders):
 @app.cell
 def _(df_units, mo):
     _df = mo.sql(
-        f"""
+        """
         WITH active_production_units AS (
             -- Шаг 1: Схлопываем строки до уровня УНИКАЛЬНЫХ электростанций
             -- Выбираем DISTINCT только по колонкам самой СТАНЦИИ, игнорируя генераторы
@@ -171,7 +169,7 @@ def _(mo):
 @app.cell
 def _(df_prices, mo):
     _df = mo.sql(
-        f"""
+        """
         SELECT 
             Currency, 
             COUNT(*) as records_count,
@@ -204,7 +202,7 @@ def _(mo):
 @app.cell
 def _(df_prices, mo):
     _df = mo.sql(
-        f"""
+        """
         WITH
             normalized_prices AS (
                 SELECT
@@ -234,7 +232,7 @@ def _(df_prices, mo):
 @app.cell(hide_code=True)
 def _(df_prices, mo):
     _df = mo.sql(
-        f"""
+        """
         WITH
             normalized_prices AS (
                 -- Шаг 1: Нормализуем валюту

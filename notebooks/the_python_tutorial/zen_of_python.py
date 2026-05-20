@@ -22,7 +22,6 @@ def _():
 
 @app.cell
 def _():
-    import this
 
     return
 

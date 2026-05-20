@@ -22,7 +22,7 @@ def _():
 def _():
     from pyprojroot.here import here as project_root
 
-    data_dir = project_root("data")
+    data_dir = project_root(".data")
 
     data_dir
     return data_dir, project_root
@@ -37,13 +37,14 @@ def _(data_dir):
 @app.cell
 def _(data_files):
     import pprint
+
     pprint.pprint(data_files)
     return
 
 
 @app.cell
 def _(data_files, duckdb):
-    duckdb.read_csv(data_files['inventory_of_generation_2019'])
+    duckdb.read_csv(data_files["inventory_of_generation_2019"])
     return
 
 
@@ -76,14 +77,14 @@ def _(EntsoePandasClient, EntsoeRawClient, project_root):
 
 @app.cell
 def _(pd):
-    start = pd.Timestamp('20260515', tz='Europe/Brussels')
-    end = pd.Timestamp('20260517', tz='Europe/Brussels')
-    country_code = 'BE'  # Belgium
-    country_code_from = 'FR'  # France
-    country_code_to = 'DE_LU' # Germany-Luxembourg
-    type_marketagreement_type = 'A01'
-    contract_marketagreement_type = 'A01'
-    process_type = 'A51'
+    start = pd.Timestamp("20260515", tz="Europe/Brussels")
+    end = pd.Timestamp("20260517", tz="Europe/Brussels")
+    country_code = "BE"  # Belgium
+    country_code_from = "FR"  # France
+    country_code_to = "DE_LU"  # Germany-Luxembourg
+    type_marketagreement_type = "A01"
+    contract_marketagreement_type = "A01"
+    process_type = "A51"
     return country_code, end, start
 
 
@@ -103,7 +104,7 @@ def _(os):
 
     fms_client = EntsoeFileClient(username=username, pwd=pwd)
 
-    folder_name = 'BalancingEnergyBids_12.3.B_C_r3'
+    folder_name = "BalancingEnergyBids_12.3.B_C_r3"
     file_list = fms_client.list_folder(folder_name)
 
     print(f"Найдено файлов: {len(file_list)}")
@@ -116,7 +117,7 @@ def _(file_list, fms_client, folder_name):
     # Берем первый файл из списка (самый свежий или случайный)
     # file_list — это словарь {имя_файла: id_файла}
     filenames = list(file_list.keys())
-    target_file = filenames[0] 
+    target_file = filenames[0]
 
     print(f"Скачиваю файл: {target_file}")
 
@@ -144,7 +145,7 @@ def _(df_bids):
 @app.cell
 def _(df_bids, mo):
     _df = mo.sql(
-        f"""
+        """
         SELECT AreaCode, COUNT(*) as count 
             FROM df_bids 
             GROUP BY AreaCode 
@@ -158,7 +159,7 @@ def _(df_bids, mo):
 @app.cell
 def _(df_bids, mo):
     _df = mo.sql(
-        f"""
+        """
         SELECT 
             AreaDisplayName, 
             round(avg("Price[Currency/MWh]"), 2) as avg_price,
@@ -177,7 +178,7 @@ def _(df_bids, mo):
 @app.cell
 def _(df_bids, mo):
     _df = mo.sql(
-        f"""
+        """
         SELECT 
             Direction, 
             count(*) as total_bids,
@@ -193,7 +194,7 @@ def _(df_bids, mo):
 @app.cell
 def _(df_bids, mo):
     _df = mo.sql(
-        f"""
+        """
         SELECT 
             AreaDisplayName, 
             "Volume[MW]", 
@@ -211,7 +212,7 @@ def _(df_bids, mo):
 @app.cell
 def _(df_bids, mo):
     _df = mo.sql(
-        f"""
+        """
         SELECT "Price[Currency/MWh]", "Currency" FROM df_bids 
         WHERE "Price[Currency/MWh]" < 0
         GROUP BY 1, 2
@@ -225,7 +226,7 @@ def _(df_bids, mo):
 @app.cell
 def _(df_bids, mo):
     _df = mo.sql(
-        f"""
+        """
         -- Считаем, сколько времени рынок висел на "ценовом дне"
         SELECT 
             "Price[Currency/MWh]" as price,
@@ -246,7 +247,7 @@ def _(df_bids, mo):
 @app.cell
 def _(df_bids, mo):
     _df = mo.sql(
-        f"""
+        """
         SELECT 
             "Price[Currency/MWh]" as price,
             count(*) as frequency,
@@ -264,7 +265,7 @@ def _(df_bids, mo):
 @app.cell
 def _(df_bids, mo):
     _df = mo.sql(
-        f"""
+        """
         SELECT 
             AreaDisplayName,
             "Price[Currency/MWh]" as price,
@@ -286,7 +287,7 @@ def _(df_bids, mo):
 @app.cell
 def _(df_bids, mo):
     _df = mo.sql(
-        f"""
+        """
         WITH unique_pain_intervals AS (
             -- Сначала достаем только УНИКАЛЬНЫЕ моменты времени, 
             -- когда хотя бы один бедолага выставил -15 000
