@@ -1,77 +1,294 @@
-# Exclude a variety of commonly ignored directories.
+# =============================================================================
+# RUFF CONFIGURATION
+# Adapted for: ENTSOE Data Engineering Lakehouse
+# Stack: PySpark 4.0, Apache Iceberg, SeaweedFS S3, DuckDB, dbt, Marimo
+# Style: Google Python Style Guide
+# =============================================================================
+
+line-length = 88
+indent-width = 4
+target-version = "py312"
+
+# Source layout for import resolution
+src = ["src", "tests", "jobs", "dags"]
+
 exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
     ".git",
-    ".git-rewrite",
-    ".hg",
-    ".ipynb_checkpoints",
     ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pyenv",
     ".pytest_cache",
-    ".pytype",
     ".ruff_cache",
-    ".svn",
-    ".tox",
     ".venv",
-    ".vscode",
-    "__pypackages__",
-    "_build",
-    "buck-out",
+    "venv",
+    "__pycache__",
+    "*.egg-info",
+    ".nox",
+    ".tox",
     "build",
     "dist",
     "node_modules",
-    "site-packages",
-    "venv",
+    # Exclude raw notebooks — too noisy for linting
+    "notebooks",
 ]
 
-# Same as Black.
-line-length = 88
-indent-width = 4
 
-# Assume Python 3.10
-target-version = "py310"
+# =============================================================================
+# LINTING RULES
+# =============================================================================
 
 [lint]
-# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`) codes by default.
-# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
-# McCabe complexity (`C901`) by default.
-select = ["E4", "E7", "E9", "F"]
-ignore = []
+select = [
+    "E", "W", "F",          # pycodestyle, pyflakes — baseline syntax & style
+    "I", "TID",             # isort, tidy-imports — clean, sorted imports
+    "UP", "FLY", "FURB",    # pyupgrade, flynt, refurb — modern Python patterns
+    "S",                    # bandit — security: catch hardcoded secrets & unsafe calls
+    "B", "A", "C4", "SIM",  # bugbear, builtins, comprehensions, simplify
+    "PIE", "PGH", "RUF",    # misc quality, pygrep, ruff-native rules
+    "PERF",                 # performance — critical for DE pipelines & transforms
+    "TRY", "RSE", "EM",     # error handling best practices
+    "N", "ICN",             # naming conventions, import conventions
+    "ERA", "ARG", "PTH",    # dead code, unused args, use pathlib over os.path
+    "PT", "PD", "LOG",      # pytest, pandas, logging conventions
+    "Q", "COM",             # quote style, trailing commas
+    "D",                    # pydocstyle — Google Style Guide enforcement
+    "DTZ", "RET", "G",      # datetime safety, returns, logging format strings
+    "PLC", "PLE", "PLW", "PLR09",  # selected pylint rules
+    "TCH", "FA",            # type-checking imports, future annotations
+]
 
-# Allow fix for all enabled rules (when `--fix`) is provided.
+ignore = [
+    # --- Google Style Docstring conflicts (we use D213 = multi-line summary style) ---
+    "D203",     # Conflicts with D211 (no blank line before class docstring)
+    "D213",     # Conflicts with D212 (summary on first line)
+    "D107",     # Don't require docstrings in __init__ (class docstring is enough)
+    "D104",     # Don't require docstrings in every package __init__.py
+    "D100",     # Don't require module-level docstrings in every file
+
+    # --- Exception handling (pragmatic DE patterns) ---
+    "EM101",    # Allow string literals directly in exceptions (f-strings too verbose)
+    "EM102",    # Allow f-strings in exception messages
+    "TRY003",   # Allow long messages in raise statements
+    "TRY301",   # Allow raise inside try blocks (common in ETL error handling)
+
+    # --- Complexity thresholds (DE transforms can be complex by nature) ---
+    "PLR0913",  # Allow more than 5 function arguments (SparkSession builders need many)
+    "PLR0912",  # Allow more than 12 branches (ETL routing logic)
+    "PLR2004",  # Allow magic values (port numbers, thresholds in configs are readable)
+    "PLR0915",  # Allow more than 50 statements (data pipeline functions)
+    "PLR0911",  # Allow more than 6 return statements
+
+    # --- Security rules safe to disable in local DE development ---
+    "S101",     # Allow assert statements (used in pytest and data quality checks)
+    "S311",     # Allow random (not used for cryptography in DE context)
+    "S605",     # Allow process execution with shell in local dev
+    "S607",     # Allow process execution with partial path in local dev
+
+    # --- Type checking (practical for DE — pyspark types are complex) ---
+    "PGH003",   # Allow broad type: ignore comments for pyspark stubs
+    "TC001",    # Don't force TYPE_CHECKING blocks for first-party imports
+    "TC002",    # Don't force TYPE_CHECKING blocks for third-party imports
+    "TC003",    # Don't force TYPE_CHECKING blocks for stdlib
+
+    # --- Performance false positives ---
+    "PERF203",  # Allow try/except inside loops (common in row-level ETL)
+
+    # --- Import conventions ---
+    "ICN001",   # Allow non-standard import aliases (pyspark has many sub-modules)
+
+    # --- Formatter conflicts (prevent ruff check fighting ruff format) ---
+    "COM812",   # Trailing comma — handled by formatter
+    "ISC001",   # Implicit string concat — handled by formatter
+    "W191",     # Indentation contains tabs — formatter handles this
+    "E111",     # Indentation not multiple of four — formatter handles this
+    "E114",     # Indentation not multiple — formatter handles this
+    "E117",     # Over-indented — formatter handles this
+    "Q000", "Q001", "Q002", "Q003",  # Quote style — handled by formatter
+
+    # --- Pandas-specific safe ignores ---
+    "PD002",    # Allow inplace=True (sometimes necessary in DE transforms)
+    "PD015",    # Allow pd.merge() over DataFrame.merge() for readability
+
+    # --- Refurb false positives ---
+    "FURB101", "FURB103",
+
+    # --- Project structure ---
+    "N999",     # Allow non-PEP8 module names (generated dbt files, etc.)
+]
+
+# Allow unused variables when underscore-prefixed
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Allow autofix for all enabled rules when --fix is passed
 fixable = ["ALL"]
 unfixable = []
 
-# Allow unused variables when underscore-prefixed.
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+# Tags that Ruff recognizes in comments for task tracking
+task-tags = ["TODO", "FIXME", "XXX", "BUG", "HACK", "NOTE", "OPTIMIZE"]
+
+
+# =============================================================================
+# PER-FILE RULE OVERRIDES
+# =============================================================================
+
+[lint.per-file-ignores]
+# Test files — relax strictness for test helpers and fixtures
+"tests/**/*.py"  = ["S101", "PLR2004", "D103", "D100", "ARG002", "TRY301", "PLR0913"]
+"**/test_*.py"   = ["S101", "PLR2004", "D103", "D100", "ARG002", "TRY301", "PLR0913"]
+
+# Spark job entry points — complex configs are acceptable
+"jobs/**/*.py"   = ["PLR0915", "PLR0912", "PLR0913"]
+
+# DAG definitions — Airflow DAGs have long argument lists by design
+"dags/**/*.py"   = ["PLR0913", "D103", "D100"]
+
+# Package init files — re-exports don't need docstrings
+"__init__.py"    = ["D104", "F401"]
+"src/**/__init__.py" = ["D104", "F401"]
+"tests/__init__.py"  = ["D104"]
+
+
+# =============================================================================
+# GOOGLE PYTHON STYLE GUIDE — DOCSTRINGS
+# =============================================================================
+
+[lint.pydocstyle]
+# Enforce Google-style docstrings (Args:, Returns:, Raises: sections)
+convention = "google"
+# Recognize functools.cached_property as a property decorator
+property-decorators = ["functools.cached_property"]
+
+
+# =============================================================================
+# IMPORT SORTING (isort)
+# =============================================================================
+
+[lint.isort]
+# Declare project's own packages as first-party
+known-first-party = ["src", "entsoe_pipeline"]
+
+# Declare the Data Engineering ecosystem as third-party
+known-third-party = [
+    # Apache Spark / PySpark
+    "pyspark",
+    # Data formats & lakehouse
+    "pyiceberg",
+    # Query engines
+    "duckdb",
+    # Data manipulation
+    "pandas", "numpy", "polars", "pyarrow",
+    # Config & environment
+    "yaml", "dotenv", "pyprojroot",
+    # Marimo notebooks
+    "marimo",
+    # ENTSOE API client
+    "entsoe",
+    # dbt (when added)
+    "dbt",
+    # Testing
+    "pytest",
+    # SQL utilities
+    "sqlglot",
+]
+
+force-single-line = false
+lines-between-types = 1
+split-on-trailing-comma = true
+combine-as-imports = true
+order-by-type = true
+
+# Ban old-style typing imports — use built-in generics (list, dict) in Python 3.10+
+[lint.flake8-tidy-imports.banned-api]
+"cgi"                  = { msg = "The cgi module is deprecated." }
+"imp"                  = { msg = "Use importlib instead." }
+"typing.Callable"      = { msg = "Use collections.abc.Callable instead." }
+"typing.Iterable"      = { msg = "Use collections.abc.Iterable instead." }
+"typing.Iterator"      = { msg = "Use collections.abc.Iterator instead." }
+"typing.Mapping"       = { msg = "Use collections.abc.Mapping instead." }
+"typing.Sequence"      = { msg = "Use collections.abc.Sequence instead." }
+
+
+# =============================================================================
+# STANDARD DATA ENGINEERING IMPORT ALIASES
+# =============================================================================
+
+[lint.flake8-import-conventions.aliases]
+# Enforce community-standard aliases for the DE ecosystem
+"numpy"              = "np"
+"pandas"             = "pd"
+"polars"             = "pl"
+"pyarrow"            = "pa"
+"matplotlib.pyplot"  = "plt"
+"seaborn"            = "sns"
+"sqlalchemy"         = "sa"
+
+
+# =============================================================================
+# PYLINT THRESHOLDS
+# =============================================================================
+
+[lint.pylint]
+# SparkSession builders and pipeline configs often need many args
+max-args       = 10
+max-branches   = 15
+max-returns    = 8
+# ETL transform functions can be long — keep threshold reasonable
+max-statements = 70
+
+
+# =============================================================================
+# SECURITY (bandit)
+# =============================================================================
+
+[lint.flake8-bandit]
+check-typed-exception = true
+# Flag hardcoded temp paths (data pipelines should write to configured locations)
+hardcoded-tmp-directory = ["/tmp", "/var/tmp", "/dev/shm"]
+
+
+# =============================================================================
+# UNUSED ARGUMENTS
+# =============================================================================
+
+[lint.flake8-unused-arguments]
+# Allow unused *args / **kwargs (common in Spark UDF wrappers)
+ignore-variadic-names = true
+
+
+# =============================================================================
+# PYTEST STYLE
+# =============================================================================
+
+[lint.flake8-pytest-style]
+fixture-parentheses      = false
+parametrize-names-type   = "tuple"
+parametrize-values-type  = "tuple"
+
+
+# =============================================================================
+# FORMATTER
+# =============================================================================
 
 [format]
-# Like Black, use double quotes for strings.
-quote-style = "double"
-
-# Like Black, indent with spaces, rather than tabs.
-indent-style = "space"
-
-# Like Black, respect magic trailing commas.
+quote-style               = "double"
+indent-style              = "space"
 skip-magic-trailing-comma = false
+line-ending               = "auto"
+# Format code examples inside docstrings (great for DE tutorials and notebooks)
+docstring-code-format       = true
+docstring-code-line-length  = 72
+preview                     = false
 
-# Like Black, automatically detect the appropriate line ending.
-line-ending = "auto"
+# =============================================================================
+# TYPE CHECKING IMPORTS (flake8-type-checking)
+# =============================================================================
+[lint.flake8-type-checking]
+exempt-modules = ["typing_extensions"]
+quote-annotations = true
+# Do not move imports of runtime-evaluated models into TYPE_CHECKING blocks
+runtime-evaluated-base-classes = ["pydantic.BaseModel", "sqlmodel.SQLModel"]
 
-# Enable auto-formatting of code examples in docstrings. Markdown,
-# reStructuredText code/literal blocks and doctests are all supported.
-#
-# This is currently disabled by default, but it is planned for this
-# to be opt-out in the future.
-docstring-code-format = false
-
-# Set the line length limit used when formatting code snippets in
-# docstrings.
-#
-# This only has an effect when the `docstring-code-format` setting is
-# enabled.
-docstring-code-line-length = "dynamic"
+# =============================================================================
+# BUGBEAR IMMUTABLE CALLS (flake8-bugbear)
+# =============================================================================
+[lint.flake8-bugbear]
+# Allow using these dependency injection/CLI functions as default arguments
+extend-immutable-calls = ["fastapi.Depends", "typer.Option", "typer.Argument"]

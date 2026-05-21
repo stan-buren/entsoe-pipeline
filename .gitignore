@@ -10,12 +10,23 @@ wheels/
 .venv
 
 # Other
-.agents/
 __marimo__/
+pyproject.toml.example
 
 # Secrets
 .env
+config_env/
 
-data/
 
+.data/
 
+.ruff_cache/
+
+.coverage
+.htmlcov/
+
+.pytest_cache/  
+
+# Agents
+
+.agents/rules/patching-answer-vanishing-bugs.md

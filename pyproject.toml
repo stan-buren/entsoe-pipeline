@@ -1,26 +1,144 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "learning-python"
-version = "0.1.0"
-description = "Add your description here"
+name = "entsoe-pipeline"
+version = "0.0.1"
+description = "ENTSO-E Data Pipeline"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "duckdb>=1.5.2",
     "entsoe-py>=0.8.0",
-    "marimo==0.23.0",
-    "pyprojroot>=0.3.0",
-    "pyspark[connect,pipelines,sql]==4.1.1",
+    "pyspark[connect,sql]==4.0.0",
     "python-dotenv>=1.2.2",
+    "pyyaml>=6.0.3",
     "sqlglot>=30.8.0",
-    "ty>=0.0.35",
 ]
 
 [dependency-groups]
 dev = [
     "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
+    "pytest-mock>=3.15.1",
+    "pytest-xdist>=3.8.0",
     "ruff>=0.15.12",
     "ty>=0.0.35",
 ]
 
+notebooks = [
+    "marimo==0.23.0",
+    "pyprojroot>=0.3.0",
+]
+
 [tool.marimo.diagnostics]
 enabled = true   
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/entsoe_pipeline"]
+
+
+# =============================================================================
+# UV CONFIGURATION (Automatic Python and tool downloads)
+# =============================================================================
+[tool.uv]
+python-downloads = "automatic"
+python-preference = "managed"
+
+# =============================================================================
+# MYPY STATIC TYPING CONFIGURATION
+# =============================================================================
+[tool.mypy]
+python_version = "3.14"
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_optional = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+show_error_codes = true
+show_column_numbers = true
+show_error_context = true
+pretty = true
+
+[[tool.mypy.overrides]]
+module = [
+    "duckdb.*",
+    "pyspark.*",
+    "marimo.*",
+    "entsoe.*",
+]
+ignore_missing_imports = true
+
+
+# =============================================================================
+# PYTEST CONFIGURATION (High-performance test running)
+# =============================================================================
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = [
+    "-ra",
+    "--strict-markers", 
+    "--strict-config",
+    "--tb=short",
+    # Coverage settings
+    "--cov=src",
+    "--cov-report=term-missing",
+    "--cov-report=html:.htmlcov",
+    "--cov-branch",
+    "--cov-fail-under=80",
+    # Parallel execution configuration (auto-detects CPU count)
+    "-n=auto",
+    "--dist=worksteal",
+]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*", "*Test"] 
+python_functions = ["test_*"]
+norecursedirs = ["src"]
+filterwarnings = [
+    "error",
+    "ignore::UserWarning",
+    "ignore::DeprecationWarning", 
+    "ignore::PendingDeprecationWarning",
+    "ignore::pytest.PytestUnraisableExceptionWarning",
+    # Specific data engineering warnings
+    "ignore:.*pyspark.*:UserWarning",
+    "ignore:.*duckdb.*:UserWarning",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks heavy data integration tests",
+    "unit: marks fast unit tests", 
+    "spark: marks tests requiring active local Spark session",
+    "database: marks tests executing against local DuckDB",
+    "smoke: critical baseline tests for validation pipelines",
+]
+
+
+# =============================================================================
+# CODE COVERAGE EXCEPTIONS
+# =============================================================================
+[tool.coverage.run]
+source = ["src"]
+branch = true
+relative_files = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
