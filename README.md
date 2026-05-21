@@ -1,37 +1,40 @@
-# Personal learning python notes.
+# ENTSO-E Data Pipeline (`entsoe-pipeline`)
 
-## Intoduction
+An enterprise-grade, high-performance data engineering pipeline designed to ingest, process, and analyze power grid transmission data from the European Network of Transmission System Operators for Electricity (ENTSO-E).
 
-This self-placed lessons I took at the beguinning of the 2026 year for advanced learning of python language from [the official Python documentation](<https://docs.python.org/>). 
+## 🚀 Architecture Overview
 
-## Why?
+This pipeline is built with a focus on local portability, robust schema enforcement, and rapid batch processing. It transitions from legacy exploration code into a production pipeline:
 
-The tip at the beginning of the [The Python Tutorial](<https://docs.python.org/3/tutorial/index.html>) webpage says: 
+- **Core Engine:** Apache Spark (PySpark) for heavy transformations & DuckDB for fast local analytical storage.
+- **Strict Linting & Quality:** Exhaustive Ruff formatting and static checking, enforcing strict PEP-8 standards.
+- **Config Management:** Centralized configuration system using YAML templates (`config_env_example/`) and active environments (`config_env/`) with automated schema validation.
 
-> **"Tip:**  This tutorial is designed for programmers that are new to the Python language, not beginners who are new to programming.
+## 🛠️ Tech Stack
 
-I'm not a beginner in programming. And I want to learn about the Python language from it's own webpage. Read original unfiltered by anyone else text, learn the history of Python and its core phylosophy. And also write-along all the examples from the tutorials and courses. 
+- **Python:** `3.14`
+- **Processing:** PySpark `4.0.0`, DuckDB `1.5.2`
+- **Data Source:** `entsoe-py` (Official ENTSO-E API client wrapper)
+- **Validation:** `PyYAML`, `pytest` (with high-performance `pytest-xdist` parallel execution)
+- **Task Automation:** `just` (utility runner via `Justfile`)
 
-### That's why I'm choosing an original documentation tutorial.
+## 📥 Getting Started
 
-## Plan
+### 1. Initialize Configuration Templates
+Generate your active configuration schemas from the public templates:
+```bash
+just init-config
+```
+*(This sets up your localized ports and database volumes without exposing credentials in Git).*
 
-* Take all [The Python Tutorial](<https://docs.python.org/3/tutorial/index.html>) lessons.
+### 2. Install Project Tools & Virtual Env
+Using the `uv` toolchain, bootstrap your dependencies:
+```bash
+uv sync --all-groups
+```
 
-* Learn PySpark at Databricks course [Apache Spark Developer Learning Plan](<https://customer-academy.databricks.com/learn/learning-plans/160/apache-spark-developer-learning-plan?hash=11c94b5f8c99e2809208ce83057dca08ec11d860&generated_by=1549402>)
-
-## Sources:
-
-1. [The Python Tutorial](<https://docs.python.org/3/tutorial/index.html>)
-
-2. [The Python Standard Library](<https://docs.python.org/3/library/index.html#library-index>)
-
-3. [PEP 8 – Style Guide for Python Code](<https://peps.python.org/pep-0008/>)
-
-4. [PEP 20 – The Zen of Python](<https://peps.python.org/pep-0020/>)
-
-5. [PEP 703 – Making the Global Interpreter Lock Optional in CPython](<https://peps.python.org/pep-0703/>)
-
-6. [Python Glossary](<https://docs.python.org/3/glossary.html#glossary>)
-
-
+### 3. Run Quality Gates & Tests
+Validate workspace integrity, paths, and metadata schema compliance:
+```bash
+just test
+```
