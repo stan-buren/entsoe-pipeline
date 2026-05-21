@@ -1,5 +1,5 @@
 ---
-description: 
+description: Write commits using Guides in commits_giide/ folder
 ---
 
 # When user asks you to write tests, use files listed in '.agents/artifacts/commits_giide/' for writing them.
