@@ -1,0 +1,44 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  trivy-scan:
+    name: Run Trivy Scanner
+    # Pin the runner OS version to avoid unexpected updates from ubuntu-latest.
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read 
+      # Required to write security events and upload the SARIF report.
+      security-events: write 
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Run Trivy with a pinned full commit SHA for supply-chain security.
+      # This SHA corresponds to the aquasecurity/trivy-action v0.36.0 release.
+      # Skip learning sandboxes (e.g.'notebooks/')
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          skip-dirs: 'notebooks'
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'HIGH,CRITICAL'
+          exit-code: '1'
+
+      # Upload SARIF results to the GitHub Security tab even if the scanner fails.
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v4
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
