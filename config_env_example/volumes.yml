@@ -1,0 +1,19 @@
+volumes:
+  s3_compatible: "/path/to/your/local/s3_compatible_storage"
+
+metadata:
+  s3_compatible:
+    description: |
+      Specifies the absolute physical directory path on your host machine where the
+      local S3-compatible storage container (e.g., SeaweedFS or MinIO) will persist its data.
+      Since local Docker containers have ephemeral file systems, mounting this host directory
+      ensures that your data lakes, raw files, and Iceberg metadata survive container restarts.
+      In cloud/production environments, Spark writes directly to remote cloud buckets over HTTPS,
+      rendering local host volume mounts completely obsolete.
+    examples:
+      - "/mnt/seaweed_data"                     # Standard Linux partition mount
+      - "/Users/username/data/seaweed"          # Typical macOS local folder
+      - "/run/desktop/mnt/host/c/seaweed_data"  # Windows WSL path mapping
+      - ".data/seaweed"                         # Project-relative workspace folder
+    default: ".data/seaweed"
+    type: "string"
