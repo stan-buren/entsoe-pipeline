@@ -40,3 +40,8 @@ down:
 # Show logs from all running containers
 logs:
     docker compose -f docker/docker-compose.yml logs -f
+
+# Run the test suite using pytest
+test:
+    @echo "[JUST][TEST] Running all unit and integration tests..."
+    uv run pytest
