@@ -1,0 +1,32 @@
+ports:
+  s3_compatible: 8333
+  iceberg_catalog: 8181
+
+metadata:
+  s3_compatible:
+    description: |
+      Port mapped to the S3-compatible gateway API (e.g., SeaweedFS S3 or MinIO).
+      This port acts as the local network entry point that Apache Spark, duckdb,
+      and other client applications use to establish HTTP connections with the local
+      object storage system. In a production environment, this is replaced by the standard
+      secure HTTPS endpoints of cloud object stores such as AWS S3 or Google Cloud Storage,
+      meaning local port mapping is entirely bypassed.
+    examples:
+      - 8333  # Standard SeaweedFS S3 port
+      - 9000  # Default MinIO S3 port
+      - 8080  # Custom developer port override
+    default: 8333
+    type: "integer"
+
+  iceberg_catalog:
+    description: |
+      Port mapped to the Apache Iceberg REST Catalog endpoint.
+      This REST catalog is responsible for maintaining transactional state, table schemas,
+      partition metadata, and atomic commits for all Iceberg tables stored in our S3 storage.
+      Spark connects to this catalog on every transaction to fetch the latest snapshots,
+      ensuring ACID guarantees across concurrent read/write queries.
+    examples:
+      - 8181  # Default standard REST catalog port
+      - 8081  # Custom catalog port override
+    default: 8181
+    type: "integer"
