@@ -1,0 +1,53 @@
+repos:
+  - repo: local
+    hooks:
+      - id: apply-licenses
+        name: Enforce license headers
+        entry: uv run python tests/pre_commit/apply_license.py
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+      - id: no-dead-code
+        name: Check dead code
+        entry: uv run python tests/pre_commit/check_dead_code.py
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+      - id: validate-adrs
+        name: Validate ADRs
+        entry: uv run python tests/pre_commit/validate_adrs.py
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+      - id: duplicate-tests
+        name: Check duplicate tests
+        entry: uv run python tests/pre_commit/find_duplicate_tests.py
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+      - id: ruff-check
+        name: Ruff linting
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
+        require_serial: false
+        exclude: ^notebooks/
+
+      - id: ruff-format
+        name: Ruff formatting
+        entry: uv run ruff format
+        language: system
+        types: [python]
+        require_serial: false
+        exclude: ^notebooks/
+
+      - id: run-tests
+        name: Run unit and integration tests
+        entry: uv run pytest
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
