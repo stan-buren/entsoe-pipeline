@@ -52,4 +52,3 @@ TESTS_DIR = PROJECT_ROOT / "tests"
 ADR_DIR = PROJECT_ROOT / "docs" / "adr"
 ADR_TEMPLATE_PATH = ADR_DIR / "template" / "ADR_TEMPLATE.md"
 CONFIG_DIR = PROJECT_ROOT / "config_env"
-

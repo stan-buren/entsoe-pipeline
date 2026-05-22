@@ -34,6 +34,7 @@ class PortsConfig:
         s3_compatible (int): Port for S3-compatible API.
         iceberg_catalog (int): Port for Apache Iceberg REST Catalog.
     """
+
     s3_compatible: int
     iceberg_catalog: int
 
@@ -60,4 +61,3 @@ class PortsConfig:
             s3_compatible=int(ports_data.get("s3_compatible", 8333)),
             iceberg_catalog=int(ports_data.get("iceberg_catalog", 8181)),
         )
-
