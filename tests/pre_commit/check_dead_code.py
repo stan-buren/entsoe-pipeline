@@ -21,6 +21,7 @@ subdirectories, and potential dead import clutter inside module initialization
 files (__init__.py).
 """
 
+import fnmatch
 import os
 import sys
 
@@ -37,7 +38,7 @@ def main() -> None:
     print("🔍 Scanning for dead code patterns...")
 
     # -------------------------------------------------------------------------
-    # 1. Scanning for obsolete/backup files (e.g., _old.py, _backup.py)
+    # 1 & 2. Scanning for obsolete/backup and temporary files
     # -------------------------------------------------------------------------
     dead_patterns = [
         "*_old.py",
@@ -46,23 +47,18 @@ def main() -> None:
         "*_test_old.py",
         "*_deprecated.py",
     ]
-    for pattern in dead_patterns:
-        issues.extend(
-            f"Dead file: {file.relative_to(project_root)}"
-            for file in project_root.rglob(pattern)
-            if ".venv" not in str(file) and "__pycache__" not in str(file)
-        )
-
-    # -------------------------------------------------------------------------
-    # 2. Scanning for temporary, lock, or editor-specific system files
-    # -------------------------------------------------------------------------
     temp_patterns = ["*.tmp", "*.temp", "*~", "*.bak", ".DS_Store"]
-    for pattern in temp_patterns:
-        issues.extend(
-            f"Temporary file: {file.relative_to(project_root)}"
-            for file in project_root.rglob(pattern)
-            if ".venv" not in str(file) and ".git" not in str(file)
-        )
+    ignored_dirs = {".venv", ".git", "__pycache__"}
+
+    for dirpath, dirnames, filenames in os.walk(project_root):
+        dirnames[:] = [d for d in dirnames if d not in ignored_dirs]
+        rel_dir = Path(dirpath).relative_to(project_root)
+
+        for filename in filenames:
+            if any(fnmatch.fnmatch(filename, p) for p in dead_patterns):
+                issues.append(f"Dead file: {rel_dir / filename}")
+            elif any(fnmatch.fnmatch(filename, p) for p in temp_patterns):
+                issues.append(f"Temporary file: {rel_dir / filename}")
 
     # -------------------------------------------------------------------------
     # 3. Scanning for empty folders that should be pruned from git indexes
