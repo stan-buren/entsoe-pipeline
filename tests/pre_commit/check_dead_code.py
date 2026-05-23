@@ -30,16 +30,7 @@ from pathlib import Path
 from entsoe_pipeline import PROJECT_ROOT
 
 
-def main() -> None:
-    """Scan the workspace directories for obsolete, dead, or messy code patterns."""
-    project_root = PROJECT_ROOT
-    issues = []
-
-    print("🔍 Scanning for dead code patterns...")
-
-    # -------------------------------------------------------------------------
-    # 1 & 2. Scanning for obsolete/backup and temporary files
-    # -------------------------------------------------------------------------
+def _check_obsolete_and_temp_files(project_root: Path, issues: list[str]) -> None:
     dead_patterns = [
         "*_old.py",
         "*_fixed.py",
@@ -60,9 +51,8 @@ def main() -> None:
             elif any(fnmatch.fnmatch(filename, p) for p in temp_patterns):
                 issues.append(f"Temporary file: {rel_dir / filename}")
 
-    # -------------------------------------------------------------------------
-    # 3. Scanning for empty folders that should be pruned from git indexes
-    # -------------------------------------------------------------------------
+
+def _check_empty_directories(project_root: Path, issues: list[str]) -> None:
     known_empty = {".git", "__pycache__", ".venv", ".pytest_cache", ".coverage"}
     for dirpath, dirnames, filenames in os.walk(project_root):
         rel_path = Path(dirpath).relative_to(project_root)
@@ -77,9 +67,8 @@ def main() -> None:
         ):
             issues.append(f"Empty directory: {rel_path}")
 
-    # -------------------------------------------------------------------------
-    # 4. Checking for duplicate test stems in different folders
-    # -------------------------------------------------------------------------
+
+def _check_duplicate_test_stems(project_root: Path, issues: list[str]) -> None:
     test_files = {}
     for test_file in (project_root / "tests").rglob("test_*.py"):
         if "__pycache__" not in str(test_file):
@@ -91,9 +80,8 @@ def main() -> None:
             else:
                 test_files[base_name] = test_file
 
-    # -------------------------------------------------------------------------
-    # 5. Scanning package __init__.py files for complex or cluttered import blocks
-    # -------------------------------------------------------------------------
+
+def _check_complex_init_files(project_root: Path, issues: list[str]) -> None:
     for init_file in project_root.rglob("__init__.py"):
         if ".venv" not in str(init_file):
             try:
@@ -110,7 +98,6 @@ def main() -> None:
                         if stripped and not stripped.startswith("#"):
                             non_comment_lines.append(stripped)
 
-                    # Verify if the first meaningful line contains a docstring.
                     # Verify if the first meaningful line contains a docstring.
                     if non_comment_lines:
                         first_meaningful = non_comment_lines[0]
@@ -131,9 +118,8 @@ def main() -> None:
             except (UnicodeDecodeError, FileNotFoundError):  # noqa: S110
                 pass
 
-    # -------------------------------------------------------------------------
-    # 6. Formatting & Reporting scanner outcome
-    # -------------------------------------------------------------------------
+
+def _report_issues(issues: list[str]) -> None:
     if issues:
         print("\n❌ Dead code found:")
         print("=" * 50)
@@ -149,6 +135,29 @@ def main() -> None:
     else:
         print("✅ No dead code found!")
         sys.exit(0)
+
+
+def main() -> None:
+    """Scan the workspace directories for obsolete, dead, or messy code patterns."""
+    project_root = PROJECT_ROOT
+    issues = []
+
+    print("🔍 Scanning for dead code patterns...")
+
+    # 1 & 2. Scanning for obsolete/backup and temporary files
+    _check_obsolete_and_temp_files(project_root, issues)
+
+    # 3. Scanning for empty folders that should be pruned from git indexes
+    _check_empty_directories(project_root, issues)
+
+    # 4. Checking for duplicate test stems in different folders
+    _check_duplicate_test_stems(project_root, issues)
+
+    # 5. Scanning package __init__.py files for complex or cluttered import blocks
+    _check_complex_init_files(project_root, issues)
+
+    # 6. Formatting & Reporting scanner outcome
+    _report_issues(issues)
 
 
 if __name__ == "__main__":
