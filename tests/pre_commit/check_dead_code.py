@@ -23,6 +23,7 @@ files (__init__.py).
 
 import fnmatch
 import os
+import re
 import sys
 
 from pathlib import Path
@@ -48,6 +49,10 @@ def main() -> None:
         "*_deprecated.py",
     ]
     temp_patterns = ["*.tmp", "*.temp", "*~", "*.bak", ".DS_Store"]
+
+    dead_re = re.compile("|".join(fnmatch.translate(p) for p in dead_patterns))
+    temp_re = re.compile("|".join(fnmatch.translate(p) for p in temp_patterns))
+
     ignored_dirs = {".venv", ".git", "__pycache__"}
 
     for dirpath, dirnames, filenames in os.walk(project_root):
@@ -55,9 +60,9 @@ def main() -> None:
         rel_dir = Path(dirpath).relative_to(project_root)
 
         for filename in filenames:
-            if any(fnmatch.fnmatch(filename, p) for p in dead_patterns):
+            if dead_re.match(filename):
                 issues.append(f"Dead file: {rel_dir / filename}")
-            elif any(fnmatch.fnmatch(filename, p) for p in temp_patterns):
+            elif temp_re.match(filename):
                 issues.append(f"Temporary file: {rel_dir / filename}")
 
     # -------------------------------------------------------------------------
