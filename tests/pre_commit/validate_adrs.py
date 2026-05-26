@@ -131,6 +131,117 @@ def find_placeholders(content: str) -> list[tuple[int, str]]:
     return placeholders
 
 
+def _verify_title_id(lines: list[str], filename: str, file_id: str) -> list[str]:
+    issues = []
+    first_line = lines[0].strip()
+    m2 = re.match(r"#\s*ADR[-\s]?0*(\d+)\s*:?", first_line, re.IGNORECASE)
+    if not m2:
+        issues.append(f"No ADR ID in title of {filename}: '{first_line}'")
+        return issues
+
+    title_id = f"{int(m2.group(1)):04d}"
+    if file_id != title_id:
+        issues.append(
+            f"ID mismatch in {filename}: "
+            f"filename has ADR-{file_id} but title has ADR-{title_id}"
+        )
+    return issues
+
+
+def _verify_mandatory_sections(
+    lines: list[str], filename: str, required_headings: list[str]
+) -> list[str]:
+    file_headings = []
+    in_code_block = False
+    for line in lines:
+        stripped_line = line.strip()
+        if stripped_line.startswith("```"):
+            in_code_block = not in_code_block
+            continue
+        if in_code_block:
+            continue
+        if stripped_line.startswith("##"):
+            file_headings.append(stripped_line)
+
+    return [
+        f"Missing required section in {filename}: '{heading}'"
+        for heading in required_headings
+        if heading not in file_headings
+    ]
+
+
+def _verify_status_metadata(content: str, filename: str) -> list[str]:
+    issues = []
+    status_match = re.search(r"\*\*Status:\*\*\s*(.*)", content)
+    if status_match:
+        status = status_match.group(1).strip()
+        allowed_statuses = {"Proposed", "Accepted", "Rejected", "Deprecated"}
+        is_valid_status = status in allowed_statuses or re.match(
+            r"^Superseded by ADR-\d{3,4}$", status, re.IGNORECASE
+        )
+        if not is_valid_status:
+            issues.append(
+                f"Invalid Status in {filename}: '{status}' "
+                "(must be one of: Proposed, Accepted, Rejected, Deprecated, "
+                "or 'Superseded by ADR-XXXX')"
+            )
+    else:
+        issues.append(
+            f"Missing status metadata in {filename} (expected: '**Status:** [value]')"
+        )
+    return issues
+
+
+def _verify_version_date(content: str, filename: str) -> list[str]:
+    issues = []
+    version_match = re.search(r"\*\*Version/Date:\*\*\s*(.*)", content)
+    if version_match:
+        version_str = version_match.group(1).strip()
+        if not re.match(r"^v\d+\.\d+\s*/\s*\d{4}-\d{2}-\d{2}$", version_str):
+            issues.append(
+                f"Invalid Version/Date in {filename}: '{version_str}' "
+                "(expected format: 'vX.Y / YYYY-MM-DD')"
+            )
+    else:
+        issues.append(
+            f"Missing version/date metadata in {filename} "
+            "(expected: '**Version/Date:** [value]')"
+        )
+    return issues
+
+
+def _verify_forbidden_boilerplate(lines: list[str], filename: str) -> list[str]:
+    issues = []
+    in_code_block = False
+    for line_num, line in enumerate(lines, 1):
+        stripped_line = line.strip()
+        if stripped_line.startswith("```"):
+            in_code_block = not in_code_block
+            continue
+        if in_code_block:
+            continue
+        issues.extend(
+            [
+                f"Unmodified template boilerplate in {filename} "
+                f"at line {line_num}: '{boilerplate}'"
+                for boilerplate in FORBIDDEN_BOILERPLATE
+                if boilerplate in line
+            ]
+        )
+    return issues
+
+
+def _verify_placeholders(content: str, filename: str) -> list[str]:
+    issues = []
+    placeholders = find_placeholders(content)
+    for line_num, placeholder in placeholders:
+        issues.append(
+            f"Unreplaced template placeholder in {filename} "
+            f"at line {line_num}: '[{placeholder}]'"
+        )
+    return issues
+
+
 def main() -> None:
     """Validate all workspace ADR markdown files against template requirements."""
     # -------------------------------------------------------------------------
@@ -183,105 +294,46 @@ def main() -> None:
                 ok = False
                 continue
 
+            # Run all validation checks sequentially
             # B. Verify ADR ID in first line header matches filename ID
-            first_line = lines[0].strip()
-            m2 = re.match(r"#\s*ADR[-\s]?0*(\d+)\s*:?", first_line, re.IGNORECASE)
-            if not m2:
-                issues.append(f"No ADR ID in title of {filename}: '{first_line}'")
+            title_id_issues = _verify_title_id(lines, filename, file_id)
+            issues.extend(title_id_issues)
+            if any("No ADR ID in title" in issue for issue in title_id_issues):
                 ok = False
                 continue
-
-            title_id = f"{int(m2.group(1)):04d}"
-            if file_id != title_id:
-                issues.append(
-                    f"ID mismatch in {filename}: "
-                    f"filename has ADR-{file_id} but title has ADR-{title_id}"
-                )
+            if title_id_issues:
                 ok = False
 
             # C. Verify all mandatory template sections are present
-            file_headings = []
-            in_code_block = False
-            for line in lines:
-                stripped_line = line.strip()
-                if stripped_line.startswith("```"):
-                    in_code_block = not in_code_block
-                    continue
-                if in_code_block:
-                    continue
-                if stripped_line.startswith("##"):
-                    file_headings.append(stripped_line)
-
-            for heading in required_headings:
-                if heading not in file_headings:
-                    issues.append(
-                        f"Missing required section in {filename}: '{heading}'"
-                    )
-                    ok = False
+            section_issues = _verify_mandatory_sections(
+                lines, filename, required_headings
+            )
+            if section_issues:
+                issues.extend(section_issues)
+                ok = False
 
             # D. Verify status metadata contains valid status transitions
-            status_match = re.search(r"\*\*Status:\*\*\s*(.*)", content)
-            if status_match:
-                status = status_match.group(1).strip()
-                allowed_statuses = {"Proposed", "Accepted", "Rejected", "Deprecated"}
-                is_valid_status = status in allowed_statuses or re.match(
-                    r"^Superseded by ADR-\d{3,4}$", status, re.IGNORECASE
-                )
-                if not is_valid_status:
-                    issues.append(
-                        f"Invalid Status in {filename}: '{status}' "
-                        "(must be one of: Proposed, Accepted, Rejected, Deprecated, "
-                        "or 'Superseded by ADR-XXXX')"
-                    )
-                    ok = False
-            else:
-                issues.append(
-                    f"Missing status metadata in {filename} "
-                    "(expected: '**Status:** [value]')"
-                )
+            status_issues = _verify_status_metadata(content, filename)
+            if status_issues:
+                issues.extend(status_issues)
                 ok = False
 
             # E. Verify document version and date format consistency
-            version_match = re.search(r"\*\*Version/Date:\*\*\s*(.*)", content)
-            if version_match:
-                version_str = version_match.group(1).strip()
-                if not re.match(r"^v\d+\.\d+\s*/\s*\d{4}-\d{2}-\d{2}$", version_str):
-                    issues.append(
-                        f"Invalid Version/Date in {filename}: '{version_str}' "
-                        "(expected format: 'vX.Y / YYYY-MM-DD')"
-                    )
-                    ok = False
-            else:
-                issues.append(
-                    f"Missing version/date metadata in {filename} "
-                    "(expected: '**Version/Date:** [value]')"
-                )
+            version_issues = _verify_version_date(content, filename)
+            if version_issues:
+                issues.extend(version_issues)
                 ok = False
 
             # F. Verify forbidden boilerplate strings (excluding code block context)
-            in_code_block = False
-            for line_num, line in enumerate(lines, 1):
-                stripped_line = line.strip()
-                if stripped_line.startswith("```"):
-                    in_code_block = not in_code_block
-                    continue
-                if in_code_block:
-                    continue
-                for boilerplate in FORBIDDEN_BOILERPLATE:
-                    if boilerplate in line:
-                        issues.append(
-                            f"Unmodified template boilerplate in {filename} "
-                            f"at line {line_num}: '{boilerplate}'"
-                        )
-                        ok = False
+            boilerplate_issues = _verify_forbidden_boilerplate(lines, filename)
+            if boilerplate_issues:
+                issues.extend(boilerplate_issues)
+                ok = False
 
             # G. Check for any remaining bracketed placeholders
-            placeholders = find_placeholders(content)
-            for line_num, placeholder in placeholders:
-                issues.append(
-                    f"Unreplaced template placeholder in {filename} "
-                    f"at line {line_num}: '[{placeholder}]'"
-                )
+            placeholder_issues = _verify_placeholders(content, filename)
+            if placeholder_issues:
+                issues.extend(placeholder_issues)
                 ok = False
 
         except Exception as e:
