@@ -41,6 +41,9 @@ FORBIDDEN_BOILERPLATE = [
     "[Proposed | Accepted | Rejected | Deprecated | Superseded by ADR-XXXX]",
 ]
 
+# Compiled pattern for matching valid "Superseded by ADR-XXXX" statuses
+SUPERSEDED_STATUS_PATTERN = re.compile(r"^Superseded by ADR-\d{3,4}$", re.IGNORECASE)
+
 
 def get_template_headings(template_file: Path) -> list[str]:
     """Extract all structural markdown headings from the workspace ADR template.
@@ -224,8 +227,8 @@ def main() -> None:
             if status_match:
                 status = status_match.group(1).strip()
                 allowed_statuses = {"Proposed", "Accepted", "Rejected", "Deprecated"}
-                is_valid_status = status in allowed_statuses or re.match(
-                    r"^Superseded by ADR-\d{3,4}$", status, re.IGNORECASE
+                is_valid_status = status in allowed_statuses or bool(
+                    SUPERSEDED_STATUS_PATTERN.match(status)
                 )
                 if not is_valid_status:
                     issues.append(
