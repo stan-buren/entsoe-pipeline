@@ -18,7 +18,9 @@ pyproject.toml.example
 config_env/
 
 
+# data
 .data/
+notebooks/.learning_scripts/results/
 
 .ruff_cache/
 

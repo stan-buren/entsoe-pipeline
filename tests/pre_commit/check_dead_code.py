@@ -53,7 +53,16 @@ def _check_obsolete_and_temp_files(project_root: Path, issues: list[str]) -> Non
 
 
 def _check_empty_directories(project_root: Path, issues: list[str]) -> None:
-    known_empty = {".git", "__pycache__", ".venv", ".pytest_cache", ".coverage"}
+    known_empty = {
+        ".git",
+        "__pycache__",
+        ".venv",
+        ".pytest_cache",
+        ".coverage",
+        "fms_metadata",
+        "config_env",
+        "config_env_example",
+    }
     for dirpath, dirnames, filenames in os.walk(project_root):
         rel_path = Path(dirpath).relative_to(project_root)
 

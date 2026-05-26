@@ -1,0 +1,13 @@
+region:
+  aws_region: your-aws-region
+
+metadata:
+  aws_region:
+    description: |
+      Specifies the AWS region name used for S3 bucket operations and Iceberg REST catalog signing.
+      Even for local S3-compatible endpoints like SeaweedFS or MinIO, a default region string
+      is required to calculate Signature Version 4 (SigV4) headers.
+    examples:
+      - "us-east-1"
+    default: "us-east-1"
+    type: "string"

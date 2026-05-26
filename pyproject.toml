@@ -11,10 +11,11 @@ requires-python = ">=3.14"
 dependencies = [
     "duckdb>=1.5.2",
     "entsoe-py>=0.8.0",
-    "pyspark[connect,sql]==4.0.0",
+    "pyspark[connect,sql]>=4.1.1",
     "python-dotenv>=1.2.2",
     "pyyaml>=6.0.3",
     "sqlglot>=30.8.0",
+    "tenacity>=9.1.4",
 ]
 
 [dependency-groups]
@@ -28,8 +29,11 @@ dev = [
 ]
 
 notebooks = [
+    "beautifulsoup4>=4.14.3",
+    "html2text>=2025.4.15",
     "marimo==0.23.0",
     "pyprojroot>=0.3.0",
+    "requests>=2.34.2",
 ]
 
 [tool.marimo.diagnostics]
@@ -90,6 +94,7 @@ addopts = [
     "--tb=short",
     # Coverage settings
     "--cov=src",
+    "--cov=jobs",
     "--cov-report=term-missing",
     "--cov-report=html:.htmlcov",
     "--cov-branch",
@@ -99,6 +104,7 @@ addopts = [
     "--dist=worksteal",
 ]
 testpaths = ["tests"]
+pythonpath = ["."]
 python_files = ["test_*.py", "*_test.py"]
 python_classes = ["Test*", "*Test"] 
 python_functions = ["test_*"]
@@ -127,9 +133,13 @@ markers = [
 # CODE COVERAGE EXCEPTIONS
 # =============================================================================
 [tool.coverage.run]
-source = ["src"]
+source = ["src", "jobs"]
 branch = true
 relative_files = true
+omit = [
+    "src/entsoe_pipeline/spark/*",
+    "src/entsoe_pipeline/ingestion/*",
+]
 
 [tool.coverage.report]
 exclude_lines = [

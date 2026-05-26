@@ -72,14 +72,13 @@ def _():
 
 
 @app.cell
-def _(EntsoePandasClient, EntsoeRawClient, project_root):
+def _(EntsoePandasClient, EntsoeRawClient):
     import os
     from dotenv import load_dotenv
     import pandas as pd
+    from entsoe_pipeline import ENV_FILE
 
-    dotenv_path = project_root(".env")
-
-    load_dotenv(dotenv_path)
+    load_dotenv(ENV_FILE)
 
     token = os.environ.get("ENTSOE_TOKEN")
 

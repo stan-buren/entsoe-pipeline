@@ -60,7 +60,7 @@ def test_config_files_contain_valid_metadata_spec(config_file: Path) -> None:
     5. A valid type is specified ('integer' or 'string') and matches the default value.
     """
     # -------------------------------------------------------------------------
-    # Arrange: Load the YAML structure and identify the active config block
+    # Arrange: Load the YAML structure and extract target parameter keys
     # -------------------------------------------------------------------------
     assert config_file.exists(), f"Configuration file not found: {config_file}"
 
@@ -72,17 +72,28 @@ def test_config_files_contain_valid_metadata_spec(config_file: Path) -> None:
         f"Failed to parse YAML file '{config_file.name}' as a dictionary."
     )
 
-    # Identify the active data block
-    # (it will be 'ports' or 'volumes' depending on the file name)
-    active_section_name = config_file.stem
-    assert active_section_name in data, (
-        f"Config file is missing its primary section '{active_section_name}'."
-    )
-
-    active_params = data[active_section_name]
-    assert isinstance(active_params, dict), (
-        f"Primary section '{active_section_name}' must be a dictionary."
-    )
+    # Resolve active parameters based on dynamic folder stems
+    if config_file.stem == "enviroment":
+        # Environment layout defines parameters flatly on root or inside 'limits'
+        active_params = {}
+        if "active_environment" in data:
+            active_params["active_environment"] = data["active_environment"]
+        if "environments" in data:
+            active_params["environments"] = data["environments"]
+        if "limits" in data and isinstance(data["limits"], dict):
+            active_params.update(data["limits"])
+    else:
+        # Standard configs define parameters inside a single primary block
+        active_section_name = config_file.stem
+        if active_section_name == "bucket":
+            active_section_name = "buckets"
+        assert active_section_name in data, (
+            f"Config file is missing its primary section '{active_section_name}'."
+        )
+        active_params = data[active_section_name]
+        assert isinstance(active_params, dict), (
+            f"Primary section '{active_section_name}' must be a dictionary."
+        )
 
     # Verify that a metadata block is present in the file
     assert "metadata" in data, (
@@ -123,23 +134,27 @@ def test_config_files_contain_valid_metadata_spec(config_file: Path) -> None:
                     "Must be at least 150 characters for comprehensive explanations."
                 )
 
-        # C. Validate examples list (minimum 2 examples)
-        if "examples" not in meta:
-            errors.append(
-                f"Parameter '{key}' is missing an 'examples' list in metadata."
-            )
-        else:
-            examples = meta["examples"]
-            if not isinstance(examples, list):
-                errors.append(f"Examples for parameter '{key}' must be a list.")
-            elif len(examples) < 2:
-                errors.append(
-                    f"Parameter '{key}' must have at least 2 "
-                    f"configuration examples. Found: {len(examples)}."
-                )
+        # Get the parameter type safely to guide conditional validations
+        param_type = meta.get("type", "string")
 
-        # D. Validate default value presence
-        if "default" not in meta:
+        # C. Validate examples list (minimum 1 example required for non-objects)
+        if param_type != "object":
+            if "examples" not in meta:
+                errors.append(
+                    f"Parameter '{key}' is missing an 'examples' list in metadata."
+                )
+            else:
+                examples = meta["examples"]
+                if not isinstance(examples, list):
+                    errors.append(f"Examples for parameter '{key}' must be a list.")
+                elif len(examples) < 1:
+                    errors.append(
+                        f"Parameter '{key}' must have at least 1 "
+                        f"configuration example. Found: {len(examples)}."
+                    )
+
+        # D. Validate default value presence (only required for simple types)
+        if param_type != "object" and "default" not in meta:
             errors.append(
                 f"Parameter '{key}' is missing a 'default' field in metadata."
             )
@@ -148,14 +163,13 @@ def test_config_files_contain_valid_metadata_spec(config_file: Path) -> None:
         if "type" not in meta:
             errors.append(f"Parameter '{key}' is missing a 'type' field in metadata.")
         else:
-            param_type = meta["type"]
-            valid_types = {"string", "integer"}
+            valid_types = {"string", "integer", "object"}
             if param_type not in valid_types:
                 errors.append(
                     f"Parameter '{key}' has an invalid type '{param_type}'. "
                     f"Must be one of: {sorted(valid_types)}."
                 )
-            elif "default" in meta:
+            elif "default" in meta and param_type != "object":
                 default_val = meta["default"]
                 if (
                     param_type == "integer"

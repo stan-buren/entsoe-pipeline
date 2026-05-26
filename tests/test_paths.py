@@ -44,6 +44,10 @@ EXPECTED_PATHS = {
     "ADR_DIR": "docs/adr",
     "ADR_TEMPLATE_PATH": "docs/adr/template/ADR_TEMPLATE.md",
     "CONFIG_DIR": "config_env",
+    "MANUAL_DATA_DIR": ".data/manual_added_data",
+    "ENV_FILE": ".env",
+    "FMS_METADATA_DIR": "fms_metadata",
+    "OVERVIEW_YML": "fms_metadata/overview.yml",
 }
 
 
