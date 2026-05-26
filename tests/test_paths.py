@@ -65,17 +65,17 @@ def test_find_project_root_from_env(monkeypatch: pytest.MonkeyPatch) -> None:
           variables and module state during a test run.
     """
     # -------------------------------------------------------------------------
-    # GIVEN: A fake project root path configured via environment variable
+    # ARRANGE: A fake project root path configured via environment variable
     # -------------------------------------------------------------------------
     fake_path = "/tmp/airflow_configured_root"  # noqa: S108
 
     # -------------------------------------------------------------------------
-    # WHEN: We inject it into the environment using monkeypatch
+    # ACT: We inject it into the environment using monkeypatch
     # -------------------------------------------------------------------------
     monkeypatch.setenv("PROJECT_ROOT", fake_path)
 
     # -------------------------------------------------------------------------
-    # THEN: The function must return this path
+    # ASSERT: The function must return this path
     # -------------------------------------------------------------------------
     assert find_project_root() == Path(fake_path)
 
@@ -93,7 +93,7 @@ def test_find_project_root_static_fallback(mocker) -> None:
         mocker: Pytest-mock fixture to patch system properties.
     """
     # -------------------------------------------------------------------------
-    # GIVEN: We mock Path.exists to return False specifically for '.project_root'
+    # ARRANGE: We mock Path.exists to return False specifically for '.project_root'
     # -------------------------------------------------------------------------
     original_exists = Path.exists
 
@@ -109,12 +109,12 @@ def test_find_project_root_static_fallback(mocker) -> None:
     mocker.patch.dict(os.environ, {}, clear=True)
 
     # -------------------------------------------------------------------------
-    # WHEN: We execute the lookup
+    # ACT: We execute the lookup
     # -------------------------------------------------------------------------
     root = find_project_root()
 
     # -------------------------------------------------------------------------
-    # THEN: It should fall back to current_file.parents[1] (project root)
+    # ASSERT: It should fall back to current_file.parents[1] (project root)
     # -------------------------------------------------------------------------
     expected_root = Path(__file__).resolve().parents[1]  # Parent of tests/ folder
     assert root == expected_root
@@ -129,7 +129,7 @@ def test_exported_path_constants() -> None:
     both types and relative structure.
     """
     # -------------------------------------------------------------------------
-    # GIVEN: Access to the dynamically resolved project root
+    # ARRANGE: Access to the dynamically resolved project root
     # -------------------------------------------------------------------------
     project_root = paths.PROJECT_ROOT
     assert isinstance(project_root, Path)
@@ -155,7 +155,7 @@ def test_all_path_constants_are_validated() -> None:
     will fail, forcing strict test-coverage for our environment paths.
     """
     # -------------------------------------------------------------------------
-    # GIVEN: Dynamically discovered uppercase Path constants in paths.py
+    # ARRANGE: Dynamically discovered uppercase Path constants in paths.py
     # -------------------------------------------------------------------------
     discovered_constants = {
         name
@@ -164,13 +164,13 @@ def test_all_path_constants_are_validated() -> None:
     }
 
     # -------------------------------------------------------------------------
-    # WHEN: We compare discovered constants against our single source of truth
+    # ACT: We compare discovered constants against our single source of truth
     # -------------------------------------------------------------------------
     missing_tests = discovered_constants - EXPECTED_PATHS.keys()
     extra_tests = EXPECTED_PATHS.keys() - discovered_constants
 
     # -------------------------------------------------------------------------
-    # THEN: Assert that both sets match exactly, preventing untested constants
+    # ASSERT: Assert that both sets match exactly, preventing untested constants
     # -------------------------------------------------------------------------
     assert not missing_tests, (
         f"New path constants added to paths.py are NOT covered by tests: "

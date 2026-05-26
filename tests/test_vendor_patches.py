@@ -37,7 +37,7 @@ def test_configurable_client_initialization_flow(mocker) -> None:
     defaults before any parent operations execute.
     """
     # -------------------------------------------------------------------------
-    # Arrange: Set up custom endpoints and mock out Keycloak token fetching
+    # ARRANGE: Set up custom endpoints and mock out Keycloak token fetching
     # -------------------------------------------------------------------------
     custom_base_url = "https://fms.custom-env.entsoe.eu/"
     custom_token_url = "https://keycloak.custom-env.entsoe.eu/token"  # noqa: S105
@@ -51,7 +51,7 @@ def test_configurable_client_initialization_flow(mocker) -> None:
     )
 
     # -------------------------------------------------------------------------
-    # Act: Instantiate our custom patched client wrapper
+    # ACT: Instantiate our custom patched client wrapper
     # -------------------------------------------------------------------------
     client = ConfigurableEntsoeFileClient(
         username=email,
@@ -61,7 +61,7 @@ def test_configurable_client_initialization_flow(mocker) -> None:
     )
 
     # -------------------------------------------------------------------------
-    # Assert: Verify endpoints reside in instance dictionary and match expectations
+    # ASSERT: Verify endpoints reside in instance dictionary and match expectations
     # -------------------------------------------------------------------------
     assert custom_base_url == client.BASEURL
     assert client.token_url == custom_token_url
@@ -79,7 +79,8 @@ def test_configurable_client_token_update_flow(mocker) -> None:
     are correctly saved on the client instance.
     """
     # -------------------------------------------------------------------------
-    # Arrange: Setup mocked response for requests.Session.post BEFORE instantiating.
+    # ARRANGE: Setup mocked response for requests.Session.post BEFORE instantiating.
+    # -------------------------------------------------------------------------
     # By patching requests.Session.post at the class level before client creation,
     # we allow the real constructor flow to run naturally and execute the actual
     # _update_token logic, routing its authentication HTTP POST straight to our mock.
@@ -102,7 +103,8 @@ def test_configurable_client_token_update_flow(mocker) -> None:
     )
 
     # -------------------------------------------------------------------------
-    # Act: Instantiate our custom patched client wrapper.
+    # ACT: Instantiate our custom patched client wrapper.
+    # -------------------------------------------------------------------------
     # This automatically triggers super().__init__, which calls _update_token()
     # -------------------------------------------------------------------------
     client = ConfigurableEntsoeFileClient(
@@ -113,7 +115,7 @@ def test_configurable_client_token_update_flow(mocker) -> None:
     )
 
     # -------------------------------------------------------------------------
-    # Assert: Verify that Keycloak HTTP call used custom token URL during init
+    # ASSERT: Verify that Keycloak HTTP call used custom token URL during init
     # -------------------------------------------------------------------------
     mock_post.assert_called_once_with(
         custom_token_url,
