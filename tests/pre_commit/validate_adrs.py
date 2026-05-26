@@ -155,6 +155,14 @@ def main() -> None:
     # -------------------------------------------------------------------------
     # 3. Iterate & Validate each Active ADR document
     # -------------------------------------------------------------------------
+    # Pre-compile regular expressions outside the loop to improve performance
+    filename_pattern = re.compile(r"ADR-(\d{3,4})-.*\.md$", re.IGNORECASE)
+    title_id_pattern = re.compile(r"#\s*ADR[-\s]?0*(\d+)\s*:?", re.IGNORECASE)
+    status_pattern = re.compile(r"\*\*Status:\*\*\s*(.*)")
+    superseded_pattern = re.compile(r"^Superseded by ADR-\d{3,4}$", re.IGNORECASE)
+    version_pattern = re.compile(r"\*\*Version/Date:\*\*\s*(.*)")
+    version_date_pattern = re.compile(r"^v\d+\.\d+\s*/\s*\d{4}-\d{2}-\d{2}$")
+
     for file_path in sorted(ROOT_DIR.iterdir()):
         if not file_path.name.lower().endswith(".md"):
             continue
@@ -165,7 +173,7 @@ def main() -> None:
         filename = file_path.name
 
         # A. Verify naming format (e.g., 'ADR-001-centralized-configuration.md')
-        m = re.match(r"ADR-(\d{3,4})-.*\.md$", filename, re.IGNORECASE)
+        m = filename_pattern.match(filename)
         if not m:
             issues.append(f"Bad filename format: {filename}")
             ok = False
@@ -185,7 +193,7 @@ def main() -> None:
 
             # B. Verify ADR ID in first line header matches filename ID
             first_line = lines[0].strip()
-            m2 = re.match(r"#\s*ADR[-\s]?0*(\d+)\s*:?", first_line, re.IGNORECASE)
+            m2 = title_id_pattern.match(first_line)
             if not m2:
                 issues.append(f"No ADR ID in title of {filename}: '{first_line}'")
                 ok = False
@@ -220,13 +228,11 @@ def main() -> None:
                     ok = False
 
             # D. Verify status metadata contains valid status transitions
-            status_match = re.search(r"\*\*Status:\*\*\s*(.*)", content)
+            status_match = status_pattern.search(content)
             if status_match:
                 status = status_match.group(1).strip()
                 allowed_statuses = {"Proposed", "Accepted", "Rejected", "Deprecated"}
-                is_valid_status = status in allowed_statuses or re.match(
-                    r"^Superseded by ADR-\d{3,4}$", status, re.IGNORECASE
-                )
+                is_valid_status = status in allowed_statuses or superseded_pattern.match(status)
                 if not is_valid_status:
                     issues.append(
                         f"Invalid Status in {filename}: '{status}' "
@@ -242,10 +248,10 @@ def main() -> None:
                 ok = False
 
             # E. Verify document version and date format consistency
-            version_match = re.search(r"\*\*Version/Date:\*\*\s*(.*)", content)
+            version_match = version_pattern.search(content)
             if version_match:
                 version_str = version_match.group(1).strip()
-                if not re.match(r"^v\d+\.\d+\s*/\s*\d{4}-\d{2}-\d{2}$", version_str):
+                if not version_date_pattern.match(version_str):
                     issues.append(
                         f"Invalid Version/Date in {filename}: '{version_str}' "
                         "(expected format: 'vX.Y / YYYY-MM-DD')"
