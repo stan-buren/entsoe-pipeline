@@ -113,7 +113,7 @@ def test_config_mirror_symmetry() -> None:
     )
 
     # -------------------------------------------------------------------------
-    # 6. Deep Schema Comparison: Verify YAML structure matches inside each file
+    # 6. Schema & Documentation Mirror Validation
     # -------------------------------------------------------------------------
     for filename in active_files:
         active_path = config_dir / filename
@@ -123,35 +123,47 @@ def test_config_mirror_symmetry() -> None:
         with active_path.open(encoding="utf-8") as f:
             active_data = yaml.safe_load(f) or {}
 
-        # Load example YAML
+        # Load template YAML
         with example_path.open(encoding="utf-8") as f:
             example_data = yaml.safe_load(f) or {}
 
-        active_keys = get_dict_keys_recursive(active_data)
-        example_keys = get_dict_keys_recursive(example_data)
+        # A. Assert metadata block existence
+        assert "metadata" in active_data, (
+            f"Active config '{filename}' is missing required 'metadata' section."
+        )
+        assert "metadata" in example_data, (
+            f"Template config '{filename}' is missing required 'metadata' section."
+        )
 
-        # Exclude metadata documentation blocks from the schema mirroring assertions.
-        # The 'metadata' section is unique to example configurations and must not
-        # be replicated in actual developer environments.
-        example_keys = {
-            k
-            for k in example_keys
-            if not (k == "metadata" or k.startswith("metadata."))
-        }
+        # B. Verify that metadata block matches letter-for-letter (exact value equality)
+        assert active_data["metadata"] == example_data["metadata"], (
+            f"Documentation metadata in 'config_env/{filename}' must match the "
+            f"template 'config_env_example/{filename}' letter-for-letter. "
+            f"Please keep both metadata structures in sync."
+        )
 
-        # Calculate difference between dynamic schemas
+        # C. Deep structural parameter symmetry (excluding metadata section keys)
+        # We strip the metadata key from both payloads to focus exclusively on
+        # active parameter configuration topology.
+        active_params = {k: v for k, v in active_data.items() if k != "metadata"}
+        example_params = {k: v for k, v in example_data.items() if k != "metadata"}
+
+        active_keys = get_dict_keys_recursive(active_params)
+        example_keys = get_dict_keys_recursive(example_params)
+
+        # Calculate structural parameter difference
         missing_keys = active_keys - example_keys
         extra_keys = example_keys - active_keys
 
         assert not missing_keys, (
-            f"YAML keys {missing_keys} in 'config_env/{filename}' "
+            f"YAML parameter keys {missing_keys} in 'config_env/{filename}' "
             f"are missing from the template counterpart "
             f"'config_env_example/{filename}'! "
             f"Please keep them in sync."
         )
 
         assert not extra_keys, (
-            f"YAML keys {extra_keys} in template "
+            f"YAML parameter keys {extra_keys} in template "
             f"'config_env_example/{filename}' are missing from "
             f"your active 'config_env/{filename}' file! "
             f"Please update your active configuration."

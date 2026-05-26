@@ -1,21 +1,23 @@
 services:
   seaweedfs:
     image: chrislusf/seaweedfs:latest
-    
     container_name: seaweedfs
-    
     restart: unless-stopped
 
     ports:
-      - "9333:9333"   # HTTP master
-      - "19333:19333" # gRPC master
-      - "8080:8080"   # HTTP Volumes
-      - "8888:8888"   # HTTP Filer
-      - "18888:18888" # gRPC Filer
-      - "${S3_COMPATIBLE_PORT:-8333}:8333"     # S3 API
-      - "${ICEBERG_CATALOG_PORT:-8181}:8181"   # Iceberg REST Catalog
+      - "127.0.0.1:9333:9333" # Master HTTP (Admin UI)
+      - "127.0.0.1:19333:19333" # Master gRPC
+      - "127.0.0.1:8080:8080" # Volume Server HTTP
+      - "127.0.0.1:8888:8888" # Filer HTTP
+      - "127.0.0.1:18888:18888" # Filer gRPC
+      - "127.0.0.1:${S3_COMPATIBLE_PORT}:8333" # S3 API Gateway
+      - "127.0.0.1:${ICEBERG_CATALOG_PORT}:8181" # Built-in Iceberg REST Catalog
+
+    environment:
+      - S3_BUCKET=${S3_BUCKET}
+      - S3_TABLE_BUCKET=${S3_TABLE_BUCKET}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
 
     volumes:
-      - /mnt/seaweed_data:/data
-      
-    command: 'server -dir=/data -s3'
+      - ${S3_COMPATIBLE_VOLUME:-/mnt/seaweed_data}:/data

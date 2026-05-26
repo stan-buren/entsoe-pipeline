@@ -18,7 +18,9 @@ pyproject.toml.example
 config_env/
 
 
+# data
 .data/
+notebooks/.learning_scripts/results/
 
 .ruff_cache/
 
@@ -30,3 +32,5 @@ config_env/
 # Agents
 
 .agents/rules/patching-answer-vanishing-bugs.md
+
+

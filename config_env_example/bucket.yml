@@ -1,0 +1,23 @@
+buckets:
+  s3_bucket: your--files-backet-name
+  s3_table_bucket: your--table-backet-name
+
+metadata:
+  s3_bucket:
+    description: |
+      Specifies the standard S3 bucket name used for storing raw unstructured datasets
+      (such as local or downloaded CSV files, cleaned raw copies, and temporary Parquet dumps).
+      Since standard S3 buckets accept arbitrary file structures, this is perfect for the Raw zone.
+    examples:
+      - "raw-zone"
+    default: "raw-zone"
+    type: "string"
+  s3_table_bucket:
+    description: |
+      Specifies the specialized S3 Table Bucket name reserved strictly for Iceberg catalog operations.
+      In SeaweedFS, this bucket is mapped 1:1 with the Iceberg REST Catalog to store transactional tables.
+      Direct unstructured filesystem-like S3 writes to this bucket will be rejected by the storage gateway.
+    examples:
+      - "lakehouse"
+    default: "lakehouse"
+    type: "string"
