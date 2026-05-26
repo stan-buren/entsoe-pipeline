@@ -67,7 +67,16 @@ def main() -> None:
     # -------------------------------------------------------------------------
     # 3. Scanning for empty folders that should be pruned from git indexes
     # -------------------------------------------------------------------------
-    known_empty = {".git", "__pycache__", ".venv", ".pytest_cache", ".coverage"}
+    known_empty = {
+        ".git",
+        "__pycache__",
+        ".venv",
+        ".pytest_cache",
+        ".coverage",
+        "fms_metadata",
+        "config_env",
+        "config_env_example",
+    }
     for dirpath, dirnames, filenames in os.walk(project_root):
         rel_path = Path(dirpath).relative_to(project_root)
 
