@@ -163,6 +163,15 @@ def main() -> None:
     # -------------------------------------------------------------------------
     # 3. Iterate & Validate each Active ADR document
     # -------------------------------------------------------------------------
+
+    # Pre-compile regex patterns for performance
+    filename_re = re.compile(r"ADR-(\d{3,4})-.*\.md$", re.IGNORECASE)
+    first_line_re = re.compile(r"#\s*ADR[-\s]?0*(\d+)\s*:?", re.IGNORECASE)
+    status_re = re.compile(r"\*\*Status:\*\*\s*(.*)")
+    superseded_re = re.compile(r"^Superseded by ADR-\d{3,4}$", re.IGNORECASE)
+    version_re = re.compile(r"\*\*Version/Date:\*\*\s*(.*)")
+    version_fmt_re = re.compile(r"^v\d+\.\d+\s*/\s*\d{4}-\d{2}-\d{2}$")
+
     for file_path in sorted(ROOT_DIR.iterdir()):
         if not file_path.name.lower().endswith(".md"):
             continue
