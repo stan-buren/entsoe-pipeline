@@ -1,0 +1,289 @@
+environments:
+  IOP:
+    description: ENTSO-E Integration/Test Platform
+    root_directories:
+      - name: TP_export
+        description: Active publications folder
+        item_count: 76
+        domains:
+          Load:
+            - ActualTotalLoad_6.1.A_r3
+            - DayAheadTotalLoadForecast_6.1.B_r3
+            - TotalLoadForecast_6.1.C_D_E_r3
+          Generation:
+            - ActualGenerationOutputPerGenerationUnit_16.1.A_r3
+            - AggregatedFillingRateOfWaterReservoirsAndHydroStoragePlants_16.1.D_r3
+            - AggregatedGenerationPerType_16.1.B_C_r3
+            - DayAheadAggregatedGeneration_14.1.C_r3
+            - GenerationForecastsForWindAndSolar_14.1.D_r3
+            - InstalledGenerationCapacityPerProductionUnit_14.1.B_r3
+            - ProductionAndGenerationUnits_r3
+          Transmission:
+            - CommercialSchedulesNetPositions_12.1.F_r3
+            - CommercialSchedules_12.1.F_r3
+            - CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3_r3
+            - FlowBasedAllocationsCongestionIncome_12.1.E_r3
+            - FlowBasedCapacityAllocation_11.1.B_r3
+            - ForecastedTransferCapacities_11.1_r3
+            - ImplicitAllocationsCongestionIncome_12.1.E_r3
+            - ImplicitAllocationsNetPositions_12.1.E_r3
+            - OfferedTransferCapacitiesContinuousEvolution_11.1_r3
+            - OfferedTransferCapacitiesContinuous_11.1_r3
+            - OfferedTransferCapacitiesExplicit_11.1_r3
+            - OfferedTransferCapacitiesImplicit_11.1_r3
+            - PhysicalFlows_12.1.G_r3
+            - PowerTransferDistributionFactors_11.1.B_r3
+            - TotalCapacityAlreadyAllocated_12.1.C_r3
+            - TotalCapacityNominated_12.1.B_r3
+            - TransferCapacitiesAllocatedWithThirdCountries_12.1.H_r3
+            - TransmissionAssets_r3
+            - UseOfTransferCapacity_12.1.A_r3
+          Balancing:
+            - AggregatedBalancingEnergyBids_12.3.E_r3
+            - AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3
+            - BalancingBorderCapacityLimitations_IFs_4.3_4.4_r3
+            - BalancingEnergyBidsArchives_12.3.B_C_r3
+            - BalancingEnergyBids_12.3.B_C_r3
+            - ChangesToBidAvailabilityArchives_IFs_mFRR9.9_aFRR9.6_9.8_r3
+            - ChangesToBidAvailability_IFs_mFRR9.9_aFRR9.6_9.8_r3
+            - CrossZonalBalancingCapacity_12.3.H_12.3.I_r3
+            - CurrentBalancingState_12.3.A_r3
+            - ElasticDemands_IFs_mFRR3.4_aFRR3.4_r3
+            - Fallbacks_IF_IN7.2_mFRR3.11_aFRR3.10_r3
+            - FinancialExpensesAndIncomeForBalancing_17.1.I_r3
+            - ImbalancePrices_17.1.G_r3
+            - NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3
+            - NettedAndExchangedVolumes_IFs_IN3.10_mFRR3.17_r3
+            - PricesOfActivatedBalancingEnergy_17.1.F_r3
+            - ProcuredBalancingCapacity_12.3.F_r3
+            - ProcuredBalancingCapacity_12.3.F_r3.1
+            - TotalImbalanceVolumes_17.1.H_r3
+          Market:
+            - AuctionRevenue_12.1.A_r3
+            - CostsOfCongestionManagement_13.1.C_r3
+            - EnergyPrices_12.1.D_r3
+            - ExpansionAndDismantlingProjects_9.1_r3
+          Outages:
+            - UnavailabilityInTheTransmissionGridAffectedAreas_10.1.A_B_r3
+            - UnavailabilityInTheTransmissionGridAffectedAssets_10.1.A_B_r3
+            - UnavailabilityInTheTransmissionGrid_10.1.A_B_r3
+            - UnavailabilityOfConsumptionUnits_7.1.A_B_r3
+            - UnavailabilityOfOffshoreGrid_10.1.C_r3
+            - UnavailabilityOfProductionAndGenerationUnits_15.1.A_B_C_D_r3
+          Operations:
+            - ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3
+            - Algorithm_12.3.K_r3
+            - ApprovedMethodologies_12.3.J_r3
+            - CommonAnnualReport_12.3.L_r3
+            - Countertrading_13.1.B_r3
+            - Countertrading_13.1.B_r3.1
+            - CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3
+            - ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3
+            - PermanentAllocationLimitations_IFs_4.5_r3
+            - RedispatchingCrossBorder_13.1.A_r3
+            - RedispatchingCrossBorder_13.1.A_r3.1
+            - RedispatchingInternal_13.1.A_r3
+            - RedispatchingInternal_13.1.A_r3.1
+            - ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3
+          OtherMarketInformation:
+            - Export_log_r3.csv
+            - Export_oce_log_r3.csv
+            - OtherMarketInformation_r3
+            - OtherMarketInformation_r3.1
+      - name: TP_Legacy_Publications
+        description: Legacy publications folder
+        item_count: 46
+        folders:
+          - BalanceManagementCsv_r1
+          - BalanceManagementXlsx_r1
+          - BalanceManagementXml_r1
+          - CrossBorderCommercialSchedulesCsv_r1
+          - CrossBorderCommercialSchedulesXml_r1
+          - CrossBorderPhysicalFlowsCsv_r1
+          - CrossBorderPhysicalFlowsXml_r1
+          - DailyExplicitAuctionCsv_r1
+          - DailyExplicitAuctionXml_r1
+          - DailyImplicitAuctionCsv_r1
+          - DailyImplicitAuctionXml_r1
+          - DayAheadNetTransferCapacitiesCsv_r1
+          - DayAheadNetTransferCapacitiesXml_r1
+          - ExchangeReserveCapacity_SOGL_190.3_r2
+          - ExchangedReserveCapacity_SOGL_190.3_r2
+          - FlowBasedCapacityAllocationArchives_11.1.B_r3
+          - FrequencyRestorationReserveCapacityForecast_SOGL_188.3_r2
+          - ImbalancePricesArchives_17.1.G_r3
+          - MonthAheadNetTransferCapacitiesCsv_r1
+          - MonthAheadNetTransferCapacitiesXml_r1
+          - MonthlyExplicitAuctionCsv_r1
+          - MonthlyExplicitAuctionXml_r1
+          - OutagesCsv_r1
+          - OutagesXml_r1
+          - PlannedScheduleEvolutionCsv_r1
+          - PlannedScheduleEvolutionXml_r1
+          - QuarterlyExplicitAuctionCsv_r1
+          - QuarterlyExplicitAuctionXml_r1
+          - ReplacementReserveCapacityForecast_SOGL_189.2_r2
+          - RulesOnBalancing_17.1.A_r2
+          - SemestrialExplicitAuctionCsv_r1
+          - SemestrialExplicitAuctionXml_r1
+          - SharingOfFrequencyContainmentReserve_SOGL_190.2_r2
+          - SystemVerticalLoadCsv_r1
+          - SystemVerticalLoadXml_r1
+          - TotalLoadCsv_r1
+          - TotalLoadXml_r1
+          - ValuesOfFrequencyQualityEvaluations_SOGL_185.2_r2
+          - WeekAheadNetTransferCapacitiesCsv_r1
+          - WeekAheadNetTransferCapacitiesXml_r1
+          - WeekendExplicitAuctionCsv_r1
+          - WeekendExplicitAuctionXml_r1
+          - YearAheadNetTransferCapacitiesCsv_r1
+          - YearAheadNetTransferCapacitiesXml_r1
+          - YearlyExplicitAuctionCsv_r1
+          - YearlyExplicitAuctionXml_r1
+  Prod:
+    description: ENTSO-E Production Platform
+    root_directories:
+      - name: TP_export
+        description: Active publications folder
+        item_count: 71
+        domains:
+          Load:
+            - ActualTotalLoad_6.1.A_r3
+            - DayAheadTotalLoadForecast_6.1.B_r3
+            - TotalLoadForecast_6.1.C_D_E_r3
+            - YearAheadForecastMargin_8.1_r3
+          Generation:
+            - ActualGenerationOutputPerGenerationUnit_16.1.A_r3
+            - AggregatedFillingRateOfWaterReservoirsAndHydroStoragePlants_16.1.D_r3
+            - AggregatedGenerationPerType_16.1.B_C_r3
+            - DayAheadAggregatedGeneration_14.1.C_r3
+            - GenerationForecastsForWindAndSolar_14.1.D_r3
+            - InstalledGenerationCapacityAggregated_14.1.A_r3
+            - InstalledGenerationCapacityPerProductionUnit_14.1.B_r3
+            - ProductionAndGenerationUnits_r3
+          Transmission:
+            - CommercialSchedulesNetPositions_12.1.F_r3
+            - CommercialSchedules_12.1.F_r3
+            - CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3_r3
+            - FlowBasedAllocationsCongestionIncome_12.1.E_r3
+            - ForecastedTransferCapacities_11.1_r3
+            - ImplicitAllocationsCongestionIncome_12.1.E_r3
+            - ImplicitAllocationsNetPositions_12.1.E_r3
+            - OfferedTransferCapacitiesContinuousEvolution_11.1_r3
+            - OfferedTransferCapacitiesContinuous_11.1_r3
+            - OfferedTransferCapacitiesExplicit_11.1_r3
+            - OfferedTransferCapacitiesImplicit_11.1_r3
+            - PhysicalFlows_12.1.G_r3
+            - TotalCapacityAlreadyAllocated_12.1.C_r3
+            - TotalCapacityNominated_12.1.B_r3
+            - TransferCapacitiesAllocatedWithThirdCountries_12.1.H_r3
+            - TransmissionAssets_r3
+            - UseOfTransferCapacity_12.1.A_r3
+          Balancing:
+            - AggregatedBalancingEnergyBids_12.3.E_r3
+            - AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3
+            - BalancingBorderCapacityLimitations_IFs_4.3_4.4_r3
+            - BalancingEnergyBidsArchives_12.3.B_C_r3
+            - BalancingEnergyBids_12.3.B_C_r3
+            - ChangesToBidAvailabilityArchives_IFs_mFRR9.9_aFRR9.6_9.8_r3
+            - ChangesToBidAvailability_IFs_mFRR9.9_aFRR9.6_9.8_r3
+            - CrossZonalBalancingCapacity_12.3.H_12.3.I_r3
+            - CurrentBalancingState_12.3.A_r3
+            - ElasticDemands_IFs_mFRR3.4_aFRR3.4_r3
+            - Fallbacks_IF_IN7.2_mFRR3.11_aFRR3.10_r3
+            - FinancialExpensesAndIncomeForBalancing_17.1.I_r3
+            - ImbalancePrices_17.1.G_r3
+            - NettedAndExchangedVolumesAfrr_IFs_aFRR3.16_r3
+            - NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3
+            - NettedAndExchangedVolumes_IFs_IN3.10_mFRR3.17_r3
+            - PricesOfActivatedBalancingEnergy_17.1.F_r3
+            - ProcuredBalancingCapacity_12.3.F_r3
+            - TotalImbalanceVolumes_17.1.H_r3
+          Market:
+            - AuctionRevenue_12.1.A_r3
+            - CostsOfCongestionManagement_13.1.C_r3
+            - EnergyPrices_12.1.D_r3
+            - ExpansionAndDismantlingProjects_9.1_r3
+          Outages:
+            - UnavailabilityInTheTransmissionGrid_10.1.A_B_r3
+            - UnavailabilityOfConsumptionUnits_7.1.A_B_r3
+            - UnavailabilityOfOffshoreGrid_10.1.C_r3
+            - UnavailabilityOfProductionAndGenerationUnits_15.1.A_B_C_D_r3
+          Operations:
+            - ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3
+            - Algorithm_12.3.K_r3
+            - ApprovedMethodologies_12.3.J_r3
+            - CommonAnnualReport_12.3.L_r3
+            - Countertrading_13.1.B_r3.1
+            - CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3
+            - ExchangedReserveCapacity_SOGL_190.3_r3
+            - FrequencyContainmentReserveAmountAndShares_SOGL_187.2_r3
+            - PermanentAllocationLimitations_IFs_4.5_r3
+            - RedispatchingCrossBorder_13.1.A_r3.1
+            - RedispatchingInternal_13.1.A_r3.1
+            - ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3
+          OtherMarketInformation:
+            - Export_log_r3.csv
+            - Export_oce_log_r3.csv
+            - OtherMarketInformation_r3.1
+      - name: TP_Legacy_Publications
+        description: Legacy publications folder
+        item_count: 57
+        folders:
+          - AcceptedAggregatedOffers_17.1.D_r2
+          - ActivatedBalancingEnergy_17.1.E_r2
+          - BalanceManagementCsv_R1
+          - BalanceManagementXml_r1
+          - CrossBorderBalancingEnergyActivated_17.1.J_r2
+          - CrossBorderBalancingPrices_17.1.J_r2
+          - CrossBorderBalancingVolumesOfExchangedBidsAndOffers_17.1.J_r2
+          - CrossBorderCommercialSchedulesCsv_r1
+          - CrossBorderCommercialSchedulesXml_r1
+          - CrossBorderPhysicalFlowsCsv_r1
+          - CrossBorderPhysicalFlowsXml_r1
+          - DailyExplicitAuctionCsv_r1
+          - DailyExplicitAuctionXml_r1
+          - DailyImplicitAuctionCsv_r1
+          - DailyImplicitAuctionXml_r1
+          - DayAheadNetTransferCapacitiesCsv_r1
+          - DayAheadNetTransferCapacitiesXml_r1
+          - ExchangedReserveCapacity_SOGL_190.3_r2
+          - FcrTotalCapacity_187.2_r2
+          - FinancialExpensesAndIncomeForBalancing_17.1.I_r2
+          - FlowBasedCapacityAllocationArchives_11.1.B_r3
+          - FrequencyRestorationReserveCapacityForecast_SOGL_188.3_r2
+          - FrrActualCapacity_188.4_r2
+          - ImbalancePricesArchives_17.1.G_r3
+          - MonthAheadNetTransferCapacitiesCsv_r1
+          - MonthAheadNetTransferCapacitiesXml_r1
+          - MonthlyExplicitAuctionCsv_r1
+          - MonthlyExplicitAuctionXml_r1
+          - OutagesCsv_r1
+          - OutagesXml_r1
+          - PlannedScheduleEvolutionCsv_r1
+          - PlannedScheduleEvolutionXml_r1
+          - QuarterlyExplicitAuctionCsv_r1
+          - QuarterlyExplicitAuctionXml_r1
+          - Redispatching_13.1.A_r2
+          - ReplacementReserveCapacityForecast_SOGL_189.2_r2
+          - RrActualCapacity_189.3_r2
+          - RulesOnBalancing_17.1.A_r2
+          - SemestrialExplicitAuctionCsv_r1
+          - SemestrialExplicitAuctionXml_r1
+          - SharesOfFcrCapacity_187.2_r2
+          - SharingOfFrequencyContainmentReserve_SOGL_190.2_r2
+          - SystemVerticalLoadCsv_r1
+          - SystemVerticalLoadXml_r1
+          - TotalCapacityNominatedArchives_12.1.B_r3
+          - TotalLoadCsv_r1
+          - TotalLoadXml_r1
+          - TransferCapacitiesAllocatedWithThirdCountriesDailyImplicit_12.1.H_r2
+          - ValuesOfFrequencyQualityEvaluations_SOGL_185.2_r2
+          - WeekAheadNetTransferCapacitiesCsv_r1
+          - WeekAheadNetTransferCapacitiesXml_r1
+          - WeekendExplicitAuctionCsv_r1
+          - WeekendExplicitAuctionXml_r1
+          - YearAheadNetTransferCapacitiesCsv_r1
+          - YearAheadNetTransferCapacitiesXml_r1
+          - YearlyExplicitAuctionCsv_r1
+          - YearlyExplicitAuctionXml_r1
