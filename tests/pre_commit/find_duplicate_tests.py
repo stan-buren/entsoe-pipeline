@@ -61,6 +61,28 @@ def normalize_py(text: str) -> str:
     return "\n".join(lines)
 
 
+def process_file(p: Path, hash_map: defaultdict) -> None:
+    """Read a test file, normalize it, and add its hash to the tracking map."""
+    try:
+        with p.open(encoding="utf-8") as fh:
+            content = fh.read()
+            norm = normalize_py(content)
+
+            # Ignore tiny files or empty test markers
+            if len(norm) < 100:
+                return
+
+        # Generate high-collision-resistant
+        # SHA-256 footprint of normalized shape
+        h = hashlib.sha256(norm.encode()).hexdigest()
+        lines = content.count("\n") + (
+            1 if content and not content.endswith("\n") else 0
+        )
+        hash_map[h].append((p, lines))
+    except Exception as e:
+        print(f"Error processing {p}: {e}", file=sys.stderr)
+
+
 def main() -> None:
     """Locate duplicate test modules by executing semantic code hashing."""
     # -------------------------------------------------------------------------
@@ -76,25 +98,7 @@ def main() -> None:
                 continue
 
             p = Path(dirpath) / f
-            try:
-                with p.open(encoding="utf-8") as fh:
-                    content = fh.read()
-                    norm = normalize_py(content)
-
-                    # Ignore tiny files or empty test markers
-                    if len(norm) < 100:
-                        continue
-
-                # Generate high-collision-resistant
-                # SHA-256 footprint of normalized shape
-                h = hashlib.sha256(norm.encode()).hexdigest()
-                lines = content.count("\n") + (
-                    1 if content and not content.endswith("\n") else 0
-                )
-                hash_map[h].append((p, lines))
-            except Exception as e:
-                print(f"Error processing {p}: {e}", file=sys.stderr)
-                continue
+            process_file(p, hash_map)
 
     # -------------------------------------------------------------------------
     # 2. Scanning for Structural Hash Collisions
