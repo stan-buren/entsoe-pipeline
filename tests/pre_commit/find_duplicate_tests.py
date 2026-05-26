@@ -88,7 +88,10 @@ def main() -> None:
                 # Generate high-collision-resistant
                 # SHA-256 footprint of normalized shape
                 h = hashlib.sha256(norm.encode()).hexdigest()
-                hash_map[h].append(p)
+                lines = content.count("\n") + (
+                    1 if content and not content.endswith("\n") else 0
+                )
+                hash_map[h].append((p, lines))
             except Exception as e:
                 print(f"Error processing {p}: {e}", file=sys.stderr)
                 continue
@@ -108,11 +111,9 @@ def main() -> None:
 
         for group in dups:
             print("\nDuplicate group:")
-            for p in group:
-                with p.open(encoding="utf-8") as fh:
-                    lines = sum(1 for _ in fh)
+            for i, (p, lines) in enumerate(group):
                 print(f"  {p} ({lines} lines)")
-                if group.index(p) > 0:  # Accumulate lines of redundant clones
+                if i > 0:  # Accumulate lines of redundant clones
                     total_lines += lines
 
         print("\n" + "=" * 60)
