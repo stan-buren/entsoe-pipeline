@@ -1,0 +1,66 @@
+active_environment: "PROD"
+
+environments:
+  IOP:
+    base_url: "https://fms.tp-iop.entsoe.eu/"
+    token_url: "https://keycloak.tp-iop.entsoe.eu/realms/tp/protocol/openid-connect/token"
+    credential_keys:
+      token: "IOP_ENTSOE_TOKEN"
+      email: "IOP_ENTSOE_EMAIL"
+      password: "IOP_ENTSOE_PASSWORD"
+  PROD:
+    base_url: "https://fms.tp.entsoe.eu/"
+    token_url: "https://keycloak.tp.entsoe.eu/realms/tp/protocol/openid-connect/token"
+    credential_keys:
+      token: "PROD_ENTSOE_TOKEN"
+      email: "PROD_ENTSOE_EMAIL"
+      password: "PROD_ENTSOE_PASSWORD"
+
+limits:
+  standard_api_requests_per_minute: 400
+  fms_api_requests_per_minute: 100
+  ban_duration_seconds: 600
+
+metadata:
+  active_environment:
+    description: |
+      Specifies the currently active ENTSO-E deployment platform environment key.
+      The pipeline will fetch credentials and target URLs defined under this environment.
+    examples:
+      - "IOP"   # Staging / Interoperability Platform for integration testing
+      - "PROD"  # Production Platform containing actual commercial and physical grid data
+    default: "PROD"
+    type: "string"
+  environments:
+    description: |
+      Registry of available ENTSO-E platforms. For each platform, defines:
+        - base_url: The entry point for the REST or FMS endpoints.
+        - token_url: The Keycloak identity provider endpoint used to fetch OAuth2 bearer tokens.
+        - credential_keys: The environment variable names (.env) that store secrets for that specific platform.
+    type: "object"
+  standard_api_requests_per_minute:
+    description: |
+      Maximum number of allowed HTTP GET/POST queries to the standard ENTSO-E XML/REST API
+      within a rolling 60-second window. Enforced per client IP address.
+    examples:
+      - 400
+    default: 400
+    type: "integer"
+  fms_api_requests_per_minute:
+    description: |
+      Maximum number of allowed API actions (token requests, folder listings, file downloads)
+      against the FMS (File Management System) HTTPS server per account within a rolling 60-second window.
+      Note that standard XML/REST API and FMS APIs reside in separate pools, but share identical limits.
+    examples:
+      - 100
+    default: 100
+    type: "integer"
+  ban_duration_seconds:
+    description: |
+      Cooldown penalty period in seconds imposed automatically by ENTSO-E firewall/API gateway
+      if a rate-limit threshold is exceeded. Any requests made during this time will fail
+      with HTTP 429 (Too Many Requests) or drop connection.
+    examples:
+      - 600  # 10 minutes
+    default: 600
+    type: "integer"
