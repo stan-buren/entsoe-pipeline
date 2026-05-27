@@ -39,7 +39,9 @@ def test_create_fms_client_defaults_to_active_config(
     mock_client_class: MagicMock,
 ) -> None:
     """Verifies create_fms_client defaults to active env when env_name is None."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     mock_config = MagicMock()
     mock_config.email = "default@example.com"
     mock_config.password = "default_pwd"  # noqa: S105
@@ -50,10 +52,14 @@ def test_create_fms_client_defaults_to_active_config(
     mock_client_instance = MagicMock()
     mock_client_class.return_value = mock_client_instance
 
-    # 2. Act
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
     client = create_fms_client()
 
-    # 3. Assert
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
     mock_get_env_config.assert_called_once()
     mock_client_class.assert_called_once_with(
         username="default@example.com",
@@ -75,7 +81,9 @@ def test_create_fms_client_resolves_explicit_environment(
     mock_client_class: MagicMock,
 ) -> None:
     """Verifies create_fms_client resolves explicit environments from YAML/environ."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     mock_env_file.exists.return_value = False
     mock_yaml_path = MagicMock()
     mock_yaml_path.exists.return_value = True
@@ -101,10 +109,14 @@ def test_create_fms_client_resolves_explicit_environment(
     # Inject mock credentials into temporary OS environment variables
     mock_creds = {"IOP_EMAIL": "iop-user", "IOP_PASSWORD": "iop-secret"}
     with patch.dict(os.environ, mock_creds):
-        # 2. Act
+        # -------------------------------------------------------------------------
+        # ACT
+        # -------------------------------------------------------------------------
         client = create_fms_client("IOP")
 
-    # 3. Assert
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
     mock_client_class.assert_called_once_with(
         username="iop-user",
         pwd="iop-secret",  # noqa: S106
@@ -124,7 +136,9 @@ def test_ls_fms_aggregates_multiple_pages_correctly(
     mock_fetch_page: MagicMock,
 ) -> None:
     """Verifies ls_fms combines and returns folder pages until termination."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     mock_client = MagicMock()
 
     # Page 1 contains 2 elements (equals page_size, so query continues)
@@ -142,10 +156,14 @@ def test_ls_fms_aggregates_multiple_pages_correctly(
     }
     mock_fetch_page.side_effect = [page_1, page_2]
 
-    # 2. Act
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
     results = ls_fms(mock_client, "/TP_export/", page_size=2)
 
-    # 3. Assert
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
     # Verify both pages were fetched sequentially
     assert mock_fetch_page.call_count == 2
     mock_fetch_page.assert_any_call(mock_client, "/TP_export/", 0, 2)

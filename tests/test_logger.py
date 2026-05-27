@@ -41,13 +41,17 @@ from entsoe_pipeline.logger.logger_config import JsonFormatter
 
 def test_exceptions_hierarchical_inheritance() -> None:
     """Verifies that all custom errors properly inherit from EntsoePipelineError."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     config_err = EntsoeConfigurationError("config failure")
     conn_err = EntsoeConnectionError("connection timeout")
     api_err = EntsoeApiError("bad endpoint response")
     val_err = EntsoeDataValidationError("invalid csv layout")
 
-    # 2. Act & 3. Assert
+    # -------------------------------------------------------------------------
+    # ACT & ASSERT
+    # -------------------------------------------------------------------------
     assert isinstance(config_err, EntsoePipelineError)
     assert isinstance(conn_err, EntsoePipelineError)
     assert isinstance(api_err, EntsoePipelineError)
@@ -66,7 +70,9 @@ def test_exceptions_hierarchical_inheritance() -> None:
 
 def test_json_formatter_serializes_log_records_to_json() -> None:
     """Verifies that JsonFormatter formats standard attributes into valid JSON."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     formatter = JsonFormatter()
     record = logging.LogRecord(
         name="entsoe_pipeline.test",
@@ -78,11 +84,15 @@ def test_json_formatter_serializes_log_records_to_json() -> None:
         exc_info=None,
     )
 
-    # 2. Act
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
     json_str = formatter.format(record)
     parsed = json.loads(json_str)
 
-    # 3. Assert
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
     assert parsed["logger"] == "entsoe_pipeline.test"
     assert parsed["level"] == "INFO"
     assert parsed["message"] == "Test loading of 500 records from IOP"
@@ -91,7 +101,9 @@ def test_json_formatter_serializes_log_records_to_json() -> None:
 
 def test_json_formatter_includes_extra_context_fields() -> None:
     """Verifies that custom fields supplied via extra logger context are captured."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     formatter = JsonFormatter()
     record = logging.LogRecord(
         name="entsoe_pipeline.test",
@@ -106,11 +118,15 @@ def test_json_formatter_includes_extra_context_fields() -> None:
     record.dataset = "Outages"
     record.execution_date = "2026-05-26"
 
-    # 2. Act
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
     json_str = formatter.format(record)
     parsed = json.loads(json_str)
 
-    # 3. Assert
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
     assert parsed["level"] == "WARNING"
     assert parsed["dataset"] == "Outages"
     assert parsed["execution_date"] == "2026-05-26"
@@ -123,15 +139,21 @@ def test_json_formatter_includes_extra_context_fields() -> None:
 
 def test_setup_logging_configures_package_level_logger() -> None:
     """Verifies setup_logging configures logger with proper handler and formatter."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     logger = logging.getLogger("entsoe_pipeline")
     # Reset logger handlers to guarantee test isolation
     logger.handlers.clear()
 
-    # 2. Act
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
     setup_logging(level=logging.DEBUG, use_json=True)
 
-    # 3. Assert
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
     assert logger.level == logging.DEBUG
     assert len(logger.handlers) == 1
     assert logger.propagate is False

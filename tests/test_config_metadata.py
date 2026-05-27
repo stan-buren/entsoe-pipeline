@@ -60,7 +60,7 @@ def test_config_files_contain_valid_metadata_spec(config_file: Path) -> None:
     5. A valid type is specified ('integer' or 'string') and matches the default value.
     """
     # -------------------------------------------------------------------------
-    # Arrange: Load the YAML structure and extract target parameter keys
+    # ARRANGE: Load the YAML structure and extract target parameter keys
     # -------------------------------------------------------------------------
     assert config_file.exists(), f"Configuration file not found: {config_file}"
 
@@ -103,7 +103,7 @@ def test_config_files_contain_valid_metadata_spec(config_file: Path) -> None:
     assert isinstance(metadata, dict), "The 'metadata' section must be a dictionary."
 
     # -------------------------------------------------------------------------
-    # Act: Audit each parameter key against our strict specification rules
+    # ACT: Audit each parameter key against our strict specification rules
     # -------------------------------------------------------------------------
     errors = []
 
@@ -189,7 +189,7 @@ def test_config_files_contain_valid_metadata_spec(config_file: Path) -> None:
                     )
 
     # -------------------------------------------------------------------------
-    # Assert: Verify that no schema discrepancies were discovered
+    # ASSERT: Verify that no schema discrepancies were discovered
     # -------------------------------------------------------------------------
     assert not errors, (
         f"Metadata validation failed for '{config_file.name}':\n"

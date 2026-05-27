@@ -63,13 +63,19 @@ def test_classify_folder_returns_correct_domain(
     expected_domain: str,
 ) -> None:
     """Verifies folder names are correctly classified into domain buckets."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     # Parameters are arranged via pytest.mark.parametrize
 
-    # 2. Act
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
     actual_domain = classify_folder(folder_name)
 
-    # 3. Assert
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
     assert actual_domain == expected_domain
 
 
@@ -85,7 +91,9 @@ def test_fetch_environment_metadata_crawls_and_groups_folders(
     mock_ls_fms: MagicMock,
 ) -> None:
     """Verifies folder listing, sorting, and classification."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     mock_client = MagicMock()
     mock_create_client.return_value = mock_client
 
@@ -100,10 +108,14 @@ def test_fetch_environment_metadata_crawls_and_groups_folders(
         ["BalanceManagementCsv_r1", "OutagesXml_r1"],
     ]
 
-    # 2. Act
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
     metadata = fetch_environment_metadata("IOP")
 
-    # 3. Assert
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
     assert metadata["description"] == "ENTSO-E Integration/Test Platform"
 
     root_dirs = metadata["root_directories"]
@@ -140,7 +152,9 @@ def test_ingest_fms_metadata_persists_to_yaml(
     mock_overview_yml: MagicMock,
 ) -> None:
     """Verifies that orchestration crawls IOP/PROD and dumps to YAML."""
-    # 1. Arrange
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
     dummy_iop = {"description": "IOP description", "root_directories": []}
     dummy_prod = {"description": "Prod description", "root_directories": []}
     mock_fetch_metadata.side_effect = [dummy_iop, dummy_prod]
@@ -148,10 +162,14 @@ def test_ingest_fms_metadata_persists_to_yaml(
     m_open = mock_open()
     mock_overview_yml.open = m_open
 
-    # 2. Act
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
     ingest_fms_metadata()
 
-    # 3. Assert
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
     # Ensure both environment crawlers were triggered
     assert mock_fetch_metadata.call_count == 2
     mock_fetch_metadata.assert_any_call("IOP")
