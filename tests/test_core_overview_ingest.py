@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Unit Tests for FMS Metadata Ingestion Module.
+"""Unit Tests for FMS Core Overview Ingestion Orchestration Engine.
 
 Verifies folder domain classification, structured environment metadata crawling,
 and YAML serialization logic using the 3A (Arrange, Act, Assert) pattern.
@@ -25,10 +25,12 @@ from unittest.mock import MagicMock, mock_open, patch
 import pytest
 import yaml
 
-from entsoe_pipeline.fms_metadata.overview_ingest import (
+from entsoe_pipeline.fms_metadata.core import (
     classify_folder,
+    ingest_overview_metadata,
+)
+from entsoe_pipeline.fms_metadata.core.overview import (
     fetch_environment_metadata,
-    ingest_fms_metadata,
 )
 
 # =============================================================================
@@ -84,8 +86,8 @@ def test_classify_folder_returns_correct_domain(
 # =============================================================================
 
 
-@patch("entsoe_pipeline.fms_metadata.overview_ingest.ls_fms")
-@patch("entsoe_pipeline.fms_metadata.overview_ingest.create_fms_client")
+@patch("entsoe_pipeline.fms_metadata.core.overview.ls_fms")
+@patch("entsoe_pipeline.fms_metadata.core.overview.create_fms_client")
 def test_fetch_environment_metadata_crawls_and_groups_folders(
     mock_create_client: MagicMock,
     mock_ls_fms: MagicMock,
@@ -145,9 +147,9 @@ def test_fetch_environment_metadata_crawls_and_groups_folders(
 # =============================================================================
 
 
-@patch("entsoe_pipeline.fms_metadata.overview_ingest.OVERVIEW_YML")
-@patch("entsoe_pipeline.fms_metadata.overview_ingest.fetch_environment_metadata")
-def test_ingest_fms_metadata_persists_to_yaml(
+@patch("entsoe_pipeline.fms_metadata.core.overview.OVERVIEW_YML")
+@patch("entsoe_pipeline.fms_metadata.core.overview.fetch_environment_metadata")
+def test_ingest_overview_metadata_persists_to_yaml(
     mock_fetch_metadata: MagicMock,
     mock_overview_yml: MagicMock,
 ) -> None:
@@ -165,7 +167,7 @@ def test_ingest_fms_metadata_persists_to_yaml(
     # -------------------------------------------------------------------------
     # ACT
     # -------------------------------------------------------------------------
-    ingest_fms_metadata()
+    ingest_overview_metadata()
 
     # -------------------------------------------------------------------------
     # ASSERT

@@ -20,12 +20,13 @@ fallback defaults, caching behaviors, and exact delegation identity.
 All tests are structured under the 3A (Arrange, Act, Assert) pattern.
 """
 
+from collections.abc import Iterator
 from pathlib import Path
 
 import pytest
 import yaml
 
-import entsoe_pipeline.config.config_loader as cl
+import entsoe_pipeline.config.paths as paths
 
 from entsoe_pipeline import (
     PortsConfig,
@@ -87,11 +88,44 @@ def _create_mock_configs(
 
 
 @pytest.fixture(autouse=True)
-def clear_config_caches() -> None:
+def clear_config_caches() -> Iterator[None]:
     """Fixture to clear configuration caches before and after each test."""
     get_config.cache_clear()
     yield
     get_config.cache_clear()
+
+
+@pytest.fixture(autouse=True)
+def mock_api_limits(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    """Fixture to mock API limits dynamically for all config loader tests."""
+    limits_dir = tmp_path / "limits_mock"
+    limits_dir.mkdir(parents=True, exist_ok=True)
+    limits_file = limits_dir / "entoe_api_limits.yml"
+
+    mock_limits = {
+        "safetimits": {
+            "api_requests_per_minute": 200,
+            "fms_api_requests_per_minute": 50,
+        },
+        "api_overrun_limits_ban": {
+            "duration_seconds": 300,
+            "duration_minutes": 5,
+        },
+        "limits": {
+            "api_requests_per_minute": 400,
+            "fms_api_requests_per_minute": 100,
+        },
+    }
+
+    with limits_file.open("w", encoding="utf-8") as f:
+        yaml.safe_dump(mock_limits, f)
+
+    monkeypatch.setattr(paths, "API_LIMITS_YML", limits_file)
+
+
+# =============================================================================
+# 1. UNIT TESTS: PORTS CONFIG CONSTRUCTOR
+# =============================================================================
 
 
 def test_ports_config_creation() -> None:
@@ -112,6 +146,11 @@ def test_ports_config_creation() -> None:
     # -------------------------------------------------------------------------
     assert config.s3_compatible == s3_port
     assert config.iceberg_catalog == catalog_port
+
+
+# =============================================================================
+# 2. UNIT TESTS: PIPELINE CONFIGURATION LOADER
+# =============================================================================
 
 
 def test_get_config_success(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
@@ -137,12 +176,12 @@ def test_get_config_success(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> 
     monkeypatch.setenv("IOP_API_EMAIL", "mock-email")
     monkeypatch.setenv("IOP_API_PASSWORD", "mock-pwd")
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
 
     # Write a mock .env file to verify parsing from the custom path is covered
     env_file = temp_config_dir / ".env"
     env_file.write_text("IOP_API_TOKEN=mock-token", encoding="utf-8")
-    monkeypatch.setattr(cl, "ENV_FILE", env_file)
+    monkeypatch.setattr(paths, "ENV_FILE", env_file)
 
     # -------------------------------------------------------------------------
     # ACT: Retrieve composed PipelineConfig
@@ -181,8 +220,8 @@ def test_get_config_caching_and_delegation_identity(
     temp_config_dir.mkdir()
     _create_mock_configs(temp_config_dir)
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
-    monkeypatch.setattr(cl, "ENV_FILE", temp_config_dir / ".env")
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
 
     # -------------------------------------------------------------------------
     # ACT: Retrieve master configs and delegate references
@@ -228,8 +267,8 @@ def test_get_config_sub_configs_fallback(
         region_data={},
     )
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
-    monkeypatch.setattr(cl, "ENV_FILE", temp_config_dir / ".env")
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
 
     # -------------------------------------------------------------------------
     # ACT: Load configuration hierarchy
@@ -260,8 +299,8 @@ def test_get_config_missing_ports_file(
 
     (temp_config_dir / "ports.yml").unlink()
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
-    monkeypatch.setattr(cl, "ENV_FILE", temp_config_dir / ".env")
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Verify FileNotFoundError raises on missing ports file
@@ -284,8 +323,8 @@ def test_get_config_missing_bucket_file(
 
     (temp_config_dir / "bucket.yml").unlink()
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
-    monkeypatch.setattr(cl, "ENV_FILE", temp_config_dir / ".env")
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Verify FileNotFoundError raises on missing bucket file
@@ -308,8 +347,8 @@ def test_get_config_missing_region_file(
 
     (temp_config_dir / "region.yml").unlink()
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
-    monkeypatch.setattr(cl, "ENV_FILE", temp_config_dir / ".env")
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Verify FileNotFoundError raises on missing region file
@@ -328,8 +367,8 @@ def test_get_config_file_missing(
     temp_config_dir = tmp_path / "config"
     temp_config_dir.mkdir()
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
-    monkeypatch.setattr(cl, "ENV_FILE", temp_config_dir / ".env")
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Verify FileNotFoundError raises on missing master file
@@ -353,8 +392,8 @@ def test_get_config_missing_active_environment(
     with env_file.open("w", encoding="utf-8") as f:
         yaml.safe_dump({"environments": {"IOP": {}}}, f)
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
-    monkeypatch.setattr(cl, "ENV_FILE", temp_config_dir / ".env")
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Verify ValueError is raised with informative message
@@ -378,8 +417,8 @@ def test_get_config_missing_active_env_mapping(
     with env_file.open("w", encoding="utf-8") as f:
         yaml.safe_dump({"active_environment": "PROD", "environments": {"IOP": {}}}, f)
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
-    monkeypatch.setattr(cl, "ENV_FILE", temp_config_dir / ".env")
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Verify KeyError raises with proper key reference
@@ -409,8 +448,8 @@ def test_get_config_missing_required_urls(
     with env_file.open("w", encoding="utf-8") as f:
         yaml.safe_dump(mock_invalid_config, f)
 
-    monkeypatch.setattr(cl, "CONFIG_DIR", temp_config_dir)
-    monkeypatch.setattr(cl, "ENV_FILE", temp_config_dir / ".env")
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Expect validation error indicating missing url structures

@@ -24,10 +24,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from entsoe_pipeline import PROJECT_ROOT
-
-# Resolve the example configuration folder
-CONFIG_EXAMPLE_DIR = PROJECT_ROOT / "config_env_example"
+from entsoe_pipeline import CONFIG_EXAMPLE_DIR
 
 
 def get_example_config_files() -> list[Path]:
@@ -45,6 +42,11 @@ def get_example_config_files() -> list[Path]:
             if p.is_file() and p.suffix in {".yml", ".yaml"}
         ]
     )
+
+
+# =============================================================================
+# 1. UNIT TESTS: EXAMPLE CONFIGS METADATA VALIDATION
+# =============================================================================
 
 
 @pytest.mark.unit

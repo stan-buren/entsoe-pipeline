@@ -29,6 +29,10 @@ import entsoe_pipeline.config.switch_env as se
 
 from entsoe_pipeline.config.switch_env import main, switch_environment
 
+# =============================================================================
+# 1. UNIT TESTS: ENVIRONMENT SWITCHER CORE UTILITY
+# =============================================================================
+
 
 def test_switch_environment_success(
     monkeypatch: pytest.MonkeyPatch,
@@ -88,6 +92,11 @@ def test_switch_environment_file_missing(
     # -------------------------------------------------------------------------
     with pytest.raises(FileNotFoundError):
         switch_environment("PROD")
+
+
+# =============================================================================
+# 2. UNIT TESTS: ENVIRONMENT SWITCHER CLI INTERFACE
+# =============================================================================
 
 
 def test_main_cli_missing_args(
