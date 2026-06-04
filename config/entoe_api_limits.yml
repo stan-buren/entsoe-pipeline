@@ -1,0 +1,26 @@
+safetimits:
+  api_requests_per_minute: 390
+  fms_api_requests_per_minute: 95
+
+api_overrun_limits_ban:
+  duration_seconds: 600
+  duration_minutes: 10
+
+limits:
+  api_requests_per_minute: 400
+  fms_api_requests_per_minute: 100
+
+metadata:
+  safetimits:
+    description: |
+      Safe throttle limits designed to run slightly under ENTSO-E maximum constraints
+      to completely avoid occasional network spikes triggering IP rate limiting bans.
+    type: "object"
+  limits:
+    description: |
+      Original ENTSO-E platform strict rate limit thresholds enforced by the API gateways.
+    type: "object"
+  api_overrun_limits_ban:
+    description: |
+      Automatic firewall freeze penalty duration mapping.
+    type: "object"

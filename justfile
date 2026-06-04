@@ -39,7 +39,7 @@ init-config:
 # =============================================================================
 
 # Start the local Lakehouse services in the background
-up:
+lakehouse-up:
     @echo "[JUST][INIT] Launching Lakehouse services"
     @echo "[JUST][INIT] S3 compatible port: {{s3_compatible_port}}"
     @echo "[JUST][INIT] Iceberg Catalog port: {{iceberg_catalog_port}}"
@@ -47,13 +47,13 @@ up:
     @echo "[JUST][INIT] Lakehouse services are up and running"
 
 # Stop and tear down all infrastructure containers
-down:
+lakehouse-down:
     @echo "[JUST][INIT] Stopping Lakehouse services"
     docker compose --env-file .env -f docker/docker-compose.yml down
     @echo "[JUST][INIT] Lakehouse services stopped"
 
 # Show logs from all running containers
-logs:
+lakehouse-logs:
     docker compose --env-file .env -f docker/docker-compose.yml logs -f
 
 
@@ -65,6 +65,36 @@ logs:
 test:
     @echo "[JUST][TEST] Running all unit and integration tests..."
     uv run pytest
+
+# Scan the repository filesystem for vulnerabilities and secrets using Trivy, skipping large raw data
+trivy:
+    @echo "[JUST][SECURITY] Scanning repository for vulnerabilities and secrets..."
+    trivy fs --skip-dirs .data .
+
+# Run Ruff code quality checks and analysis
+ruff-check:
+    @echo "[JUST][LINT] Running Ruff code analysis..."
+    uv run ruff check
+
+# Run Ruff auto-formatting and auto-fixes
+ruff-fix:
+    @echo "[JUST][LINT] Applying automatic fixes and formatting with Ruff..."
+    uv run ruff check --fix --unsafe-fixes
+    uv run ruff format
+
+# Run static type checking using ty
+ty:
+    @echo "[JUST][TYPE] Running static type analysis with ty..."
+    uv run ty check src tests jobs
+
+# Run linting, type checking, and tests
+lint: ruff-check ty test
+
+# Run security checks
+security: trivy
+
+# Run all checks (linting, security, types, tests)
+all-checks: lint security test
 
 
 # =============================================================================
@@ -113,3 +143,26 @@ iceberg-docs:
 seaweed-docs:
     @echo "[JUST][DOCS] Scraping and compiling SeaweedFS documentation..."
     uv run --group notebooks python notebooks/.learning_scripts/etl_seaweedfs_documentation.py
+
+
+# =============================================================================
+# 7. PHYSICAL METADATA CATALOG INGESTION
+# =============================================================================
+
+# Ingest all active physical metadata catalogs under TP_export (balancing, load, market, operations, transmission, outages, generation, etc.)
+ingest-tp-export:
+    @echo "[JUST][METADATA] Ingesting all active domains under TP_export..."
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/balancing_ingest.py
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/generation_ingest.py
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/load_ingest.py
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/market_ingest.py
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/operations_ingest.py
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/other_market_information_ingest.py
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/outages_ingest.py
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/transmission_ingest.py
+
+# Ingest all historical publications archives under TP_Legacy_Publications
+ingest-tp-legacy:
+    @echo "[JUST][METADATA] Ingesting all historical legacy archives..."
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/legacy_ingest.py
+
