@@ -12,6 +12,7 @@ wheels/
 # Other
 __marimo__/
 pyproject.toml.example
+fms_metadata/.ideas.yml
 
 # Secrets
 .env
