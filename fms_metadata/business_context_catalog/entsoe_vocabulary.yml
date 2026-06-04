@@ -1,0 +1,47 @@
+terms:
+  primary_data_owners:
+    description: |
+      The ENTSO-E (Transparency Platform) does not generate any data — it only acts as a central showcase.
+      The primary owners are the market participants whose IT systems and physical equipment generate this data in the first place.
+      There are several thousand such primary owners in Europe. 
+      In addition to transmission system operators (TSOs),
+      primary owners also include owners of large generation assets and distribution system operators.
+  operators_of_power_plants:
+    description: |
+      This refers to companies owning conventional and renewable generation assets.
+      They are the primary data owners for the Generation and Outages domains 
+      (e.g., actual production or scheduled generator maintenance)
+      A nuance: The law obliges them to supply data only if certain thresholds are exceeded: 
+      if the capacity of an individual power unit is ≥ 100 MW, or 
+      the total capacity of the entire power station is ≥ 200 MW
+  power_exchanges:
+    description: |
+      (Energy Exchanges) Exchanges (such as EPEX SPOT, Nord Pool, etc.) 
+      are the exclusive owners of commercial data from the spot market.
+      They calculate market clearing and prices.  
+      Where to indicate: Folders EnergyPrices_12.1.D_r3, 
+      ImplicitAllocationsNetPositions_12.1.E_r3, 
+      ImplicitAllocationsCongestionIncome_12.1.E_r3.
+    major_consumers:
+    description: |
+      (Major consumers) Huge energy-intensive enterprises (such as metallurgical or chemical plants). 
+      They are obliged to independently report data on their availability and planned/emergency outages
+      Nuance: The threshold for them is ≥ 100 MW of reference consumption power
+      Where to indicate: Folder UnavailabilityOfConsumptionUnits_7.1.A_B_r3.
+  operators_of_storage_facilities:
+    description: |
+      (Operators of energy storage systems)  
+      Companies managing pumped-storage hydroelectric power plants (PSH) or large industrial batteries
+      They also fall under the 100 MW threshold for block reporting
+      Where to indicate: Folders AggregatedFillingRateOfWaterReservoirs..._16.1.D_r3, UnavailabilityOfProductionUnits...
+  distribution_system_operators:
+    description: |
+      (DSO - Distribution network companies) 
+      Operators of medium and low voltage networks. 
+      They own data on distributed generation (for example, thousands of small rooftop solar panels), 
+      which is connected to their networks and is not directly visible to the main TSOs
+  merchant_link_operators:  
+    description: |
+      (Merchant link operators) Owners of private cross-border transmission lines (mainly underwater DC cables — 
+      for example, between the UK and the continent), 
+      which operate the infrastructure independently of national TSOs
