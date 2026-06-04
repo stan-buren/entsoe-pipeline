@@ -27,6 +27,10 @@ import requests
 
 from entsoe_pipeline.vendor_patches.entsoe_py import ConfigurableEntsoeFileClient
 
+# =============================================================================
+# 1. UNIT TESTS: CONFIGURABLE CLIENT INITIALIZATION FLOW
+# =============================================================================
+
 
 @pytest.mark.unit
 def test_configurable_client_initialization_flow(mocker) -> None:
@@ -68,6 +72,11 @@ def test_configurable_client_initialization_flow(mocker) -> None:
     assert client.username == email
     assert client.pwd == password
     assert mock_update_token.called
+
+
+# =============================================================================
+# 2. UNIT TESTS: CONFIGURABLE CLIENT TOKEN UPDATE FLOW
+# =============================================================================
 
 
 @pytest.mark.unit

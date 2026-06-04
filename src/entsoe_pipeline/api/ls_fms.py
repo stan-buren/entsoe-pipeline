@@ -34,6 +34,7 @@ from tenacity import (
     wait_exponential,
 )
 
+from entsoe_pipeline.logger import EntsoeApiError
 from entsoe_pipeline.vendor_patches.entsoe_py import ConfigurableEntsoeFileClient
 
 logger = logging.getLogger(__name__)
@@ -69,8 +70,9 @@ def _fetch_folder_page(
     """
     logger.debug("Requesting folder page %d for path '%s'...", page_index, path)
 
+    base_url = client.BASEURL or ""
     response = client.session.post(
-        client.BASEURL + "listFolder",
+        base_url + "listFolder",
         data=json.dumps(
             {
                 "path": path,
@@ -134,3 +136,143 @@ def ls_fms(
         path,
     )
     return all_items
+
+
+def list_folder_raw_items(
+    client: ConfigurableEntsoeFileClient,
+    folder_name: str,
+    api_counter_ref: list[int] | None = None,
+    root_dir: str = "TP_export",
+) -> list[dict[str, Any]]:
+    """Crawls a remote FMS folder and retrieves raw directory item records.
+
+    Fetches the folder contents page by page, compiling the raw dictionaries
+    as returned from the live FMS API listFolder endpoint.
+
+    Args:
+        client: The authenticated ConfigurableEntsoeFileClient instance.
+        folder_name: Target folder name under the root directory
+          (e.g., 'ActualTotalLoad_6.1.A_r3').
+        api_counter_ref: Optional mutable list tracker to record total API requests.
+        root_dir: The FMS root directory name (e.g. 'TP_export',
+          'TP_Legacy_Publications').
+
+    Returns:
+        List[Dict[str, Any]]: Sorted list of raw item dictionaries.
+    """
+    if not folder_name:
+        path = f"/{root_dir}/"
+    elif folder_name.endswith(".csv"):
+        path = f"/{root_dir}/{folder_name}"
+    else:
+        path = f"/{root_dir}/{folder_name}/"
+    logger.info("Crawling files in remote FMS path: %s", path)
+
+    all_items: list[dict[str, Any]] = []
+    page_index = 0
+    page_size = 1000
+
+    while True:
+        if api_counter_ref is not None:
+            api_counter_ref[0] += 1
+
+        try:
+            data = _fetch_folder_page(client, path, page_index, page_size)
+        except Exception as e:
+            logger.exception(
+                "Failed to fetch page %d for FMS path %s", page_index, path
+            )
+            raise EntsoeApiError(f"Error fetching directory page: {e}") from e
+
+        items = data.get("contentItemList", [])
+        all_items.extend(items)
+
+        if len(items) < page_size:
+            break
+        page_index += 1
+
+    # Sort the items alphabetically by name
+    all_items.sort(key=lambda x: x.get("name", ""))
+    return all_items
+
+
+def list_folder_raw_items_recursive(
+    client: ConfigurableEntsoeFileClient,
+    folder_name: str,
+    api_counter_ref: list[int] | None = None,
+    root_dir: str = "TP_export",
+    current_subpath: str = "",
+) -> list[dict[str, Any]]:
+    """Recursively crawls remote FMS folders and gathers raw file items.
+
+    Args:
+        client: The authenticated ConfigurableEntsoeFileClient instance.
+        folder_name: Target root folder name under the root_dir (e.g.
+          'BalanceManagementCsv_R1').
+        api_counter_ref: Optional mutable list tracker to record total API requests.
+        root_dir: The FMS root directory name (e.g. 'TP_export',
+          'TP_Legacy_Publications').
+        current_subpath: Internal accumulator path for nested subdirectories.
+
+    Returns:
+        List[Dict[str, Any]]: Sorted list of raw file dictionaries
+          with normalized relative names.
+    """
+    if current_subpath:
+        path = f"/{root_dir}/{folder_name}/{current_subpath}/"
+    else:
+        path = f"/{root_dir}/{folder_name}/"
+
+    path = path.replace("//", "/")
+    logger.info("Crawling files recursively in remote FMS path: %s", path)
+
+    all_files: list[dict[str, Any]] = []
+    page_index = 0
+    page_size = 1000
+
+    while True:
+        if api_counter_ref is not None:
+            api_counter_ref[0] += 1
+
+        try:
+            data = _fetch_folder_page(client, path, page_index, page_size)
+        except Exception as e:
+            logger.exception(
+                "Failed to fetch page %d for recursive FMS path %s", page_index, path
+            )
+            raise EntsoeApiError(f"Error fetching directory page: {e}") from e
+
+        items = data.get("contentItemList", [])
+
+        for item in items:
+            item_type = item.get("type", "File")
+            item_name = item.get("name", "")
+
+            if item_type == "Folder":
+                # Recurse inside the subfolder
+                subpath = (
+                    f"{current_subpath}/{item_name}" if current_subpath else item_name
+                )
+                subpath = subpath.strip("/")
+
+                nested_items = list_folder_raw_items_recursive(
+                    client=client,
+                    folder_name=folder_name,
+                    api_counter_ref=api_counter_ref,
+                    root_dir=root_dir,
+                    current_subpath=subpath,
+                )
+                all_files.extend(nested_items)
+            else:
+                # It is a file! Normalize its name to preserve the relative
+                # structure (e.g. 'FR/file.csv')
+                if current_subpath:
+                    item["name"] = f"{current_subpath}/{item_name}"
+                all_files.append(item)
+
+        if len(items) < page_size:
+            break
+        page_index += 1
+
+    all_files.sort(key=lambda x: x.get("name", ""))
+    return all_files

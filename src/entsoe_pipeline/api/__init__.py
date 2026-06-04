@@ -21,9 +21,17 @@ and modular utilities to interact with FMS remote directory listings.
 from __future__ import annotations
 
 from entsoe_pipeline.api.client import create_fms_client
-from entsoe_pipeline.api.ls_fms import ls_fms
+from entsoe_pipeline.api.ls_fms import (
+    list_folder_raw_items,
+    list_folder_raw_items_recursive,
+    ls_fms,
+)
+from entsoe_pipeline.api.xxhash import calculate_idempotency_hash
 
 __all__ = [
+    "calculate_idempotency_hash",
     "create_fms_client",
+    "list_folder_raw_items",
+    "list_folder_raw_items_recursive",
     "ls_fms",
 ]
