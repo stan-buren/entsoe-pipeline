@@ -20,9 +20,40 @@ import yaml
 
 from dotenv import load_dotenv
 
+from entsoe_pipeline.api.client_side_throttler import ThrottledSession
 from entsoe_pipeline.config.config_loader import get_env_config
 from entsoe_pipeline.config.paths import CONFIG_DIR, ENV_FILE
 from entsoe_pipeline.vendor_patches.entsoe_py import ConfigurableEntsoeFileClient
+
+# Reusable internal global session state to ensure that even if client factories
+# are invoked multiple times, all FMS calls share the same local rate limiter queue
+# (Design aligned with Google Python Style Guide 2.5.4 regarding mutable globals).
+# We maintain independent ThrottledSession instances for IOP and PROD
+# environments to prevent cross-environment throttling interference,
+# allowing full concurrent capacity.
+_FMS_THROTTLED_SESSIONS: dict[str, ThrottledSession] = {
+    "IOP": ThrottledSession(max_requests=95, period_seconds=60),
+    "PROD": ThrottledSession(max_requests=95, period_seconds=60),
+}
+
+
+def _get_throttled_session(env_name: str) -> ThrottledSession:
+    """Retrieves or dynamically instantiates a throttled session for an environment.
+
+    Args:
+        env_name: The platform environment name.
+
+    Returns:
+        ThrottledSession: The isolated rate-limited requests session.
+    """
+    key = env_name.upper()
+    if key not in _FMS_THROTTLED_SESSIONS:
+        _FMS_THROTTLED_SESSIONS[key] = ThrottledSession(
+            max_requests=95,
+            period_seconds=60,
+        )
+    return _FMS_THROTTLED_SESSIONS[key]
+
 
 # =============================================================================
 # CLIENT FACTORY INTERFACES
@@ -48,11 +79,13 @@ def create_fms_client(env_name: str | None = None) -> ConfigurableEntsoeFileClie
     # 1. If no specific environment is requested, delegate to the active default config
     if env_name is None:
         active_config = get_env_config()
+        env_key = active_config.environment_name.upper()
         return ConfigurableEntsoeFileClient(
             username=active_config.email,
             pwd=active_config.password,
             base_url=active_config.base_url,
             token_url=active_config.token_url,
+            session=_get_throttled_session(env_key),
         )
 
     # 2. Otherwise, load the config file manually to switch environments dynamically
@@ -103,4 +136,5 @@ def create_fms_client(env_name: str | None = None) -> ConfigurableEntsoeFileClie
         pwd=password,
         base_url=base_url,
         token_url=token_url,
+        session=_get_throttled_session(env_name),
     )

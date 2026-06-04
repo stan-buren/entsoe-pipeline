@@ -1,6 +1,6 @@
 buckets:
-  s3_bucket: your--files-backet-name
-  s3_table_bucket: your--table-backet-name
+  s3_bucket: your-files-backet-name
+  s3_table_bucket: your-table-backet-name
 
 metadata:
   s3_bucket:

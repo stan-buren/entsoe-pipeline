@@ -24,7 +24,8 @@ import os
 
 from unittest.mock import MagicMock, patch
 
-from entsoe_pipeline.api.client import create_fms_client
+from entsoe_pipeline.api.client import _get_throttled_session, create_fms_client
+from entsoe_pipeline.api.client_side_throttler import ThrottledSession
 from entsoe_pipeline.api.ls_fms import ls_fms
 
 # =============================================================================
@@ -43,6 +44,7 @@ def test_create_fms_client_defaults_to_active_config(
     # ARRANGE
     # -------------------------------------------------------------------------
     mock_config = MagicMock()
+    mock_config.environment_name = "IOP"
     mock_config.email = "default@example.com"
     mock_config.password = "default_pwd"  # noqa: S105
     mock_config.base_url = "https://fms.default.eu/"
@@ -66,6 +68,7 @@ def test_create_fms_client_defaults_to_active_config(
         pwd="default_pwd",  # noqa: S106
         base_url="https://fms.default.eu/",
         token_url="https://keycloak.default.eu/token",  # noqa: S106
+        session=_get_throttled_session("IOP"),
     )
     assert client == mock_client_instance
 
@@ -122,6 +125,7 @@ def test_create_fms_client_resolves_explicit_environment(
         pwd="iop-secret",  # noqa: S106
         base_url="https://fms.iop.eu/",
         token_url="https://keycloak.iop.eu/token",  # noqa: S106
+        session=_get_throttled_session("IOP"),
     )
     assert client == mock_client_instance
 
@@ -172,3 +176,42 @@ def test_ls_fms_aggregates_multiple_pages_correctly(
     # Assert combined results are preserved
     assert len(results) == 3
     assert results == ["ActualTotalLoad_r3", "EnergyPrices_r3", "Outages_r3"]
+
+
+# =============================================================================
+# 3. UNIT TESTS: CLIENT-SIDE THROTTLER
+# =============================================================================
+
+
+def test_throttled_session_rate_limiting(mocker) -> None:
+    """Verifies ThrottledSession sleep behavior when request limits are hit."""
+    # -------------------------------------------------------------------------
+    # ARRANGE: Set up a session with a limit of 2 requests per 10 seconds
+    # -------------------------------------------------------------------------
+    session = ThrottledSession(max_requests=2, period_seconds=10)
+
+    mock_time = mocker.patch("time.time")
+    mock_sleep = mocker.patch("time.sleep")
+    mock_super_send = mocker.patch("requests.Session.send")
+
+    mock_super_send.return_value = MagicMock()
+    mock_request = MagicMock()
+
+    # Stub consecutive calls to time.time()
+    # Request 1: t=100.0 (No sleep, deque gets [100.0])
+    # Request 2: t=101.0 (No sleep, deque gets [100.0, 101.0])
+    # Request 3: t=102.0 (Should trigger sleep. sleep_time = 10 - (102.0 - 100.0) = 8.0)
+    mock_time.side_effect = [100.0, 101.0, 102.0, 102.0, 102.0]
+
+    # -------------------------------------------------------------------------
+    # ACT: Send three requests sequentially
+    # -------------------------------------------------------------------------
+    session.send(mock_request)
+    session.send(mock_request)
+    session.send(mock_request)
+
+    # -------------------------------------------------------------------------
+    # ASSERT: Verify sleep was called exactly once with correct time calculation
+    # -------------------------------------------------------------------------
+    mock_sleep.assert_called_once_with(8.0)
+    assert mock_super_send.call_count == 3

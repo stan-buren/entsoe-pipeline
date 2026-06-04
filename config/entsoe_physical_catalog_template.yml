@@ -1,0 +1,124 @@
+# ENTSO-E Physical Catalog Blueprint Schema
+# This file is the Single Source of Truth (SSOT) data contract for all physical metadata catalogs.
+# Validation tests crawl all catalogs under fms_metadata/physical_catalog/ and assert conformance to this schema.
+
+schema_version: "1.0.0"
+
+# Root-level configuration properties
+root_properties:
+  generated_at:
+    type: "string"
+    required: true
+    format: "date-time"  # ISO 8601 UTC date-time string
+  total_api_requests:
+    type: "integer"
+    required: true
+    minimum: 0
+
+  folders:
+    type: "object"
+    required: true
+
+# Declarative schema for folders mapping dictionary values
+folder_schema:
+  folder_path:
+    type: "string"
+    required: true
+    pattern: "^/.+/$"   # Standard absolute FMS path structure
+  item_count:
+    type: "integer"
+    required: true
+    minimum: 0
+  sizes:
+    type: "object"
+    required: true
+    properties:
+      original:
+        type: "object"
+        required: true
+        properties:
+          bytes:
+            type: "integer"
+            required: true
+            minimum: 0
+          bits:
+            type: "integer"
+            required: true
+            minimum: 0
+          mb:
+            type: "number"
+            required: true
+            minimum: 0.0
+      compressed:
+        type: "object"
+        required: false  # Optional metric (e.g. absent in some frozen uncompressed archives)
+        properties:
+          bytes:
+            type: "integer"
+            required: true
+            minimum: 0
+          bits:
+            type: "integer"
+            required: true
+            minimum: 0
+          mb:
+            type: "number"
+            required: true
+            minimum: 0.0
+  files:
+    type: "array"
+    required: true
+
+# Declarative schema for single file objects inside files array list
+file_schema:
+  name:
+    type: "string"
+    required: true
+  file_id:
+    type: "string"
+    required: true
+    allow_empty: true    # Can be blank if cataloging missing/empty files
+  sizes:
+    type: "object"
+    required: true
+    properties:
+      original:
+        type: "object"
+        required: true
+        properties:
+          bytes:
+            type: "integer"
+            required: true
+            minimum: 0
+          bits:
+            type: "integer"
+            required: true
+            minimum: 0
+          mb:
+            type: "number"
+            required: true
+            minimum: 0.0
+      compressed:
+        type: "object"
+        required: false  # Optional metric
+        properties:
+          bytes:
+            type: "integer"
+            required: true
+            minimum: 0
+          bits:
+            type: "integer"
+            required: true
+            minimum: 0
+          mb:
+            type: "number"
+            required: true
+            minimum: 0.0
+  last_updated:
+    type: "string"
+    required: true
+    format: "date-time"
+  xxhash:
+    type: "string"
+    required: true
+    pattern: "^[a-f0-9]{32}$"  # Standard 128-bit xxhash hex digest

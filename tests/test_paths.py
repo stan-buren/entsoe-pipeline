@@ -28,27 +28,26 @@ import pytest
 
 import entsoe_pipeline.config.paths as paths
 
+from entsoe_pipeline.config.config_loader import load_paths_config
 from entsoe_pipeline.config.paths import find_project_root
 
 # -----------------------------------------------------------------------------
 # Configuration Constants & Single Source of Truth
 # -----------------------------------------------------------------------------
-# Single source of truth for all expected paths and their structure
-# relative to PROJECT_ROOT.
-# If you add a new path constant to paths.py, simply append it to this dictionary!
+# Single source of truth for all expected paths loaded dynamically from
+# config/paths.yml.
+
+YAML_PATHS = load_paths_config(find_project_root())
 
 EXPECTED_PATHS = {
     "PROJECT_ROOT": None,  # Base root path
-    "DATA_DIR": ".data",
-    "TESTS_DIR": "tests",
-    "ADR_DIR": "docs/adr",
-    "ADR_TEMPLATE_PATH": "docs/adr/template/ADR_TEMPLATE.md",
-    "CONFIG_DIR": "config_env",
-    "MANUAL_DATA_DIR": ".data/manual_added_data",
-    "ENV_FILE": ".env",
-    "FMS_METADATA_DIR": "fms_metadata",
-    "OVERVIEW_YML": "fms_metadata/overview.yml",
+    **YAML_PATHS,
 }
+
+
+# =============================================================================
+# 1. UNIT TESTS: PROJECT ROOT RESOLUTION
+# =============================================================================
 
 
 def test_find_project_root_from_env(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -118,6 +117,11 @@ def test_find_project_root_static_fallback(mocker) -> None:
     # -------------------------------------------------------------------------
     expected_root = Path(__file__).resolve().parents[1]  # Parent of tests/ folder
     assert root == expected_root
+
+
+# =============================================================================
+# 2. UNIT TESTS: PATH CONSTANTS VALIDATION
+# =============================================================================
 
 
 def test_exported_path_constants() -> None:

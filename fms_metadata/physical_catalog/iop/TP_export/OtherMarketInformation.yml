@@ -1,0 +1,1199 @@
+generated_at: '2026-05-29T10:06:01Z'
+total_api_requests: 3
+folders:
+  Export_log_r3.csv:
+    folder_path: /TP_export/Export_log_r3.csv/
+    item_count: 1
+    sizes:
+      original:
+        bytes: 514749
+        bits: 4117992
+        mb: 0.4909
+      compressed:
+        bytes: 65795
+        bits: 526360
+        mb: 0.0627
+    files:
+      - name: Export_log_r3.csv
+        file_id: b1e2dd4c-7447-442a-aaee-a6048d481554
+        sizes:
+          original:
+            bytes: 514749
+            bits: 4117992
+            mb: 0.4909
+          compressed:
+            bytes: 65795
+            bits: 526360
+            mb: 0.0627
+        last_updated: '2026-05-29T09:35:44.695Z'
+        xxhash: 88f1a31acfc137f608910786b986899d
+  Export_oce_log_r3.csv:
+    folder_path: /TP_export/Export_oce_log_r3.csv/
+    item_count: 1
+    sizes:
+      original:
+        bytes: 1700153
+        bits: 13601224
+        mb: 1.6214
+      compressed:
+        bytes: 106016
+        bits: 848128
+        mb: 0.1011
+    files:
+      - name: Export_oce_log_r3.csv
+        file_id: 97029a44-1968-4def-b626-097b9547f057
+        sizes:
+          original:
+            bytes: 1700153
+            bits: 13601224
+            mb: 1.6214
+          compressed:
+            bytes: 106016
+            bits: 848128
+            mb: 0.1011
+        last_updated: '2026-05-29T09:21:05.428Z'
+        xxhash: d319f3b7297ebea55a30247031db03dd
+  OtherMarketInformation_r3:
+    folder_path: /TP_export/OtherMarketInformation_r3/
+    item_count: 43
+    sizes:
+      original:
+        bytes: 208448
+        bits: 1667584
+        mb: 0.1988
+      compressed:
+        bytes: 75848
+        bits: 606784
+        mb: 0.0723
+    files:
+      - name: 2014_02_OtherMarketInformation_r3.csv
+        file_id: 71a9ef73-2cd2-43f4-ad2f-da6d98cef2d0
+        sizes:
+          original:
+            bytes: 6048
+            bits: 48384
+            mb: 0.0058
+          compressed:
+            bytes: 1398
+            bits: 11184
+            mb: 0.0013
+        last_updated: '2026-05-15T12:09:37.247Z'
+        xxhash: 94cd2973394ee9249cc74fda8c8c4f06
+      - name: 2022_12_OtherMarketInformation_r3.csv
+        file_id: e2745d1e-491e-4473-a328-0961579305a1
+        sizes:
+          original:
+            bytes: 597
+            bits: 4776
+            mb: 0.0006
+          compressed:
+            bytes: 506
+            bits: 4048
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:27.884Z'
+        xxhash: 8b92b3ff4cbaa9f96e1b9b5b7f4dfe8b
+      - name: 2023_01_OtherMarketInformation_r3.csv
+        file_id: 8beabaa4-fc29-422e-84cd-3592f7bdd81d
+        sizes:
+          original:
+            bytes: 597
+            bits: 4776
+            mb: 0.0006
+          compressed:
+            bytes: 506
+            bits: 4048
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:28.007Z'
+        xxhash: 49fb3754caf42e4ff65de412718d2f4c
+      - name: 2023_02_OtherMarketInformation_r3.csv
+        file_id: 49282bd0-3f27-4efc-8a6e-4f53c9b98cac
+        sizes:
+          original:
+            bytes: 802
+            bits: 6416
+            mb: 0.0008
+          compressed:
+            bytes: 587
+            bits: 4696
+            mb: 0.0006
+        last_updated: '2026-04-08T11:35:28.143Z'
+        xxhash: e049952d7c86dde1e36ae4ce4fe68ea3
+      - name: 2023_03_OtherMarketInformation_r3.csv
+        file_id: 690427d6-3161-4efc-ad3f-eb63d5f88cc9
+        sizes:
+          original:
+            bytes: 802
+            bits: 6416
+            mb: 0.0008
+          compressed:
+            bytes: 587
+            bits: 4696
+            mb: 0.0006
+        last_updated: '2026-04-08T11:35:28.283Z'
+        xxhash: 259eaa7c0a8f7f21012f4af77544cf8e
+      - name: 2023_04_OtherMarketInformation_r3.csv
+        file_id: 7dec9746-84df-45ab-8600-4d3c7f7cae38
+        sizes:
+          original:
+            bytes: 802
+            bits: 6416
+            mb: 0.0008
+          compressed:
+            bytes: 587
+            bits: 4696
+            mb: 0.0006
+        last_updated: '2026-04-08T11:35:28.425Z'
+        xxhash: c122186bfeefd0afa20029ac6bae67eb
+      - name: 2023_05_OtherMarketInformation_r3.csv
+        file_id: 63354770-82f4-441a-aa27-7adaac754e46
+        sizes:
+          original:
+            bytes: 802
+            bits: 6416
+            mb: 0.0008
+          compressed:
+            bytes: 587
+            bits: 4696
+            mb: 0.0006
+        last_updated: '2026-04-08T11:35:28.552Z'
+        xxhash: e4fefabfae1c5de16fc255c46f48aee7
+      - name: 2023_06_OtherMarketInformation_r3.csv
+        file_id: 1c8ad460-54c9-4683-a053-3daaaea434e6
+        sizes:
+          original:
+            bytes: 802
+            bits: 6416
+            mb: 0.0008
+          compressed:
+            bytes: 587
+            bits: 4696
+            mb: 0.0006
+        last_updated: '2026-04-08T11:35:28.677Z'
+        xxhash: 7623823ee52cc4b63ce1517a355cd087
+      - name: 2023_07_OtherMarketInformation_r3.csv
+        file_id: 03e7fe03-226f-4fb6-adc9-1e6bfda8f289
+        sizes:
+          original:
+            bytes: 597
+            bits: 4776
+            mb: 0.0006
+          compressed:
+            bytes: 506
+            bits: 4048
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:28.806Z'
+        xxhash: a64b9663e7f151e947c6f4ae8434e0ce
+      - name: 2023_08_OtherMarketInformation_r3.csv
+        file_id: 0b196e21-8625-4306-bc43-d3c2c841e18a
+        sizes:
+          original:
+            bytes: 597
+            bits: 4776
+            mb: 0.0006
+          compressed:
+            bytes: 506
+            bits: 4048
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:28.954Z'
+        xxhash: 83df18a26b00f2fc4572c1abdacb0f6b
+      - name: 2023_09_OtherMarketInformation_r3.csv
+        file_id: 7a7ef09d-2ff5-4a4a-845a-336863c09bb3
+        sizes:
+          original:
+            bytes: 597
+            bits: 4776
+            mb: 0.0006
+          compressed:
+            bytes: 506
+            bits: 4048
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:29.074Z'
+        xxhash: b7cd8c8814bda1977db3b30e1208e25c
+      - name: 2023_10_OtherMarketInformation_r3.csv
+        file_id: 7487769d-aa46-4499-9081-6100ccab0643
+        sizes:
+          original:
+            bytes: 597
+            bits: 4776
+            mb: 0.0006
+          compressed:
+            bytes: 506
+            bits: 4048
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:29.196Z'
+        xxhash: 02f85c859e15a5568de145a4e93fd6c4
+      - name: 2023_11_OtherMarketInformation_r3.csv
+        file_id: 13d5199b-09e4-4e4a-ba7e-b8be236f8911
+        sizes:
+          original:
+            bytes: 597
+            bits: 4776
+            mb: 0.0006
+          compressed:
+            bytes: 506
+            bits: 4048
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:29.340Z'
+        xxhash: 884d2ad1cf8b58f3e02ec226209c1b76
+      - name: 2023_12_OtherMarketInformation_r3.csv
+        file_id: 5ebe2895-c96c-48f3-978a-b36cad6f20ce
+        sizes:
+          original:
+            bytes: 597
+            bits: 4776
+            mb: 0.0006
+          compressed:
+            bytes: 506
+            bits: 4048
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:29.462Z'
+        xxhash: 84c44ac59d61b8fca9f86aa300e95d5b
+      - name: 2024_01_OtherMarketInformation_r3.csv
+        file_id: bdc43533-47dc-4107-8a4e-6cff059c51c2
+        sizes:
+          original:
+            bytes: 2282
+            bits: 18256
+            mb: 0.0022
+          compressed:
+            bytes: 946
+            bits: 7568
+            mb: 0.0009
+        last_updated: '2026-04-08T11:35:29.585Z'
+        xxhash: 51f2708f11b197086dec1f9c4996e498
+      - name: 2024_02_OtherMarketInformation_r3.csv
+        file_id: 2763e378-bab7-48c5-87d3-991e23e456b3
+        sizes:
+          original:
+            bytes: 4678
+            bits: 37424
+            mb: 0.0045
+          compressed:
+            bytes: 1727
+            bits: 13816
+            mb: 0.0016
+        last_updated: '2026-04-08T11:35:29.713Z'
+        xxhash: 79aa8ea3d5b5c5e708ad5fdffb59f073
+      - name: 2024_03_OtherMarketInformation_r3.csv
+        file_id: c4a77dc0-fd01-45a6-a85d-bd5d62a143ce
+        sizes:
+          original:
+            bytes: 2862
+            bits: 22896
+            mb: 0.0027
+          compressed:
+            bytes: 1316
+            bits: 10528
+            mb: 0.0013
+        last_updated: '2026-04-08T11:35:29.850Z'
+        xxhash: bdfe46c1b6e540993ac46be62152095c
+      - name: 2024_04_OtherMarketInformation_r3.csv
+        file_id: dab7815f-d208-4ef7-804b-1a635822fb18
+        sizes:
+          original:
+            bytes: 4222
+            bits: 33776
+            mb: 0.004
+          compressed:
+            bytes: 1872
+            bits: 14976
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:29.977Z'
+        xxhash: f1a58c4d9d5d74bff119a637af4a948b
+      - name: 2024_05_OtherMarketInformation_r3.csv
+        file_id: b80e4b6b-e090-4ba2-9d87-ed2551174e91
+        sizes:
+          original:
+            bytes: 5087
+            bits: 40696
+            mb: 0.0049
+          compressed:
+            bytes: 1837
+            bits: 14696
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:30.106Z'
+        xxhash: 6e28b623345a0cc34c8a963fb3cd838a
+      - name: 2024_06_OtherMarketInformation_r3.csv
+        file_id: 81e8fc95-6d80-4c52-b9e0-1c9518b6f6a6
+        sizes:
+          original:
+            bytes: 5956
+            bits: 47648
+            mb: 0.0057
+          compressed:
+            bytes: 2163
+            bits: 17304
+            mb: 0.0021
+        last_updated: '2026-04-08T11:35:30.228Z'
+        xxhash: d23be971fbd9c9533d443dbaa4b74262
+      - name: 2024_07_OtherMarketInformation_r3.csv
+        file_id: 6654e543-f042-4097-afa7-46ea5901b4cd
+        sizes:
+          original:
+            bytes: 5087
+            bits: 40696
+            mb: 0.0049
+          compressed:
+            bytes: 1837
+            bits: 14696
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:30.356Z'
+        xxhash: 9f71bd7622b6f325b0376b1a8ee53fcf
+      - name: 2024_08_OtherMarketInformation_r3.csv
+        file_id: 05010b90-c6aa-4693-8a0f-7a168c76d0d9
+        sizes:
+          original:
+            bytes: 5087
+            bits: 40696
+            mb: 0.0049
+          compressed:
+            bytes: 1837
+            bits: 14696
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:30.490Z'
+        xxhash: c9f06696ca102250a6cd00869d511364
+      - name: 2024_09_OtherMarketInformation_r3.csv
+        file_id: 6dc6373f-03ba-4aa6-8acc-43f85600cc0c
+        sizes:
+          original:
+            bytes: 5675
+            bits: 45400
+            mb: 0.0054
+          compressed:
+            bytes: 2031
+            bits: 16248
+            mb: 0.0019
+        last_updated: '2026-04-08T11:35:30.618Z'
+        xxhash: c7cd7b0bbdef3520f7783631a13acde0
+      - name: 2024_10_OtherMarketInformation_r3.csv
+        file_id: b6458186-0886-49f0-a398-68f45b1f0255
+        sizes:
+          original:
+            bytes: 5675
+            bits: 45400
+            mb: 0.0054
+          compressed:
+            bytes: 2031
+            bits: 16248
+            mb: 0.0019
+        last_updated: '2026-04-08T11:35:30.748Z'
+        xxhash: 30a0567085543eaf92843cb3de9aa9ac
+      - name: 2024_11_OtherMarketInformation_r3.csv
+        file_id: e0c8e6f3-f194-4ab2-ae94-eb9cc6b1f44a
+        sizes:
+          original:
+            bytes: 5675
+            bits: 45400
+            mb: 0.0054
+          compressed:
+            bytes: 2031
+            bits: 16248
+            mb: 0.0019
+        last_updated: '2026-04-08T11:35:30.884Z'
+        xxhash: 7044c78467927fda04e9ea96f714946f
+      - name: 2024_12_OtherMarketInformation_r3.csv
+        file_id: 42bb1589-757f-4c7f-83df-98768bcb618b
+        sizes:
+          original:
+            bytes: 5675
+            bits: 45400
+            mb: 0.0054
+          compressed:
+            bytes: 2031
+            bits: 16248
+            mb: 0.0019
+        last_updated: '2026-04-08T11:35:31.009Z'
+        xxhash: 2f1d698c0a81d03fcf51a47d5180ce3d
+      - name: 2025_01_OtherMarketInformation_r3.csv
+        file_id: cf6d8299-a951-49cb-a58f-ed7e41331353
+        sizes:
+          original:
+            bytes: 5675
+            bits: 45400
+            mb: 0.0054
+          compressed:
+            bytes: 2031
+            bits: 16248
+            mb: 0.0019
+        last_updated: '2026-04-08T11:35:31.151Z'
+        xxhash: 5ae8e160c03ec101e0a6e6e61200d5e6
+      - name: 2025_02_OtherMarketInformation_r3.csv
+        file_id: 4d2732ab-436f-4071-a9bc-e71c47af185d
+        sizes:
+          original:
+            bytes: 5675
+            bits: 45400
+            mb: 0.0054
+          compressed:
+            bytes: 2031
+            bits: 16248
+            mb: 0.0019
+        last_updated: '2026-04-08T11:35:31.278Z'
+        xxhash: cc9940bd1af4922f87d7c56696d0f9c2
+      - name: 2025_03_OtherMarketInformation_r3.csv
+        file_id: 305ea9e1-b087-4cea-8c98-3988f4d46f6a
+        sizes:
+          original:
+            bytes: 5675
+            bits: 45400
+            mb: 0.0054
+          compressed:
+            bytes: 2031
+            bits: 16248
+            mb: 0.0019
+        last_updated: '2026-04-08T11:35:31.400Z'
+        xxhash: 15c0fd0dbaaa8b9d55fa888bdf68b93c
+      - name: 2025_04_OtherMarketInformation_r3.csv
+        file_id: bcb7f270-3ac7-4c22-a014-54be1b30b056
+        sizes:
+          original:
+            bytes: 5675
+            bits: 45400
+            mb: 0.0054
+          compressed:
+            bytes: 2031
+            bits: 16248
+            mb: 0.0019
+        last_updated: '2026-04-08T11:35:31.535Z'
+        xxhash: 65c91402ea6bef56cf2076e81fb30b6c
+      - name: 2025_05_OtherMarketInformation_r3.csv
+        file_id: 06d59afb-8b2d-459b-b688-8d562b16f209
+        sizes:
+          original:
+            bytes: 6339
+            bits: 50712
+            mb: 0.006
+          compressed:
+            bytes: 2237
+            bits: 17896
+            mb: 0.0021
+        last_updated: '2026-04-08T11:35:31.662Z'
+        xxhash: b744fffd840ba655903937171bc438fc
+      - name: 2025_06_OtherMarketInformation_r3.csv
+        file_id: b7ba9d1e-8f50-4e42-83f9-a55ea898b477
+        sizes:
+          original:
+            bytes: 7234
+            bits: 57872
+            mb: 0.0069
+          compressed:
+            bytes: 2584
+            bits: 20672
+            mb: 0.0025
+        last_updated: '2026-04-08T11:35:31.799Z'
+        xxhash: f3e58f3a0e9a4c8fa49423ada14ae90f
+      - name: 2025_07_OtherMarketInformation_r3.csv
+        file_id: 39b408a5-9a0c-45d2-b5c8-f4a31f989ac8
+        sizes:
+          original:
+            bytes: 7285
+            bits: 58280
+            mb: 0.0069
+          compressed:
+            bytes: 2642
+            bits: 21136
+            mb: 0.0025
+        last_updated: '2026-04-08T11:35:31.929Z'
+        xxhash: ac22199093edce9050bbb97e12e32f3f
+      - name: 2025_08_OtherMarketInformation_r3.csv
+        file_id: 8696ae4d-ac1f-48cd-90ca-1eb7302d71cb
+        sizes:
+          original:
+            bytes: 6851
+            bits: 54808
+            mb: 0.0065
+          compressed:
+            bytes: 2394
+            bits: 19152
+            mb: 0.0023
+        last_updated: '2026-04-08T11:35:32.055Z'
+        xxhash: ee43e3bab6a92c2ecf630de6779f9ef9
+      - name: 2025_09_OtherMarketInformation_r3.csv
+        file_id: 2bf3bcd5-51ce-4578-bb2b-8d928052bc3e
+        sizes:
+          original:
+            bytes: 6267
+            bits: 50136
+            mb: 0.006
+          compressed:
+            bytes: 2308
+            bits: 18464
+            mb: 0.0022
+        last_updated: '2026-04-08T11:35:32.197Z'
+        xxhash: 3a1ae1d7a78bad1a1cc59dd52e64fc57
+      - name: 2025_10_OtherMarketInformation_r3.csv
+        file_id: c2d2f675-44dd-4bf8-a071-c435cbaaddbd
+        sizes:
+          original:
+            bytes: 8905
+            bits: 71240
+            mb: 0.0085
+          compressed:
+            bytes: 3020
+            bits: 24160
+            mb: 0.0029
+        last_updated: '2026-04-08T11:35:32.317Z'
+        xxhash: 9005e81f38e26f26c545200f38c36f62
+      - name: 2025_11_OtherMarketInformation_r3.csv
+        file_id: bbc94c39-e04e-4bc5-adc2-0554d71b5841
+        sizes:
+          original:
+            bytes: 8229
+            bits: 65832
+            mb: 0.0078
+          compressed:
+            bytes: 2899
+            bits: 23192
+            mb: 0.0028
+        last_updated: '2026-04-08T11:35:32.444Z'
+        xxhash: 3af426edc6b4d15060ee1cfec721ea3e
+      - name: 2025_12_OtherMarketInformation_r3.csv
+        file_id: 25aee102-a245-4a56-8009-abe995c5c95d
+        sizes:
+          original:
+            bytes: 7776
+            bits: 62208
+            mb: 0.0074
+          compressed:
+            bytes: 2767
+            bits: 22136
+            mb: 0.0026
+        last_updated: '2026-04-08T11:35:32.567Z'
+        xxhash: e5537d3a062320e332bfd1f63fc6566d
+      - name: 2026_01_OtherMarketInformation_r3.csv
+        file_id: 60336a0a-e339-4cf8-a6be-b4f258d5b4f0
+        sizes:
+          original:
+            bytes: 10478
+            bits: 83824
+            mb: 0.01
+          compressed:
+            bytes: 3271
+            bits: 26168
+            mb: 0.0031
+        last_updated: '2026-04-08T11:35:32.709Z'
+        xxhash: 177e195df69fdbfda305d6fc4496e02f
+      - name: 2026_02_OtherMarketInformation_r3.csv
+        file_id: 7e9823ce-19a1-40e5-99a8-5a71b3b43bc5
+        sizes:
+          original:
+            bytes: 11373
+            bits: 90984
+            mb: 0.0108
+          compressed:
+            bytes: 3560
+            bits: 28480
+            mb: 0.0034
+        last_updated: '2026-04-08T11:35:32.849Z'
+        xxhash: aae74b8faabda59585d61f0c5f9cebf6
+      - name: 2026_03_OtherMarketInformation_r3.csv
+        file_id: b3763eff-1822-460b-b39d-0a3756fe85f4
+        sizes:
+          original:
+            bytes: 10254
+            bits: 82032
+            mb: 0.0098
+          compressed:
+            bytes: 3276
+            bits: 26208
+            mb: 0.0031
+        last_updated: '2026-04-08T11:35:32.991Z'
+        xxhash: 2d28131de08c8da3529fd4482dea49cf
+      - name: 2026_04_OtherMarketInformation_r3.csv
+        file_id: dfd18bf5-5bd3-4545-aa11-829d920593f2
+        sizes:
+          original:
+            bytes: 10254
+            bits: 82032
+            mb: 0.0098
+          compressed:
+            bytes: 3276
+            bits: 26208
+            mb: 0.0031
+        last_updated: '2026-04-11T05:05:40.545Z'
+        xxhash: 8a4b93e79c2cdcdb7c5cea0459d4d9eb
+      - name: 2026_05_OtherMarketInformation_r3.csv
+        file_id: 3f084937-72fe-48b7-a539-f076a988adb7
+        sizes:
+          original:
+            bytes: 11708
+            bits: 93664
+            mb: 0.0112
+          compressed:
+            bytes: 3450
+            bits: 27600
+            mb: 0.0033
+        last_updated: '2026-05-14T06:39:49.998Z'
+        xxhash: 7cbd3293d8208db3c1c7c00c32646bc0
+  OtherMarketInformation_r3.1:
+    folder_path: /TP_export/OtherMarketInformation_r3.1/
+    item_count: 43
+    sizes:
+      original:
+        bytes: 201187
+        bits: 1609496
+        mb: 0.1919
+      compressed:
+        bytes: 69834
+        bits: 558672
+        mb: 0.0666
+    files:
+      - name: 2014_02_OtherMarketInformation_r3.1.csv
+        file_id: d4f76ac8-cdc6-4651-a73e-0a006c3ede6f
+        sizes:
+          original:
+            bytes: 6464
+            bits: 51712
+            mb: 0.0062
+          compressed:
+            bytes: 1295
+            bits: 10360
+            mb: 0.0012
+        last_updated: '2026-05-15T12:09:37.118Z'
+        xxhash: a4eb4e07d25e2123069592a7a3a54f96
+      - name: 2022_12_OtherMarketInformation_r3.1.csv
+        file_id: ab25e168-e461-4872-84cc-6966f4596fd4
+        sizes:
+          original:
+            bytes: 555
+            bits: 4440
+            mb: 0.0005
+          compressed:
+            bytes: 483
+            bits: 3864
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:22.157Z'
+        xxhash: 7d4226d64d741fda72aa5233dfed8412
+      - name: 2023_01_OtherMarketInformation_r3.1.csv
+        file_id: 557f81ac-21f1-42a9-9f91-36c1c4286d6f
+        sizes:
+          original:
+            bytes: 555
+            bits: 4440
+            mb: 0.0005
+          compressed:
+            bytes: 483
+            bits: 3864
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:22.290Z'
+        xxhash: b541ba09726700dee8ef27c5d2aa5fee
+      - name: 2023_02_OtherMarketInformation_r3.1.csv
+        file_id: 9b83c3ef-6e51-45b3-91b0-9dd5ff82b1c2
+        sizes:
+          original:
+            bytes: 763
+            bits: 6104
+            mb: 0.0007
+          compressed:
+            bytes: 565
+            bits: 4520
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:22.428Z'
+        xxhash: 377099f8ca0be470a2468174a24b320a
+      - name: 2023_03_OtherMarketInformation_r3.1.csv
+        file_id: 6de58dd4-5445-4bab-a021-2b441f443c6d
+        sizes:
+          original:
+            bytes: 763
+            bits: 6104
+            mb: 0.0007
+          compressed:
+            bytes: 565
+            bits: 4520
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:22.562Z'
+        xxhash: 7f813d15c0cc077942a97ac6723d1960
+      - name: 2023_04_OtherMarketInformation_r3.1.csv
+        file_id: 9e4d1c00-0755-4e97-af53-5874bb020e7f
+        sizes:
+          original:
+            bytes: 763
+            bits: 6104
+            mb: 0.0007
+          compressed:
+            bytes: 565
+            bits: 4520
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:22.716Z'
+        xxhash: 46b3c7eee404a5b1559c1f441980a539
+      - name: 2023_05_OtherMarketInformation_r3.1.csv
+        file_id: 0e4013e5-db1d-48d7-80a7-5230a7ec3ade
+        sizes:
+          original:
+            bytes: 763
+            bits: 6104
+            mb: 0.0007
+          compressed:
+            bytes: 565
+            bits: 4520
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:22.851Z'
+        xxhash: 5f5595907a4f1ed33fdba392f81fa544
+      - name: 2023_06_OtherMarketInformation_r3.1.csv
+        file_id: d93c07b3-e0d0-4644-a4e4-520b36f608ee
+        sizes:
+          original:
+            bytes: 763
+            bits: 6104
+            mb: 0.0007
+          compressed:
+            bytes: 565
+            bits: 4520
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:22.985Z'
+        xxhash: 5da3b42d6d793cb79bb9e68278b21ac0
+      - name: 2023_07_OtherMarketInformation_r3.1.csv
+        file_id: cb453377-f96a-4dea-8b36-4a50e9ec6bc6
+        sizes:
+          original:
+            bytes: 555
+            bits: 4440
+            mb: 0.0005
+          compressed:
+            bytes: 483
+            bits: 3864
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:23.130Z'
+        xxhash: 6386a77c83d524d162cdacfcdd8cd3a0
+      - name: 2023_08_OtherMarketInformation_r3.1.csv
+        file_id: 105884e7-1d40-46f6-954f-3bd812ddc3ef
+        sizes:
+          original:
+            bytes: 555
+            bits: 4440
+            mb: 0.0005
+          compressed:
+            bytes: 483
+            bits: 3864
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:23.267Z'
+        xxhash: b2ffd8467c20c1769bd44c9b5fd89196
+      - name: 2023_09_OtherMarketInformation_r3.1.csv
+        file_id: c7b098b1-f7ba-423b-9257-3cc079558739
+        sizes:
+          original:
+            bytes: 555
+            bits: 4440
+            mb: 0.0005
+          compressed:
+            bytes: 483
+            bits: 3864
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:23.428Z'
+        xxhash: 9b879daa11c899e712473f626c6c3cd5
+      - name: 2023_10_OtherMarketInformation_r3.1.csv
+        file_id: b17edc93-d33a-4656-a6b8-b9e80a902ff8
+        sizes:
+          original:
+            bytes: 555
+            bits: 4440
+            mb: 0.0005
+          compressed:
+            bytes: 483
+            bits: 3864
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:23.566Z'
+        xxhash: 2fecd8227aeb1de4455e0bdc074c38bf
+      - name: 2023_11_OtherMarketInformation_r3.1.csv
+        file_id: 1b3a9384-ed25-4a57-b5b6-edc089f99fca
+        sizes:
+          original:
+            bytes: 555
+            bits: 4440
+            mb: 0.0005
+          compressed:
+            bytes: 483
+            bits: 3864
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:23.696Z'
+        xxhash: 0ca2cc33e637bb2535d8064427f3dd38
+      - name: 2023_12_OtherMarketInformation_r3.1.csv
+        file_id: 667c3c00-4ee9-48a3-8b71-f5f671b2e38a
+        sizes:
+          original:
+            bytes: 555
+            bits: 4440
+            mb: 0.0005
+          compressed:
+            bytes: 483
+            bits: 3864
+            mb: 0.0005
+        last_updated: '2026-04-08T11:35:23.833Z'
+        xxhash: de0ea873bc1e9ac0d08ae4808a735bf5
+      - name: 2024_01_OtherMarketInformation_r3.1.csv
+        file_id: 546784d4-0884-40ad-a14e-6de46ddcb279
+        sizes:
+          original:
+            bytes: 2150
+            bits: 17200
+            mb: 0.0021
+          compressed:
+            bytes: 852
+            bits: 6816
+            mb: 0.0008
+        last_updated: '2026-04-08T11:35:23.966Z'
+        xxhash: 03beb1190dc45dfbade35ff8f24641d4
+      - name: 2024_02_OtherMarketInformation_r3.1.csv
+        file_id: b01fde91-dd51-4e19-80bf-875aade2aee6
+        sizes:
+          original:
+            bytes: 4374
+            bits: 34992
+            mb: 0.0042
+          compressed:
+            bytes: 1511
+            bits: 12088
+            mb: 0.0014
+        last_updated: '2026-04-08T11:35:24.213Z'
+        xxhash: de994d1de21e7d1f1e73354a9af43d31
+      - name: 2024_03_OtherMarketInformation_r3.1.csv
+        file_id: 086fc6c5-f884-4955-9aa3-d8d7a43e38e3
+        sizes:
+          original:
+            bytes: 2671
+            bits: 21368
+            mb: 0.0025
+          compressed:
+            bytes: 1181
+            bits: 9448
+            mb: 0.0011
+        last_updated: '2026-04-08T11:35:24.343Z'
+        xxhash: 1afba8b5fbfaac453b4494f21e4845bb
+      - name: 2024_04_OtherMarketInformation_r3.1.csv
+        file_id: cc4330df-8af0-40d1-8f34-9f01e5818bc2
+        sizes:
+          original:
+            bytes: 3967
+            bits: 31736
+            mb: 0.0038
+          compressed:
+            bytes: 1683
+            bits: 13464
+            mb: 0.0016
+        last_updated: '2026-04-08T11:35:24.472Z'
+        xxhash: 7d007e44a27483abd5a237dff2732569
+      - name: 2024_05_OtherMarketInformation_r3.1.csv
+        file_id: 3e060d6a-dec5-4a53-ac48-54d628d9e1d0
+        sizes:
+          original:
+            bytes: 4858
+            bits: 38864
+            mb: 0.0046
+          compressed:
+            bytes: 1664
+            bits: 13312
+            mb: 0.0016
+        last_updated: '2026-04-08T11:35:24.605Z'
+        xxhash: 50684121f6d24686e549ca5568ae2891
+      - name: 2024_06_OtherMarketInformation_r3.1.csv
+        file_id: 37d17c7a-963f-404f-ac0e-885cb9c65729
+        sizes:
+          original:
+            bytes: 5682
+            bits: 45456
+            mb: 0.0054
+          compressed:
+            bytes: 1956
+            bits: 15648
+            mb: 0.0019
+        last_updated: '2026-04-08T11:35:24.744Z'
+        xxhash: 45a57138e54b18d7eeb93262db0727fd
+      - name: 2024_07_OtherMarketInformation_r3.1.csv
+        file_id: 3cdbc30a-de5d-4df3-ac78-ea66b1dc9598
+        sizes:
+          original:
+            bytes: 4858
+            bits: 38864
+            mb: 0.0046
+          compressed:
+            bytes: 1664
+            bits: 13312
+            mb: 0.0016
+        last_updated: '2026-04-08T11:35:24.870Z'
+        xxhash: de0ad44c9e9672c04e3b81446c80d6d8
+      - name: 2024_08_OtherMarketInformation_r3.1.csv
+        file_id: 858ce916-9f6b-4425-b2e2-37112f334feb
+        sizes:
+          original:
+            bytes: 4858
+            bits: 38864
+            mb: 0.0046
+          compressed:
+            bytes: 1664
+            bits: 13312
+            mb: 0.0016
+        last_updated: '2026-04-08T11:35:25.010Z'
+        xxhash: 262a02348d7b2698a5b8779f06a7af0b
+      - name: 2024_09_OtherMarketInformation_r3.1.csv
+        file_id: 8a5a355a-5cf1-4b9e-b318-4c42f4b5aa1f
+        sizes:
+          original:
+            bytes: 5438
+            bits: 43504
+            mb: 0.0052
+          compressed:
+            bytes: 1847
+            bits: 14776
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:25.140Z'
+        xxhash: fe5f087b132a2562183bebd080e1892b
+      - name: 2024_10_OtherMarketInformation_r3.1.csv
+        file_id: 306d57e6-3af8-4b40-b18b-20cf9682513a
+        sizes:
+          original:
+            bytes: 5438
+            bits: 43504
+            mb: 0.0052
+          compressed:
+            bytes: 1847
+            bits: 14776
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:25.274Z'
+        xxhash: 1121008d7a6cc22dcc6f8ac388e3b19d
+      - name: 2024_11_OtherMarketInformation_r3.1.csv
+        file_id: c552907f-446b-46d5-92d2-7974b419790e
+        sizes:
+          original:
+            bytes: 5438
+            bits: 43504
+            mb: 0.0052
+          compressed:
+            bytes: 1847
+            bits: 14776
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:25.408Z'
+        xxhash: 54891b0bebace99170fc2cc6d23f6dff
+      - name: 2024_12_OtherMarketInformation_r3.1.csv
+        file_id: cf4b6b2b-ae42-4b54-9f85-f049f4fbe8e1
+        sizes:
+          original:
+            bytes: 5438
+            bits: 43504
+            mb: 0.0052
+          compressed:
+            bytes: 1847
+            bits: 14776
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:25.542Z'
+        xxhash: c5aa5488a69852bf1f3a409668eed71d
+      - name: 2025_01_OtherMarketInformation_r3.1.csv
+        file_id: ef1365cd-4efd-48ec-ad17-e60e0c8bdc53
+        sizes:
+          original:
+            bytes: 5438
+            bits: 43504
+            mb: 0.0052
+          compressed:
+            bytes: 1847
+            bits: 14776
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:25.670Z'
+        xxhash: 52b7c9dd45b6f41cde4e78633362b4a6
+      - name: 2025_02_OtherMarketInformation_r3.1.csv
+        file_id: a68d9bd1-e701-4006-b9a6-518100f4138c
+        sizes:
+          original:
+            bytes: 5438
+            bits: 43504
+            mb: 0.0052
+          compressed:
+            bytes: 1847
+            bits: 14776
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:25.808Z'
+        xxhash: 85c3235050b5a3bd6ad9b8ac58bc8ffd
+      - name: 2025_03_OtherMarketInformation_r3.1.csv
+        file_id: 11e21293-781a-4d8b-a1f5-1b9d948be860
+        sizes:
+          original:
+            bytes: 5438
+            bits: 43504
+            mb: 0.0052
+          compressed:
+            bytes: 1847
+            bits: 14776
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:25.934Z'
+        xxhash: 170de56c3359d40d62301163415150a3
+      - name: 2025_04_OtherMarketInformation_r3.1.csv
+        file_id: 1c57199c-5a07-4d15-b1d8-5630a208d639
+        sizes:
+          original:
+            bytes: 5438
+            bits: 43504
+            mb: 0.0052
+          compressed:
+            bytes: 1847
+            bits: 14776
+            mb: 0.0018
+        last_updated: '2026-04-08T11:35:26.060Z'
+        xxhash: 4f2232d8c9a3ac51f27263b22c8e9d56
+      - name: 2025_05_OtherMarketInformation_r3.1.csv
+        file_id: 00ad823c-4527-4fb7-bb7b-11b4b4fbb6dd
+        sizes:
+          original:
+            bytes: 6100
+            bits: 48800
+            mb: 0.0058
+          compressed:
+            bytes: 2050
+            bits: 16400
+            mb: 0.002
+        last_updated: '2026-04-08T11:35:26.189Z'
+        xxhash: 6ee97a8fe5c407656b2cb4a1332acaa3
+      - name: 2025_06_OtherMarketInformation_r3.1.csv
+        file_id: 3b37ae76-56ea-445b-96d7-f46dac49da11
+        sizes:
+          original:
+            bytes: 6987
+            bits: 55896
+            mb: 0.0067
+          compressed:
+            bytes: 2383
+            bits: 19064
+            mb: 0.0023
+        last_updated: '2026-04-08T11:35:26.326Z'
+        xxhash: c5436ba5d60b3e8d122001b8b25ae697
+      - name: 2025_07_OtherMarketInformation_r3.1.csv
+        file_id: 06757d44-88ea-4e98-b199-ab84268529bd
+        sizes:
+          original:
+            bytes: 7033
+            bits: 56264
+            mb: 0.0067
+          compressed:
+            bytes: 2434
+            bits: 19472
+            mb: 0.0023
+        last_updated: '2026-04-08T11:35:26.450Z'
+        xxhash: 8a3be73a52843ce2ce28d6ae5f88e7c9
+      - name: 2025_08_OtherMarketInformation_r3.1.csv
+        file_id: d2f486eb-7c66-4034-8843-a4ee4ffd22bf
+        sizes:
+          original:
+            bytes: 6604
+            bits: 52832
+            mb: 0.0063
+          compressed:
+            bytes: 2202
+            bits: 17616
+            mb: 0.0021
+        last_updated: '2026-04-08T11:35:26.584Z'
+        xxhash: 701e75e130ba935483e7735cbb626b7a
+      - name: 2025_09_OtherMarketInformation_r3.1.csv
+        file_id: 65e172e0-77ad-4081-a016-d4a168cfee23
+        sizes:
+          original:
+            bytes: 6032
+            bits: 48256
+            mb: 0.0058
+          compressed:
+            bytes: 2120
+            bits: 16960
+            mb: 0.002
+        last_updated: '2026-04-08T11:35:26.707Z'
+        xxhash: 08c76f065b4bbfc405e39e4989f2074a
+      - name: 2025_10_OtherMarketInformation_r3.1.csv
+        file_id: 2eb6e114-de5a-4159-907d-89d51e0738a0
+        sizes:
+          original:
+            bytes: 8632
+            bits: 69056
+            mb: 0.0082
+          compressed:
+            bytes: 2799
+            bits: 22392
+            mb: 0.0027
+        last_updated: '2026-04-08T11:35:26.838Z'
+        xxhash: 19f682005a75e650d3edd03af6000aba
+      - name: 2025_11_OtherMarketInformation_r3.1.csv
+        file_id: fc8ffd70-2428-4ffd-b05c-4ac1bf90694d
+        sizes:
+          original:
+            bytes: 7967
+            bits: 63736
+            mb: 0.0076
+          compressed:
+            bytes: 2684
+            bits: 21472
+            mb: 0.0026
+        last_updated: '2026-04-08T11:35:26.954Z'
+        xxhash: 2d7a96dedd9b2c4d42379599b6da3d42
+      - name: 2025_12_OtherMarketInformation_r3.1.csv
+        file_id: e34942cd-1cd8-492a-8fd9-a03f3004c8d8
+        sizes:
+          original:
+            bytes: 7521
+            bits: 60168
+            mb: 0.0072
+          compressed:
+            bytes: 2557
+            bits: 20456
+            mb: 0.0024
+        last_updated: '2026-04-08T11:35:27.085Z'
+        xxhash: 11ca6db2b90cdbbe429dbe930fe734c7
+      - name: 2026_01_OtherMarketInformation_r3.1.csv
+        file_id: 5def7ae6-8592-4760-a0d4-d51db992c947
+        sizes:
+          original:
+            bytes: 10203
+            bits: 81624
+            mb: 0.0097
+          compressed:
+            bytes: 3047
+            bits: 24376
+            mb: 0.0029
+        last_updated: '2026-04-08T11:35:27.223Z'
+        xxhash: bd0487aa5a706d19a38a35227d2aea6e
+      - name: 2026_02_OtherMarketInformation_r3.1.csv
+        file_id: ae8b6729-51c4-4278-b670-ca5d8597d8f6
+        sizes:
+          original:
+            bytes: 11088
+            bits: 88704
+            mb: 0.0106
+          compressed:
+            bytes: 3320
+            bits: 26560
+            mb: 0.0032
+        last_updated: '2026-04-08T11:35:27.370Z'
+        xxhash: fd81a56ec2ec3d9c931853ee3e29245c
+      - name: 2026_03_OtherMarketInformation_r3.1.csv
+        file_id: 02d5aaa2-156e-4943-b46d-84c90b9029ca
+        sizes:
+          original:
+            bytes: 9979
+            bits: 79832
+            mb: 0.0095
+          compressed:
+            bytes: 3047
+            bits: 24376
+            mb: 0.0029
+        last_updated: '2026-04-08T11:35:27.502Z'
+        xxhash: 2a78419c3eb01a7dcf248e6ea78b6811
+      - name: 2026_04_OtherMarketInformation_r3.1.csv
+        file_id: 250dc6b8-a113-45a3-acd5-d3d35a8ba7ef
+        sizes:
+          original:
+            bytes: 9979
+            bits: 79832
+            mb: 0.0095
+          compressed:
+            bytes: 3047
+            bits: 24376
+            mb: 0.0029
+        last_updated: '2026-04-11T05:05:40.409Z'
+        xxhash: 33460c1bcb8fae453541c05426586993
+      - name: 2026_05_OtherMarketInformation_r3.1.csv
+        file_id: 7958cc2e-9aea-4143-acc0-22acae9e345b
+        sizes:
+          original:
+            bytes: 11421
+            bits: 91368
+            mb: 0.0109
+          compressed:
+            bytes: 3209
+            bits: 25672
+            mb: 0.0031
+        last_updated: '2026-05-14T05:08:14.524Z'
+        xxhash: 7e01954afe9cf0319f3aaa72249121ed

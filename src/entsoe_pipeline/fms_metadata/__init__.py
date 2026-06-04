@@ -19,8 +19,8 @@ Provides classification rules for FMS folders and automated metadata discovery.
 
 from __future__ import annotations
 
-from entsoe_pipeline.fms_metadata.overview_ingest import (
-    classify_folder,
+from entsoe_pipeline.fms_metadata.core import classify_folder
+from entsoe_pipeline.fms_metadata.ingestion.overview_ingest import (
     ingest_fms_metadata,
 )
 

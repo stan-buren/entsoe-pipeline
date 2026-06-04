@@ -54,13 +54,13 @@ class ConfigurableEntsoeFileClient(EntsoeFileClient):
         # route their HTTP POST requests to our configured active environment
         # endpoint without any code duplication.
         self.token_url = token_url
-        self.BASEURL = base_url
+        self.BASEURL = base_url  # type: ignore
 
         # 2. Call parent constructor.
         # Polymorphism guarantees that parent's init calls our _update_token()
         super().__init__(
-            username=username,
-            pwd=pwd,
+            username=username,  # type: ignore
+            pwd=pwd,  # type: ignore
             session=session,
             proxies=proxies,
             timeout=timeout,

@@ -20,10 +20,10 @@ active configuration directory 'config_env' and compares it with the template di
 always keep the public templates structurally aligned, preventing onboarding issues.
 """
 
-from pathlib import Path
-
 import pytest
 import yaml
+
+from entsoe_pipeline import CONFIG_DIR, CONFIG_EXAMPLE_DIR
 
 
 def get_dict_keys_recursive(d: dict, prefix: str = "") -> set[str]:
@@ -51,6 +51,11 @@ def get_dict_keys_recursive(d: dict, prefix: str = "") -> set[str]:
     return keys
 
 
+# =============================================================================
+# 1. UNIT TESTS: SCHEMA MIRROR SYMMETRY
+# =============================================================================
+
+
 def test_config_mirror_symmetry() -> None:
     """Verify that the set of configuration files and their schemas match exactly.
 
@@ -59,12 +64,8 @@ def test_config_mirror_symmetry() -> None:
     This ensures that when a developer adds a private parameter to their local config,
     they are forced to document it with an abstract placeholder in the example config.
     """
-    # -------------------------------------------------------------------------
-    # 1. Resolve paths relative to this test file (tests/test_config_mirror.py)
-    # -------------------------------------------------------------------------
-    project_root = Path(__file__).resolve().parents[1]
-    config_dir = project_root / "config_env"
-    example_dir = project_root / "config_env_example"
+    config_dir = CONFIG_DIR
+    example_dir = CONFIG_EXAMPLE_DIR
 
     # -------------------------------------------------------------------------
     # 2. In CI/CD where 'config_env/' is ignored and not committed, skip the check

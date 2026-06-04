@@ -12,6 +12,7 @@ wheels/
 # Other
 __marimo__/
 pyproject.toml.example
+fms_metadata/.ideas.yml
 
 # Secrets
 .env
@@ -21,6 +22,7 @@ config_env/
 # data
 .data/
 notebooks/.learning_scripts/results/
+notebooks/getting_started/spark_notebooks/
 
 .ruff_cache/
 

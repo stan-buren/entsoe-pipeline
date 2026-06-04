@@ -1,0 +1,39 @@
+generated_at: '2026-05-27T11:03:32Z'
+total_api_requests: 3
+logs:
+  Export_log_r3.csv:
+    file_id: 554eb9cc-88e2-4a74-b426-a38a471ce072
+    last_updated: '2026-05-27T10:01:31.572Z'
+    xxhash: 08057ebeb4ff0528e4ba12365ae445fa
+    sizes:
+      original:
+        bytes: 1130656
+        bits: 9045248
+        mb: 1.0783
+      compressed:
+        bytes: 144760
+        bits: 1158080
+        mb: 0.1381
+    analytics:
+      total_rows: 11051
+      unique_datasets: 11051
+      date_range: 2011 to 2099
+      max_update_time_range: 01-01-2025 00:25:16 to 31-12-2025 22:04:17
+  Export_oce_log_r3.csv:
+    file_id: a5b1c4dd-b2ee-4cbd-ad8f-8ce1a958cae2
+    last_updated: '2026-05-27T00:44:31.966Z'
+    xxhash: 0ba3e4d287fe35ceed863f2d08ecc254
+    sizes:
+      original:
+        bytes: 48589157
+        bits: 388713256
+        mb: 46.3382
+      compressed:
+        bytes: 3353930
+        bits: 26831440
+        mb: 3.1986
+    analytics:
+      total_rows: 231332
+      unique_datasets: 231332
+      unique_borders: 136
+      date_range: 2019 to 2026

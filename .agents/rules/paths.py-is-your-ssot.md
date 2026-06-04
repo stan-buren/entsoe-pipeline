@@ -33,3 +33,5 @@ trigger: always_on
 > #### YOUR_UPPERCASE_CONSTANT_NAME = PROJECT_ROOT / "existing_in_reposetory_folder_name" / "another_folder_name_if_needed"
 
 And add this constant to __all__ section in 'src/entsoe_pipeline/__init__.py'
+
+### 6.**(OPTIONAL)** If you added new path at paths.py, so not forget to add it to 'tests/test_paths.py'

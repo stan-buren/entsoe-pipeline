@@ -1,0 +1,5853 @@
+generated_at: '2026-05-29T10:05:43Z'
+total_api_requests: 5
+folders:
+  ActualTotalLoad_6.1.A_r3:
+    folder_path: /TP_export/ActualTotalLoad_6.1.A_r3/
+    item_count: 141
+    sizes:
+      original:
+        bytes: 1090113249
+        bits: 8720905992
+        mb: 1039.613
+      compressed:
+        bytes: 83878754
+        bits: 671030032
+        mb: 79.993
+    files:
+      - name: 2014_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 5df457a2-3ea6-4ce2-b3a4-8836e5cb7c11
+        sizes:
+          original:
+            bytes: 286
+            bits: 2288
+            mb: 0.0003
+          compressed:
+            bytes: 347
+            bits: 2776
+            mb: 0.0003
+        last_updated: '2026-02-18T10:30:01.638Z'
+        xxhash: 5050bc7f8561a7ee2c8679423ad08844
+      - name: 2014_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: b036207c-fe6f-4734-97fa-977070a6a18f
+        sizes:
+          original:
+            bytes: 127982
+            bits: 1023856
+            mb: 0.1221
+          compressed:
+            bytes: 9564
+            bits: 76512
+            mb: 0.0091
+        last_updated: '2026-02-18T10:30:02.066Z'
+        xxhash: 240b5481ee98b8430dd8bd7d53a99d1d
+      - name: 2014_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: a38a1799-9e2d-4995-9e3e-5a9fbb7f4c24
+        sizes:
+          original:
+            bytes: 322061
+            bits: 2576488
+            mb: 0.3071
+          compressed:
+            bytes: 23387
+            bits: 187096
+            mb: 0.0223
+        last_updated: '2026-02-18T10:30:02.387Z'
+        xxhash: d92c0c2b8901763fd3c94aeb9284fc39
+      - name: 2014_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: d67c782d-e7f8-428b-9cb1-b043710c656f
+        sizes:
+          original:
+            bytes: 2479067
+            bits: 19832536
+            mb: 2.3642
+          compressed:
+            bytes: 187828
+            bits: 1502624
+            mb: 0.1791
+        last_updated: '2026-02-18T10:30:02.797Z'
+        xxhash: 2972c6314a5d9ce8c2f280e92c9e2183
+      - name: 2015_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 185919a3-f19d-41d5-b9bf-9332710d2dc2
+        sizes:
+          original:
+            bytes: 6943292
+            bits: 55546336
+            mb: 6.6216
+          compressed:
+            bytes: 540124
+            bits: 4320992
+            mb: 0.5151
+        last_updated: '2025-10-29T11:54:02.053Z'
+        xxhash: 9ee801ac5a2f1db9bd53c677435511b7
+      - name: 2015_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 1b21769f-cd93-4e64-bfe3-92076ad0d54c
+        sizes:
+          original:
+            bytes: 6316554
+            bits: 50532432
+            mb: 6.0239
+          compressed:
+            bytes: 488440
+            bits: 3907520
+            mb: 0.4658
+        last_updated: '2025-10-29T11:54:02.637Z'
+        xxhash: dcecf617dc73cea7bfa5c875b5dc278a
+      - name: 2015_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 267b75d1-f371-46f6-8aa3-e918cf6115c3
+        sizes:
+          original:
+            bytes: 6969603
+            bits: 55756824
+            mb: 6.6467
+          compressed:
+            bytes: 534607
+            bits: 4276856
+            mb: 0.5098
+        last_updated: '2025-10-29T11:54:03.234Z'
+        xxhash: ef7c3928e581085b4e3734ece62368b8
+      - name: 2015_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: f61c92b0-be93-4b0a-a364-e619b60bb2c8
+        sizes:
+          original:
+            bytes: 6846587
+            bits: 54772696
+            mb: 6.5294
+          compressed:
+            bytes: 520722
+            bits: 4165776
+            mb: 0.4966
+        last_updated: '2025-10-29T11:54:03.799Z'
+        xxhash: 947b4b132a4496acf75264ade33ad079
+      - name: 2015_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: e4d189c2-f3c9-4655-bb81-3bfa675f0fea
+        sizes:
+          original:
+            bytes: 7092595
+            bits: 56740760
+            mb: 6.764
+          compressed:
+            bytes: 540039
+            bits: 4320312
+            mb: 0.515
+        last_updated: '2025-10-29T11:54:04.419Z'
+        xxhash: 9556a1078fc040df3383ef4a12a6860b
+      - name: 2015_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: eef64df4-810d-45af-afef-6b03aece847c
+        sizes:
+          original:
+            bytes: 6782531
+            bits: 54260248
+            mb: 6.4683
+          compressed:
+            bytes: 516807
+            bits: 4134456
+            mb: 0.4929
+        last_updated: '2025-10-29T11:54:05.001Z'
+        xxhash: 0cb682c984adb45a28f1a1c018f95fe4
+      - name: 2015_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: ea13c77e-4d6e-4f7e-8ab7-d043548bd05a
+        sizes:
+          original:
+            bytes: 6901409
+            bits: 55211272
+            mb: 6.5817
+          compressed:
+            bytes: 528223
+            bits: 4225784
+            mb: 0.5038
+        last_updated: '2025-10-29T11:54:05.791Z'
+        xxhash: d5725ca1b0008684df126a714192e3a9
+      - name: 2015_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 81f5530e-3c57-477c-b93f-e3953c5092fa
+        sizes:
+          original:
+            bytes: 6811413
+            bits: 54491304
+            mb: 6.4959
+          compressed:
+            bytes: 523679
+            bits: 4189432
+            mb: 0.4994
+        last_updated: '2025-10-29T11:54:06.399Z'
+        xxhash: 142643602b2be2bc5d070d9fa14cd794
+      - name: 2015_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: f09884db-f96d-415e-90db-bc3d1b81dfb9
+        sizes:
+          original:
+            bytes: 6749775
+            bits: 53998200
+            mb: 6.4371
+          compressed:
+            bytes: 513839
+            bits: 4110712
+            mb: 0.49
+        last_updated: '2025-10-29T11:54:06.981Z'
+        xxhash: 890b53fee25d3d40e19d17c8d0762d42
+      - name: 2015_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 1b3531ac-ac5c-46fd-8c00-ee410c6b7062
+        sizes:
+          original:
+            bytes: 6944538
+            bits: 55556304
+            mb: 6.6228
+          compressed:
+            bytes: 533343
+            bits: 4266744
+            mb: 0.5086
+        last_updated: '2025-10-29T11:54:07.562Z'
+        xxhash: fcea6f4f3a4a7613f89ce0f3b149c37c
+      - name: 2015_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 368d9520-b2e0-4f9f-af57-5079cb399802
+        sizes:
+          original:
+            bytes: 6657718
+            bits: 53261744
+            mb: 6.3493
+          compressed:
+            bytes: 513818
+            bits: 4110544
+            mb: 0.49
+        last_updated: '2025-10-29T11:54:08.236Z'
+        xxhash: e93324cb7661a419fbf446063ac29246
+      - name: 2015_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 9808cea7-a236-4e0f-a115-aec770890b01
+        sizes:
+          original:
+            bytes: 6897016
+            bits: 55176128
+            mb: 6.5775
+          compressed:
+            bytes: 535929
+            bits: 4287432
+            mb: 0.5111
+        last_updated: '2025-10-29T11:54:08.794Z'
+        xxhash: 1a2d1b6afccf561f1a3b39b1e01a3d15
+      - name: 2016_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 2f3256d3-33e2-44ac-9b1b-774dc87e8362
+        sizes:
+          original:
+            bytes: 6815062
+            bits: 54520496
+            mb: 6.4993
+          compressed:
+            bytes: 530608
+            bits: 4244864
+            mb: 0.506
+        last_updated: '2025-10-29T11:54:09.347Z'
+        xxhash: eb762329bc89876399acc1bcecb1bf58
+      - name: 2016_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: aad98efc-4706-4be8-b612-938ecb986422
+        sizes:
+          original:
+            bytes: 6389410
+            bits: 51115280
+            mb: 6.0934
+          compressed:
+            bytes: 495245
+            bits: 3961960
+            mb: 0.4723
+        last_updated: '2025-10-29T11:54:10.041Z'
+        xxhash: 4391ad86169d4139da4fc9da21d4645a
+      - name: 2016_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: b27e4d5d-7d2d-41aa-89ce-56b88fc9e6d0
+        sizes:
+          original:
+            bytes: 6998097
+            bits: 55984776
+            mb: 6.6739
+          compressed:
+            bytes: 536308
+            bits: 4290464
+            mb: 0.5115
+        last_updated: '2025-10-29T11:54:10.656Z'
+        xxhash: 33b1582e41a76018cb2ddaf913f5d885
+      - name: 2016_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 0708135b-3bb8-47fb-9b5b-2f379bb3f63a
+        sizes:
+          original:
+            bytes: 6581293
+            bits: 52650344
+            mb: 6.2764
+          compressed:
+            bytes: 507845
+            bits: 4062760
+            mb: 0.4843
+        last_updated: '2025-10-29T11:54:11.198Z'
+        xxhash: 3915516f73a09dee49dfa9db47f42fa3
+      - name: 2016_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: ece1864e-b617-4500-aa6b-6f9134d15160
+        sizes:
+          original:
+            bytes: 6800007
+            bits: 54400056
+            mb: 6.485
+          compressed:
+            bytes: 524344
+            bits: 4194752
+            mb: 0.5001
+        last_updated: '2025-10-29T11:54:11.761Z'
+        xxhash: ae7670685c10307ea65dc26aee1c575f
+      - name: 2016_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 9cd4c9bc-e0c9-467f-839a-d3029198523b
+        sizes:
+          original:
+            bytes: 6597242
+            bits: 52777936
+            mb: 6.2916
+          compressed:
+            bytes: 506666
+            bits: 4053328
+            mb: 0.4832
+        last_updated: '2025-10-29T11:54:12.332Z'
+        xxhash: 76c82f1a9ddc4f1d874e0cecde472902
+      - name: 2016_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 8c6c2c26-d665-4d09-8fe2-da9c6f2f0043
+        sizes:
+          original:
+            bytes: 6889161
+            bits: 55113288
+            mb: 6.57
+          compressed:
+            bytes: 526986
+            bits: 4215888
+            mb: 0.5026
+        last_updated: '2025-10-29T11:54:13.118Z'
+        xxhash: cb6643cf94907ebb048fc5c1558b05ba
+      - name: 2016_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 6c607efa-56a7-46fd-a9bf-1fda703dae1b
+        sizes:
+          original:
+            bytes: 6875970
+            bits: 55007760
+            mb: 6.5574
+          compressed:
+            bytes: 525897
+            bits: 4207176
+            mb: 0.5015
+        last_updated: '2025-10-29T11:54:13.714Z'
+        xxhash: d50c5beb61f2b5b516a4c71cf8213fe8
+      - name: 2016_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: d5e34a62-e50c-44b3-a6e2-1b3150833ccb
+        sizes:
+          original:
+            bytes: 6626118
+            bits: 53008944
+            mb: 6.3192
+          compressed:
+            bytes: 507772
+            bits: 4062176
+            mb: 0.4842
+        last_updated: '2025-10-29T11:54:14.347Z'
+        xxhash: 1faaa2a9c0a1a4c0a75693262794a5fe
+      - name: 2016_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 66995ca7-1eaf-4033-a4fc-2004cd6dfd30
+        sizes:
+          original:
+            bytes: 6928646
+            bits: 55429168
+            mb: 6.6077
+          compressed:
+            bytes: 532902
+            bits: 4263216
+            mb: 0.5082
+        last_updated: '2025-10-29T11:54:15.125Z'
+        xxhash: b9d4376bfbe5b132aeb1f7031c50378f
+      - name: 2016_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 3d867e7f-7e2b-41cc-b462-392c13acd650
+        sizes:
+          original:
+            bytes: 6706487
+            bits: 53651896
+            mb: 6.3958
+          compressed:
+            bytes: 520193
+            bits: 4161544
+            mb: 0.4961
+        last_updated: '2025-10-29T11:54:15.731Z'
+        xxhash: 2c7c94d3472a450fd07ab03056f536ab
+      - name: 2016_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 9397cad2-1bd2-40e1-b471-628ffea15f3e
+        sizes:
+          original:
+            bytes: 6954307
+            bits: 55634456
+            mb: 6.6321
+          compressed:
+            bytes: 539162
+            bits: 4313296
+            mb: 0.5142
+        last_updated: '2025-10-29T11:54:16.299Z'
+        xxhash: f41cf2451fbce8cca8bb2c52826c08b1
+      - name: 2017_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 13eef83d-43ae-4da8-845b-06b1f8583390
+        sizes:
+          original:
+            bytes: 6963848
+            bits: 55710784
+            mb: 6.6412
+          compressed:
+            bytes: 545005
+            bits: 4360040
+            mb: 0.5198
+        last_updated: '2025-10-29T11:54:16.906Z'
+        xxhash: ce018ea937dd78b157eb27e1bdbe2493
+      - name: 2017_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: fb6c0471-c574-4769-9fb3-18077b29053c
+        sizes:
+          original:
+            bytes: 6283056
+            bits: 50264448
+            mb: 5.992
+          compressed:
+            bytes: 491552
+            bits: 3932416
+            mb: 0.4688
+        last_updated: '2025-10-29T11:54:17.594Z'
+        xxhash: 8688cd7570daed1725c3950b953a7a08
+      - name: 2017_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: e9654610-9d35-4670-8279-1dea8dc2beb6
+        sizes:
+          original:
+            bytes: 7025424
+            bits: 56203392
+            mb: 6.7
+          compressed:
+            bytes: 543599
+            bits: 4348792
+            mb: 0.5184
+        last_updated: '2025-10-29T11:54:18.205Z'
+        xxhash: 9d9fe85b6346d85b07873dd3028ba51d
+      - name: 2017_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: ca60629f-0d7c-4db2-bba9-f2e618bff3c7
+        sizes:
+          original:
+            bytes: 6801977
+            bits: 54415816
+            mb: 6.4869
+          compressed:
+            bytes: 529340
+            bits: 4234720
+            mb: 0.5048
+        last_updated: '2025-10-29T11:54:18.823Z'
+        xxhash: f144a038ac1e2671d2a51643eda8de32
+      - name: 2017_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 58b9944b-791e-403e-8647-d7a552555be1
+        sizes:
+          original:
+            bytes: 7019077
+            bits: 56152616
+            mb: 6.6939
+          compressed:
+            bytes: 547972
+            bits: 4383776
+            mb: 0.5226
+        last_updated: '2025-10-29T11:54:19.363Z'
+        xxhash: 6172982d82ff1f32442bc847d4646986
+      - name: 2017_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 5c2f5cdf-6684-4c82-9b97-e3d40b2283e3
+        sizes:
+          original:
+            bytes: 6803489
+            bits: 54427912
+            mb: 6.4883
+          compressed:
+            bytes: 530328
+            bits: 4242624
+            mb: 0.5058
+        last_updated: '2025-10-29T11:54:19.936Z'
+        xxhash: 86a84c6544f0f6ba20da14074e7075b6
+      - name: 2017_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 43dc602c-e122-46de-a202-ee6bb240c98b
+        sizes:
+          original:
+            bytes: 7040216
+            bits: 56321728
+            mb: 6.7141
+          compressed:
+            bytes: 545954
+            bits: 4367632
+            mb: 0.5207
+        last_updated: '2025-10-29T11:54:21.639Z'
+        xxhash: 5708357e910b0572bf1418e6f306be34
+      - name: 2017_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: f478434c-9661-4b50-9788-52cefde035ce
+        sizes:
+          original:
+            bytes: 7038060
+            bits: 56304480
+            mb: 6.712
+          compressed:
+            bytes: 544222
+            bits: 4353776
+            mb: 0.519
+        last_updated: '2025-10-29T11:54:22.217Z'
+        xxhash: 470f950809594fe3e84339a312e07744
+      - name: 2017_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: db3baf65-5f2a-4198-9574-70bc7f49a1d4
+        sizes:
+          original:
+            bytes: 6856579
+            bits: 54852632
+            mb: 6.5389
+          compressed:
+            bytes: 530409
+            bits: 4243272
+            mb: 0.5058
+        last_updated: '2025-10-29T11:54:22.891Z'
+        xxhash: eb516c607fec05bd68a723d556ccd9ee
+      - name: 2017_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 47a2700d-cd6c-4642-8651-5d8fea87ffdd
+        sizes:
+          original:
+            bytes: 7222355
+            bits: 57778840
+            mb: 6.8878
+          compressed:
+            bytes: 560127
+            bits: 4481016
+            mb: 0.5342
+        last_updated: '2025-10-29T11:54:23.552Z'
+        xxhash: 7bc792a672c8e4e8a9ce8c50728d1abf
+      - name: 2017_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 188acf76-09d4-4315-a253-0f798f7d817d
+        sizes:
+          original:
+            bytes: 7010075
+            bits: 56080600
+            mb: 6.6853
+          compressed:
+            bytes: 546751
+            bits: 4374008
+            mb: 0.5214
+        last_updated: '2025-10-29T11:54:24.189Z'
+        xxhash: 89ec01403a0e7e16aad8fceba5e2c6a9
+      - name: 2017_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: a7397be3-dbbd-4ce9-9c2e-6783cc1381ac
+        sizes:
+          original:
+            bytes: 7215086
+            bits: 57720688
+            mb: 6.8808
+          compressed:
+            bytes: 562371
+            bits: 4498968
+            mb: 0.5363
+        last_updated: '2025-10-29T11:54:24.872Z'
+        xxhash: cfbf508407e721ade42e1148e0145482
+      - name: 2018_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: ab8ac1da-041a-4316-9fa7-0666d13a40f6
+        sizes:
+          original:
+            bytes: 7235615
+            bits: 57884920
+            mb: 6.9004
+          compressed:
+            bytes: 561579
+            bits: 4492632
+            mb: 0.5356
+        last_updated: '2025-10-29T11:54:25.456Z'
+        xxhash: 4990eaca8461732772e96efb72155e28
+      - name: 2018_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 6bfca24f-e9ef-43e6-bb6b-96c635a56d39
+        sizes:
+          original:
+            bytes: 6553333
+            bits: 52426664
+            mb: 6.2497
+          compressed:
+            bytes: 511770
+            bits: 4094160
+            mb: 0.4881
+        last_updated: '2025-10-29T11:54:26.108Z'
+        xxhash: d1e4f28b0ac6cd5f3df046c6468e9b98
+      - name: 2018_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: cf5bae56-27ff-4edb-aafd-484ddd9dbddd
+        sizes:
+          original:
+            bytes: 7254810
+            bits: 58038480
+            mb: 6.9187
+          compressed:
+            bytes: 562820
+            bits: 4502560
+            mb: 0.5367
+        last_updated: '2025-10-29T11:54:26.677Z'
+        xxhash: 74ea846bbf9b9da78f5e439d5c1286b7
+      - name: 2018_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 48a32e17-3c25-462b-bebb-5485cd3b032c
+        sizes:
+          original:
+            bytes: 7010754
+            bits: 56086032
+            mb: 6.686
+          compressed:
+            bytes: 540738
+            bits: 4325904
+            mb: 0.5157
+        last_updated: '2025-10-29T11:54:27.290Z'
+        xxhash: a3b7b9f41f5a9158bbf8338704490992
+      - name: 2018_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: f3e8124d-f4e0-423c-85e9-b0503f597330
+        sizes:
+          original:
+            bytes: 7253478
+            bits: 58027824
+            mb: 6.9175
+          compressed:
+            bytes: 561930
+            bits: 4495440
+            mb: 0.5359
+        last_updated: '2025-10-29T11:54:27.873Z'
+        xxhash: 545d97f5d0afd66545e8a2ebb0be143b
+      - name: 2018_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: e3af68af-b7fe-4612-8598-7db0850e8a49
+        sizes:
+          original:
+            bytes: 6992095
+            bits: 55936760
+            mb: 6.6682
+          compressed:
+            bytes: 540864
+            bits: 4326912
+            mb: 0.5158
+        last_updated: '2025-10-29T11:55:28.498Z'
+        xxhash: 53b7db350cfda8a5901155b6e402a14b
+      - name: 2018_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 69c5e2ab-a435-46e2-94ed-7d1236ad6d75
+        sizes:
+          original:
+            bytes: 7248693
+            bits: 57989544
+            mb: 6.9129
+          compressed:
+            bytes: 559337
+            bits: 4474696
+            mb: 0.5334
+        last_updated: '2025-10-29T11:55:29.095Z'
+        xxhash: 8c939c36ec0d933d6182c44c67414e20
+      - name: 2018_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: c747b1a6-dc62-44a1-b008-eb26d1ab522b
+        sizes:
+          original:
+            bytes: 7248957
+            bits: 57991656
+            mb: 6.9131
+          compressed:
+            bytes: 561671
+            bits: 4493368
+            mb: 0.5357
+        last_updated: '2025-10-29T11:55:29.694Z'
+        xxhash: 531a4920e9a39d5e9693c4f6f1e53bef
+      - name: 2018_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 0b8a40b4-b83c-473b-96a1-6c737ad0fc30
+        sizes:
+          original:
+            bytes: 7009828
+            bits: 56078624
+            mb: 6.6851
+          compressed:
+            bytes: 539755
+            bits: 4318040
+            mb: 0.5148
+        last_updated: '2025-10-29T11:55:30.337Z'
+        xxhash: faa67fef0a28294a0c281a07b9aa5e00
+      - name: 2018_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 1ac01e81-edf6-4149-8a6d-16a692062eb4
+        sizes:
+          original:
+            bytes: 7217306
+            bits: 57738448
+            mb: 6.883
+          compressed:
+            bytes: 559577
+            bits: 4476616
+            mb: 0.5337
+        last_updated: '2025-10-29T11:55:31.035Z'
+        xxhash: 14be7e3e376d1012fcb47c6b5e37a4b8
+      - name: 2018_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 2e45f20f-f8bd-46f1-8ed9-13c5bd5af94c
+        sizes:
+          original:
+            bytes: 6989606
+            bits: 55916848
+            mb: 6.6658
+          compressed:
+            bytes: 544533
+            bits: 4356264
+            mb: 0.5193
+        last_updated: '2025-10-29T11:55:31.629Z'
+        xxhash: a8ba29497b2036610f571be599c2d8dd
+      - name: 2018_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 8c6dec66-cdd0-4c4f-b6d0-bda0d9e2560a
+        sizes:
+          original:
+            bytes: 7234761
+            bits: 57878088
+            mb: 6.8996
+          compressed:
+            bytes: 563729
+            bits: 4509832
+            mb: 0.5376
+        last_updated: '2025-10-29T11:55:32.330Z'
+        xxhash: a3a8da05e081539c52b13f8f04941db0
+      - name: 2019_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 5b5b29b8-66ca-460d-89ac-29c0c2328783
+        sizes:
+          original:
+            bytes: 7228395
+            bits: 57827160
+            mb: 6.8935
+          compressed:
+            bytes: 568117
+            bits: 4544936
+            mb: 0.5418
+        last_updated: '2025-10-29T11:55:32.971Z'
+        xxhash: 8597611c4ebec26242608ae671d5e619
+      - name: 2019_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: ac4f3193-ae19-4a75-9f54-aebe20dfa2cc
+        sizes:
+          original:
+            bytes: 6524211
+            bits: 52193688
+            mb: 6.222
+          compressed:
+            bytes: 515723
+            bits: 4125784
+            mb: 0.4918
+        last_updated: '2025-10-29T11:55:33.573Z'
+        xxhash: 77b6634bf73db66e827b1f212f1ce55d
+      - name: 2019_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 0f071bd1-d087-4d36-8aab-05c9eafb7787
+        sizes:
+          original:
+            bytes: 7216299
+            bits: 57730392
+            mb: 6.882
+          compressed:
+            bytes: 565742
+            bits: 4525936
+            mb: 0.5395
+        last_updated: '2025-10-29T11:55:34.190Z'
+        xxhash: 2ea875155c7cd33ab13839ab393d6c85
+      - name: 2019_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: d00a7f41-9426-46b0-bf8f-e3b81e344549
+        sizes:
+          original:
+            bytes: 6991661
+            bits: 55933288
+            mb: 6.6678
+          compressed:
+            bytes: 547567
+            bits: 4380536
+            mb: 0.5222
+        last_updated: '2025-10-29T11:55:34.829Z'
+        xxhash: 6699defdda04deff3d0445dcccb5c18a
+      - name: 2019_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: c4fcee47-9b96-47f3-be08-a484052cc3ab
+        sizes:
+          original:
+            bytes: 7204733
+            bits: 57637864
+            mb: 6.871
+          compressed:
+            bytes: 563852
+            bits: 4510816
+            mb: 0.5377
+        last_updated: '2025-10-29T11:55:35.457Z'
+        xxhash: e09d80757397c5f664c175200e124570
+      - name: 2019_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 6d099c48-3877-42ff-860c-02442fd9b3b9
+        sizes:
+          original:
+            bytes: 6836088
+            bits: 54688704
+            mb: 6.5194
+          compressed:
+            bytes: 537916
+            bits: 4303328
+            mb: 0.513
+        last_updated: '2025-10-29T11:55:36.041Z'
+        xxhash: 9dfe58d0c32b981798f34029a1290713
+      - name: 2019_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 74d5806e-f5fe-4e27-8f03-38c5a9ced549
+        sizes:
+          original:
+            bytes: 7104233
+            bits: 56833864
+            mb: 6.7751
+          compressed:
+            bytes: 556316
+            bits: 4450528
+            mb: 0.5305
+        last_updated: '2025-10-29T11:55:36.635Z'
+        xxhash: 051fd63f3eceaa05eba8d2a698ef6182
+      - name: 2019_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: f392ef92-dc0c-4461-b130-bcd2ea8103ae
+        sizes:
+          original:
+            bytes: 7233758
+            bits: 57870064
+            mb: 6.8986
+          compressed:
+            bytes: 565394
+            bits: 4523152
+            mb: 0.5392
+        last_updated: '2025-10-29T11:55:37.254Z'
+        xxhash: e1a14df60b1758baf686bcebbddd5146
+      - name: 2019_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 745900ed-56eb-412c-8a52-10684163dd04
+        sizes:
+          original:
+            bytes: 7004490
+            bits: 56035920
+            mb: 6.68
+          compressed:
+            bytes: 546449
+            bits: 4371592
+            mb: 0.5211
+        last_updated: '2025-10-29T11:55:37.839Z'
+        xxhash: 2d1c039f74f93d0773e50888c182599e
+      - name: 2019_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: e21f9449-7952-4c70-a9e9-f8b5c20a3622
+        sizes:
+          original:
+            bytes: 7227649
+            bits: 57821192
+            mb: 6.8928
+          compressed:
+            bytes: 563179
+            bits: 4505432
+            mb: 0.5371
+        last_updated: '2025-10-29T11:55:38.389Z'
+        xxhash: dc0be7183f0b27d2275fe4500041d44a
+      - name: 2019_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 7e1ec514-1f54-4db9-aa52-c70181e684df
+        sizes:
+          original:
+            bytes: 6960855
+            bits: 55686840
+            mb: 6.6384
+          compressed:
+            bytes: 547724
+            bits: 4381792
+            mb: 0.5224
+        last_updated: '2025-10-29T11:55:38.922Z'
+        xxhash: 19159ff8b77a1ccf9479618830f11a45
+      - name: 2019_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: c8786df5-c851-4bb1-826f-52e34ceaa45a
+        sizes:
+          original:
+            bytes: 7224139
+            bits: 57793112
+            mb: 6.8895
+          compressed:
+            bytes: 566811
+            bits: 4534488
+            mb: 0.5406
+        last_updated: '2025-10-29T11:55:39.468Z'
+        xxhash: 7da8bb855927c6f1fb22498e243f13a1
+      - name: 2020_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: a52fef10-fe03-4090-8dca-0dc1b594f894
+        sizes:
+          original:
+            bytes: 7289698
+            bits: 58317584
+            mb: 6.952
+          compressed:
+            bytes: 569230
+            bits: 4553840
+            mb: 0.5429
+        last_updated: '2025-10-29T11:55:40.011Z'
+        xxhash: 60e176ea34c1f235896b6da818cb547f
+      - name: 2020_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 9a105a09-56e4-480e-ab6e-03a60ea13874
+        sizes:
+          original:
+            bytes: 6838867
+            bits: 54710936
+            mb: 6.5221
+          compressed:
+            bytes: 536379
+            bits: 4291032
+            mb: 0.5115
+        last_updated: '2025-10-29T11:55:40.683Z'
+        xxhash: 658f004834f61e39bdece6985b993e75
+      - name: 2020_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 3e788360-f3f0-49ad-8295-10b29f1750b9
+        sizes:
+          original:
+            bytes: 7220748
+            bits: 57765984
+            mb: 6.8862
+          compressed:
+            bytes: 564309
+            bits: 4514472
+            mb: 0.5382
+        last_updated: '2025-10-29T11:55:41.240Z'
+        xxhash: 8488b6221c5ac5582b63f70e6af244ba
+      - name: 2020_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: e8e98f9f-ae5d-4410-ac53-acc7ee9e3496
+        sizes:
+          original:
+            bytes: 7037844
+            bits: 56302752
+            mb: 6.7118
+          compressed:
+            bytes: 546841
+            bits: 4374728
+            mb: 0.5215
+        last_updated: '2025-10-29T11:55:41.798Z'
+        xxhash: 67883b9226ab146f1823766e24f09902
+      - name: 2020_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 8dad6f52-4348-460b-b383-cab4508a107f
+        sizes:
+          original:
+            bytes: 7303427
+            bits: 58427416
+            mb: 6.9651
+          compressed:
+            bytes: 568295
+            bits: 4546360
+            mb: 0.542
+        last_updated: '2025-10-29T11:55:42.841Z'
+        xxhash: ae89cebb67e73f56d8c62d8aface2297
+      - name: 2020_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 3603a915-7058-484e-814b-397dc4dd6ad6
+        sizes:
+          original:
+            bytes: 7067214
+            bits: 56537712
+            mb: 6.7398
+          compressed:
+            bytes: 551861
+            bits: 4414888
+            mb: 0.5263
+        last_updated: '2025-10-29T11:55:43.397Z'
+        xxhash: 1ba680c89fa2b25cb2e20e1eed3923f7
+      - name: 2020_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 87f4b22b-deb5-4f0a-a6b8-3245971c147b
+        sizes:
+          original:
+            bytes: 7261981
+            bits: 58095848
+            mb: 6.9256
+          compressed:
+            bytes: 566271
+            bits: 4530168
+            mb: 0.54
+        last_updated: '2025-10-29T11:55:43.956Z'
+        xxhash: 2518b0be6670eadb62c1026519882962
+      - name: 2020_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 26c438f8-e7d1-4a04-9725-b83b2d115a46
+        sizes:
+          original:
+            bytes: 7276794
+            bits: 58214352
+            mb: 6.9397
+          compressed:
+            bytes: 569613
+            bits: 4556904
+            mb: 0.5432
+        last_updated: '2025-10-29T11:55:44.561Z'
+        xxhash: fc5cef2831235dfcbd92572edec3717b
+      - name: 2020_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 25a4f4a8-84a6-4a0b-b950-a8d9b2d23f9a
+        sizes:
+          original:
+            bytes: 7062215
+            bits: 56497720
+            mb: 6.7351
+          compressed:
+            bytes: 550996
+            bits: 4407968
+            mb: 0.5255
+        last_updated: '2025-10-29T11:55:45.134Z'
+        xxhash: 4457bbd9fd70ba8a15e9cdfd9c8caf3e
+      - name: 2020_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 7c4a94cb-ac17-4862-bdd0-1cf3514575b1
+        sizes:
+          original:
+            bytes: 7279723
+            bits: 58237784
+            mb: 6.9425
+          compressed:
+            bytes: 568410
+            bits: 4547280
+            mb: 0.5421
+        last_updated: '2025-10-29T11:55:45.752Z'
+        xxhash: 73150a0c77001a308f1f513eeacc5eb9
+      - name: 2020_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: a984a71a-d9bb-4346-85f2-e17662fa39ac
+        sizes:
+          original:
+            bytes: 7057355
+            bits: 56458840
+            mb: 6.7304
+          compressed:
+            bytes: 556252
+            bits: 4450016
+            mb: 0.5305
+        last_updated: '2025-10-29T11:55:46.321Z'
+        xxhash: 619089c0627c4483a1910e04fa53922d
+      - name: 2020_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: fd6ba026-16be-48cb-a4e7-9e19a1f4c2f5
+        sizes:
+          original:
+            bytes: 7311504
+            bits: 58492032
+            mb: 6.9728
+          compressed:
+            bytes: 574175
+            bits: 4593400
+            mb: 0.5476
+        last_updated: '2025-10-29T11:55:46.927Z'
+        xxhash: 28ec1c89dcd3b198a34beea22d79a8da
+      - name: 2021_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 53b86889-7208-47c4-b917-d5d5dd84998a
+        sizes:
+          original:
+            bytes: 7393575
+            bits: 59148600
+            mb: 7.0511
+          compressed:
+            bytes: 580480
+            bits: 4643840
+            mb: 0.5536
+        last_updated: '2025-10-29T11:55:47.626Z'
+        xxhash: beb1cd92d7456c13501e1675d2309bbd
+      - name: 2021_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 05d4a58a-94c5-4213-a62b-6c073b60f875
+        sizes:
+          original:
+            bytes: 6862310
+            bits: 54898480
+            mb: 6.5444
+          compressed:
+            bytes: 539324
+            bits: 4314592
+            mb: 0.5143
+        last_updated: '2025-10-29T11:55:48.201Z'
+        xxhash: b98352b86903bb5ad8398828bef2b9c6
+      - name: 2021_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 1afb8681-4b00-4e60-bf52-2446b2298f3a
+        sizes:
+          original:
+            bytes: 7592510
+            bits: 60740080
+            mb: 7.2408
+          compressed:
+            bytes: 588454
+            bits: 4707632
+            mb: 0.5612
+        last_updated: '2025-10-29T11:55:48.742Z'
+        xxhash: 1f37820e0ce0a82c3ceebb3c6be6716a
+      - name: 2021_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: c7c37ba1-5572-4455-8bba-a321fa0dfe18
+        sizes:
+          original:
+            bytes: 7342350
+            bits: 58738800
+            mb: 7.0022
+          compressed:
+            bytes: 568744
+            bits: 4549952
+            mb: 0.5424
+        last_updated: '2025-10-29T11:55:49.356Z'
+        xxhash: f7606c9bb27f197c1b2fa5ed5c1e0582
+      - name: 2021_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 474d9ca2-dc15-4b9a-b1fe-e10594ce33de
+        sizes:
+          original:
+            bytes: 7587959
+            bits: 60703672
+            mb: 7.2364
+          compressed:
+            bytes: 589871
+            bits: 4718968
+            mb: 0.5625
+        last_updated: '2025-10-29T11:55:49.926Z'
+        xxhash: 7bd8ca759f4cf73e039a4104cac11b10
+      - name: 2021_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: ebbfb9d4-bb53-428c-a292-06ac45c21e38
+        sizes:
+          original:
+            bytes: 7210592
+            bits: 57684736
+            mb: 6.8766
+          compressed:
+            bytes: 558278
+            bits: 4466224
+            mb: 0.5324
+        last_updated: '2025-10-29T11:55:50.503Z'
+        xxhash: 584314ee126019f7f97dc6288c9503cf
+      - name: 2021_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 9ee4ceea-65fb-4ef0-8d2a-cb213fbfcc77
+        sizes:
+          original:
+            bytes: 7330631
+            bits: 58645048
+            mb: 6.991
+          compressed:
+            bytes: 566843
+            bits: 4534744
+            mb: 0.5406
+        last_updated: '2025-10-29T11:55:51.068Z'
+        xxhash: d5235d2227f2026e419df60ca4fb265d
+      - name: 2021_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 59867c71-34e0-492f-b0d7-6d5ae046d0d0
+        sizes:
+          original:
+            bytes: 7378273
+            bits: 59026184
+            mb: 7.0365
+          compressed:
+            bytes: 571377
+            bits: 4571016
+            mb: 0.5449
+        last_updated: '2025-10-29T11:55:51.667Z'
+        xxhash: 0aabb71db5b1ed70e10b74c4678035fc
+      - name: 2021_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 83e43c88-aa33-47dd-8376-be6800da467f
+        sizes:
+          original:
+            bytes: 7236318
+            bits: 57890544
+            mb: 6.9011
+          compressed:
+            bytes: 555383
+            bits: 4443064
+            mb: 0.5297
+        last_updated: '2025-10-29T11:55:52.303Z'
+        xxhash: 3e9669e04cb96328d0abdd411cc7b07a
+      - name: 2021_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 557b1d60-d783-4775-b65d-fc681e51e288
+        sizes:
+          original:
+            bytes: 7562903
+            bits: 60503224
+            mb: 7.2125
+          compressed:
+            bytes: 579440
+            bits: 4635520
+            mb: 0.5526
+        last_updated: '2025-10-29T11:55:52.870Z'
+        xxhash: fe6f69c34f534615c7a98c658da39c20
+      - name: 2021_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 32f2f5dc-6157-4214-a0a6-e8db67313373
+        sizes:
+          original:
+            bytes: 7426072
+            bits: 59408576
+            mb: 7.0821
+          compressed:
+            bytes: 571847
+            bits: 4574776
+            mb: 0.5454
+        last_updated: '2025-10-29T11:55:53.430Z'
+        xxhash: e958114d3284f5da58a8855169b1e22f
+      - name: 2021_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 945ada55-ab2c-4dbe-a365-9523dcc5432d
+        sizes:
+          original:
+            bytes: 7619901
+            bits: 60959208
+            mb: 7.2669
+          compressed:
+            bytes: 587862
+            bits: 4702896
+            mb: 0.5606
+        last_updated: '2025-10-29T11:55:54.052Z'
+        xxhash: 87d8058a892c4c1451857d4c7f1a4c4d
+      - name: 2022_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 8b29d0a4-25a9-4614-8a2e-231422b9a7b3
+        sizes:
+          original:
+            bytes: 7896633
+            bits: 63173064
+            mb: 7.5308
+          compressed:
+            bytes: 602642
+            bits: 4821136
+            mb: 0.5747
+        last_updated: '2025-10-29T11:55:54.637Z'
+        xxhash: 9861fbc01176e83257faa2c65c847eb3
+      - name: 2022_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: d9e7b544-cb56-4767-b8be-79239620387a
+        sizes:
+          original:
+            bytes: 7111623
+            bits: 56892984
+            mb: 6.7822
+          compressed:
+            bytes: 541780
+            bits: 4334240
+            mb: 0.5167
+        last_updated: '2025-10-29T11:55:55.228Z'
+        xxhash: d06e0cf4f9618093bf6191f6aa4c6ee7
+      - name: 2022_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 34f3f9db-f374-40fa-8e0f-f2770682d4ca
+        sizes:
+          original:
+            bytes: 7699684
+            bits: 61597472
+            mb: 7.343
+          compressed:
+            bytes: 585508
+            bits: 4684064
+            mb: 0.5584
+        last_updated: '2025-10-29T11:55:55.852Z'
+        xxhash: 4676ea504a3b18d0545db2ace7e5f0e2
+      - name: 2022_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 1b684938-fc33-495c-8b4a-3b19bd53aeec
+        sizes:
+          original:
+            bytes: 7439357
+            bits: 59514856
+            mb: 7.0947
+          compressed:
+            bytes: 565910
+            bits: 4527280
+            mb: 0.5397
+        last_updated: '2025-10-29T11:55:56.448Z'
+        xxhash: 24f7055441622fc8e2c3d1cb629d8904
+      - name: 2022_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 8051ce25-93a8-49bb-8146-52ea3830901f
+        sizes:
+          original:
+            bytes: 7753676
+            bits: 62029408
+            mb: 7.3945
+          compressed:
+            bytes: 587728
+            bits: 4701824
+            mb: 0.5605
+        last_updated: '2025-10-29T11:55:57.008Z'
+        xxhash: 7f84164cbd5546da513b965fcda94d65
+      - name: 2022_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 7d42a31c-22d5-4020-8247-48bfda5c5189
+        sizes:
+          original:
+            bytes: 7548174
+            bits: 60385392
+            mb: 7.1985
+          compressed:
+            bytes: 571159
+            bits: 4569272
+            mb: 0.5447
+        last_updated: '2025-10-29T11:55:57.617Z'
+        xxhash: 4f0cd82a71b6d59f6008c465f447ca3d
+      - name: 2022_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 07869e92-92d4-4461-b412-3969b7455409
+        sizes:
+          original:
+            bytes: 7742600
+            bits: 61940800
+            mb: 7.3839
+          compressed:
+            bytes: 587771
+            bits: 4702168
+            mb: 0.5605
+        last_updated: '2025-10-29T11:56:58.253Z'
+        xxhash: ea1cbb07c489c152829d0d38d4478f85
+      - name: 2022_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: dc8f956d-2172-49cc-9029-0b198f6152ff
+        sizes:
+          original:
+            bytes: 7735708
+            bits: 61885664
+            mb: 7.3773
+          compressed:
+            bytes: 588698
+            bits: 4709584
+            mb: 0.5614
+        last_updated: '2025-10-29T11:56:58.861Z'
+        xxhash: 68d3dece86098d3ce2e37159977d7b60
+      - name: 2022_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 2c145f9f-3e7a-4a93-bead-a9ebff971600
+        sizes:
+          original:
+            bytes: 7504041
+            bits: 60032328
+            mb: 7.1564
+          compressed:
+            bytes: 567048
+            bits: 4536384
+            mb: 0.5408
+        last_updated: '2025-10-29T11:56:59.491Z'
+        xxhash: d549c6225de780c5e43e672a6090e0b1
+      - name: 2022_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: d8401edb-0c6e-48bf-a30e-41009c6e1eb6
+        sizes:
+          original:
+            bytes: 7734463
+            bits: 61875704
+            mb: 7.3762
+          compressed:
+            bytes: 586848
+            bits: 4694784
+            mb: 0.5597
+        last_updated: '2025-10-29T11:57:00.066Z'
+        xxhash: 11d6557dea37f50cf856a86250ed8441
+      - name: 2022_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 6e2d4ec2-849a-46a7-9b05-ffcd7cdee53f
+        sizes:
+          original:
+            bytes: 7489306
+            bits: 59914448
+            mb: 7.1424
+          compressed:
+            bytes: 571539
+            bits: 4572312
+            mb: 0.5451
+        last_updated: '2025-10-29T11:57:00.752Z'
+        xxhash: d760315b8bb66ee7276afe76f8cebfef
+      - name: 2022_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 5c04066a-c889-4202-8526-a88478361c6a
+        sizes:
+          original:
+            bytes: 7736746
+            bits: 61893968
+            mb: 7.3783
+          compressed:
+            bytes: 590642
+            bits: 4725136
+            mb: 0.5633
+        last_updated: '2025-10-29T11:57:01.379Z'
+        xxhash: 23029ff58ea08f27beedc46335be2d8c
+      - name: 2023_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: b5ecd293-6ac9-4291-b363-d3debc35508f
+        sizes:
+          original:
+            bytes: 7971128
+            bits: 63769024
+            mb: 7.6019
+          compressed:
+            bytes: 602800
+            bits: 4822400
+            mb: 0.5749
+        last_updated: '2025-10-29T11:57:02.038Z'
+        xxhash: 4dd1d4b02ccf9a8e47fc34a3fd5e0349
+      - name: 2023_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 93ffd2b0-2885-4338-ab59-e709ecb3a2d1
+        sizes:
+          original:
+            bytes: 7191433
+            bits: 57531464
+            mb: 6.8583
+          compressed:
+            bytes: 546967
+            bits: 4375736
+            mb: 0.5216
+        last_updated: '2025-10-29T11:57:02.757Z'
+        xxhash: 7964220107a213fe94609daf6945f71c
+      - name: 2023_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 1570a7ba-05fc-4d4b-a36b-19842c036f2b
+        sizes:
+          original:
+            bytes: 7929523
+            bits: 63436184
+            mb: 7.5622
+          compressed:
+            bytes: 597740
+            bits: 4781920
+            mb: 0.57
+        last_updated: '2025-10-29T11:57:03.346Z'
+        xxhash: e6470a0c1f760d2c84e607c82662b0cc
+      - name: 2023_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: e0376d6f-dabe-493d-aba8-f130244570ea
+        sizes:
+          original:
+            bytes: 7357787
+            bits: 58862296
+            mb: 7.0169
+          compressed:
+            bytes: 557939
+            bits: 4463512
+            mb: 0.5321
+        last_updated: '2025-10-29T11:57:03.990Z'
+        xxhash: 3ed2d7f33f5b57682d2d7c334f73f92d
+      - name: 2023_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: f66c1440-9ed1-4346-9f37-f947b2ca1845
+        sizes:
+          original:
+            bytes: 7687678
+            bits: 61501424
+            mb: 7.3315
+          compressed:
+            bytes: 579505
+            bits: 4636040
+            mb: 0.5527
+        last_updated: '2025-10-29T11:57:04.566Z'
+        xxhash: a39adc7d110b34ef378c25f51a949f8c
+      - name: 2023_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 7badbf33-9569-4bf8-8432-54dabd8caf8c
+        sizes:
+          original:
+            bytes: 7934162
+            bits: 63473296
+            mb: 7.5666
+          compressed:
+            bytes: 596647
+            bits: 4773176
+            mb: 0.569
+        last_updated: '2025-10-29T11:57:05.209Z'
+        xxhash: 4fe2ba99d1897a83e6b515f2dba42eb8
+      - name: 2023_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: ebcba599-2856-405e-a44e-f61d8a9a6b3d
+        sizes:
+          original:
+            bytes: 8216725
+            bits: 65733800
+            mb: 7.8361
+          compressed:
+            bytes: 618988
+            bits: 4951904
+            mb: 0.5903
+        last_updated: '2025-10-29T11:57:05.872Z'
+        xxhash: 6b1a8fe1ed81532f49796d9c0fdde0fd
+      - name: 2023_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 19527fb1-8acb-43bf-b167-4a03f170ddd5
+        sizes:
+          original:
+            bytes: 8198534
+            bits: 65588272
+            mb: 7.8187
+          compressed:
+            bytes: 615691
+            bits: 4925528
+            mb: 0.5872
+        last_updated: '2025-10-29T11:57:06.501Z'
+        xxhash: 7830621ccf410c519f0dba383150e31b
+      - name: 2023_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 1fb48eb5-99ea-40c9-8016-43e021fe9a35
+        sizes:
+          original:
+            bytes: 7951081
+            bits: 63608648
+            mb: 7.5827
+          compressed:
+            bytes: 597718
+            bits: 4781744
+            mb: 0.57
+        last_updated: '2025-10-29T11:57:07.122Z'
+        xxhash: 2f38e81fff3af77cea6fc5088bf3a58b
+      - name: 2023_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 82047aaf-ce01-4860-841c-7365fcb7eb51
+        sizes:
+          original:
+            bytes: 8193864
+            bits: 65550912
+            mb: 7.8143
+          compressed:
+            bytes: 617960
+            bits: 4943680
+            mb: 0.5893
+        last_updated: '2025-10-29T11:57:07.745Z'
+        xxhash: 1ec3655ae1447f45b7f570371169c479
+      - name: 2023_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: dc0bd22f-26a5-48f7-9bbb-557388d87f01
+        sizes:
+          original:
+            bytes: 7951305
+            bits: 63610440
+            mb: 7.583
+          compressed:
+            bytes: 599226
+            bits: 4793808
+            mb: 0.5715
+        last_updated: '2025-10-29T11:57:08.354Z'
+        xxhash: 1ff3d4f9cc1c1c92a62c38fd0e15f374
+      - name: 2023_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 9713cb7a-9c3e-4055-91e9-d8137d3d5c68
+        sizes:
+          original:
+            bytes: 8209340
+            bits: 65674720
+            mb: 7.829
+          compressed:
+            bytes: 622784
+            bits: 4982272
+            mb: 0.5939
+        last_updated: '2025-10-29T11:57:09.005Z'
+        xxhash: 0fffd391891a005ab5e08a9a5ca4dd01
+      - name: 2024_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 85d379c9-8dc3-4552-9b59-71416fbce998
+        sizes:
+          original:
+            bytes: 8239017
+            bits: 65912136
+            mb: 7.8573
+          compressed:
+            bytes: 623621
+            bits: 4988968
+            mb: 0.5947
+        last_updated: '2025-10-29T11:57:09.671Z'
+        xxhash: 786b6a4ff11a0ddca238508dfb32876d
+      - name: 2024_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 12fcae53-e7e1-4bd3-ba1b-6ca11c3243a6
+        sizes:
+          original:
+            bytes: 7719603
+            bits: 61756824
+            mb: 7.362
+          compressed:
+            bytes: 582496
+            bits: 4659968
+            mb: 0.5555
+        last_updated: '2025-10-29T11:57:10.422Z'
+        xxhash: 83df89ddb6cf2c9f22df7e087b2bf3d3
+      - name: 2024_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: a730830a-731c-4fd9-8e5c-e1e8fd8fef3c
+        sizes:
+          original:
+            bytes: 8265473
+            bits: 66123784
+            mb: 7.8826
+          compressed:
+            bytes: 625916
+            bits: 5007328
+            mb: 0.5969
+        last_updated: '2025-10-29T11:57:11.042Z'
+        xxhash: 7913e06b66e2815745aeaea42339818c
+      - name: 2024_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: aa36a43e-6735-4a06-87b6-0afc1d33ac2f
+        sizes:
+          original:
+            bytes: 7995022
+            bits: 63960176
+            mb: 7.6246
+          compressed:
+            bytes: 603964
+            bits: 4831712
+            mb: 0.576
+        last_updated: '2025-10-29T11:57:11.723Z'
+        xxhash: e6004d0b8facf11d0caefae8232457eb
+      - name: 2024_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 628ded38-d1ed-4ef7-b54a-d36d75b332d9
+        sizes:
+          original:
+            bytes: 8190108
+            bits: 65520864
+            mb: 7.8107
+          compressed:
+            bytes: 616576
+            bits: 4932608
+            mb: 0.588
+        last_updated: '2025-10-29T11:57:12.337Z'
+        xxhash: dad602eb43356957675ad8c364532bc2
+      - name: 2024_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: e060906e-974f-462d-a8cc-95a1212c06c0
+        sizes:
+          original:
+            bytes: 8064007
+            bits: 64512056
+            mb: 7.6904
+          compressed:
+            bytes: 610568
+            bits: 4884544
+            mb: 0.5823
+        last_updated: '2026-01-19T01:29:48.570Z'
+        xxhash: 514ab22ddefe4ce6b79760b380f75fe6
+      - name: 2024_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: a918a370-3c81-4f1b-91d7-4b264a3068a5
+        sizes:
+          original:
+            bytes: 8668689
+            bits: 69349512
+            mb: 8.2671
+          compressed:
+            bytes: 655270
+            bits: 5242160
+            mb: 0.6249
+        last_updated: '2026-01-19T01:29:49.238Z'
+        xxhash: 62e2748be4f8650f054fc6e17b5cd714
+      - name: 2024_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 20f73f63-9255-4df8-ab10-bb61ae646ec4
+        sizes:
+          original:
+            bytes: 8656539
+            bits: 69252312
+            mb: 8.2555
+          compressed:
+            bytes: 654794
+            bits: 5238352
+            mb: 0.6245
+        last_updated: '2026-01-19T01:29:49.857Z'
+        xxhash: 55d0be9ab7833b030475f755d4cbb771
+      - name: 2024_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 390f1528-fd6d-429a-acd2-7487c1535c5f
+        sizes:
+          original:
+            bytes: 8355800
+            bits: 66846400
+            mb: 7.9687
+          compressed:
+            bytes: 636407
+            bits: 5091256
+            mb: 0.6069
+        last_updated: '2026-01-19T02:53:51.334Z'
+        xxhash: e4de161580f68cb78337b6d30174b413
+      - name: 2024_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: b5f0ca95-24f5-468c-8527-0ee2ac274cfb
+        sizes:
+          original:
+            bytes: 8669134
+            bits: 69353072
+            mb: 8.2675
+          compressed:
+            bytes: 656401
+            bits: 5251208
+            mb: 0.626
+        last_updated: '2026-01-19T01:29:51.149Z'
+        xxhash: 2f9b9335788b1ae45155a081f8e726bb
+      - name: 2024_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 81748810-d5bb-490a-9ae3-0d429787489e
+        sizes:
+          original:
+            bytes: 8499103
+            bits: 67992824
+            mb: 8.1054
+          compressed:
+            bytes: 644946
+            bits: 5159568
+            mb: 0.6151
+        last_updated: '2026-01-19T02:53:51.986Z'
+        xxhash: 2a80b4e6044b394fd1fb8b00a37c3882
+      - name: 2024_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: dff25da8-1c54-4192-a889-42eb397b98e7
+        sizes:
+          original:
+            bytes: 8992177
+            bits: 71937416
+            mb: 8.5756
+          compressed:
+            bytes: 683307
+            bits: 5466456
+            mb: 0.6517
+        last_updated: '2026-05-22T10:34:36.135Z'
+        xxhash: b5329eda9d038d092101576dba9b069e
+      - name: 2025_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 280ce5b7-bd94-4dc1-a920-32352ef40233
+        sizes:
+          original:
+            bytes: 11132099
+            bits: 89056792
+            mb: 10.6164
+          compressed:
+            bytes: 797262
+            bits: 6378096
+            mb: 0.7603
+        last_updated: '2026-05-22T11:11:31.230Z'
+        xxhash: 3f7d4fa79462b08400216c63aed6d3e5
+      - name: 2025_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 09691369-d7af-4f5e-a511-b4cff5e6b7f1
+        sizes:
+          original:
+            bytes: 10014557
+            bits: 80116456
+            mb: 9.5506
+          compressed:
+            bytes: 719219
+            bits: 5753752
+            mb: 0.6859
+        last_updated: '2026-05-22T11:11:32.225Z'
+        xxhash: c316dcb7cba12732d3803ad1a1736bae
+      - name: 2025_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 14c4ee75-7114-44d4-8d91-b5357819612b
+        sizes:
+          original:
+            bytes: 11838130
+            bits: 94705040
+            mb: 11.2897
+          compressed:
+            bytes: 861036
+            bits: 6888288
+            mb: 0.8211
+        last_updated: '2026-04-23T16:20:09.277Z'
+        xxhash: 113145350806da381e440788176c31a2
+      - name: 2025_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 2859b895-fc37-4da2-b282-362e9dfd72b2
+        sizes:
+          original:
+            bytes: 12174490
+            bits: 97395920
+            mb: 11.6105
+          compressed:
+            bytes: 887690
+            bits: 7101520
+            mb: 0.8466
+        last_updated: '2026-05-15T09:38:12.323Z'
+        xxhash: 9fa3bd00933ca44779c04928b1ba75f0
+      - name: 2025_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 8e22908a-fbd2-4b2a-90c1-4828837c097b
+        sizes:
+          original:
+            bytes: 12550481
+            bits: 100403848
+            mb: 11.9691
+          compressed:
+            bytes: 916896
+            bits: 7335168
+            mb: 0.8744
+        last_updated: '2026-05-15T09:38:13.293Z'
+        xxhash: 8dc15c207f7d42e33c40c8c38de89d0c
+      - name: 2025_06_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 226bf5de-a28d-4bda-b2cc-cb6a804dba7c
+        sizes:
+          original:
+            bytes: 12144461
+            bits: 97155688
+            mb: 11.5819
+          compressed:
+            bytes: 893409
+            bits: 7147272
+            mb: 0.852
+        last_updated: '2026-05-02T09:59:57.786Z'
+        xxhash: 83c5c552616e58f6ac2b15c4de5f2f69
+      - name: 2025_07_ActualTotalLoad_6.1.A_r3.csv
+        file_id: d184a4e5-eb32-426a-9add-b21d88dd2e65
+        sizes:
+          original:
+            bytes: 12593938
+            bits: 100751504
+            mb: 12.0105
+          compressed:
+            bytes: 916469
+            bits: 7331752
+            mb: 0.874
+        last_updated: '2026-05-02T09:59:58.664Z'
+        xxhash: 84a95ac71660b9d3d40df9e9932047bf
+      - name: 2025_08_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 669686e5-863e-4a84-9d58-985c1e6baea2
+        sizes:
+          original:
+            bytes: 12575569
+            bits: 100604552
+            mb: 11.993
+          compressed:
+            bytes: 919798
+            bits: 7358384
+            mb: 0.8772
+        last_updated: '2026-05-02T09:59:59.438Z'
+        xxhash: e35e4e734feaec81bf067e1f539393b2
+      - name: 2025_09_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 050050d4-b1dd-452e-a0fd-7d49a8b4ec83
+        sizes:
+          original:
+            bytes: 12089422
+            bits: 96715376
+            mb: 11.5294
+          compressed:
+            bytes: 881633
+            bits: 7053064
+            mb: 0.8408
+        last_updated: '2026-05-16T09:25:29.085Z'
+        xxhash: 0ab9fd6d4b068e64afe961df88894dc0
+      - name: 2025_10_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 834fcbd7-6597-4335-86c3-039dcfdca543
+        sizes:
+          original:
+            bytes: 12495120
+            bits: 99960960
+            mb: 11.9163
+          compressed:
+            bytes: 922401
+            bits: 7379208
+            mb: 0.8797
+        last_updated: '2026-05-22T12:37:17.873Z'
+        xxhash: 38c2c954e5138d5e0f1d1c56a4d6467d
+      - name: 2025_11_ActualTotalLoad_6.1.A_r3.csv
+        file_id: f1024939-2a50-4e0d-9457-668e7e85a235
+        sizes:
+          original:
+            bytes: 12077950
+            bits: 96623600
+            mb: 11.5184
+          compressed:
+            bytes: 912077
+            bits: 7296616
+            mb: 0.8698
+        last_updated: '2026-05-23T09:37:35.726Z'
+        xxhash: 2171fad81173de23f4ad79dcb191de41
+      - name: 2025_12_ActualTotalLoad_6.1.A_r3.csv
+        file_id: ab6a12d0-b369-4555-88f2-bee3913ee38b
+        sizes:
+          original:
+            bytes: 13561566
+            bits: 108492528
+            mb: 12.9333
+          compressed:
+            bytes: 1028446
+            bits: 8227568
+            mb: 0.9808
+        last_updated: '2026-05-23T09:37:36.528Z'
+        xxhash: d8e25b3eee2e511f9bc2a8a7b9149a73
+      - name: 2026_01_ActualTotalLoad_6.1.A_r3.csv
+        file_id: cb72ac10-b4c0-4d2b-ae88-3359564b7877
+        sizes:
+          original:
+            bytes: 13778351
+            bits: 110226808
+            mb: 13.1401
+          compressed:
+            bytes: 1040385
+            bits: 8323080
+            mb: 0.9922
+        last_updated: '2026-05-23T09:37:37.323Z'
+        xxhash: 45dbc5672cc6270640e3ea77bddffe87
+      - name: 2026_02_ActualTotalLoad_6.1.A_r3.csv
+        file_id: 2aebde5d-ac72-46c9-a366-23b99be02606
+        sizes:
+          original:
+            bytes: 12268191
+            bits: 98145528
+            mb: 11.6999
+          compressed:
+            bytes: 990639
+            bits: 7925112
+            mb: 0.9447
+        last_updated: '2026-05-23T09:37:38.127Z'
+        xxhash: c2a2c60c0d320a8f70ab3f6b22466e82
+      - name: 2026_03_ActualTotalLoad_6.1.A_r3.csv
+        file_id: e74394ee-6a7f-453e-9c48-3db0caffe201
+        sizes:
+          original:
+            bytes: 13424678
+            bits: 107397424
+            mb: 12.8028
+          compressed:
+            bytes: 1212268
+            bits: 9698144
+            mb: 1.1561
+        last_updated: '2026-05-28T10:17:31.658Z'
+        xxhash: f5f71044c40a15ebe6f480aba5d30523
+      - name: 2026_04_ActualTotalLoad_6.1.A_r3.csv
+        file_id: e391a346-5abe-4ab2-a7ef-9885ce219891
+        sizes:
+          original:
+            bytes: 12898946
+            bits: 103191568
+            mb: 12.3014
+          compressed:
+            bytes: 1133623
+            bits: 9068984
+            mb: 1.0811
+        last_updated: '2026-05-29T07:10:44.443Z'
+        xxhash: 15a56290fd81d259273606c3be99b508
+      - name: 2026_05_ActualTotalLoad_6.1.A_r3.csv
+        file_id: ba162a27-c406-41fe-a34e-66663cdec6e3
+        sizes:
+          original:
+            bytes: 12156077
+            bits: 97248616
+            mb: 11.5929
+          compressed:
+            bytes: 1074117
+            bits: 8592936
+            mb: 1.0244
+        last_updated: '2026-05-29T09:44:47.938Z'
+        xxhash: 13d5251a8d20ca7e200f87072fcefaf8
+  DayAheadTotalLoadForecast_6.1.B_r3:
+    folder_path: /TP_export/DayAheadTotalLoadForecast_6.1.B_r3/
+    item_count: 142
+    sizes:
+      original:
+        bytes: 1056991708
+        bits: 8455933664
+        mb: 1008.0258
+      compressed:
+        bytes: 77748368
+        bits: 621986944
+        mb: 74.1466
+    files:
+      - name: 2014_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: c92597ae-11f8-494e-bcc4-fdb019ea80ef
+        sizes:
+          original:
+            bytes: 2605
+            bits: 20840
+            mb: 0.0025
+          compressed:
+            bytes: 595
+            bits: 4760
+            mb: 0.0006
+        last_updated: '2025-10-29T11:58:57.529Z'
+        xxhash: ea93c0830dce9b41cdd85c78f43f5691
+      - name: 2014_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: d1e8a8ac-84e7-4d7f-bae4-ed1ef9a4e056
+        sizes:
+          original:
+            bytes: 2534
+            bits: 20272
+            mb: 0.0024
+          compressed:
+            bytes: 528
+            bits: 4224
+            mb: 0.0005
+        last_updated: '2025-10-29T11:58:57.735Z'
+        xxhash: 0c046d5d239da86d23468b6ad0b60c8e
+      - name: 2014_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 1b773b0d-a1b8-47bf-96f5-bf409b5c6470
+        sizes:
+          original:
+            bytes: 2534
+            bits: 20272
+            mb: 0.0024
+          compressed:
+            bytes: 529
+            bits: 4232
+            mb: 0.0005
+        last_updated: '2025-10-29T11:58:57.933Z'
+        xxhash: ed7ef19675ace3738e364aea73df076b
+      - name: 2014_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 3ee5368f-a779-4d8d-854b-6143384bae43
+        sizes:
+          original:
+            bytes: 1892781
+            bits: 15142248
+            mb: 1.8051
+          compressed:
+            bytes: 148154
+            bits: 1185232
+            mb: 0.1413
+        last_updated: '2025-10-29T11:58:58.259Z'
+        xxhash: e49ce32f10588fb607e362f78de5f58f
+      - name: 2015_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 96f15167-590c-409d-878e-2f3a628e96be
+        sizes:
+          original:
+            bytes: 6770776
+            bits: 54166208
+            mb: 6.4571
+          compressed:
+            bytes: 513180
+            bits: 4105440
+            mb: 0.4894
+        last_updated: '2025-10-29T11:58:58.697Z'
+        xxhash: 5bb41e071ddb1956f93551564e12f1b2
+      - name: 2015_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: c2164130-3229-45b2-9f78-9426b96a3a94
+        sizes:
+          original:
+            bytes: 6277213
+            bits: 50217704
+            mb: 5.9864
+          compressed:
+            bytes: 474905
+            bits: 3799240
+            mb: 0.4529
+        last_updated: '2025-10-29T11:58:59.228Z'
+        xxhash: 275f012d6ac3b72c1fb646c9bcbb7cea
+      - name: 2015_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: df679a18-5dc1-4214-9b45-9059ba9c9d94
+        sizes:
+          original:
+            bytes: 6816546
+            bits: 54532368
+            mb: 6.5008
+          compressed:
+            bytes: 517867
+            bits: 4142936
+            mb: 0.4939
+        last_updated: '2025-10-29T11:58:59.709Z'
+        xxhash: e934df0f1680d8c83d9b356894eac90d
+      - name: 2015_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 69ae0dec-5806-420c-ad68-8b188b052fd3
+        sizes:
+          original:
+            bytes: 6791982
+            bits: 54335856
+            mb: 6.4773
+          compressed:
+            bytes: 509922
+            bits: 4079376
+            mb: 0.4863
+        last_updated: '2025-10-29T11:59:00.263Z'
+        xxhash: f1ed8970efbcaf9871d5b5672d6da6fa
+      - name: 2015_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 2a6b7551-faa2-4054-96cd-0ff2b3b9e5e4
+        sizes:
+          original:
+            bytes: 7019406
+            bits: 56155248
+            mb: 6.6942
+          compressed:
+            bytes: 522548
+            bits: 4180384
+            mb: 0.4983
+        last_updated: '2025-10-29T11:59:00.900Z'
+        xxhash: fd05b92bb4116f431bb2654e7a455ede
+      - name: 2015_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 4399a111-6f53-4576-942b-d5d007991eba
+        sizes:
+          original:
+            bytes: 6778272
+            bits: 54226176
+            mb: 6.4643
+          compressed:
+            bytes: 508542
+            bits: 4068336
+            mb: 0.485
+        last_updated: '2025-10-29T11:59:01.432Z'
+        xxhash: b7a33abb22cdd0ddfb03e120c0bf9edd
+      - name: 2015_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 5e051339-aaef-4ad3-8a71-f89e4716408a
+        sizes:
+          original:
+            bytes: 7097707
+            bits: 56781656
+            mb: 6.7689
+          compressed:
+            bytes: 531394
+            bits: 4251152
+            mb: 0.5068
+        last_updated: '2025-10-29T11:59:01.928Z'
+        xxhash: 631f5517824b78e1bc0a4a46c076d8c1
+      - name: 2015_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 1623df74-103a-431d-b6fa-f32f48976de7
+        sizes:
+          original:
+            bytes: 7007927
+            bits: 56063416
+            mb: 6.6833
+          compressed:
+            bytes: 530681
+            bits: 4245448
+            mb: 0.5061
+        last_updated: '2025-10-29T11:59:02.484Z'
+        xxhash: cf06f494db4416fb752a3ba6df2c32f1
+      - name: 2015_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 4020a73e-f3ce-4b05-9a92-749d8f98d611
+        sizes:
+          original:
+            bytes: 6901418
+            bits: 55211344
+            mb: 6.5817
+          compressed:
+            bytes: 518074
+            bits: 4144592
+            mb: 0.4941
+        last_updated: '2025-10-29T11:59:02.985Z'
+        xxhash: 038113ebf07573b7269c53ff776d2061
+      - name: 2015_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: e48439e4-1e64-4cde-914e-4df8783e2d0b
+        sizes:
+          original:
+            bytes: 7189043
+            bits: 57512344
+            mb: 6.856
+          compressed:
+            bytes: 539016
+            bits: 4312128
+            mb: 0.514
+        last_updated: '2025-10-29T11:59:03.514Z'
+        xxhash: 55a340952d628cd2b058cec1558ab7b6
+      - name: 2015_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 7dd707f8-08fb-43f4-bd8d-7c596e06597b
+        sizes:
+          original:
+            bytes: 6875907
+            bits: 55007256
+            mb: 6.5574
+          compressed:
+            bytes: 518704
+            bits: 4149632
+            mb: 0.4947
+        last_updated: '2025-10-29T11:59:04.035Z'
+        xxhash: 3209fd03e49ba38113904a19c0364f09
+      - name: 2015_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: a5ba3a3d-cd2e-486c-bd4c-629faa02e83b
+        sizes:
+          original:
+            bytes: 7007126
+            bits: 56057008
+            mb: 6.6825
+          compressed:
+            bytes: 535105
+            bits: 4280840
+            mb: 0.5103
+        last_updated: '2025-10-29T11:59:04.536Z'
+        xxhash: 75435854a2ed7d31a846481269255f46
+      - name: 2016_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 942c4a73-094e-4985-82fd-c5f747a5c927
+        sizes:
+          original:
+            bytes: 7029504
+            bits: 56236032
+            mb: 6.7039
+          compressed:
+            bytes: 539775
+            bits: 4318200
+            mb: 0.5148
+        last_updated: '2025-10-29T11:59:05.031Z'
+        xxhash: fafad335d93f0573e4df97562f873601
+      - name: 2016_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 77d5c682-4da6-4100-8a1b-e7d2c182f065
+        sizes:
+          original:
+            bytes: 6597723
+            bits: 52781784
+            mb: 6.2921
+          compressed:
+            bytes: 501892
+            bits: 4015136
+            mb: 0.4786
+        last_updated: '2025-10-29T11:59:05.595Z'
+        xxhash: 3d4a96e85634d5d32b130b69744a113f
+      - name: 2016_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 1355ab86-2ca0-48bf-acaa-0746b56b75d2
+        sizes:
+          original:
+            bytes: 7183731
+            bits: 57469848
+            mb: 6.8509
+          compressed:
+            bytes: 541563
+            bits: 4332504
+            mb: 0.5165
+        last_updated: '2025-10-29T11:59:06.117Z'
+        xxhash: 475ac398ced61cbc148742cbe99868b0
+      - name: 2016_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: d0efc5f3-98ba-435f-a325-aa49384b420b
+        sizes:
+          original:
+            bytes: 6775404
+            bits: 54203232
+            mb: 6.4615
+          compressed:
+            bytes: 512097
+            bits: 4096776
+            mb: 0.4884
+        last_updated: '2025-10-29T11:59:06.676Z'
+        xxhash: 8a4b26b2cec18be41bc07c7d15cf67b6
+      - name: 2016_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 3177a88e-2d46-4bdd-812a-a902ed00f49e
+        sizes:
+          original:
+            bytes: 7038884
+            bits: 56311072
+            mb: 6.7128
+          compressed:
+            bytes: 533921
+            bits: 4271368
+            mb: 0.5092
+        last_updated: '2025-10-29T11:59:07.208Z'
+        xxhash: 0f2c9869741a2ed24c7e11184cdad2a8
+      - name: 2016_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 73748705-ec70-4f3e-ac1f-773a8023c7aa
+        sizes:
+          original:
+            bytes: 6820873
+            bits: 54566984
+            mb: 6.5049
+          compressed:
+            bytes: 515147
+            bits: 4121176
+            mb: 0.4913
+        last_updated: '2025-10-29T11:59:07.704Z'
+        xxhash: 72d7b862130351fb2d7bd5b3487bf32a
+      - name: 2016_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 7735d38b-211e-4921-91f6-a7a97f458cab
+        sizes:
+          original:
+            bytes: 7125392
+            bits: 57003136
+            mb: 6.7953
+          compressed:
+            bytes: 542270
+            bits: 4338160
+            mb: 0.5171
+        last_updated: '2025-10-29T11:59:08.206Z'
+        xxhash: 21f07d6e53df5043aecd07dc4162fbe5
+      - name: 2016_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 20792d82-28de-49ee-a98b-bd8c8029066f
+        sizes:
+          original:
+            bytes: 7041149
+            bits: 56329192
+            mb: 6.715
+          compressed:
+            bytes: 537877
+            bits: 4303016
+            mb: 0.513
+        last_updated: '2025-10-29T11:59:08.928Z'
+        xxhash: 82499c210e40183c8e9e1f5ed7fcaa53
+      - name: 2016_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: fa530fc3-9fc0-426c-ab8f-08bc3648414d
+        sizes:
+          original:
+            bytes: 6804838
+            bits: 54438704
+            mb: 6.4896
+          compressed:
+            bytes: 517612
+            bits: 4140896
+            mb: 0.4936
+        last_updated: '2025-10-29T11:59:09.498Z'
+        xxhash: c82158119f52680cc572beaee3aba477
+      - name: 2016_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 3c4f4ccb-6838-40b4-bd79-7cb61b057650
+        sizes:
+          original:
+            bytes: 6994603
+            bits: 55956824
+            mb: 6.6706
+          compressed:
+            bytes: 536322
+            bits: 4290576
+            mb: 0.5115
+        last_updated: '2025-10-29T11:59:10.089Z'
+        xxhash: 47a48c928b6b1003fd9e0e09fe08e19b
+      - name: 2016_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: aa71215a-dba9-41c1-946a-3300509ac1f2
+        sizes:
+          original:
+            bytes: 6808188
+            bits: 54465504
+            mb: 6.4928
+          compressed:
+            bytes: 525562
+            bits: 4204496
+            mb: 0.5012
+        last_updated: '2025-10-29T11:59:10.631Z'
+        xxhash: ba93d19dae51c07f76882ac2a079ae41
+      - name: 2016_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: a4e965da-bc0f-41b3-880e-7973b138b1f0
+        sizes:
+          original:
+            bytes: 7043620
+            bits: 56348960
+            mb: 6.7173
+          compressed:
+            bytes: 542874
+            bits: 4342992
+            mb: 0.5177
+        last_updated: '2025-10-29T11:59:23.637Z'
+        xxhash: bafa6085963020d9661231d8fbfd69ea
+      - name: 2017_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 2278a9b2-1fc8-4809-90eb-e28cf63ae29d
+        sizes:
+          original:
+            bytes: 7041305
+            bits: 56330440
+            mb: 6.7151
+          compressed:
+            bytes: 540973
+            bits: 4327784
+            mb: 0.5159
+        last_updated: '2025-10-29T11:59:25.359Z'
+        xxhash: fc3b5fc0fa79d575079295514a267463
+      - name: 2017_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 338ec7f5-2327-41a6-9be7-3fabbd008a44
+        sizes:
+          original:
+            bytes: 6358884
+            bits: 50871072
+            mb: 6.0643
+          compressed:
+            bytes: 490298
+            bits: 3922384
+            mb: 0.4676
+        last_updated: '2025-10-29T11:59:25.901Z'
+        xxhash: 05770ca61724320db2172e3a0b5281f3
+      - name: 2017_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: a4dae20a-ac79-4e39-914e-b89b26069b28
+        sizes:
+          original:
+            bytes: 7014362
+            bits: 56114896
+            mb: 6.6894
+          compressed:
+            bytes: 536503
+            bits: 4292024
+            mb: 0.5116
+        last_updated: '2025-10-29T11:59:26.507Z'
+        xxhash: 2adb1df0f94767c9b7f693e48efe235d
+      - name: 2017_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 9cad21cd-3190-412e-88d2-acc77a301db3
+        sizes:
+          original:
+            bytes: 6781967
+            bits: 54255736
+            mb: 6.4678
+          compressed:
+            bytes: 517989
+            bits: 4143912
+            mb: 0.494
+        last_updated: '2025-10-29T11:59:27.099Z'
+        xxhash: 44f5ed5137896dc95b31503fed583550
+      - name: 2017_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 45b18b31-22ae-4225-a241-0386623b89db
+        sizes:
+          original:
+            bytes: 7009667
+            bits: 56077336
+            mb: 6.6849
+          compressed:
+            bytes: 538654
+            bits: 4309232
+            mb: 0.5137
+        last_updated: '2025-10-29T11:59:27.627Z'
+        xxhash: 7d25dd1b1affd02be9d29e97e05f7d3e
+      - name: 2017_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: e1e23dde-45e8-47fb-9855-c013c9a3c3f5
+        sizes:
+          original:
+            bytes: 6803966
+            bits: 54431728
+            mb: 6.4888
+          compressed:
+            bytes: 519386
+            bits: 4155088
+            mb: 0.4953
+        last_updated: '2025-10-29T11:59:28.229Z'
+        xxhash: c4b090ebfb6ef6824ea96ff2ee8e7853
+      - name: 2017_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 42d46921-0d0f-493b-8c87-7d83d4ce2086
+        sizes:
+          original:
+            bytes: 7023589
+            bits: 56188712
+            mb: 6.6982
+          compressed:
+            bytes: 537744
+            bits: 4301952
+            mb: 0.5128
+        last_updated: '2025-10-29T11:59:28.772Z'
+        xxhash: 41b930559678dc99208a3b3495f09cf1
+      - name: 2017_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 1e73a332-bb4c-40a8-b201-0ef48efce826
+        sizes:
+          original:
+            bytes: 7036153
+            bits: 56289224
+            mb: 6.7102
+          compressed:
+            bytes: 537670
+            bits: 4301360
+            mb: 0.5128
+        last_updated: '2025-10-29T11:59:29.287Z'
+        xxhash: 656908719a575878e697cdcb6810e77e
+      - name: 2017_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: ee8315d4-ff28-452a-a17a-7a4254a90f72
+        sizes:
+          original:
+            bytes: 6739170
+            bits: 53913360
+            mb: 6.427
+          compressed:
+            bytes: 512282
+            bits: 4098256
+            mb: 0.4886
+        last_updated: '2025-10-29T11:59:29.788Z'
+        xxhash: 3035b6075a8034736c49af1f7ea37bd2
+      - name: 2017_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 75f434ff-d71d-4988-a2d8-b85cf99d788c
+        sizes:
+          original:
+            bytes: 7202397
+            bits: 57619176
+            mb: 6.8687
+          compressed:
+            bytes: 546217
+            bits: 4369736
+            mb: 0.5209
+        last_updated: '2025-10-29T11:59:30.392Z'
+        xxhash: cb7137f69d975b78107b406f0a3fdabb
+      - name: 2017_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 63758c3b-adb2-41b8-a3ba-0b662bfe5ed3
+        sizes:
+          original:
+            bytes: 7011030
+            bits: 56088240
+            mb: 6.6862
+          compressed:
+            bytes: 532864
+            bits: 4262912
+            mb: 0.5082
+        last_updated: '2025-10-29T11:59:30.968Z'
+        xxhash: 8b2f97243217125d2d14474ed30acbc3
+      - name: 2017_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 8d35f988-27ae-4419-baac-fc038cba794c
+        sizes:
+          original:
+            bytes: 7215258
+            bits: 57722064
+            mb: 6.881
+          compressed:
+            bytes: 551414
+            bits: 4411312
+            mb: 0.5259
+        last_updated: '2025-10-29T11:59:32.907Z'
+        xxhash: f9af48ae43869f35ba670ed81ac7184c
+      - name: 2018_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 47f64e0d-0bab-4b66-be16-6c0a724022f1
+        sizes:
+          original:
+            bytes: 7157526
+            bits: 57260208
+            mb: 6.8259
+          compressed:
+            bytes: 545603
+            bits: 4364824
+            mb: 0.5203
+        last_updated: '2025-10-29T11:59:33.458Z'
+        xxhash: bf4d17027eeb5b2c117faaaa7398de1f
+      - name: 2018_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 3ea0ff89-8696-4bd0-a34a-e34227ddb129
+        sizes:
+          original:
+            bytes: 6423014
+            bits: 51384112
+            mb: 6.1255
+          compressed:
+            bytes: 489381
+            bits: 3915048
+            mb: 0.4667
+        last_updated: '2025-10-29T11:59:33.981Z'
+        xxhash: c8a679ec4df7d8d8307d36dce2446640
+      - name: 2018_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 6cb6741a-ed3c-4c1f-807e-555b4dd99dcd
+        sizes:
+          original:
+            bytes: 7083895
+            bits: 56671160
+            mb: 6.7557
+          compressed:
+            bytes: 537579
+            bits: 4300632
+            mb: 0.5127
+        last_updated: '2025-10-29T11:59:34.474Z'
+        xxhash: e7f15312d12b094e5483af702fa22b6d
+      - name: 2018_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: e5c0fe8d-072a-479b-b82e-ba22b9e00178
+        sizes:
+          original:
+            bytes: 6878082
+            bits: 55024656
+            mb: 6.5595
+          compressed:
+            bytes: 520415
+            bits: 4163320
+            mb: 0.4963
+        last_updated: '2025-10-29T12:00:35.076Z'
+        xxhash: db07164535636e857dc8a8bdce6b13fd
+      - name: 2018_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 816703a1-f522-4a18-8384-725844756aba
+        sizes:
+          original:
+            bytes: 7105650
+            bits: 56845200
+            mb: 6.7765
+          compressed:
+            bytes: 535233
+            bits: 4281864
+            mb: 0.5104
+        last_updated: '2025-10-29T12:00:35.817Z'
+        xxhash: 76d85f8fd40e1904f3fa00bf3342224f
+      - name: 2018_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 0751b7f7-5e54-420b-b1f8-7a72c11e79e6
+        sizes:
+          original:
+            bytes: 6875931
+            bits: 55007448
+            mb: 6.5574
+          compressed:
+            bytes: 519494
+            bits: 4155952
+            mb: 0.4954
+        last_updated: '2025-10-29T12:00:36.420Z'
+        xxhash: ff6387088cef59a9e27c03e21340eec7
+      - name: 2018_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 95d2029e-7154-4d23-b083-65c7aa46eccc
+        sizes:
+          original:
+            bytes: 7008242
+            bits: 56065936
+            mb: 6.6836
+          compressed:
+            bytes: 525463
+            bits: 4203704
+            mb: 0.5011
+        last_updated: '2025-10-29T12:00:36.985Z'
+        xxhash: a9fbae4e94717cb032d3b59cdd65e10a
+      - name: 2018_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 120f3f92-259f-4118-8496-3b421d6d13eb
+        sizes:
+          original:
+            bytes: 7105659
+            bits: 56845272
+            mb: 6.7765
+          compressed:
+            bytes: 535368
+            bits: 4282944
+            mb: 0.5106
+        last_updated: '2025-10-29T12:00:37.697Z'
+        xxhash: 4bd032976288d1e47f449484e4eafbf5
+      - name: 2018_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 502937f4-61a2-44a7-89d1-ac896c570518
+        sizes:
+          original:
+            bytes: 6691396
+            bits: 53531168
+            mb: 6.3814
+          compressed:
+            bytes: 505002
+            bits: 4040016
+            mb: 0.4816
+        last_updated: '2025-10-29T12:00:38.872Z'
+        xxhash: d049c537bd500f1d5c1efea817b85312
+      - name: 2018_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 792e37e0-196d-4fbb-a4c7-3eefff563dc7
+        sizes:
+          original:
+            bytes: 6878016
+            bits: 55024128
+            mb: 6.5594
+          compressed:
+            bytes: 516619
+            bits: 4132952
+            mb: 0.4927
+        last_updated: '2025-10-29T12:00:39.466Z'
+        xxhash: 87986f99207dc790b3a1f28a3dc96e17
+      - name: 2018_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 6e1767b9-bee0-4c40-a4ea-b81104beb9ee
+        sizes:
+          original:
+            bytes: 6681499
+            bits: 53451992
+            mb: 6.372
+          compressed:
+            bytes: 505233
+            bits: 4041864
+            mb: 0.4818
+        last_updated: '2025-10-29T12:00:40.073Z'
+        xxhash: 70a8f7b528dfb5bfd8eb537e4ca3dd07
+      - name: 2018_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 8433c067-d3f2-4a29-9c2a-4757f2dae21f
+        sizes:
+          original:
+            bytes: 6805321
+            bits: 54442568
+            mb: 6.4901
+          compressed:
+            bytes: 515931
+            bits: 4127448
+            mb: 0.492
+        last_updated: '2025-10-29T12:00:40.730Z'
+        xxhash: bfa0f8e284cbc7ce3846d615e4ae72bc
+      - name: 2019_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: d0c6b2c0-2c25-467a-9cd5-ffc47c4a9155
+        sizes:
+          original:
+            bytes: 7086870
+            bits: 56694960
+            mb: 6.7586
+          compressed:
+            bytes: 538756
+            bits: 4310048
+            mb: 0.5138
+        last_updated: '2025-10-29T12:00:41.397Z'
+        xxhash: 0294d034a726f62fb631398fdcad2bd5
+      - name: 2019_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: e318e13b-2b5c-4aa4-80d5-f5d50215354b
+        sizes:
+          original:
+            bytes: 6401390
+            bits: 51211120
+            mb: 6.1048
+          compressed:
+            bytes: 487504
+            bits: 3900032
+            mb: 0.4649
+        last_updated: '2025-10-29T12:00:41.978Z'
+        xxhash: cfc1ee19827f075c2209bcc806e5735e
+      - name: 2019_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 3d8f7892-ad5e-42f5-85b2-1512743124fa
+        sizes:
+          original:
+            bytes: 7054930
+            bits: 56439440
+            mb: 6.7281
+          compressed:
+            bytes: 536574
+            bits: 4292592
+            mb: 0.5117
+        last_updated: '2025-10-29T12:00:42.583Z'
+        xxhash: 2290bdbcd14f473972d32ccbddf469b5
+      - name: 2019_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 95f028c4-95f0-42fe-bc45-920ab227ed90
+        sizes:
+          original:
+            bytes: 6859713
+            bits: 54877704
+            mb: 6.5419
+          compressed:
+            bytes: 522769
+            bits: 4182152
+            mb: 0.4986
+        last_updated: '2025-10-29T12:00:43.247Z'
+        xxhash: 61baa1fc137107c5a6fba9e69168bc6e
+      - name: 2019_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: aef836bc-13e5-45cb-9555-233e92037b2f
+        sizes:
+          original:
+            bytes: 7049267
+            bits: 56394136
+            mb: 6.7227
+          compressed:
+            bytes: 534440
+            bits: 4275520
+            mb: 0.5097
+        last_updated: '2025-10-29T12:00:43.959Z'
+        xxhash: a47d2f40b47effe141ddc8a474dc0b77
+      - name: 2019_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: aad895ae-dae7-4448-a037-8d71b4f68a26
+        sizes:
+          original:
+            bytes: 6801124
+            bits: 54408992
+            mb: 6.4861
+          compressed:
+            bytes: 517600
+            bits: 4140800
+            mb: 0.4936
+        last_updated: '2025-10-29T12:00:44.782Z'
+        xxhash: bf73a03b2a6f57681a2d2e80168bd44e
+      - name: 2019_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 5920d5c3-27d3-4f5b-b939-7d86f949cf37
+        sizes:
+          original:
+            bytes: 7063980
+            bits: 56511840
+            mb: 6.7367
+          compressed:
+            bytes: 533660
+            bits: 4269280
+            mb: 0.5089
+        last_updated: '2025-10-29T12:00:46.230Z'
+        xxhash: ce72a775ff368d6b8960efe12678fa07
+      - name: 2019_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 2af58c1b-41e3-4694-82c9-561aa6ba6648
+        sizes:
+          original:
+            bytes: 7081798
+            bits: 56654384
+            mb: 6.7537
+          compressed:
+            bytes: 537292
+            bits: 4298336
+            mb: 0.5124
+        last_updated: '2025-10-29T12:00:47.454Z'
+        xxhash: f1f281ec7635a471e9b6e4d47bbe4f6a
+      - name: 2019_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 3e8ecbe4-02b8-4e86-9062-ea62a8e2ced9
+        sizes:
+          original:
+            bytes: 6847305
+            bits: 54778440
+            mb: 6.5301
+          compressed:
+            bytes: 519821
+            bits: 4158568
+            mb: 0.4957
+        last_updated: '2025-10-29T12:00:48.243Z'
+        xxhash: fc90e4b1134909ab1126b388fcad1cf8
+      - name: 2019_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: f94d35a6-2bbe-4c25-83da-a02288c2e14a
+        sizes:
+          original:
+            bytes: 7049213
+            bits: 56393704
+            mb: 6.7227
+          compressed:
+            bytes: 533145
+            bits: 4265160
+            mb: 0.5084
+        last_updated: '2025-10-29T12:00:49.148Z'
+        xxhash: e2f2ddd0bed3bd55d2c4cb92da518858
+      - name: 2019_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: cf6eec24-39b0-4566-a4b9-a969e6abf8ae
+        sizes:
+          original:
+            bytes: 6887808
+            bits: 55102464
+            mb: 6.5687
+          compressed:
+            bytes: 526373
+            bits: 4210984
+            mb: 0.502
+        last_updated: '2025-10-29T12:00:50.051Z'
+        xxhash: 75d2f6d33ffe3f63537f902335d3745d
+      - name: 2019_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: ea011c0d-d6de-4cf0-8510-5f6dfeda0089
+        sizes:
+          original:
+            bytes: 7150810
+            bits: 57206480
+            mb: 6.8195
+          compressed:
+            bytes: 540979
+            bits: 4327832
+            mb: 0.5159
+        last_updated: '2025-10-29T12:00:51.643Z'
+        xxhash: 2b49b77cb4eea2c440652a075f8c135b
+      - name: 2020_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 892b019e-201b-47a9-bea6-dfb7cf6f9ddf
+        sizes:
+          original:
+            bytes: 7164875
+            bits: 57319000
+            mb: 6.833
+          compressed:
+            bytes: 539948
+            bits: 4319584
+            mb: 0.5149
+        last_updated: '2025-10-29T12:00:52.470Z'
+        xxhash: 7a8765be231bde9c2ab67c7b9bd70534
+      - name: 2020_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 222cb1f5-5ffb-4a0b-91e7-41eb1bf0ec44
+        sizes:
+          original:
+            bytes: 6702299
+            bits: 53618392
+            mb: 6.3918
+          compressed:
+            bytes: 505750
+            bits: 4046000
+            mb: 0.4823
+        last_updated: '2025-10-29T12:00:53.344Z'
+        xxhash: c30669353a923fdb6b46d5d39a0d3d69
+      - name: 2020_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 06679f27-41ad-4377-a16d-8a52efb86f4b
+        sizes:
+          original:
+            bytes: 7132814
+            bits: 57062512
+            mb: 6.8024
+          compressed:
+            bytes: 535140
+            bits: 4281120
+            mb: 0.5103
+        last_updated: '2025-10-29T12:00:53.992Z'
+        xxhash: 97236775e218cb4fedd64e27f2c97c45
+      - name: 2020_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 97450a31-44a7-471f-b7ae-7c305d5e0062
+        sizes:
+          original:
+            bytes: 6927851
+            bits: 55422808
+            mb: 6.6069
+          compressed:
+            bytes: 517461
+            bits: 4139688
+            mb: 0.4935
+        last_updated: '2025-10-29T12:00:54.745Z'
+        xxhash: 80ac4baf44e2706d22382ed32d7a55ce
+      - name: 2020_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: e7b84941-d032-4393-acce-fddce7e0824f
+        sizes:
+          original:
+            bytes: 7159128
+            bits: 57273024
+            mb: 6.8275
+          compressed:
+            bytes: 536084
+            bits: 4288672
+            mb: 0.5112
+        last_updated: '2025-10-29T12:00:55.447Z'
+        xxhash: 6fae4c8e016e32566c591ff6bec9a4be
+      - name: 2020_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 18e5ca11-08d7-441b-a447-667661567283
+        sizes:
+          original:
+            bytes: 6927694
+            bits: 55421552
+            mb: 6.6068
+          compressed:
+            bytes: 516928
+            bits: 4135424
+            mb: 0.493
+        last_updated: '2025-10-29T12:00:56.180Z'
+        xxhash: 25b9e52b68969756c73589a482f89704
+      - name: 2020_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 58faa866-9d96-4c36-9e91-0b56eda89d9c
+        sizes:
+          original:
+            bytes: 7136748
+            bits: 57093984
+            mb: 6.8061
+          compressed:
+            bytes: 531342
+            bits: 4250736
+            mb: 0.5067
+        last_updated: '2025-10-29T12:00:56.882Z'
+        xxhash: 3e1661a39554d08741d51deb025b0033
+      - name: 2020_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 38b9289f-6349-47dc-84df-6eb632d8efd3
+        sizes:
+          original:
+            bytes: 7157374
+            bits: 57258992
+            mb: 6.8258
+          compressed:
+            bytes: 535096
+            bits: 4280768
+            mb: 0.5103
+        last_updated: '2025-10-29T12:00:57.700Z'
+        xxhash: 52aab7b48fad753a0e03fdc68433b897
+      - name: 2020_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 8a1bcd14-5c1d-44f5-8eb1-ff26e610e0f5
+        sizes:
+          original:
+            bytes: 6920872
+            bits: 55366976
+            mb: 6.6003
+          compressed:
+            bytes: 514946
+            bits: 4119568
+            mb: 0.4911
+        last_updated: '2025-10-29T12:00:58.348Z'
+        xxhash: 5ccdd59d4befed5b6b1a03f461b7cf44
+      - name: 2020_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: cdb83c24-02f0-410b-9b0b-2306de114065
+        sizes:
+          original:
+            bytes: 7089255
+            bits: 56714040
+            mb: 6.7608
+          compressed:
+            bytes: 530488
+            bits: 4243904
+            mb: 0.5059
+        last_updated: '2025-10-29T12:00:58.953Z'
+        xxhash: 362c501c59a49618308153a2d5e09e4b
+      - name: 2020_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: cdd28834-0145-43e7-8249-8b72bab931fc
+        sizes:
+          original:
+            bytes: 6930443
+            bits: 55443544
+            mb: 6.6094
+          compressed:
+            bytes: 522951
+            bits: 4183608
+            mb: 0.4987
+        last_updated: '2025-10-29T12:00:59.567Z'
+        xxhash: 9cd708a0559af979bb6ec0f0478265db
+      - name: 2020_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: fe1e81b8-565e-4ef6-9b85-6f00a9f70bc4
+        sizes:
+          original:
+            bytes: 7164621
+            bits: 57316968
+            mb: 6.8327
+          compressed:
+            bytes: 538030
+            bits: 4304240
+            mb: 0.5131
+        last_updated: '2025-10-29T12:01:00.157Z'
+        xxhash: 2487553f0ac1cd126254316f52821405
+      - name: 2021_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 146124cd-0011-4b07-b308-d9c4278347a3
+        sizes:
+          original:
+            bytes: 7230001
+            bits: 57840008
+            mb: 6.8951
+          compressed:
+            bytes: 538254
+            bits: 4306032
+            mb: 0.5133
+        last_updated: '2025-10-29T12:01:00.767Z'
+        xxhash: d9e53b3c234749f35dab907b8e9973cd
+      - name: 2021_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: aabb685d-ceee-404b-a048-118f30910bff
+        sizes:
+          original:
+            bytes: 6706840
+            bits: 53654720
+            mb: 6.3961
+          compressed:
+            bytes: 498236
+            bits: 3985888
+            mb: 0.4752
+        last_updated: '2025-10-29T12:01:01.311Z'
+        xxhash: d58004c2a2c9844bbcb6afa2b9bf2977
+      - name: 2021_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: bbcc550e-282a-429e-b13a-ae45fbae3538
+        sizes:
+          original:
+            bytes: 7398694
+            bits: 59189552
+            mb: 7.0559
+          compressed:
+            bytes: 544999
+            bits: 4359992
+            mb: 0.5198
+        last_updated: '2025-10-29T12:01:01.860Z'
+        xxhash: 040c4f5ef8db12fb5e8204a19cc889c4
+      - name: 2021_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 4f6d5a7a-8474-4747-9cd4-c492e0a5d891
+        sizes:
+          original:
+            bytes: 7170127
+            bits: 57361016
+            mb: 6.838
+          compressed:
+            bytes: 527816
+            bits: 4222528
+            mb: 0.5034
+        last_updated: '2025-10-29T12:01:02.483Z'
+        xxhash: 23b5738eb6796a374b010427204fd966
+      - name: 2021_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: edc84c61-7eea-4971-b2d6-f83890b3432f
+        sizes:
+          original:
+            bytes: 7398196
+            bits: 59185568
+            mb: 7.0555
+          compressed:
+            bytes: 544313
+            bits: 4354504
+            mb: 0.5191
+        last_updated: '2025-11-03T14:29:32.493Z'
+        xxhash: 43efbde0c4f4f190f32b92b97c9d380e
+      - name: 2021_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 5a9a1728-7df9-4cd5-a50b-81cd5ec178f2
+        sizes:
+          original:
+            bytes: 6947881
+            bits: 55583048
+            mb: 6.626
+          compressed:
+            bytes: 508645
+            bits: 4069160
+            mb: 0.4851
+        last_updated: '2025-10-29T12:01:03.689Z'
+        xxhash: 7e119e2d2ee43be64ccf0054908264a4
+      - name: 2021_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 3f23e140-b619-4ae7-ad4b-0906bf7a8d84
+        sizes:
+          original:
+            bytes: 6953959
+            bits: 55631672
+            mb: 6.6318
+          compressed:
+            bytes: 510387
+            bits: 4083096
+            mb: 0.4867
+        last_updated: '2025-10-29T12:01:04.457Z'
+        xxhash: ae8817261606e61d30829cbd0bb3b01f
+      - name: 2021_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: c958074f-942a-4c56-9c13-7eb46bde8600
+        sizes:
+          original:
+            bytes: 7034090
+            bits: 56272720
+            mb: 6.7082
+          compressed:
+            bytes: 515744
+            bits: 4125952
+            mb: 0.4919
+        last_updated: '2025-10-29T12:01:05.020Z'
+        xxhash: 98371faf65446c3226e342aa06b9ddea
+      - name: 2021_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 99ff26a5-5eb6-4f86-8646-67b096b180d8
+        sizes:
+          original:
+            bytes: 6812464
+            bits: 54499712
+            mb: 6.4969
+          compressed:
+            bytes: 494170
+            bits: 3953360
+            mb: 0.4713
+        last_updated: '2025-10-29T12:01:05.554Z'
+        xxhash: f64d273cf857f309acc1b4480801e246
+      - name: 2021_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: e6cfacc1-6d43-4a5d-aeef-f06fc00488e5
+        sizes:
+          original:
+            bytes: 7156159
+            bits: 57249272
+            mb: 6.8246
+          compressed:
+            bytes: 517087
+            bits: 4136696
+            mb: 0.4931
+        last_updated: '2025-10-29T12:01:06.142Z'
+        xxhash: 9c042ad43709fbc04ed0751e198dbbf4
+      - name: 2021_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 618e952c-c893-412d-896f-fad2eb9c4866
+        sizes:
+          original:
+            bytes: 6891024
+            bits: 55128192
+            mb: 6.5718
+          compressed:
+            bytes: 509101
+            bits: 4072808
+            mb: 0.4855
+        last_updated: '2025-10-29T12:01:06.776Z'
+        xxhash: 7eb8f02a6e84113ac4c8ed3636724038
+      - name: 2021_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: e20e5447-cbaf-453e-9b1f-320f8064d9e9
+        sizes:
+          original:
+            bytes: 7123094
+            bits: 56984752
+            mb: 6.7931
+          compressed:
+            bytes: 524199
+            bits: 4193592
+            mb: 0.4999
+        last_updated: '2025-10-29T12:01:07.435Z'
+        xxhash: da0d083768ac0e8207d1aac0aabaecc3
+      - name: 2022_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 36199fff-c032-4fe2-be15-85f3e3435b7e
+        sizes:
+          original:
+            bytes: 7147621
+            bits: 57180968
+            mb: 6.8165
+          compressed:
+            bytes: 524609
+            bits: 4196872
+            mb: 0.5003
+        last_updated: '2025-10-29T12:01:08.116Z'
+        xxhash: 3a9076c80de335f14793324fb87195f2
+      - name: 2022_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 60ea5f72-9299-4570-b741-90a1231e4ae1
+        sizes:
+          original:
+            bytes: 6431105
+            bits: 51448840
+            mb: 6.1332
+          compressed:
+            bytes: 469335
+            bits: 3754680
+            mb: 0.4476
+        last_updated: '2025-10-29T12:01:08.696Z'
+        xxhash: 3ecaa3665aaec3b130f0dc8fa43d974a
+      - name: 2022_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 20b47c6f-285a-414f-add4-814b620fac1f
+        sizes:
+          original:
+            bytes: 6915322
+            bits: 55322576
+            mb: 6.595
+          compressed:
+            bytes: 503850
+            bits: 4030800
+            mb: 0.4805
+        last_updated: '2025-10-29T12:01:09.526Z'
+        xxhash: 0497c1a2b79156662b6962b9f22b2b7e
+      - name: 2022_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 49fab7bd-ed75-4861-924c-d76f6da3bbe7
+        sizes:
+          original:
+            bytes: 6696482
+            bits: 53571856
+            mb: 6.3863
+          compressed:
+            bytes: 488989
+            bits: 3911912
+            mb: 0.4663
+        last_updated: '2025-10-29T12:01:10.108Z'
+        xxhash: f08daabe083a58addd70df794854a140
+      - name: 2022_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: bd931d8f-34bd-4216-b857-ef04f1f82103
+        sizes:
+          original:
+            bytes: 7013412
+            bits: 56107296
+            mb: 6.6885
+          compressed:
+            bytes: 507668
+            bits: 4061344
+            mb: 0.4841
+        last_updated: '2025-10-29T12:02:10.729Z'
+        xxhash: dee1024a05a958f5f7c06d6ddc51aed4
+      - name: 2022_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 15d15aef-9497-4e57-9b42-1d48bdbf1101
+        sizes:
+          original:
+            bytes: 6847153
+            bits: 54777224
+            mb: 6.53
+          compressed:
+            bytes: 498564
+            bits: 3988512
+            mb: 0.4755
+        last_updated: '2025-10-29T12:02:11.434Z'
+        xxhash: 79fa99d1c16c4c2240c161c6541dc561
+      - name: 2022_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: b1363ae1-5d1c-4032-b828-5e3f342e14ae
+        sizes:
+          original:
+            bytes: 7053908
+            bits: 56431264
+            mb: 6.7271
+          compressed:
+            bytes: 511253
+            bits: 4090024
+            mb: 0.4876
+        last_updated: '2025-10-29T12:02:12.095Z'
+        xxhash: ae32f9e939cd5cee87d9bc68d5e49094
+      - name: 2022_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 5a17de7c-89eb-4d99-985a-cfbf52807256
+        sizes:
+          original:
+            bytes: 7047336
+            bits: 56378688
+            mb: 6.7209
+          compressed:
+            bytes: 508713
+            bits: 4069704
+            mb: 0.4851
+        last_updated: '2025-10-29T12:02:12.749Z'
+        xxhash: 019d4d29d11af931319e872154392c78
+      - name: 2022_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: d346e10d-f467-4ba6-b792-d42439f4569e
+        sizes:
+          original:
+            bytes: 6854204
+            bits: 54833632
+            mb: 6.5367
+          compressed:
+            bytes: 496056
+            bits: 3968448
+            mb: 0.4731
+        last_updated: '2025-10-29T12:02:13.506Z'
+        xxhash: 69bd9a0b44109b1fd1994f242334cbf0
+      - name: 2022_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: aa8f2ed5-1178-4312-a845-bae42123530f
+        sizes:
+          original:
+            bytes: 7168758
+            bits: 57350064
+            mb: 6.8367
+          compressed:
+            bytes: 515293
+            bits: 4122344
+            mb: 0.4914
+        last_updated: '2025-10-29T12:02:14.228Z'
+        xxhash: ca06e424beb9616adc7e1eb1a8a99e43
+      - name: 2022_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 1cf67472-7247-4ab5-8da7-97b2e6ea734f
+        sizes:
+          original:
+            bytes: 6993228
+            bits: 55945824
+            mb: 6.6693
+          compressed:
+            bytes: 506218
+            bits: 4049744
+            mb: 0.4828
+        last_updated: '2025-10-29T12:02:14.955Z'
+        xxhash: 43e433e47ff9a03f056d92ad10b28c10
+      - name: 2022_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 2b16364b-141b-4b7e-a211-7b38f680035b
+        sizes:
+          original:
+            bytes: 7233139
+            bits: 57865112
+            mb: 6.8981
+          compressed:
+            bytes: 526024
+            bits: 4208192
+            mb: 0.5017
+        last_updated: '2025-10-29T12:02:15.528Z'
+        xxhash: c767d696eedc993d27355ab97e8c18a9
+      - name: 2023_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 9467f10e-5ba6-43c1-a770-2c3309321a8d
+        sizes:
+          original:
+            bytes: 7462860
+            bits: 59702880
+            mb: 7.1171
+          compressed:
+            bytes: 536009
+            bits: 4288072
+            mb: 0.5112
+        last_updated: '2025-10-29T12:02:16.170Z'
+        xxhash: be67e5d0c650576bfd46637281be8d66
+      - name: 2023_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 8e916042-f63e-4c4f-a303-7c8177cadb6a
+        sizes:
+          original:
+            bytes: 6762035
+            bits: 54096280
+            mb: 6.4488
+          compressed:
+            bytes: 486332
+            bits: 3890656
+            mb: 0.4638
+        last_updated: '2025-10-29T12:02:16.797Z'
+        xxhash: c6fbd34c311eb70a5769b4a442458cba
+      - name: 2023_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: c09cfc4e-805c-4825-a49c-2270dae3f727
+        sizes:
+          original:
+            bytes: 7499045
+            bits: 59992360
+            mb: 7.1516
+          compressed:
+            bytes: 536904
+            bits: 4295232
+            mb: 0.512
+        last_updated: '2025-10-29T12:02:17.514Z'
+        xxhash: 4ddbb3ae4ac7592bf60079c76aae73ee
+      - name: 2023_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: cc083bef-eae7-485a-907b-8dcf83297e1e
+        sizes:
+          original:
+            bytes: 7257127
+            bits: 58057016
+            mb: 6.9209
+          compressed:
+            bytes: 519226
+            bits: 4153808
+            mb: 0.4952
+        last_updated: '2025-10-29T12:02:18.238Z'
+        xxhash: ccd9815a4baf4df0b050b4e2f10436b7
+      - name: 2023_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 4646579a-14fd-408d-8656-5fc96f480191
+        sizes:
+          original:
+            bytes: 7604079
+            bits: 60832632
+            mb: 7.2518
+          compressed:
+            bytes: 539931
+            bits: 4319448
+            mb: 0.5149
+        last_updated: '2025-10-29T12:02:18.876Z'
+        xxhash: 5a25a58ddc7bdc984ab7c1e5198cb19b
+      - name: 2023_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 87527e9b-a3e4-4d5a-a0d6-e4232a85e9f6
+        sizes:
+          original:
+            bytes: 7495174
+            bits: 59961392
+            mb: 7.148
+          compressed:
+            bytes: 533001
+            bits: 4264008
+            mb: 0.5083
+        last_updated: '2025-10-29T12:02:19.547Z'
+        xxhash: 209237e18d9257eefbc0cf6f924292c6
+      - name: 2023_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: c97016b1-ce47-4d6c-a526-acf29aa1f0f1
+        sizes:
+          original:
+            bytes: 7733740
+            bits: 61869920
+            mb: 7.3755
+          compressed:
+            bytes: 547967
+            bits: 4383736
+            mb: 0.5226
+        last_updated: '2025-10-29T12:02:20.224Z'
+        xxhash: 7328ee8beb4dfe5bc3ed60d99286c833
+      - name: 2023_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 206da494-8cb9-4cec-be2e-755294e097fa
+        sizes:
+          original:
+            bytes: 7698820
+            bits: 61590560
+            mb: 7.3422
+          compressed:
+            bytes: 542115
+            bits: 4336920
+            mb: 0.517
+        last_updated: '2025-10-29T12:02:20.839Z'
+        xxhash: d51a7a730f7129c176aa943e12b6f96c
+      - name: 2023_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: cab466c2-49b0-4869-ac3b-b27317cdc359
+        sizes:
+          original:
+            bytes: 7480799
+            bits: 59846392
+            mb: 7.1342
+          compressed:
+            bytes: 529867
+            bits: 4238936
+            mb: 0.5053
+        last_updated: '2025-10-29T12:02:21.413Z'
+        xxhash: 14040da6788d7d870880768fafb303be
+      - name: 2023_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 148a1eaa-148e-4a47-9fac-7471290cabf1
+        sizes:
+          original:
+            bytes: 7733707
+            bits: 61869656
+            mb: 7.3754
+          compressed:
+            bytes: 545366
+            bits: 4362928
+            mb: 0.5201
+        last_updated: '2025-10-29T12:02:22.014Z'
+        xxhash: 05052cdff704e99196f0a3011fb102ac
+      - name: 2023_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 00701876-4ed1-4e72-81ec-5bae95a723d0
+        sizes:
+          original:
+            bytes: 7508940
+            bits: 60071520
+            mb: 7.1611
+          compressed:
+            bytes: 535440
+            bits: 4283520
+            mb: 0.5106
+        last_updated: '2025-10-29T12:02:22.596Z'
+        xxhash: 43a0506ae1de8e022b86b4105306de09
+      - name: 2023_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: bc356619-1147-4c8b-8013-6b8c76bad741
+        sizes:
+          original:
+            bytes: 7749019
+            bits: 61992152
+            mb: 7.39
+          compressed:
+            bytes: 554855
+            bits: 4438840
+            mb: 0.5292
+        last_updated: '2025-10-29T12:02:23.196Z'
+        xxhash: 30b8a1b1e1c919b930581fcc0b45acbd
+      - name: 2024_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 78f73eeb-69e6-4079-b9c6-851a59bb9cd2
+        sizes:
+          original:
+            bytes: 7753551
+            bits: 62028408
+            mb: 7.3944
+          compressed:
+            bytes: 550191
+            bits: 4401528
+            mb: 0.5247
+        last_updated: '2025-10-29T12:02:23.856Z'
+        xxhash: 7239d5ed5a9e38cdd0bec0aa715d8d98
+      - name: 2024_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 382f74ca-912d-49fe-8910-9cb8f27e1ab8
+        sizes:
+          original:
+            bytes: 7268951
+            bits: 58151608
+            mb: 6.9322
+          compressed:
+            bytes: 518985
+            bits: 4151880
+            mb: 0.4949
+        last_updated: '2025-10-29T12:02:24.546Z'
+        xxhash: 8f79c4291f5804b2ff75b42ba1761ef5
+      - name: 2024_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 55db0b7b-6303-4fb0-a856-f6f56a532e06
+        sizes:
+          original:
+            bytes: 7741423
+            bits: 61931384
+            mb: 7.3828
+          compressed:
+            bytes: 553730
+            bits: 4429840
+            mb: 0.5281
+        last_updated: '2025-10-29T12:02:25.248Z'
+        xxhash: 243d7aa82ff8d170b6521309e65b231b
+      - name: 2024_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: a3967780-6855-421b-8c0f-b0dd2259e9ef
+        sizes:
+          original:
+            bytes: 7499953
+            bits: 59999624
+            mb: 7.1525
+          compressed:
+            bytes: 536523
+            bits: 4292184
+            mb: 0.5117
+        last_updated: '2025-10-29T12:02:25.859Z'
+        xxhash: abe6246efac00e3d912631ca7be5ed0c
+      - name: 2024_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 4ae1f16a-1e01-4f03-896f-04cef5dcbbc2
+        sizes:
+          original:
+            bytes: 7735728
+            bits: 61885824
+            mb: 7.3774
+          compressed:
+            bytes: 548852
+            bits: 4390816
+            mb: 0.5234
+        last_updated: '2025-10-29T12:02:26.464Z'
+        xxhash: 17561e4aae2e960ad71bbfb3897b3dbc
+      - name: 2024_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: eca1d5f7-7599-460e-86dc-3b7d33a0becb
+        sizes:
+          original:
+            bytes: 7630107
+            bits: 61040856
+            mb: 7.2766
+          compressed:
+            bytes: 539764
+            bits: 4318112
+            mb: 0.5148
+        last_updated: '2025-12-02T15:28:10.455Z'
+        xxhash: f9e8e3ba86e100725ff3d182527c6697
+      - name: 2024_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 57d26a7e-7799-4b2e-b7cb-3b75b4fbe0b6
+        sizes:
+          original:
+            bytes: 8430218
+            bits: 67441744
+            mb: 8.0397
+          compressed:
+            bytes: 590818
+            bits: 4726544
+            mb: 0.5634
+        last_updated: '2025-12-02T15:28:11.081Z'
+        xxhash: 494319814f10fe70c7e2bcd99d0f069b
+      - name: 2024_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: ca37d32d-0e95-494f-9d70-72c69181f6a6
+        sizes:
+          original:
+            bytes: 8423455
+            bits: 67387640
+            mb: 8.0332
+          compressed:
+            bytes: 595177
+            bits: 4761416
+            mb: 0.5676
+        last_updated: '2025-12-02T15:28:11.717Z'
+        xxhash: ba0b2c8f1abf1acf948221ea465bffad
+      - name: 2024_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 531956e7-a665-4402-80aa-5016cba43fc8
+        sizes:
+          original:
+            bytes: 8165809
+            bits: 65326472
+            mb: 7.7875
+          compressed:
+            bytes: 574401
+            bits: 4595208
+            mb: 0.5478
+        last_updated: '2025-12-02T15:28:12.500Z'
+        xxhash: 7f7b3027d708a66a5558bada3872a300
+      - name: 2024_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 817a50d1-0418-4255-aa13-babbf888cd88
+        sizes:
+          original:
+            bytes: 8410200
+            bits: 67281600
+            mb: 8.0206
+          compressed:
+            bytes: 591521
+            bits: 4732168
+            mb: 0.5641
+        last_updated: '2025-12-02T15:28:13.114Z'
+        xxhash: 6439c66ebbc99a4b2ac51acde31152d8
+      - name: 2024_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: e6effaf8-73a5-4c0a-8a8d-972f641e70d5
+        sizes:
+          original:
+            bytes: 8260774
+            bits: 66086192
+            mb: 7.8781
+          compressed:
+            bytes: 582566
+            bits: 4660528
+            mb: 0.5556
+        last_updated: '2025-12-02T15:28:13.667Z'
+        xxhash: 3b5dc3af01220457c44ebf7998a1c2c3
+      - name: 2024_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: fd7d8bc1-b3aa-482a-b404-94dceea7a1b9
+        sizes:
+          original:
+            bytes: 8731502
+            bits: 69852016
+            mb: 8.327
+          compressed:
+            bytes: 612786
+            bits: 4902288
+            mb: 0.5844
+        last_updated: '2025-12-02T15:28:14.351Z'
+        xxhash: f5e309cb7e70a38400a93fb9e2dcefc2
+      - name: 2025_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: b20c8b25-9269-4278-8c65-23dbd0081d7e
+        sizes:
+          original:
+            bytes: 10738257
+            bits: 85906056
+            mb: 10.2408
+          compressed:
+            bytes: 727624
+            bits: 5820992
+            mb: 0.6939
+        last_updated: '2025-12-02T15:28:15.021Z'
+        xxhash: 1696e049b969f3a3563ebae46b1289e4
+      - name: 2025_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 533053ce-c4f3-49d6-8248-c234187ca181
+        sizes:
+          original:
+            bytes: 9698959
+            bits: 77591672
+            mb: 9.2496
+          compressed:
+            bytes: 657810
+            bits: 5262480
+            mb: 0.6273
+        last_updated: '2025-12-02T15:28:15.787Z'
+        xxhash: e8b1e48558ce2d616c76df0140385bfc
+      - name: 2025_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 3761a474-fa41-48d2-b6ad-f953104e9d63
+        sizes:
+          original:
+            bytes: 11219097
+            bits: 89752776
+            mb: 10.6994
+          compressed:
+            bytes: 766745
+            bits: 6133960
+            mb: 0.7312
+        last_updated: '2025-12-02T15:28:16.427Z'
+        xxhash: 30fea404dc7dae4b2b175a7dd07f2aac
+      - name: 2025_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: e8480185-5186-48bc-b50f-99d8f2fcaf5f
+        sizes:
+          original:
+            bytes: 11509713
+            bits: 92077704
+            mb: 10.9765
+          compressed:
+            bytes: 795525
+            bits: 6364200
+            mb: 0.7587
+        last_updated: '2025-12-02T15:28:17.132Z'
+        xxhash: e5ed6d810146505e8d43cd28c390a150
+      - name: 2025_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: a14f07f9-0425-4c9b-a0b7-d21c4f63078c
+        sizes:
+          original:
+            bytes: 11877091
+            bits: 95016728
+            mb: 11.3269
+          compressed:
+            bytes: 818239
+            bits: 6545912
+            mb: 0.7803
+        last_updated: '2025-12-02T15:28:17.864Z'
+        xxhash: cf46a4c2e97c556ea5492175acd4290d
+      - name: 2025_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: ac8c8624-8a00-4b7d-83ec-a422dbcdfa6f
+        sizes:
+          original:
+            bytes: 11481231
+            bits: 91849848
+            mb: 10.9494
+          compressed:
+            bytes: 792483
+            bits: 6339864
+            mb: 0.7558
+        last_updated: '2025-12-02T15:28:18.526Z'
+        xxhash: f853538c773164a3a1517a08c3af529f
+      - name: 2025_07_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: d74ca8e1-bb89-421a-83c3-dc49f9fbd9f0
+        sizes:
+          original:
+            bytes: 11887304
+            bits: 95098432
+            mb: 11.3366
+          compressed:
+            bytes: 818844
+            bits: 6550752
+            mb: 0.7809
+        last_updated: '2025-12-02T15:28:19.227Z'
+        xxhash: 61e7f7032ff6f825b2a22d6f15db7a5b
+      - name: 2025_08_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 135a8760-a8a3-4702-a96c-a9b97309abf4
+        sizes:
+          original:
+            bytes: 11889182
+            bits: 95113456
+            mb: 11.3384
+          compressed:
+            bytes: 821514
+            bits: 6572112
+            mb: 0.7835
+        last_updated: '2025-12-02T15:28:19.973Z'
+        xxhash: fa1f9a92529ec197c6c99920751c5b82
+      - name: 2025_09_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: ed22b39d-7ee1-4221-a91d-ff9d709a7317
+        sizes:
+          original:
+            bytes: 11432703
+            bits: 91461624
+            mb: 10.9031
+          compressed:
+            bytes: 792879
+            bits: 6343032
+            mb: 0.7561
+        last_updated: '2025-12-02T15:28:20.717Z'
+        xxhash: 827165191846ceac67fcc0a29396fbe5
+      - name: 2025_10_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 885a3054-cc4a-40e7-b5d5-10274af7270d
+        sizes:
+          original:
+            bytes: 11860915
+            bits: 94887320
+            mb: 11.3115
+          compressed:
+            bytes: 826305
+            bits: 6610440
+            mb: 0.788
+        last_updated: '2026-05-06T13:55:47.479Z'
+        xxhash: da71e8c87c0115ddab41af502a35cea9
+      - name: 2025_11_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 0a78c408-f450-4635-8ba2-951aec21dd9c
+        sizes:
+          original:
+            bytes: 11639143
+            bits: 93113144
+            mb: 11.1
+          compressed:
+            bytes: 860027
+            bits: 6880216
+            mb: 0.8202
+        last_updated: '2026-04-28T11:10:13.352Z'
+        xxhash: bd9c43d3ffe53dfed701e80efbbf07b2
+      - name: 2025_12_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 31c564e9-6521-4589-8736-db130ab44d43
+        sizes:
+          original:
+            bytes: 13119305
+            bits: 104954440
+            mb: 12.5115
+          compressed:
+            bytes: 968788
+            bits: 7750304
+            mb: 0.9239
+        last_updated: '2026-05-06T13:55:48.505Z'
+        xxhash: 438d0d3dae6950fa43b963aa91c6360c
+      - name: 2026_01_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 27566709-4ee1-4287-8cca-d17058d87a11
+        sizes:
+          original:
+            bytes: 13187360
+            bits: 105498880
+            mb: 12.5764
+          compressed:
+            bytes: 977652
+            bits: 7821216
+            mb: 0.9324
+        last_updated: '2026-04-28T13:17:34.654Z'
+        xxhash: a4a473e3d6478d8aeaaef4cfeb249b67
+      - name: 2026_02_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 1868c1de-5776-4448-b665-add387a07c64
+        sizes:
+          original:
+            bytes: 11765035
+            bits: 94120280
+            mb: 11.22
+          compressed:
+            bytes: 874824
+            bits: 6998592
+            mb: 0.8343
+        last_updated: '2026-05-20T14:22:57.694Z'
+        xxhash: 77ea0673a8dbdca056220d527757ea93
+      - name: 2026_03_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 460b5267-2f66-4321-9b36-1edff7790b01
+        sizes:
+          original:
+            bytes: 13083121
+            bits: 104664968
+            mb: 12.477
+          compressed:
+            bytes: 973579
+            bits: 7788632
+            mb: 0.9285
+        last_updated: '2026-04-28T14:14:14.444Z'
+        xxhash: e26497eb39189718ef44af7018d366fb
+      - name: 2026_04_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: 3ff85ba6-70f1-42b1-b2c1-c666e319aaec
+        sizes:
+          original:
+            bytes: 12541314
+            bits: 100330512
+            mb: 11.9603
+          compressed:
+            bytes: 939439
+            bits: 7515512
+            mb: 0.8959
+        last_updated: '2026-05-07T03:52:16.674Z'
+        xxhash: a4dbd7da5ead9d6a87fb0e70e3fce82a
+      - name: 2026_05_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: f4966a9f-9037-49cf-b4ad-9e4abf641441
+        sizes:
+          original:
+            bytes: 12414184
+            bits: 99313472
+            mb: 11.8391
+          compressed:
+            bytes: 860441
+            bits: 6883528
+            mb: 0.8206
+        last_updated: '2026-05-29T09:45:23.630Z'
+        xxhash: 843b89265d293043cd98d4eff19f7cb2
+      - name: 2026_06_DayAheadTotalLoadForecast_6.1.B_r3.csv
+        file_id: ba93248a-67d6-4cb2-a9cf-8c52a0bd36dc
+        sizes:
+          original:
+            bytes: 8734
+            bits: 69872
+            mb: 0.0083
+          compressed:
+            bytes: 752
+            bits: 6016
+            mb: 0.0007
+        last_updated: '2026-05-29T08:01:28.489Z'
+        xxhash: b0b8abe84948fb030dccdd49e6357aad
+  TotalLoadForecast_6.1.C_D_E_r3:
+    folder_path: /TP_export/TotalLoadForecast_6.1.C_D_E_r3/
+    item_count: 162
+    sizes:
+      original:
+        bytes: 31773319
+        bits: 254186552
+        mb: 30.3014
+      compressed:
+        bytes: 3581751
+        bits: 28654008
+        mb: 3.4158
+    files:
+      - name: 2013_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 1107f4eb-7cdc-45e1-a4f7-004f1cf98639
+        sizes:
+          original:
+            bytes: 278
+            bits: 2224
+            mb: 0.0003
+          compressed:
+            bytes: 411
+            bits: 3288
+            mb: 0.0004
+        last_updated: '2025-11-07T08:57:38.746Z'
+        xxhash: 6397c8cd2aaa502dbb9b578f759a00c9
+      - name: 2014_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 7ee96727-9cb5-45ba-b829-aab324c5442c
+        sizes:
+          original:
+            bytes: 640
+            bits: 5120
+            mb: 0.0006
+          compressed:
+            bytes: 458
+            bits: 3664
+            mb: 0.0004
+        last_updated: '2025-11-07T08:57:38.972Z'
+        xxhash: 71abb843741c212f150effb71b18b26c
+      - name: 2014_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: d7b54bb8-cca2-4645-bcb4-0c0352ee1329
+        sizes:
+          original:
+            bytes: 640
+            bits: 5120
+            mb: 0.0006
+          compressed:
+            bytes: 457
+            bits: 3656
+            mb: 0.0004
+        last_updated: '2025-11-07T08:57:39.191Z'
+        xxhash: 37d7ede60a20abd43bd6a239aba58a56
+      - name: 2014_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 7bdce868-5785-4b37-a7ff-ae77f62d9b37
+        sizes:
+          original:
+            bytes: 762
+            bits: 6096
+            mb: 0.0007
+          compressed:
+            bytes: 477
+            bits: 3816
+            mb: 0.0005
+        last_updated: '2025-11-07T08:57:39.409Z'
+        xxhash: 577eb96b723590cfe7e9ddeb7e1feba5
+      - name: 2014_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: daabf426-1add-4390-a556-aeff7066538d
+        sizes:
+          original:
+            bytes: 641
+            bits: 5128
+            mb: 0.0006
+          compressed:
+            bytes: 459
+            bits: 3672
+            mb: 0.0004
+        last_updated: '2025-11-07T08:57:39.644Z'
+        xxhash: 1776cca8bf2df1f771469b589aa972ac
+      - name: 2014_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 384449ba-ad5e-48eb-a710-67ccd91f8d43
+        sizes:
+          original:
+            bytes: 641
+            bits: 5128
+            mb: 0.0006
+          compressed:
+            bytes: 458
+            bits: 3664
+            mb: 0.0004
+        last_updated: '2025-11-07T08:57:39.878Z'
+        xxhash: d65e4df4a64e799c45062ede55cf9a97
+      - name: 2014_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 9fa758a3-5703-4657-a752-a4c4dbd3375e
+        sizes:
+          original:
+            bytes: 761
+            bits: 6088
+            mb: 0.0007
+          compressed:
+            bytes: 471
+            bits: 3768
+            mb: 0.0004
+        last_updated: '2025-11-07T08:57:40.118Z'
+        xxhash: ebeebd877efff066848123d2bc920d69
+      - name: 2014_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: c523a83b-ed7d-4be7-af2e-3afdce1019c4
+        sizes:
+          original:
+            bytes: 641
+            bits: 5128
+            mb: 0.0006
+          compressed:
+            bytes: 459
+            bits: 3672
+            mb: 0.0004
+        last_updated: '2025-11-07T08:57:40.349Z'
+        xxhash: cde8581d1e09b4f25f2d50c07a69beb6
+      - name: 2014_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: af6054cc-6a0b-40f0-bd8f-d1b48f1408a8
+        sizes:
+          original:
+            bytes: 761
+            bits: 6088
+            mb: 0.0007
+          compressed:
+            bytes: 472
+            bits: 3776
+            mb: 0.0005
+        last_updated: '2025-11-07T08:57:40.581Z'
+        xxhash: 095fd0f5f938a9c2eda7618c92b992a1
+      - name: 2014_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: ee8a693e-570e-41e0-aab1-15bb1efb5a8b
+        sizes:
+          original:
+            bytes: 641
+            bits: 5128
+            mb: 0.0006
+          compressed:
+            bytes: 458
+            bits: 3664
+            mb: 0.0004
+        last_updated: '2025-11-07T08:57:40.820Z'
+        xxhash: 709a9f5bff91d57261d08176c9c2fa68
+      - name: 2014_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 8326dc37-d777-4e84-8856-7714ab2698a9
+        sizes:
+          original:
+            bytes: 640
+            bits: 5120
+            mb: 0.0006
+          compressed:
+            bytes: 461
+            bits: 3688
+            mb: 0.0004
+        last_updated: '2025-11-07T08:57:41.104Z'
+        xxhash: 883da384720614bde2dfecb0b8b2e872
+      - name: 2014_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 9f4f26e7-46e6-49c1-9628-fc938cc4ea54
+        sizes:
+          original:
+            bytes: 3050
+            bits: 24400
+            mb: 0.0029
+          compressed:
+            bytes: 844
+            bits: 6752
+            mb: 0.0008
+        last_updated: '2025-11-07T08:57:41.314Z'
+        xxhash: 3ae24a0f326f751c19a06dd3ce8e7f1f
+      - name: 2014_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 9ecaeb10-d691-47ac-9521-f9ec2cd09a77
+        sizes:
+          original:
+            bytes: 50116
+            bits: 400928
+            mb: 0.0478
+          compressed:
+            bytes: 7409
+            bits: 59272
+            mb: 0.0071
+        last_updated: '2025-11-10T09:55:20.253Z'
+        xxhash: c9683ac79bdf8f7e756ce208f4ddfc7f
+      - name: 2015_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: c3f4c66b-e89a-4e4d-be8e-99f8af5b7896
+        sizes:
+          original:
+            bytes: 208952
+            bits: 1671616
+            mb: 0.1993
+          compressed:
+            bytes: 23880
+            bits: 191040
+            mb: 0.0228
+        last_updated: '2025-11-10T09:55:20.602Z'
+        xxhash: 1df9cc4beb1443641ce3a06dc02a5be8
+      - name: 2015_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: f226ac7f-6faa-4f66-bd06-9e3eeab2df23
+        sizes:
+          original:
+            bytes: 205185
+            bits: 1641480
+            mb: 0.1957
+          compressed:
+            bytes: 23282
+            bits: 186256
+            mb: 0.0222
+        last_updated: '2025-11-10T09:56:20.927Z'
+        xxhash: f1fd7ee7b8483dac2ee02a1ce9aa03d7
+      - name: 2015_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 847b69e7-6dbd-49bb-9364-52f0cc0e681d
+        sizes:
+          original:
+            bytes: 235980
+            bits: 1887840
+            mb: 0.225
+          compressed:
+            bytes: 27078
+            bits: 216624
+            mb: 0.0258
+        last_updated: '2025-11-10T09:56:21.225Z'
+        xxhash: 9098eef63f3917d6a7185101733cec7e
+      - name: 2015_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 2cc293cd-ef39-44b5-9828-833b2e4d68e1
+        sizes:
+          original:
+            bytes: 221934
+            bits: 1775472
+            mb: 0.2117
+          compressed:
+            bytes: 25418
+            bits: 203344
+            mb: 0.0242
+        last_updated: '2025-11-10T09:56:21.512Z'
+        xxhash: 181cf6cc342f0517736fc011162c44ba
+      - name: 2015_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: b204affe-54b4-4cae-9350-de82d9467076
+        sizes:
+          original:
+            bytes: 235657
+            bits: 1885256
+            mb: 0.2247
+          compressed:
+            bytes: 26833
+            bits: 214664
+            mb: 0.0256
+        last_updated: '2025-11-10T09:56:21.798Z'
+        xxhash: 29abe104a651019bf65b7559cedce6c9
+      - name: 2015_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: df2c2ebf-bebf-408f-8728-accd8a63c1e5
+        sizes:
+          original:
+            bytes: 220011
+            bits: 1760088
+            mb: 0.2098
+          compressed:
+            bytes: 24610
+            bits: 196880
+            mb: 0.0235
+        last_updated: '2025-11-10T09:56:22.115Z'
+        xxhash: ff98b54a0884877ae965e5f7f2f39843
+      - name: 2015_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 68b7915a-944d-4174-a74f-3f1d08148908
+        sizes:
+          original:
+            bytes: 222731
+            bits: 1781848
+            mb: 0.2124
+          compressed:
+            bytes: 25350
+            bits: 202800
+            mb: 0.0242
+        last_updated: '2025-11-10T09:56:22.414Z'
+        xxhash: bb8f6b5ecfccdc529129b20f8bc8fe0d
+      - name: 2015_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 73b5c11f-cef4-4344-b89a-a8d2e08ca5b8
+        sizes:
+          original:
+            bytes: 230949
+            bits: 1847592
+            mb: 0.2203
+          compressed:
+            bytes: 26277
+            bits: 210216
+            mb: 0.0251
+        last_updated: '2025-11-10T09:56:22.723Z'
+        xxhash: c2663eaeb0d88078204dcc790d58eecf
+      - name: 2015_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 89bb7f76-df8d-48e3-a666-5a0bfad1dc75
+        sizes:
+          original:
+            bytes: 213527
+            bits: 1708216
+            mb: 0.2036
+          compressed:
+            bytes: 24004
+            bits: 192032
+            mb: 0.0229
+        last_updated: '2025-11-10T09:56:23.059Z'
+        xxhash: 07fc47833d356f8ba3cc731212229b88
+      - name: 2015_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: b00cf481-4973-4b1a-a529-5d71b4a25163
+        sizes:
+          original:
+            bytes: 219657
+            bits: 1757256
+            mb: 0.2095
+          compressed:
+            bytes: 25527
+            bits: 204216
+            mb: 0.0243
+        last_updated: '2025-11-10T09:56:23.366Z'
+        xxhash: 160e625336cee8f07d41481b968a7472
+      - name: 2015_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 63a2b5a8-1d02-4991-9fc6-631479f58396
+        sizes:
+          original:
+            bytes: 233290
+            bits: 1866320
+            mb: 0.2225
+          compressed:
+            bytes: 26655
+            bits: 213240
+            mb: 0.0254
+        last_updated: '2025-11-10T09:56:23.664Z'
+        xxhash: 13f7bc09d24555a9126c5604375fa367
+      - name: 2015_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 09bff439-32b7-4db5-ae05-360036bd60db
+        sizes:
+          original:
+            bytes: 225941
+            bits: 1807528
+            mb: 0.2155
+          compressed:
+            bytes: 26239
+            bits: 209912
+            mb: 0.025
+        last_updated: '2025-11-10T09:56:23.952Z'
+        xxhash: bb59130d7a408c9542cb3658a118d46a
+      - name: 2016_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 2746cdde-afbb-483e-94ea-278861d07cdd
+        sizes:
+          original:
+            bytes: 237273
+            bits: 1898184
+            mb: 0.2263
+          compressed:
+            bytes: 26764
+            bits: 214112
+            mb: 0.0255
+        last_updated: '2025-11-10T09:56:24.231Z'
+        xxhash: 890a654d2c9abe7a65ed02cc16c0f1c3
+      - name: 2016_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: de2a763d-bb42-4e5d-9540-6544ed19b474
+        sizes:
+          original:
+            bytes: 214939
+            bits: 1719512
+            mb: 0.205
+          compressed:
+            bytes: 24528
+            bits: 196224
+            mb: 0.0234
+        last_updated: '2025-11-10T09:56:24.531Z'
+        xxhash: 8b88dd7ecaffaa8a9760c44d6a80835b
+      - name: 2016_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 3ed962c1-d393-4192-bdb7-36ed55d3ea0b
+        sizes:
+          original:
+            bytes: 217466
+            bits: 1739728
+            mb: 0.2074
+          compressed:
+            bytes: 24902
+            bits: 199216
+            mb: 0.0237
+        last_updated: '2025-11-10T09:56:24.821Z'
+        xxhash: 236e4878b1f3e13d3b44c29bf92fbbf4
+      - name: 2016_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 0c40141b-9193-4cfc-b3f5-95af5913cb29
+        sizes:
+          original:
+            bytes: 220549
+            bits: 1764392
+            mb: 0.2103
+          compressed:
+            bytes: 24952
+            bits: 199616
+            mb: 0.0238
+        last_updated: '2025-11-10T09:56:25.125Z'
+        xxhash: 9b7e53b861d58df83ce022aee424e3d3
+      - name: 2016_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 3699e23f-249d-4b36-ac64-d21817de593c
+        sizes:
+          original:
+            bytes: 228763
+            bits: 1830104
+            mb: 0.2182
+          compressed:
+            bytes: 25730
+            bits: 205840
+            mb: 0.0245
+        last_updated: '2025-11-10T09:56:25.442Z'
+        xxhash: 7360b81764ed4d22cc6cd95b2c5e721b
+      - name: 2016_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 50ab5096-e88c-498d-8170-3d8be365fc1e
+        sizes:
+          original:
+            bytes: 218200
+            bits: 1745600
+            mb: 0.2081
+          compressed:
+            bytes: 24592
+            bits: 196736
+            mb: 0.0235
+        last_updated: '2025-11-10T09:56:25.748Z'
+        xxhash: 7d77f1c1ef4a932b7ebe89a44bb0fcd2
+      - name: 2016_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: f72a5f14-0c71-411d-8680-24a46b8b6b36
+        sizes:
+          original:
+            bytes: 236426
+            bits: 1891408
+            mb: 0.2255
+          compressed:
+            bytes: 26781
+            bits: 214248
+            mb: 0.0255
+        last_updated: '2025-11-10T09:56:26.074Z'
+        xxhash: f4fef8a787b6a7ff57a848c01b2dec7a
+      - name: 2016_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: d481ad40-d85f-460e-98d1-0199d5f8fffa
+        sizes:
+          original:
+            bytes: 222856
+            bits: 1782848
+            mb: 0.2125
+          compressed:
+            bytes: 25802
+            bits: 206416
+            mb: 0.0246
+        last_updated: '2025-11-10T09:56:26.366Z'
+        xxhash: f730e818a65e350a375f29aa13849065
+      - name: 2016_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 9087664b-c4dc-493c-b1ae-6e3dc5628922
+        sizes:
+          original:
+            bytes: 227512
+            bits: 1820096
+            mb: 0.217
+          compressed:
+            bytes: 25700
+            bits: 205600
+            mb: 0.0245
+        last_updated: '2025-11-10T09:56:26.666Z'
+        xxhash: 142c450317a4d46ec6a4f8d1585377be
+      - name: 2016_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 51d7e1c0-3ee4-4aa1-a401-979565660891
+        sizes:
+          original:
+            bytes: 241181
+            bits: 1929448
+            mb: 0.23
+          compressed:
+            bytes: 27795
+            bits: 222360
+            mb: 0.0265
+        last_updated: '2025-11-10T09:56:26.986Z'
+        xxhash: 48171d79f8b3702433534e05529f11cc
+      - name: 2016_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: c814111e-bcd2-468d-bf70-24f62b4d23ed
+        sizes:
+          original:
+            bytes: 221742
+            bits: 1773936
+            mb: 0.2115
+          compressed:
+            bytes: 25512
+            bits: 204096
+            mb: 0.0243
+        last_updated: '2025-11-10T09:56:27.295Z'
+        xxhash: a09e1a532e87c6bb581f12fd214a93e2
+      - name: 2016_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 43abe660-de54-4ea8-9c77-204f4a8ed4a8
+        sizes:
+          original:
+            bytes: 225430
+            bits: 1803440
+            mb: 0.215
+          compressed:
+            bytes: 25951
+            bits: 207608
+            mb: 0.0247
+        last_updated: '2025-11-10T09:56:27.575Z'
+        xxhash: 7e4d5871f7087c5cd98a5c3fbf2c1dcd
+      - name: 2017_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a4a45396-9c52-4624-9053-c17945809a26
+        sizes:
+          original:
+            bytes: 233872
+            bits: 1870976
+            mb: 0.223
+          compressed:
+            bytes: 26788
+            bits: 214304
+            mb: 0.0255
+        last_updated: '2025-11-10T09:56:27.887Z'
+        xxhash: 532214c6e846e110104c63c7094fcfb5
+      - name: 2017_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: d637dc3d-3fc8-4f79-9a13-bb0d941bca22
+        sizes:
+          original:
+            bytes: 211544
+            bits: 1692352
+            mb: 0.2017
+          compressed:
+            bytes: 24508
+            bits: 196064
+            mb: 0.0234
+        last_updated: '2025-11-10T09:56:28.184Z'
+        xxhash: e6656518b33712d3ab93b4aad8b64e7a
+      - name: 2017_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: c4a7f5cc-7a1d-4c54-b051-dcf9eaaf2d14
+        sizes:
+          original:
+            bytes: 230715
+            bits: 1845720
+            mb: 0.22
+          compressed:
+            bytes: 26772
+            bits: 214176
+            mb: 0.0255
+        last_updated: '2025-11-10T09:57:28.518Z'
+        xxhash: 58b38cb8defd47233ec46bbe89569c9e
+      - name: 2017_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a9286c6b-f1f6-4ef1-a2a5-d8797dfee6a9
+        sizes:
+          original:
+            bytes: 235137
+            bits: 1881096
+            mb: 0.2242
+          compressed:
+            bytes: 26740
+            bits: 213920
+            mb: 0.0255
+        last_updated: '2025-11-10T09:57:28.830Z'
+        xxhash: c36e89e6937468347fb47098a7edaa9f
+      - name: 2017_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 9d7799df-ccb6-49ef-8a81-c8077f20b67e
+        sizes:
+          original:
+            bytes: 231860
+            bits: 1854880
+            mb: 0.2211
+          compressed:
+            bytes: 26884
+            bits: 215072
+            mb: 0.0256
+        last_updated: '2025-11-10T09:57:29.151Z'
+        xxhash: b5b7b5e90cb17ecd9d115577c54b4098
+      - name: 2017_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: bde373ea-558d-4130-8f09-17ce0b0e6066
+        sizes:
+          original:
+            bytes: 223949
+            bits: 1791592
+            mb: 0.2136
+          compressed:
+            bytes: 25850
+            bits: 206800
+            mb: 0.0247
+        last_updated: '2025-11-10T09:57:29.462Z'
+        xxhash: 09371d31405e9c4503300275d4f16801
+      - name: 2017_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 2bd18b2d-f79c-4bf8-a0bb-4a88e26d411d
+        sizes:
+          original:
+            bytes: 242179
+            bits: 1937432
+            mb: 0.231
+          compressed:
+            bytes: 27972
+            bits: 223776
+            mb: 0.0267
+        last_updated: '2025-11-10T09:57:29.777Z'
+        xxhash: 8b135314cf7a94431953c9d286c8a6f6
+      - name: 2017_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: ccad9c97-e11f-4432-a846-33bd802ec6a0
+        sizes:
+          original:
+            bytes: 233119
+            bits: 1864952
+            mb: 0.2223
+          compressed:
+            bytes: 26959
+            bits: 215672
+            mb: 0.0257
+        last_updated: '2025-11-10T09:57:30.118Z'
+        xxhash: 58275a26c63748df207c58784b7ad450
+      - name: 2017_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 5e88a449-056b-4780-8f1f-4d8993c285ff
+        sizes:
+          original:
+            bytes: 227261
+            bits: 1818088
+            mb: 0.2167
+          compressed:
+            bytes: 25881
+            bits: 207048
+            mb: 0.0247
+        last_updated: '2025-11-10T09:57:30.440Z'
+        xxhash: 4a8e519244ec45502ddaada6569ba748
+      - name: 2017_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 072cde15-f555-4237-83d3-0b040c1b2e38
+        sizes:
+          original:
+            bytes: 249392
+            bits: 1995136
+            mb: 0.2378
+          compressed:
+            bytes: 28038
+            bits: 224304
+            mb: 0.0267
+        last_updated: '2025-11-10T09:57:30.740Z'
+        xxhash: 4c3916c6f77e5a84ed6543e6ecef3d19
+      - name: 2017_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: cb397eaa-47d5-4692-b8ab-e86e3c522d29
+        sizes:
+          original:
+            bytes: 234436
+            bits: 1875488
+            mb: 0.2236
+          compressed:
+            bytes: 26234
+            bits: 209872
+            mb: 0.025
+        last_updated: '2025-11-10T09:57:31.032Z'
+        xxhash: 1e47cdde9df1fba17334f9274d5f9480
+      - name: 2017_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 8aa58e1e-38d3-45fc-a412-f91ae4860242
+        sizes:
+          original:
+            bytes: 241906
+            bits: 1935248
+            mb: 0.2307
+          compressed:
+            bytes: 27853
+            bits: 222824
+            mb: 0.0266
+        last_updated: '2025-11-10T09:57:31.353Z'
+        xxhash: 0f89eeff6fa2635d3774ecb74adb7a4b
+      - name: 2018_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 65bea38c-e362-44dd-aed3-82ce8e51b7f5
+        sizes:
+          original:
+            bytes: 237648
+            bits: 1901184
+            mb: 0.2266
+          compressed:
+            bytes: 26697
+            bits: 213576
+            mb: 0.0255
+        last_updated: '2025-11-10T09:57:31.645Z'
+        xxhash: 82046439ea8df2c0411b85a32a0984cf
+      - name: 2018_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 84e81d47-0e4c-4f20-9a84-32613e7abebe
+        sizes:
+          original:
+            bytes: 218459
+            bits: 1747672
+            mb: 0.2083
+          compressed:
+            bytes: 24493
+            bits: 195944
+            mb: 0.0234
+        last_updated: '2025-11-10T09:57:31.940Z'
+        xxhash: f7503ee3abbb1e4b14d5673f67f7d5b0
+      - name: 2018_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 55593ab3-a421-495b-ac44-6fccf55223c6
+        sizes:
+          original:
+            bytes: 224583
+            bits: 1796664
+            mb: 0.2142
+          compressed:
+            bytes: 25623
+            bits: 204984
+            mb: 0.0244
+        last_updated: '2025-11-10T09:57:32.257Z'
+        xxhash: 261626cd78c4e82bae6f8fc590944936
+      - name: 2018_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 4450aee7-1585-40e2-9554-441d87341176
+        sizes:
+          original:
+            bytes: 238257
+            bits: 1906056
+            mb: 0.2272
+          compressed:
+            bytes: 26600
+            bits: 212800
+            mb: 0.0254
+        last_updated: '2025-11-10T09:57:32.566Z'
+        xxhash: 75e0c1bc464a94354f352609cca2c554
+      - name: 2018_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 64941a38-7c15-410c-81a7-cb9281fa8e56
+        sizes:
+          original:
+            bytes: 238436
+            bits: 1907488
+            mb: 0.2274
+          compressed:
+            bytes: 26660
+            bits: 213280
+            mb: 0.0254
+        last_updated: '2025-11-10T09:57:32.851Z'
+        xxhash: 5e5b2e803121d1354a24761de8abbdd7
+      - name: 2018_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: b4ca375e-a8ae-461d-9800-414c66439321
+        sizes:
+          original:
+            bytes: 236689
+            bits: 1893512
+            mb: 0.2257
+          compressed:
+            bytes: 26081
+            bits: 208648
+            mb: 0.0249
+        last_updated: '2025-11-10T09:57:33.138Z'
+        xxhash: 8909fd0b340fe4071f757fc387c625d5
+      - name: 2018_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 090ac0bd-03e0-4ac5-b808-02859b8312fd
+        sizes:
+          original:
+            bytes: 242710
+            bits: 1941680
+            mb: 0.2315
+          compressed:
+            bytes: 26472
+            bits: 211776
+            mb: 0.0252
+        last_updated: '2025-11-10T09:57:33.448Z'
+        xxhash: 21609f1358944031c5ac5adf552a5963
+      - name: 2018_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 0816d433-958c-4d40-ba1b-b586d74edd3e
+        sizes:
+          original:
+            bytes: 237215
+            bits: 1897720
+            mb: 0.2262
+          compressed:
+            bytes: 26302
+            bits: 210416
+            mb: 0.0251
+        last_updated: '2025-11-10T09:57:33.796Z'
+        xxhash: 87fac5077e1c6a33cf53caf061d91faa
+      - name: 2018_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 21678189-e865-4b24-889f-8576793e677c
+        sizes:
+          original:
+            bytes: 230596
+            bits: 1844768
+            mb: 0.2199
+          compressed:
+            bytes: 25252
+            bits: 202016
+            mb: 0.0241
+        last_updated: '2025-11-10T09:57:34.106Z'
+        xxhash: 54fc608ff27e0bcc7465301126fb3540
+      - name: 2018_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 368c8227-880e-472c-a31d-fc6d5c579624
+        sizes:
+          original:
+            bytes: 225768
+            bits: 1806144
+            mb: 0.2153
+          compressed:
+            bytes: 25082
+            bits: 200656
+            mb: 0.0239
+        last_updated: '2025-11-10T09:57:34.418Z'
+        xxhash: b4a4344ab4eeaa7c09d4fbf4c44d5abe
+      - name: 2018_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 6c64135c-4b1d-4a2d-a6d4-ec4cfd1e9154
+        sizes:
+          original:
+            bytes: 222005
+            bits: 1776040
+            mb: 0.2117
+          compressed:
+            bytes: 24825
+            bits: 198600
+            mb: 0.0237
+        last_updated: '2025-11-10T09:57:34.719Z'
+        xxhash: 9ab6b5c137beb3fe8c0997a958973c20
+      - name: 2018_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a0186923-de2f-49bc-a6c9-3668b38e940c
+        sizes:
+          original:
+            bytes: 236022
+            bits: 1888176
+            mb: 0.2251
+          compressed:
+            bytes: 26752
+            bits: 214016
+            mb: 0.0255
+        last_updated: '2025-11-10T09:57:35.005Z'
+        xxhash: d0fecae0e12beba31d6d0a1c6499f219
+      - name: 2019_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 53e4f7a4-8ea5-483a-8eb3-bbc067924c7b
+        sizes:
+          original:
+            bytes: 226825
+            bits: 1814600
+            mb: 0.2163
+          compressed:
+            bytes: 25708
+            bits: 205664
+            mb: 0.0245
+        last_updated: '2025-11-10T09:57:35.305Z'
+        xxhash: e4e18cb45996f39be0fe7fe210265787
+      - name: 2019_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: bac154e0-1515-407d-8703-71f7402186da
+        sizes:
+          original:
+            bytes: 212729
+            bits: 1701832
+            mb: 0.2029
+          compressed:
+            bytes: 23855
+            bits: 190840
+            mb: 0.0227
+        last_updated: '2025-11-10T09:57:35.614Z'
+        xxhash: 4c106c0da5459643baab43e38730b743
+      - name: 2019_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 8d035f58-6b2b-4624-a5ca-d3d23bab0a91
+        sizes:
+          original:
+            bytes: 238875
+            bits: 1911000
+            mb: 0.2278
+          compressed:
+            bytes: 27285
+            bits: 218280
+            mb: 0.026
+        last_updated: '2025-11-10T09:57:35.929Z'
+        xxhash: 160ae5b80d29ebe8d0de2b81ddcb320b
+      - name: 2019_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 5793add9-a0f9-4d57-a41d-e86043d7eefa
+        sizes:
+          original:
+            bytes: 218723
+            bits: 1749784
+            mb: 0.2086
+          compressed:
+            bytes: 25247
+            bits: 201976
+            mb: 0.0241
+        last_updated: '2025-11-10T09:58:36.267Z'
+        xxhash: 8e07c03fad65290a830af12e462cc744
+      - name: 2019_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: e519d8de-7b7f-49c8-b4b2-0a3a429846e2
+        sizes:
+          original:
+            bytes: 221351
+            bits: 1770808
+            mb: 0.2111
+          compressed:
+            bytes: 25672
+            bits: 205376
+            mb: 0.0245
+        last_updated: '2025-11-10T09:58:36.560Z'
+        xxhash: 3600a66ba43e906e0b3374c1a69455f5
+      - name: 2019_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a3d1dcbd-e4a8-449c-8cd3-2b1fddc1169b
+        sizes:
+          original:
+            bytes: 226254
+            bits: 1810032
+            mb: 0.2158
+          compressed:
+            bytes: 25766
+            bits: 206128
+            mb: 0.0246
+        last_updated: '2025-11-10T09:58:36.885Z'
+        xxhash: 4c487132adfeb7587398a6e874a9c07f
+      - name: 2019_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 824497f7-1237-4010-93c4-a4bf14b67b7a
+        sizes:
+          original:
+            bytes: 218850
+            bits: 1750800
+            mb: 0.2087
+          compressed:
+            bytes: 24890
+            bits: 199120
+            mb: 0.0237
+        last_updated: '2025-11-10T09:58:37.215Z'
+        xxhash: ef0a31e493aa7b4f10dffdd345e33e74
+      - name: 2019_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: cd1d7efe-d756-4727-bcab-d0eedd567172
+        sizes:
+          original:
+            bytes: 223585
+            bits: 1788680
+            mb: 0.2132
+          compressed:
+            bytes: 25838
+            bits: 206704
+            mb: 0.0246
+        last_updated: '2025-11-10T09:58:37.522Z'
+        xxhash: 10dceb07d9ede4724d728abbe6cac1a6
+      - name: 2019_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: f3f8c7a1-fd22-44f4-b9fa-fdd3a02c1fed
+        sizes:
+          original:
+            bytes: 224272
+            bits: 1794176
+            mb: 0.2139
+          compressed:
+            bytes: 25037
+            bits: 200296
+            mb: 0.0239
+        last_updated: '2025-11-10T09:58:37.843Z'
+        xxhash: 3186aaa5092dae226e4064dde36bdde2
+      - name: 2019_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 46a73ef6-13fb-4602-b84d-03868010d30f
+        sizes:
+          original:
+            bytes: 224043
+            bits: 1792344
+            mb: 0.2137
+          compressed:
+            bytes: 25665
+            bits: 205320
+            mb: 0.0245
+        last_updated: '2025-11-10T09:58:38.149Z'
+        xxhash: 6e51d49f5e416c4ddd3a54e298a4e9d6
+      - name: 2019_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: e064fcd0-d079-435b-9301-e4c963957e4b
+        sizes:
+          original:
+            bytes: 217543
+            bits: 1740344
+            mb: 0.2075
+          compressed:
+            bytes: 24356
+            bits: 194848
+            mb: 0.0232
+        last_updated: '2025-11-10T09:58:38.455Z'
+        xxhash: 9a31b38944599beb2322ec4bced720df
+      - name: 2019_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: d167f141-4103-404b-ad8a-3d52b1acee2f
+        sizes:
+          original:
+            bytes: 235380
+            bits: 1883040
+            mb: 0.2245
+          compressed:
+            bytes: 26627
+            bits: 213016
+            mb: 0.0254
+        last_updated: '2025-11-10T09:58:38.750Z'
+        xxhash: c6cb178dfa80edc2c334d80a6c54657d
+      - name: 2020_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a5e914ea-3784-4316-89fa-c8c2cd2f5615
+        sizes:
+          original:
+            bytes: 235915
+            bits: 1887320
+            mb: 0.225
+          compressed:
+            bytes: 26039
+            bits: 208312
+            mb: 0.0248
+        last_updated: '2025-11-10T09:58:39.047Z'
+        xxhash: 5a1f22867580c13f036d4773198114ad
+      - name: 2020_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 45df13d3-9c99-4ae9-b61d-4520ebb27c2e
+        sizes:
+          original:
+            bytes: 213862
+            bits: 1710896
+            mb: 0.204
+          compressed:
+            bytes: 24359
+            bits: 194872
+            mb: 0.0232
+        last_updated: '2025-11-10T09:58:39.340Z'
+        xxhash: d57696a353f78860007aa52514229f1f
+      - name: 2020_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: cc9e7656-bd92-41b3-b322-73729c07cbc8
+        sizes:
+          original:
+            bytes: 228598
+            bits: 1828784
+            mb: 0.218
+          compressed:
+            bytes: 25773
+            bits: 206184
+            mb: 0.0246
+        last_updated: '2025-11-10T09:58:39.646Z'
+        xxhash: 34f63f737caa62e440242e7fa415d77d
+      - name: 2020_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 68de3982-232c-4729-9f92-457ccba6756f
+        sizes:
+          original:
+            bytes: 213311
+            bits: 1706488
+            mb: 0.2034
+          compressed:
+            bytes: 24260
+            bits: 194080
+            mb: 0.0231
+        last_updated: '2025-11-10T09:58:39.969Z'
+        xxhash: e1254332da1ed31feb8ea3693c61fe9c
+      - name: 2020_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 043f17a1-e427-443a-bf57-ba1a4677b7c2
+        sizes:
+          original:
+            bytes: 234598
+            bits: 1876784
+            mb: 0.2237
+          compressed:
+            bytes: 26393
+            bits: 211144
+            mb: 0.0252
+        last_updated: '2025-11-10T09:58:40.272Z'
+        xxhash: 36a01c6bb515facc0f1d219b9577c2fd
+      - name: 2020_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 2a15fe57-dd1a-4a1b-8508-30b52cb4e9b9
+        sizes:
+          original:
+            bytes: 220159
+            bits: 1761272
+            mb: 0.21
+          compressed:
+            bytes: 24809
+            bits: 198472
+            mb: 0.0237
+        last_updated: '2025-11-10T09:58:40.584Z'
+        xxhash: 18560d50bc66ded9b5cbab5768a9a700
+      - name: 2020_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 232c2398-888b-4b08-9be5-b22a1fa67c07
+        sizes:
+          original:
+            bytes: 233229
+            bits: 1865832
+            mb: 0.2224
+          compressed:
+            bytes: 25937
+            bits: 207496
+            mb: 0.0247
+        last_updated: '2025-11-10T09:58:40.877Z'
+        xxhash: 241526cb43b797917b9f03ccb0a0dced
+      - name: 2020_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a0f808ab-b089-4ec5-a24c-8cfb82b3adea
+        sizes:
+          original:
+            bytes: 234038
+            bits: 1872304
+            mb: 0.2232
+          compressed:
+            bytes: 26353
+            bits: 210824
+            mb: 0.0251
+        last_updated: '2025-11-10T09:58:41.193Z'
+        xxhash: 833b8cccc63679e84d0f101c40d3c443
+      - name: 2020_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 31ebb436-9eee-46b8-a71e-0c66b5ad65e0
+        sizes:
+          original:
+            bytes: 211652
+            bits: 1693216
+            mb: 0.2018
+          compressed:
+            bytes: 23774
+            bits: 190192
+            mb: 0.0227
+        last_updated: '2025-11-10T09:58:41.540Z'
+        xxhash: 61da4db72cb65c71f1435aac94e69017
+      - name: 2020_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 943cb90f-155e-4914-9592-33628b761b40
+        sizes:
+          original:
+            bytes: 216866
+            bits: 1734928
+            mb: 0.2068
+          compressed:
+            bytes: 24760
+            bits: 198080
+            mb: 0.0236
+        last_updated: '2025-11-10T09:58:41.856Z'
+        xxhash: 01d77d10c138666990f1e4a63ad99dda
+      - name: 2020_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: dc4870c4-a5b7-4e8e-be86-ef35a0cc7075
+        sizes:
+          original:
+            bytes: 224261
+            bits: 1794088
+            mb: 0.2139
+          compressed:
+            bytes: 25337
+            bits: 202696
+            mb: 0.0242
+        last_updated: '2025-11-10T09:58:42.208Z'
+        xxhash: b762fec1464640c0825b43cd5c466095
+      - name: 2020_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a128dfcb-b854-4bc1-85be-b5fb6b6a29a2
+        sizes:
+          original:
+            bytes: 221502
+            bits: 1772016
+            mb: 0.2112
+          compressed:
+            bytes: 25065
+            bits: 200520
+            mb: 0.0239
+        last_updated: '2025-11-10T09:58:42.897Z'
+        xxhash: e60dfbb1e9519496f80fe23e4f96e47a
+      - name: 2021_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 8391825d-09f7-47bc-bbdf-73f63229c1d2
+        sizes:
+          original:
+            bytes: 241192
+            bits: 1929536
+            mb: 0.23
+          compressed:
+            bytes: 27014
+            bits: 216112
+            mb: 0.0258
+        last_updated: '2025-11-10T09:58:43.193Z'
+        xxhash: 081d1b763fe86d44f2cde973da0c3d84
+      - name: 2021_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: b2827f96-2570-4c03-9300-86c322628df3
+        sizes:
+          original:
+            bytes: 213607
+            bits: 1708856
+            mb: 0.2037
+          compressed:
+            bytes: 24206
+            bits: 193648
+            mb: 0.0231
+        last_updated: '2025-11-10T09:58:43.509Z'
+        xxhash: 15cc8a9dd3e8c4ff50e910fdf43f8619
+      - name: 2021_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 83a51d79-f49f-4c4f-b45c-78499aa6164a
+        sizes:
+          original:
+            bytes: 223698
+            bits: 1789584
+            mb: 0.2133
+          compressed:
+            bytes: 24817
+            bits: 198536
+            mb: 0.0237
+        last_updated: '2025-11-10T09:58:43.831Z'
+        xxhash: c148886acd4d2ac8f854cf0341dc18ae
+      - name: 2021_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: b6fb78d4-fc41-4f7e-9734-118f57b9c48e
+        sizes:
+          original:
+            bytes: 229091
+            bits: 1832728
+            mb: 0.2185
+          compressed:
+            bytes: 25168
+            bits: 201344
+            mb: 0.024
+        last_updated: '2025-11-10T09:58:44.143Z'
+        xxhash: 02b3109ab363787a084954960e8b3c34
+      - name: 2021_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a667ca9a-ae8c-4b33-8d79-8de2172ee4b9
+        sizes:
+          original:
+            bytes: 254175
+            bits: 2033400
+            mb: 0.2424
+          compressed:
+            bytes: 27561
+            bits: 220488
+            mb: 0.0263
+        last_updated: '2025-11-10T09:59:44.467Z'
+        xxhash: 3acd85afad9b80c5e6c1c36ccd29c435
+      - name: 2021_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 0369a3d0-5a88-4bdd-8b73-8ac002deed58
+        sizes:
+          original:
+            bytes: 235607
+            bits: 1884856
+            mb: 0.2247
+          compressed:
+            bytes: 25069
+            bits: 200552
+            mb: 0.0239
+        last_updated: '2025-11-10T09:59:44.769Z'
+        xxhash: 7c32917d6b903c4647143a11018d4878
+      - name: 2021_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: f29db923-551c-44fb-99f9-522f937fa1c9
+        sizes:
+          original:
+            bytes: 240009
+            bits: 1920072
+            mb: 0.2289
+          compressed:
+            bytes: 25602
+            bits: 204816
+            mb: 0.0244
+        last_updated: '2025-11-10T09:59:45.064Z'
+        xxhash: 485bd307c580ac6fb3baab4236dc8640
+      - name: 2021_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 879c6e89-87c8-43e5-8d9c-f4a4d315b4ef
+        sizes:
+          original:
+            bytes: 254302
+            bits: 2034416
+            mb: 0.2425
+          compressed:
+            bytes: 26855
+            bits: 214840
+            mb: 0.0256
+        last_updated: '2025-11-10T09:59:45.368Z'
+        xxhash: 4fde6213fc680401753d1c246694e796
+      - name: 2021_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 2fa2a3b8-5479-464d-898d-accd380d5222
+        sizes:
+          original:
+            bytes: 234775
+            bits: 1878200
+            mb: 0.2239
+          compressed:
+            bytes: 24558
+            bits: 196464
+            mb: 0.0234
+        last_updated: '2025-11-10T09:59:45.649Z'
+        xxhash: 15d362245a7466e2baac5557e9ad7828
+      - name: 2021_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 6e601d50-02f4-4244-a775-95f83465adbd
+        sizes:
+          original:
+            bytes: 252753
+            bits: 2022024
+            mb: 0.241
+          compressed:
+            bytes: 27141
+            bits: 217128
+            mb: 0.0259
+        last_updated: '2025-11-10T09:59:45.939Z'
+        xxhash: d5185e2f0f94be922cd5a0c3bf854b20
+      - name: 2021_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 9b16005f-914f-43e4-888a-7424d670be1b
+        sizes:
+          original:
+            bytes: 235988
+            bits: 1887904
+            mb: 0.2251
+          compressed:
+            bytes: 25340
+            bits: 202720
+            mb: 0.0242
+        last_updated: '2025-11-10T09:59:46.228Z'
+        xxhash: c6001d300493e84e9d39d4cd2cc5fa75
+      - name: 2021_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: ee05885b-36a9-4a9c-9885-4a67088389ea
+        sizes:
+          original:
+            bytes: 241372
+            bits: 1930976
+            mb: 0.2302
+          compressed:
+            bytes: 26330
+            bits: 210640
+            mb: 0.0251
+        last_updated: '2025-11-10T09:59:46.537Z'
+        xxhash: 330ed5e9dd659306b622e3b3d0da9926
+      - name: 2022_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 9ffba6e1-bd76-4ef5-87c9-c2bbb996d676
+        sizes:
+          original:
+            bytes: 254087
+            bits: 2032696
+            mb: 0.2423
+          compressed:
+            bytes: 27135
+            bits: 217080
+            mb: 0.0259
+        last_updated: '2025-11-10T09:59:46.826Z'
+        xxhash: 525ee425d50ad0d3b78a002a3eebb3b4
+      - name: 2022_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: f30ebc66-ed48-4207-8edb-836d010445d0
+        sizes:
+          original:
+            bytes: 222040
+            bits: 1776320
+            mb: 0.2118
+          compressed:
+            bytes: 23407
+            bits: 187256
+            mb: 0.0223
+        last_updated: '2025-11-10T09:59:47.108Z'
+        xxhash: 1787fc1da999c7e3bca832808c567ff8
+      - name: 2022_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: c32c7179-6b20-4a4c-82c1-886d9ebaad19
+        sizes:
+          original:
+            bytes: 233429
+            bits: 1867432
+            mb: 0.2226
+          compressed:
+            bytes: 25342
+            bits: 202736
+            mb: 0.0242
+        last_updated: '2025-11-10T09:59:47.410Z'
+        xxhash: 593470e8e7623531ea1836e806b96fd8
+      - name: 2022_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 26df016c-a1c0-4b27-a4da-ee5d46c31c88
+        sizes:
+          original:
+            bytes: 225740
+            bits: 1805920
+            mb: 0.2153
+          compressed:
+            bytes: 24765
+            bits: 198120
+            mb: 0.0236
+        last_updated: '2025-11-10T09:59:47.707Z'
+        xxhash: 24fbb626646fda85acbc39dd3ca1138b
+      - name: 2022_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: adca5f69-2ea5-412f-b388-bdd7b6bbfccf
+        sizes:
+          original:
+            bytes: 241622
+            bits: 1932976
+            mb: 0.2304
+          compressed:
+            bytes: 26332
+            bits: 210656
+            mb: 0.0251
+        last_updated: '2025-11-10T09:59:48.041Z'
+        xxhash: 4f2aec73316bd2f6423f943fdb3240b1
+      - name: 2022_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 45ae34eb-d9c6-4014-ad3c-175c5156287d
+        sizes:
+          original:
+            bytes: 222847
+            bits: 1782776
+            mb: 0.2125
+          compressed:
+            bytes: 24117
+            bits: 192936
+            mb: 0.023
+        last_updated: '2025-11-10T09:59:48.573Z'
+        xxhash: fbc41ae93fea5177c1f906cee4327049
+      - name: 2022_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: ada2985f-059c-4c81-8d76-919cbedf1e42
+        sizes:
+          original:
+            bytes: 239316
+            bits: 1914528
+            mb: 0.2282
+          compressed:
+            bytes: 26202
+            bits: 209616
+            mb: 0.025
+        last_updated: '2025-11-10T09:59:48.983Z'
+        xxhash: 70da53bd8a7e5e1bb951a6fd753eaa6b
+      - name: 2022_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 7cda027b-9b5c-450b-821c-c085435bcc32
+        sizes:
+          original:
+            bytes: 229484
+            bits: 1835872
+            mb: 0.2189
+          compressed:
+            bytes: 25498
+            bits: 203984
+            mb: 0.0243
+        last_updated: '2025-11-10T09:59:49.276Z'
+        xxhash: 62d3a4b9a5faf7a20534146f04e9a160
+      - name: 2022_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 8ee3b9d9-3fe5-47fb-8ddd-df31689f302f
+        sizes:
+          original:
+            bytes: 226029
+            bits: 1808232
+            mb: 0.2156
+          compressed:
+            bytes: 24797
+            bits: 198376
+            mb: 0.0236
+        last_updated: '2025-11-10T09:59:49.589Z'
+        xxhash: 52287182e0eca30aa7a71ee789563a5e
+      - name: 2022_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: ba810237-2e2a-469b-82f9-cc8c324847ea
+        sizes:
+          original:
+            bytes: 244752
+            bits: 1958016
+            mb: 0.2334
+          compressed:
+            bytes: 26923
+            bits: 215384
+            mb: 0.0257
+        last_updated: '2025-11-10T09:59:49.892Z'
+        xxhash: bb2c7d60c3bcba33c236c92b33be56bd
+      - name: 2022_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 9c5dfe45-cc80-4027-8409-f58f80ad6fdd
+        sizes:
+          original:
+            bytes: 227340
+            bits: 1818720
+            mb: 0.2168
+          compressed:
+            bytes: 25301
+            bits: 202408
+            mb: 0.0241
+        last_updated: '2025-11-10T09:59:50.210Z'
+        xxhash: 0f12940053e33f943c0dfbdd4fd447bd
+      - name: 2022_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: b77bd66d-dbeb-471e-8764-3a6063f83489
+        sizes:
+          original:
+            bytes: 230804
+            bits: 1846432
+            mb: 0.2201
+          compressed:
+            bytes: 26021
+            bits: 208168
+            mb: 0.0248
+        last_updated: '2025-11-10T09:59:50.519Z'
+        xxhash: 545fcf46b3b5d4f773d7b16c9487a8ed
+      - name: 2023_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 08452c09-e9c3-4738-95d0-54842767d93f
+        sizes:
+          original:
+            bytes: 243892
+            bits: 1951136
+            mb: 0.2326
+          compressed:
+            bytes: 26690
+            bits: 213520
+            mb: 0.0255
+        last_updated: '2025-11-10T09:59:50.817Z'
+        xxhash: 0d2222bef22aab4cce54ea7410b69fc9
+      - name: 2023_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: af7ef9f6-3cbc-483b-beb8-ea5b38baeb52
+        sizes:
+          original:
+            bytes: 213934
+            bits: 1711472
+            mb: 0.204
+          compressed:
+            bytes: 24035
+            bits: 192280
+            mb: 0.0229
+        last_updated: '2025-11-10T09:59:51.159Z'
+        xxhash: 0daa53af3309053a737e609aeb1b0b46
+      - name: 2023_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 79737296-1cf5-4ba2-9662-18b1f5303a7e
+        sizes:
+          original:
+            bytes: 232042
+            bits: 1856336
+            mb: 0.2213
+          compressed:
+            bytes: 26196
+            bits: 209568
+            mb: 0.025
+        last_updated: '2025-11-10T09:59:51.443Z'
+        xxhash: d755bfe0ec8ae6c5990b64e7ddbc1f86
+      - name: 2023_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: de099a36-b623-4546-8916-b3c45f40b060
+        sizes:
+          original:
+            bytes: 235951
+            bits: 1887608
+            mb: 0.225
+          compressed:
+            bytes: 26551
+            bits: 212408
+            mb: 0.0253
+        last_updated: '2025-11-10T09:59:51.727Z'
+        xxhash: 874c7f802609ba2b7a4d52e5f6d8cc89
+      - name: 2023_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: df7695d2-3a18-4b92-a870-a8ffa4025f6e
+        sizes:
+          original:
+            bytes: 228702
+            bits: 1829616
+            mb: 0.2181
+          compressed:
+            bytes: 25317
+            bits: 202536
+            mb: 0.0241
+        last_updated: '2025-11-10T09:59:52.035Z'
+        xxhash: 7c4d3cb1ff92cdbef756c36f44dbb291
+      - name: 2023_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 7ca9b50c-9c92-42f4-b52f-e8452ec635c6
+        sizes:
+          original:
+            bytes: 223255
+            bits: 1786040
+            mb: 0.2129
+          compressed:
+            bytes: 24481
+            bits: 195848
+            mb: 0.0233
+        last_updated: '2025-11-10T10:00:52.383Z'
+        xxhash: 93a2569f424ea3f67958b13a075bf03a
+      - name: 2023_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 92667d9c-b825-483c-8ecc-716ff1e14f20
+        sizes:
+          original:
+            bytes: 239215
+            bits: 1913720
+            mb: 0.2281
+          compressed:
+            bytes: 26122
+            bits: 208976
+            mb: 0.0249
+        last_updated: '2025-11-10T10:00:52.813Z'
+        xxhash: c5ed7f7cf97a9930693921b7b575b5b6
+      - name: 2023_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 810e9a0d-4358-4f81-9511-3d1791dee736
+        sizes:
+          original:
+            bytes: 228417
+            bits: 1827336
+            mb: 0.2178
+          compressed:
+            bytes: 24872
+            bits: 198976
+            mb: 0.0237
+        last_updated: '2025-11-10T10:00:53.215Z'
+        xxhash: 48eb8e6b3c5460e7c8fd0edc3a08b06f
+      - name: 2023_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: ce3f6d60-62cb-4154-8062-61d198d46e18
+        sizes:
+          original:
+            bytes: 220648
+            bits: 1765184
+            mb: 0.2104
+          compressed:
+            bytes: 24183
+            bits: 193464
+            mb: 0.0231
+        last_updated: '2025-11-10T10:00:53.818Z'
+        xxhash: f661bb9d108fd6e7862a91b80ae58297
+      - name: 2023_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: e9c466cd-c806-405f-831a-182ff619bf46
+        sizes:
+          original:
+            bytes: 238112
+            bits: 1904896
+            mb: 0.2271
+          compressed:
+            bytes: 26356
+            bits: 210848
+            mb: 0.0251
+        last_updated: '2025-11-10T10:00:54.617Z'
+        xxhash: 65716a1ee678e77ebab6a7875f79a399
+      - name: 2023_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: afd25d7b-3c02-44ac-8894-5fd3c2226cbf
+        sizes:
+          original:
+            bytes: 222141
+            bits: 1777128
+            mb: 0.2119
+          compressed:
+            bytes: 24852
+            bits: 198816
+            mb: 0.0237
+        last_updated: '2025-11-10T10:00:55.310Z'
+        xxhash: 695d3710cc45511ffa606dc5407fa32a
+      - name: 2023_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 46a43a47-d246-4e60-bc27-0751ba979b86
+        sizes:
+          original:
+            bytes: 242594
+            bits: 1940752
+            mb: 0.2314
+          compressed:
+            bytes: 27374
+            bits: 218992
+            mb: 0.0261
+        last_updated: '2025-11-10T10:00:55.835Z'
+        xxhash: 3f3b893f87a696f19bc849f31d6e1253
+      - name: 2024_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 838c09e3-a923-4670-956e-89d167027e24
+        sizes:
+          original:
+            bytes: 238611
+            bits: 1908888
+            mb: 0.2276
+          compressed:
+            bytes: 25661
+            bits: 205288
+            mb: 0.0245
+        last_updated: '2025-11-10T10:00:56.616Z'
+        xxhash: 5db2b9685b64da299c4bf88ebeca2819
+      - name: 2024_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: cc0a32d0-f79b-4fa0-993c-ab17362b07eb
+        sizes:
+          original:
+            bytes: 226020
+            bits: 1808160
+            mb: 0.2155
+          compressed:
+            bytes: 24490
+            bits: 195920
+            mb: 0.0234
+        last_updated: '2025-11-10T10:00:57.314Z'
+        xxhash: 31a95c348769d5fa18cb79089bea1ab3
+      - name: 2024_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 77bf19a5-4ada-45e5-830a-8d82c2e6105e
+        sizes:
+          original:
+            bytes: 249338
+            bits: 1994704
+            mb: 0.2378
+          compressed:
+            bytes: 27051
+            bits: 216408
+            mb: 0.0258
+        last_updated: '2025-11-10T10:00:58.017Z'
+        xxhash: b0c6aec809469fdc21b93f596ace256d
+      - name: 2024_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: db271a3b-da02-4019-b03c-ef39ecb7b315
+        sizes:
+          original:
+            bytes: 232058
+            bits: 1856464
+            mb: 0.2213
+          compressed:
+            bytes: 25146
+            bits: 201168
+            mb: 0.024
+        last_updated: '2025-11-10T10:00:58.561Z'
+        xxhash: b99307cf80b2cc6c2824c875ab48a905
+      - name: 2024_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 126dff7f-ee40-4b40-aed6-874906875b3b
+        sizes:
+          original:
+            bytes: 237391
+            bits: 1899128
+            mb: 0.2264
+          compressed:
+            bytes: 25196
+            bits: 201568
+            mb: 0.024
+        last_updated: '2025-11-10T10:00:59.316Z'
+        xxhash: dc82f8c845b57ba6b269f082dd00be1d
+      - name: 2024_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 07f932ce-fbe2-4c4b-a7eb-f7037cccd8e6
+        sizes:
+          original:
+            bytes: 243008
+            bits: 1944064
+            mb: 0.2318
+          compressed:
+            bytes: 26216
+            bits: 209728
+            mb: 0.025
+        last_updated: '2025-11-10T10:00:59.917Z'
+        xxhash: 253032bcad0cc91f32893b410df9528e
+      - name: 2024_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 83262dba-c233-4b81-97cb-73b720e535bc
+        sizes:
+          original:
+            bytes: 238116
+            bits: 1904928
+            mb: 0.2271
+          compressed:
+            bytes: 25497
+            bits: 203976
+            mb: 0.0243
+        last_updated: '2025-11-10T10:01:00.624Z'
+        xxhash: c0018930edb83dbaa7b01abe4f5954ff
+      - name: 2024_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 0687d0e4-895d-4f72-881f-319945e487f0
+        sizes:
+          original:
+            bytes: 237712
+            bits: 1901696
+            mb: 0.2267
+          compressed:
+            bytes: 25871
+            bits: 206968
+            mb: 0.0247
+        last_updated: '2025-11-10T10:01:01.412Z'
+        xxhash: c475289d3fee83eb5ff28e2f13f8b318
+      - name: 2024_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: fe804842-f05c-4518-be8c-af425f4e3b40
+        sizes:
+          original:
+            bytes: 243094
+            bits: 1944752
+            mb: 0.2318
+          compressed:
+            bytes: 26118
+            bits: 208944
+            mb: 0.0249
+        last_updated: '2025-11-10T10:01:02.420Z'
+        xxhash: e6d9d9e16fb23fcb2636dfded2ed8f8c
+      - name: 2024_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 1fa421d8-0f00-4e8b-8108-7d4d5c2ad248
+        sizes:
+          original:
+            bytes: 236896
+            bits: 1895168
+            mb: 0.2259
+          compressed:
+            bytes: 25614
+            bits: 204912
+            mb: 0.0244
+        last_updated: '2025-11-25T14:40:20.781Z'
+        xxhash: c3ca6f5e7b9df775f2df54140cd64786
+      - name: 2024_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: ba87a3a7-26d8-49d3-8ad7-2cef1673ac1d
+        sizes:
+          original:
+            bytes: 232606
+            bits: 1860848
+            mb: 0.2218
+          compressed:
+            bytes: 25206
+            bits: 201648
+            mb: 0.024
+        last_updated: '2025-11-25T14:40:21.173Z'
+        xxhash: ec85431328bb66b6fb3e3edfe4818dba
+      - name: 2024_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 325c5ebe-7c12-4c08-9c8d-f4306ec49feb
+        sizes:
+          original:
+            bytes: 248556
+            bits: 1988448
+            mb: 0.237
+          compressed:
+            bytes: 27313
+            bits: 218504
+            mb: 0.026
+        last_updated: '2025-11-25T14:40:21.736Z'
+        xxhash: fe1141a3e7a7ec1c85492a235f9349c0
+      - name: 2025_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: fa271782-3f7d-4956-8601-1abd3c60301a
+        sizes:
+          original:
+            bytes: 236675
+            bits: 1893400
+            mb: 0.2257
+          compressed:
+            bytes: 26024
+            bits: 208192
+            mb: 0.0248
+        last_updated: '2025-12-29T09:30:26.844Z'
+        xxhash: 36b5c0ba6e946db6bc1fa6a9193e73c2
+      - name: 2025_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 1370ee5c-e6dd-4715-ab32-3690fa27cbac
+        sizes:
+          original:
+            bytes: 215710
+            bits: 1725680
+            mb: 0.2057
+          compressed:
+            bytes: 24046
+            bits: 192368
+            mb: 0.0229
+        last_updated: '2025-12-29T09:30:27.191Z'
+        xxhash: a48e099fcf41920250c4a1e3f88495d0
+      - name: 2025_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a58ba2d8-0fe1-495b-85ea-f51b72aac1c3
+        sizes:
+          original:
+            bytes: 244998
+            bits: 1959984
+            mb: 0.2336
+          compressed:
+            bytes: 27155
+            bits: 217240
+            mb: 0.0259
+        last_updated: '2025-12-29T09:30:27.548Z'
+        xxhash: 526d84e231b8bc24f0d8737055048048
+      - name: 2025_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 889fda96-7740-4e7e-87c6-10ee100abb32
+        sizes:
+          original:
+            bytes: 227745
+            bits: 1821960
+            mb: 0.2172
+          compressed:
+            bytes: 25402
+            bits: 203216
+            mb: 0.0242
+        last_updated: '2025-12-29T09:30:27.874Z'
+        xxhash: 70004ace85f87a12a58a941342e7d37c
+      - name: 2025_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 5737b9db-9296-4cd8-9c8c-7ccd8a6c9527
+        sizes:
+          original:
+            bytes: 232939
+            bits: 1863512
+            mb: 0.2221
+          compressed:
+            bytes: 25649
+            bits: 205192
+            mb: 0.0245
+        last_updated: '2025-12-29T09:30:28.193Z'
+        xxhash: 57e07c1ab5c619a78d7adab463a15296
+      - name: 2025_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: c90a0c1d-7399-466e-aa11-eaabe9330c6a
+        sizes:
+          original:
+            bytes: 242403
+            bits: 1939224
+            mb: 0.2312
+          compressed:
+            bytes: 26882
+            bits: 215056
+            mb: 0.0256
+        last_updated: '2025-12-29T09:30:28.600Z'
+        xxhash: c54d63cf85926af26eb42c8cdedbeb39
+      - name: 2025_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 2b378e50-b97d-4f76-8bdb-5d736e6ad31c
+        sizes:
+          original:
+            bytes: 237187
+            bits: 1897496
+            mb: 0.2262
+          compressed:
+            bytes: 26239
+            bits: 209912
+            mb: 0.025
+        last_updated: '2025-12-29T09:30:29.218Z'
+        xxhash: 292d79f9f3ed3873688d2f6b47a5e876
+      - name: 2025_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 48d89df8-e264-46b5-95dd-df5778faa69a
+        sizes:
+          original:
+            bytes: 247768
+            bits: 1982144
+            mb: 0.2363
+          compressed:
+            bytes: 27525
+            bits: 220200
+            mb: 0.0262
+        last_updated: '2025-12-29T09:30:30.592Z'
+        xxhash: 8854723d7c90e8b2a603857934f2a962
+      - name: 2025_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: c46baab8-dc75-44a2-bb5d-2ea17d2f23fb
+        sizes:
+          original:
+            bytes: 229102
+            bits: 1832816
+            mb: 0.2185
+          compressed:
+            bytes: 25426
+            bits: 203408
+            mb: 0.0242
+        last_updated: '2025-12-29T09:30:30.935Z'
+        xxhash: 3b45cab0723c007476b18a119761f45e
+      - name: 2025_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 7683339d-1d1d-445a-8498-cc1d1a2a9f0a
+        sizes:
+          original:
+            bytes: 211655
+            bits: 1693240
+            mb: 0.2018
+          compressed:
+            bytes: 24255
+            bits: 194040
+            mb: 0.0231
+        last_updated: '2025-12-29T09:30:31.290Z'
+        xxhash: 781f39aa495790936492aef39f37bd1a
+      - name: 2025_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 218cb771-cb94-43f3-ae3d-e695c9d53a8f
+        sizes:
+          original:
+            bytes: 228610
+            bits: 1828880
+            mb: 0.218
+          compressed:
+            bytes: 27141
+            bits: 217128
+            mb: 0.0259
+        last_updated: '2026-02-03T13:38:58.305Z'
+        xxhash: 0740680a0374bf309647cb4e52a34bd5
+      - name: 2025_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 27e3bb47-da6e-49ed-bca7-def0b0a4994b
+        sizes:
+          original:
+            bytes: 217831
+            bits: 1742648
+            mb: 0.2077
+          compressed:
+            bytes: 27127
+            bits: 217016
+            mb: 0.0259
+        last_updated: '2026-03-27T07:22:29.745Z'
+        xxhash: 5c80cd2818f83849bce577f3010f46d1
+      - name: 2026_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 92294101-7f9a-4b89-af16-01b4d7bb80df
+        sizes:
+          original:
+            bytes: 214502
+            bits: 1716016
+            mb: 0.2046
+          compressed:
+            bytes: 26079
+            bits: 208632
+            mb: 0.0249
+        last_updated: '2026-03-27T07:22:30.379Z'
+        xxhash: 585f8ef94ad34fa730f6b6b6f9c34592
+      - name: 2026_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: bf1bf4fe-60dd-43c2-97a4-7c1ddea7b1db
+        sizes:
+          original:
+            bytes: 198421
+            bits: 1587368
+            mb: 0.1892
+          compressed:
+            bytes: 24024
+            bits: 192192
+            mb: 0.0229
+        last_updated: '2026-03-27T07:22:30.950Z'
+        xxhash: 719dd2625f5f007a8b0c4f28a7923acd
+      - name: 2026_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: c920063a-ee7b-41bd-bf13-0367547a747c
+        sizes:
+          original:
+            bytes: 223101
+            bits: 1784808
+            mb: 0.2128
+          compressed:
+            bytes: 27329
+            bits: 218632
+            mb: 0.0261
+        last_updated: '2026-05-11T15:01:57.398Z'
+        xxhash: 4dd250c4670ddd2fee6875526cdbeea6
+      - name: 2026_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: a951a0e6-2133-4260-940b-d0b35395f158
+        sizes:
+          original:
+            bytes: 208461
+            bits: 1667688
+            mb: 0.1988
+          compressed:
+            bytes: 25850
+            bits: 206800
+            mb: 0.0247
+        last_updated: '2026-05-13T10:39:08.736Z'
+        xxhash: eabe8796ed3a580ecb3d8cfb3f28991a
+      - name: 2026_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: d285fff8-acf0-40c3-87e8-d4520e696c5b
+        sizes:
+          original:
+            bytes: 217370
+            bits: 1738960
+            mb: 0.2073
+          compressed:
+            bytes: 26649
+            bits: 213192
+            mb: 0.0254
+        last_updated: '2026-05-29T09:46:14.550Z'
+        xxhash: 6da69cfcc94dd177aed0bfd0aa7976d3
+      - name: 2026_06_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 255389ba-bd29-4aee-96e6-55bbdb109fee
+        sizes:
+          original:
+            bytes: 69995
+            bits: 559960
+            mb: 0.0668
+          compressed:
+            bytes: 9384
+            bits: 75072
+            mb: 0.0089
+        last_updated: '2026-05-29T09:46:14.923Z'
+        xxhash: f00839562de25778e8e9ae9c1953196d
+      - name: 2026_07_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 2ae8b7b5-8529-420e-9880-b6fccf60fc44
+        sizes:
+          original:
+            bytes: 25406
+            bits: 203248
+            mb: 0.0242
+          compressed:
+            bytes: 4033
+            bits: 32264
+            mb: 0.0038
+        last_updated: '2026-05-15T10:39:33.040Z'
+        xxhash: 808e11c114d7c15663eeec31c56f0318
+      - name: 2026_08_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: c34a88da-cf4f-425d-bccf-85887a9404e0
+        sizes:
+          original:
+            bytes: 29829
+            bits: 238632
+            mb: 0.0284
+          compressed:
+            bytes: 4595
+            bits: 36760
+            mb: 0.0044
+        last_updated: '2026-05-15T10:39:33.323Z'
+        xxhash: 570e44c649986076f7f506a51a0ac21d
+      - name: 2026_09_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 683b67b3-1292-4111-9208-75395b64a03c
+        sizes:
+          original:
+            bytes: 24972
+            bits: 199776
+            mb: 0.0238
+          compressed:
+            bytes: 4040
+            bits: 32320
+            mb: 0.0039
+        last_updated: '2026-05-15T10:39:33.599Z'
+        xxhash: 3af334971eaba45034963b5bba10b46d
+      - name: 2026_10_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 768e9f91-5a71-4e8d-a62f-08b93e888ec4
+        sizes:
+          original:
+            bytes: 24629
+            bits: 197032
+            mb: 0.0235
+          compressed:
+            bytes: 4003
+            bits: 32024
+            mb: 0.0038
+        last_updated: '2026-05-15T10:39:33.877Z'
+        xxhash: dd555e6cfb780ae448158cfdb48cafea
+      - name: 2026_11_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: b6641436-6bce-4688-b118-b8bf05ee4473
+        sizes:
+          original:
+            bytes: 30340
+            bits: 242720
+            mb: 0.0289
+          compressed:
+            bytes: 4710
+            bits: 37680
+            mb: 0.0045
+        last_updated: '2026-05-15T10:39:34.184Z'
+        xxhash: 0b11d16050174e5c1a6af464b7502bec
+      - name: 2026_12_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: f1da2333-0842-4674-b983-71f353f623b5
+        sizes:
+          original:
+            bytes: 23856
+            bits: 190848
+            mb: 0.0228
+          compressed:
+            bytes: 3902
+            bits: 31216
+            mb: 0.0037
+        last_updated: '2026-05-15T10:39:34.484Z'
+        xxhash: 532924bb518812e74a3d2e84f4cb3ad2
+      - name: 2027_01_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: d7e6d789-fe70-431f-a9d0-dfa815d69748
+        sizes:
+          original:
+            bytes: 4367
+            bits: 34936
+            mb: 0.0042
+          compressed:
+            bytes: 1131
+            bits: 9048
+            mb: 0.0011
+        last_updated: '2026-05-15T10:39:34.742Z'
+        xxhash: 2d5b91cce07e30d87c861a525e0e629d
+      - name: 2027_02_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 113339e8-9e53-4ce5-8afa-6e4125a1f89f
+        sizes:
+          original:
+            bytes: 3136
+            bits: 25088
+            mb: 0.003
+          compressed:
+            bytes: 909
+            bits: 7272
+            mb: 0.0009
+        last_updated: '2026-05-15T10:39:34.985Z'
+        xxhash: 6f6c78a4c6e02428150672b0adf1947a
+      - name: 2027_03_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: f9b22900-6f53-4f6d-9a77-46b2b94e9584
+        sizes:
+          original:
+            bytes: 3135
+            bits: 25080
+            mb: 0.003
+          compressed:
+            bytes: 917
+            bits: 7336
+            mb: 0.0009
+        last_updated: '2026-05-15T10:39:35.234Z'
+        xxhash: 21b869f9c23b45578db666c72a1b4df5
+      - name: 2027_04_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 8338ab2b-0e18-4531-9a7f-8b2f78d6c68e
+        sizes:
+          original:
+            bytes: 3134
+            bits: 25072
+            mb: 0.003
+          compressed:
+            bytes: 924
+            bits: 7392
+            mb: 0.0009
+        last_updated: '2026-05-15T10:39:35.497Z'
+        xxhash: 16ce84c8b2509bb16504d5d399fe4c9c
+      - name: 2027_05_TotalLoadForecast_6.1.C_D_E_r3.csv
+        file_id: 3e43d95b-109e-486c-9e24-6b0b0a196073
+        sizes:
+          original:
+            bytes: 3132
+            bits: 25056
+            mb: 0.003
+          compressed:
+            bytes: 913
+            bits: 7304
+            mb: 0.0009
+        last_updated: '2026-05-15T10:39:35.743Z'
+        xxhash: 043166a3253f368925f41a000505f400
+  YearAheadForecastMargin_8.1_r3:
+    folder_path: /TP_export/YearAheadForecastMargin_8.1_r3/
+    item_count: 1
+    sizes:
+      original:
+        bytes: 40546
+        bits: 324368
+        mb: 0.0387
+      compressed:
+        bytes: 5081
+        bits: 40648
+        mb: 0.0048
+    files:
+      - name: YearAheadForecastMargin_8.1_r3.csv
+        file_id: 6b6ac87f-4b21-409d-984d-9b0af0fa2c33
+        sizes:
+          original:
+            bytes: 40546
+            bits: 324368
+            mb: 0.0387
+          compressed:
+            bytes: 5081
+            bits: 40648
+            mb: 0.0048
+        last_updated: '2026-02-09T16:46:02.754Z'
+        xxhash: b16388e8df7a1ad8a67eeadfaee26bd2

@@ -1,0 +1,1997 @@
+generated_at: '2026-05-29T10:05:53Z'
+total_api_requests: 15
+folders:
+  ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3:
+    folder_path: /TP_export/ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3/
+    item_count: 2
+    sizes:
+      original:
+        bytes: 12626
+        bits: 101008
+        mb: 0.012
+      compressed:
+        bytes: 2400
+        bits: 19200
+        mb: 0.0023
+    files:
+      - name: 2023_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+        file_id: 620c8d1a-a477-401a-a3b5-66103fcad4a4
+        sizes:
+          original:
+            bytes: 6187
+            bits: 49496
+            mb: 0.0059
+          compressed:
+            bytes: 1220
+            bits: 9760
+            mb: 0.0012
+        last_updated: '2025-11-10T10:21:55.730Z'
+        xxhash: 9ea46e32f9c9ad80e56d8cfa4b6c633c
+      - name: 2024_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+        file_id: 0ec05a40-190d-4ae9-9ab9-cdf6f2ed19d9
+        sizes:
+          original:
+            bytes: 6439
+            bits: 51512
+            mb: 0.0061
+          compressed:
+            bytes: 1180
+            bits: 9440
+            mb: 0.0011
+        last_updated: '2025-11-10T10:21:56.119Z'
+        xxhash: 91e15a1510ca5a1300125327c6abf0a0
+  Algorithm_12.3.K_r3:
+    folder_path: /TP_export/Algorithm_12.3.K_r3/
+    item_count: 7
+    sizes:
+      original:
+        bytes: 3276501
+        bits: 26212008
+        mb: 3.1247
+      compressed:
+        bytes: 2934873
+        bits: 23478984
+        mb: 2.7989
+    files:
+      - name: 20181218-20220906_20201207_FCR_FCR overview of the procurement principles.pdf
+        file_id: 20af8823-5cb8-4d85-8283-f83277d77116
+        sizes:
+          original:
+            bytes: 819880
+            bits: 6559040
+            mb: 0.7819
+          compressed:
+            bytes: 733813
+            bits: 5870504
+            mb: 0.6998
+        last_updated: '2026-05-13T13:41:21.904Z'
+        xxhash: 4245fcfe734357cb4656f5919f1cb946
+      - name: 20191213-20201231_20191213_RR_CZ_RR_Algorithm_2019.pdf
+        file_id: 04c46c51-88b0-43fd-a7df-b6767c704005
+        sizes:
+          original:
+            bytes: 21632
+            bits: 173056
+            mb: 0.0206
+          compressed:
+            bytes: 17934
+            bits: 143472
+            mb: 0.0171
+        last_updated: '2026-05-13T13:41:22.275Z'
+        xxhash: 43f005c0d78b93b830565a03ae3fcd0e
+      - name: 20210101-20211231_20201217_RR_201020-TERRE_AOF_description.pdf
+        file_id: de84ba50-19c3-403b-9fd8-5c8dfc1cb875
+        sizes:
+          original:
+            bytes: 115851
+            bits: 926808
+            mb: 0.1105
+          compressed:
+            bytes: 108181
+            bits: 865448
+            mb: 0.1032
+        last_updated: '2026-05-13T13:41:22.458Z'
+        xxhash: bc36b1f2500465249098a8c38ce5cae7
+      - name: 20210514-20220405_20210514_IN_20210512 IN_OPTIMISATION ALGORITHM Description.pdf
+        file_id: 94d12a08-293c-41ab-9500-88a5cbbe769b
+        sizes:
+          original:
+            bytes: 130788
+            bits: 1046304
+            mb: 0.1247
+          compressed:
+            bytes: 123516
+            bits: 988128
+            mb: 0.1178
+        last_updated: '2026-05-13T13:41:22.634Z'
+        xxhash: 0f593779542bbb4a57140d6bd97cfec0
+      - name: 20220406-20240804_20220406_aFRR_20220406_PICASSO Public Algorithm description_v1
+          0.pdf
+        file_id: 266ac763-d4f2-4f63-b3a4-e1b9ddebe29b
+        sizes:
+          original:
+            bytes: 1054089
+            bits: 8432712
+            mb: 1.0053
+          compressed:
+            bytes: 932547
+            bits: 7460376
+            mb: 0.8893
+        last_updated: '2026-05-13T13:41:22.819Z'
+        xxhash: 68045b14095e0e46a0bf6d2c9e7628ca
+      - name: 20250610-infinity_20250610_IN_TR 11 3 Ramping Restrictions Statnett
+          (2).pdf
+        file_id: f58d574a-9d33-4b95-9fea-c6f93e85b182
+        sizes:
+          original:
+            bytes: 198743
+            bits: 1589944
+            mb: 0.1895
+          compressed:
+            bytes: 189642
+            bits: 1517136
+            mb: 0.1809
+        last_updated: '2026-05-13T13:41:23.085Z'
+        xxhash: 280ad3d56d6d99e7d8970ee5e072c6b3
+      - name: 20250908-20250930_20250909_aFRR_PICASSO Public Algorithm description_v4
+          0.pdf
+        file_id: def9cff9-9756-4e26-aeff-6ecb905a8447
+        sizes:
+          original:
+            bytes: 935518
+            bits: 7484144
+            mb: 0.8922
+          compressed:
+            bytes: 829240
+            bits: 6633920
+            mb: 0.7908
+        last_updated: '2026-05-13T13:41:23.277Z'
+        xxhash: 27076f6d292e99ce01264724dbd4cb26
+  ApprovedMethodologies_12.3.J_r3:
+    folder_path: /TP_export/ApprovedMethodologies_12.3.J_r3/
+    item_count: 3
+    sizes:
+      original:
+        bytes: 775870
+        bits: 6206960
+        mb: 0.7399
+      compressed:
+        bytes: 701152
+        bits: 5609216
+        mb: 0.6687
+    files:
+      - name: 20240322-infinity_20240322_Nordic_Approved Methodologies-Nordic.pdf
+        file_id: c729a60f-c62c-4d3b-975b-4f3c8adb4b46
+        sizes:
+          original:
+            bytes: 548205
+            bits: 4385640
+            mb: 0.5228
+          compressed:
+            bytes: 485384
+            bits: 3883072
+            mb: 0.4629
+        last_updated: '2026-05-13T13:41:23.552Z'
+        xxhash: de7f07a65c6f6f3278291bcd05f6fcd3
+      - name: 20250610-infinity_20250610_CWE_TR 11 3 Ramping Restrictions Statnett
+          (2).pdf
+        file_id: 6dc0ca5c-2161-4c1f-9f76-eea67db9610f
+        sizes:
+          original:
+            bytes: 198743
+            bits: 1589944
+            mb: 0.1895
+          compressed:
+            bytes: 189644
+            bits: 1517152
+            mb: 0.1809
+        last_updated: '2026-05-13T13:41:23.783Z'
+        xxhash: 8e77379707aa3023a33cfd3446735776
+      - name: 20250915-infinity_20250930_Nordic_BALANCING_DOCUMENTS_APPROVEDMETHODOLOGIES_20250101_20260101.pdf
+        file_id: 233545a7-0993-4f79-b45c-95f9912b5f4d
+        sizes:
+          original:
+            bytes: 28922
+            bits: 231376
+            mb: 0.0276
+          compressed:
+            bytes: 26124
+            bits: 208992
+            mb: 0.0249
+        last_updated: '2026-05-13T13:41:23.960Z'
+        xxhash: bb6d91af393acdcbdff2f17c998050aa
+  CommonAnnualReport_12.3.L_r3:
+    folder_path: /TP_export/CommonAnnualReport_12.3.L_r3/
+    item_count: 4
+    sizes:
+      original:
+        bytes: 34662641
+        bits: 277301128
+        mb: 33.0569
+      compressed:
+        bytes: 24486620
+        bits: 195892960
+        mb: 23.3523
+    files:
+      - name: 20200101-20210101_20200916_COMMON_ANNUAL_REPORT_ENTSO-E_Balancing_Report_2020.pdf
+        file_id: b81a1b81-8c0d-4b61-bd3a-67419f51b48d
+        sizes:
+          original:
+            bytes: 2707612
+            bits: 21660896
+            mb: 2.5822
+          compressed:
+            bytes: 2149570
+            bits: 17196560
+            mb: 2.05
+        last_updated: '2026-05-13T13:41:24.167Z'
+        xxhash: b449f94d4f111aab927866773d032e1a
+      - name: 20220101-20230101_20220630_COMMON_ANNUAL_REPORT_2022_ENTSO_E_Balancing_Report_2022.pdf
+        file_id: 4fccf69d-da6e-4145-a511-c1484201d5df
+        sizes:
+          original:
+            bytes: 20326427
+            bits: 162611416
+            mb: 19.3848
+          compressed:
+            bytes: 14174309
+            bits: 113394472
+            mb: 13.5177
+        last_updated: '2026-05-13T13:41:24.876Z'
+        xxhash: bee437e9898da85333b1f6719d9c0881
+      - name: 20240101-20250101_20240624_COMMON_ANNUAL_REPORT_240628_ENTSO-E_Balancing_Report_2024.pdf
+        file_id: 2863d4a4-1f46-4eb6-a005-0a1807c9191a
+        sizes:
+          original:
+            bytes: 11429859
+            bits: 91438872
+            mb: 10.9004
+          compressed:
+            bytes: 7973071
+            bits: 63784568
+            mb: 7.6037
+        last_updated: '2026-05-13T13:41:26.586Z'
+        xxhash: fddd147ae1ed3a01990953cb6cdf293e
+      - name: 20250101-20260101_20250610_COMMON_ANNUAL_REPORT_TR 11 3 Ramping Restrictions
+          Statnett.pdf
+        file_id: d260d72c-cef2-4dfe-a150-9f13c3e49a70
+        sizes:
+          original:
+            bytes: 198743
+            bits: 1589944
+            mb: 0.1895
+          compressed:
+            bytes: 189670
+            bits: 1517360
+            mb: 0.1809
+        last_updated: '2026-05-13T13:41:27.543Z'
+        xxhash: 467ce34bafad7b0179b186acc6cf71cb
+  Countertrading_13.1.B_r3:
+    folder_path: /TP_export/Countertrading_13.1.B_r3/
+    item_count: 5
+    sizes:
+      original:
+        bytes: 4870142
+        bits: 38961136
+        mb: 4.6445
+      compressed:
+        bytes: 481579
+        bits: 3852632
+        mb: 0.4593
+    files:
+      - name: 2024_04_Countertrading_13.1.B_r3.csv
+        file_id: df412816-f2bd-40b4-a3fe-487d1153cda1
+        sizes:
+          original:
+            bytes: 542
+            bits: 4336
+            mb: 0.0005
+          compressed:
+            bytes: 500
+            bits: 4000
+            mb: 0.0005
+        last_updated: '2026-04-15T10:21:17.058Z'
+        xxhash: 4b3e5ebdba490db47c396001ed69fcb3
+      - name: 2024_05_Countertrading_13.1.B_r3.csv
+        file_id: b49b0a60-d911-4c79-83d6-21b9b7b3b6e5
+        sizes:
+          original:
+            bytes: 767
+            bits: 6136
+            mb: 0.0007
+          compressed:
+            bytes: 568
+            bits: 4544
+            mb: 0.0005
+        last_updated: '2026-04-21T08:37:13.312Z'
+        xxhash: ea686a844fdd34326b798cf619749433
+      - name: 2025_08_Countertrading_13.1.B_r3.csv
+        file_id: f1b0322f-69bb-4f9f-a44e-7119f25e31f9
+        sizes:
+          original:
+            bytes: 3604506
+            bits: 28836048
+            mb: 3.4375
+          compressed:
+            bytes: 399671
+            bits: 3197368
+            mb: 0.3812
+        last_updated: '2026-05-15T05:06:53.947Z'
+        xxhash: 13582d458b035dadd89332ddea58da3e
+      - name: 2026_04_Countertrading_13.1.B_r3.csv
+        file_id: aeedd8e6-f416-4fce-8e25-c092f0cfb82a
+        sizes:
+          original:
+            bytes: 240224
+            bits: 1921792
+            mb: 0.2291
+          compressed:
+            bytes: 22217
+            bits: 177736
+            mb: 0.0212
+        last_updated: '2026-05-01T05:08:16.166Z'
+        xxhash: 847260a2c099d41b52ba3993c7787787
+      - name: 2026_05_Countertrading_13.1.B_r3.csv
+        file_id: 5d63cffe-02e3-4842-8264-d8ade73dad53
+        sizes:
+          original:
+            bytes: 1024103
+            bits: 8192824
+            mb: 0.9767
+          compressed:
+            bytes: 58623
+            bits: 468984
+            mb: 0.0559
+        last_updated: '2026-05-29T05:07:50.742Z'
+        xxhash: 9112885c6ae79611f1410466bf3e816e
+  Countertrading_13.1.B_r3.1:
+    folder_path: /TP_export/Countertrading_13.1.B_r3.1/
+    item_count: 21
+    sizes:
+      original:
+        bytes: 42186218
+        bits: 337489744
+        mb: 40.2319
+      compressed:
+        bytes: 3583081
+        bits: 28664648
+        mb: 3.4171
+    files:
+      - name: 2019_08_Countertrading_13.1.B_r3.1.csv
+        file_id: f9dd1798-c658-472f-81a5-f41de616816b
+        sizes:
+          original:
+            bytes: 607
+            bits: 4856
+            mb: 0.0006
+          compressed:
+            bytes: 531
+            bits: 4248
+            mb: 0.0005
+        last_updated: '2026-01-28T15:43:25.029Z'
+        xxhash: 5a4132a7b9c6196c59c7761af2d67f92
+      - name: 2020_02_Countertrading_13.1.B_r3.1.csv
+        file_id: aa7bcbdd-95cd-4151-86bd-f108d01a1332
+        sizes:
+          original:
+            bytes: 685379
+            bits: 5483032
+            mb: 0.6536
+          compressed:
+            bytes: 74496
+            bits: 595968
+            mb: 0.071
+        last_updated: '2025-11-14T10:46:34.235Z'
+        xxhash: 92d8107da89e68540162f13335d278d7
+      - name: 2020_03_Countertrading_13.1.B_r3.1.csv
+        file_id: f194ff9f-8c8b-4bf6-b25a-885dd4279aa1
+        sizes:
+          original:
+            bytes: 216812
+            bits: 1734496
+            mb: 0.2068
+          compressed:
+            bytes: 20763
+            bits: 166104
+            mb: 0.0198
+        last_updated: '2025-11-14T10:46:34.525Z'
+        xxhash: a7fb025095012a89a8a17424e01b9ace
+      - name: 2023_11_Countertrading_13.1.B_r3.1.csv
+        file_id: e7acb472-53e4-4040-8946-24d5c5f60cfd
+        sizes:
+          original:
+            bytes: 1333
+            bits: 10664
+            mb: 0.0013
+          compressed:
+            bytes: 562
+            bits: 4496
+            mb: 0.0005
+        last_updated: '2025-11-14T10:46:34.830Z'
+        xxhash: 42ea41826ff1e0cd7dd8be55fc546d5b
+      - name: 2024_04_Countertrading_13.1.B_r3.1.csv
+        file_id: 12be37dd-3044-463b-8f0d-8417f2909926
+        sizes:
+          original:
+            bytes: 641
+            bits: 5128
+            mb: 0.0006
+          compressed:
+            bytes: 552
+            bits: 4416
+            mb: 0.0005
+        last_updated: '2026-04-15T10:21:16.761Z'
+        xxhash: 6a77f6e87c257c45550e7cfbe505abdc
+      - name: 2024_05_Countertrading_13.1.B_r3.1.csv
+        file_id: b7f1c39c-b7fa-42df-86db-3051446b2e64
+        sizes:
+          original:
+            bytes: 854
+            bits: 6832
+            mb: 0.0008
+          compressed:
+            bytes: 610
+            bits: 4880
+            mb: 0.0006
+        last_updated: '2026-04-21T08:37:13.184Z'
+        xxhash: d8bec42de8bf16324f4a4fdb4b4abf9c
+      - name: 2025_01_Countertrading_13.1.B_r3.1.csv
+        file_id: b88eaaad-a6fe-4aac-94b1-56de8ec8e11a
+        sizes:
+          original:
+            bytes: 5950
+            bits: 47600
+            mb: 0.0057
+          compressed:
+            bytes: 849
+            bits: 6792
+            mb: 0.0008
+        last_updated: '2026-02-25T15:09:35.439Z'
+        xxhash: 2847ae98cbeec16740d14aaf2e717322
+      - name: 2025_03_Countertrading_13.1.B_r3.1.csv
+        file_id: 80309d99-a0e5-474f-9705-82a605542950
+        sizes:
+          original:
+            bytes: 29203
+            bits: 233624
+            mb: 0.0279
+          compressed:
+            bytes: 2025
+            bits: 16200
+            mb: 0.0019
+        last_updated: '2026-02-25T15:09:35.581Z'
+        xxhash: 3d3d293ecd0d7f62366584724989b146
+      - name: 2025_05_Countertrading_13.1.B_r3.1.csv
+        file_id: b6d23c14-cd09-4862-82ca-ed387de8996b
+        sizes:
+          original:
+            bytes: 1173536
+            bits: 9388288
+            mb: 1.1192
+          compressed:
+            bytes: 92501
+            bits: 740008
+            mb: 0.0882
+        last_updated: '2026-02-25T15:09:35.804Z'
+        xxhash: d88f9448cadc8ce2adfd5c7be85ec258
+      - name: 2025_06_Countertrading_13.1.B_r3.1.csv
+        file_id: 475ef5bb-8fe2-4fcd-8f27-2a44bab508fb
+        sizes:
+          original:
+            bytes: 2182146
+            bits: 17457168
+            mb: 2.0811
+          compressed:
+            bytes: 227548
+            bits: 1820384
+            mb: 0.217
+        last_updated: '2025-11-14T10:46:35.169Z'
+        xxhash: 9884bd66ad65758d9040ef44750e58ac
+      - name: 2025_07_Countertrading_13.1.B_r3.1.csv
+        file_id: 201d3884-3ec7-486f-b8ca-5c775b6162f8
+        sizes:
+          original:
+            bytes: 2702902
+            bits: 21623216
+            mb: 2.5777
+          compressed:
+            bytes: 299639
+            bits: 2397112
+            mb: 0.2858
+        last_updated: '2025-11-14T10:46:35.510Z'
+        xxhash: e5ee8547d3902b73789a48c74f7d9f8f
+      - name: 2025_08_Countertrading_13.1.B_r3.1.csv
+        file_id: 8e901030-bbcf-4bfc-8094-6851aedcfc9e
+        sizes:
+          original:
+            bytes: 3633596
+            bits: 29068768
+            mb: 3.4653
+          compressed:
+            bytes: 400567
+            bits: 3204536
+            mb: 0.382
+        last_updated: '2026-05-15T05:06:53.463Z'
+        xxhash: 17d95f8ff6d91ec2feaf37c5379ed715
+      - name: 2025_09_Countertrading_13.1.B_r3.1.csv
+        file_id: deefae7e-6c66-4585-b3c9-4f8183d1a6fe
+        sizes:
+          original:
+            bytes: 3843821
+            bits: 30750568
+            mb: 3.6658
+          compressed:
+            bytes: 405097
+            bits: 3240776
+            mb: 0.3863
+        last_updated: '2026-02-25T15:09:36.284Z'
+        xxhash: 260c1f83509936d10b3eb03bf02ae2ac
+      - name: 2025_10_Countertrading_13.1.B_r3.1.csv
+        file_id: 37662ce4-9402-4320-9850-8927316085b4
+        sizes:
+          original:
+            bytes: 4218640
+            bits: 33749120
+            mb: 4.0232
+          compressed:
+            bytes: 434173
+            bits: 3473384
+            mb: 0.4141
+        last_updated: '2026-03-20T15:16:29.357Z'
+        xxhash: 86235361ee9c1e9674e8345da3d87983
+      - name: 2025_11_Countertrading_13.1.B_r3.1.csv
+        file_id: 0c888895-d145-4bed-adab-62176450f671
+        sizes:
+          original:
+            bytes: 6399234
+            bits: 51193872
+            mb: 6.1028
+          compressed:
+            bytes: 558409
+            bits: 4467272
+            mb: 0.5325
+        last_updated: '2026-02-25T15:09:37.516Z'
+        xxhash: c773c603ce8d34ede4d83fe15f9413df
+      - name: 2025_12_Countertrading_13.1.B_r3.1.csv
+        file_id: cb3f7fae-9cb2-401d-8712-57f38a66ac26
+        sizes:
+          original:
+            bytes: 4625491
+            bits: 37003928
+            mb: 4.4112
+          compressed:
+            bytes: 387608
+            bits: 3100864
+            mb: 0.3697
+        last_updated: '2026-01-28T15:43:26.999Z'
+        xxhash: e2f3cd9a4ae725f51524c085c75a8929
+      - name: 2026_01_Countertrading_13.1.B_r3.1.csv
+        file_id: eab8e0a4-d695-4049-bbdd-ff5639c3d83e
+        sizes:
+          original:
+            bytes: 9151065
+            bits: 73208520
+            mb: 8.7271
+          compressed:
+            bytes: 448802
+            bits: 3590416
+            mb: 0.428
+        last_updated: '2026-02-25T15:09:38.397Z'
+        xxhash: b34d21c318fc16238125fd9f5b07167c
+      - name: 2026_02_Countertrading_13.1.B_r3.1.csv
+        file_id: 80e98086-ed32-4922-a14a-f977f2b58bd3
+        sizes:
+          original:
+            bytes: 1788144
+            bits: 14305152
+            mb: 1.7053
+          compressed:
+            bytes: 125808
+            bits: 1006464
+            mb: 0.12
+        last_updated: '2026-03-02T06:08:07.743Z'
+        xxhash: 1bf72dcc79ee4bdb0df97c7f4618b24e
+      - name: 2026_03_Countertrading_13.1.B_r3.1.csv
+        file_id: 4673d786-b447-4c91-a36c-5cfadf812f1e
+        sizes:
+          original:
+            bytes: 240424
+            bits: 1923392
+            mb: 0.2293
+          compressed:
+            bytes: 21283
+            bits: 170264
+            mb: 0.0203
+        last_updated: '2026-04-01T05:10:12.309Z'
+        xxhash: 3c0428665789594f44e92d7a05b7b39d
+      - name: 2026_04_Countertrading_13.1.B_r3.1.csv
+        file_id: 7f9f6fef-a6be-4c11-b8d2-6ee3083ac16c
+        sizes:
+          original:
+            bytes: 247671
+            bits: 1981368
+            mb: 0.2362
+          compressed:
+            bytes: 22342
+            bits: 178736
+            mb: 0.0213
+        last_updated: '2026-05-01T05:08:16.009Z'
+        xxhash: deaf875f03a264a3bf59d07e2d8e77f8
+      - name: 2026_05_Countertrading_13.1.B_r3.1.csv
+        file_id: 9ac583e7-1a96-4f5f-912d-929f6eb4c6e1
+        sizes:
+          original:
+            bytes: 1038769
+            bits: 8310152
+            mb: 0.9906
+          compressed:
+            bytes: 58916
+            bits: 471328
+            mb: 0.0562
+        last_updated: '2026-05-29T05:07:50.522Z'
+        xxhash: 94ee0e73dc166b799fcd657f8194a06f
+  CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3:
+    folder_path: /TP_export/CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3/
+    item_count: 10
+    sizes:
+      original:
+        bytes: 27772352
+        bits: 222178816
+        mb: 26.4858
+      compressed:
+        bytes: 1661276
+        bits: 13290208
+        mb: 1.5843
+    files:
+      - name: 2023_05_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: 231d6b34-5ce3-479c-9584-b6076315dc2e
+        sizes:
+          original:
+            bytes: 5429151
+            bits: 43433208
+            mb: 5.1776
+          compressed:
+            bytes: 306855
+            bits: 2454840
+            mb: 0.2926
+        last_updated: '2026-04-02T05:07:39.103Z'
+        xxhash: 1b8aeaa9f5a155bf696b907b1c053c26
+      - name: 2023_09_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: c29fecef-005b-454e-a12f-8baa9b282264
+        sizes:
+          original:
+            bytes: 4356954
+            bits: 34855632
+            mb: 4.1551
+          compressed:
+            bytes: 259469
+            bits: 2075752
+            mb: 0.2474
+        last_updated: '2026-04-02T05:07:39.438Z'
+        xxhash: 7ac2cffddc6def3d502e3ed832646704
+      - name: 2023_11_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: f66c204e-0104-4d37-aefc-aee68b05b619
+        sizes:
+          original:
+            bytes: 6033615
+            bits: 48268920
+            mb: 5.7541
+          compressed:
+            bytes: 378795
+            bits: 3030360
+            mb: 0.3612
+        last_updated: '2026-04-02T05:07:39.814Z'
+        xxhash: 8c96f573d1ff7f8e24ecb4d41fcceceb
+      - name: 2024_02_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: 2627354f-c7ec-4035-b65f-1c6b28a14d99
+        sizes:
+          original:
+            bytes: 103477
+            bits: 827816
+            mb: 0.0987
+          compressed:
+            bytes: 7094
+            bits: 56752
+            mb: 0.0068
+        last_updated: '2026-04-02T05:07:40.005Z'
+        xxhash: 725ebe04b160c56e31a4770a8f5266cf
+      - name: 2024_03_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: 2136add9-39f3-4c09-a75d-f889249a64ab
+        sizes:
+          original:
+            bytes: 3541513
+            bits: 28332104
+            mb: 3.3774
+          compressed:
+            bytes: 223001
+            bits: 1784008
+            mb: 0.2127
+        last_updated: '2026-04-02T05:07:40.286Z'
+        xxhash: 776e8f830b7194281d1f760f2b299e10
+      - name: 2024_10_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: 326cba68-df3f-45d4-b6e6-28081e02ee4f
+        sizes:
+          original:
+            bytes: 1747706
+            bits: 13981648
+            mb: 1.6667
+          compressed:
+            bytes: 93917
+            bits: 751336
+            mb: 0.0896
+        last_updated: '2026-04-02T05:07:40.501Z'
+        xxhash: 25bc39a2cd6cb40a32d3beba25ff6b90
+      - name: 2024_11_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: a3e8ee7c-4338-4baf-97ea-efc13b086f19
+        sizes:
+          original:
+            bytes: 4988511
+            bits: 39908088
+            mb: 4.7574
+          compressed:
+            bytes: 298168
+            bits: 2385344
+            mb: 0.2844
+        last_updated: '2026-04-02T05:07:40.867Z'
+        xxhash: 9cd3c438aa4e1de7b115b7800944c713
+      - name: 2025_07_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: 1689a899-180e-4acb-b22b-a01f83e3e0ee
+        sizes:
+          original:
+            bytes: 231123
+            bits: 1848984
+            mb: 0.2204
+          compressed:
+            bytes: 14480
+            bits: 115840
+            mb: 0.0138
+        last_updated: '2026-04-02T05:07:41.039Z'
+        xxhash: 74b15ca49f0103f87783679e7cd18803
+      - name: 2025_10_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: 6cdd1880-5832-4cff-a74b-7cbccddea8de
+        sizes:
+          original:
+            bytes: 1212610
+            bits: 9700880
+            mb: 1.1564
+          compressed:
+            bytes: 71552
+            bits: 572416
+            mb: 0.0682
+        last_updated: '2026-04-02T05:07:41.240Z'
+        xxhash: 87d3f120ec998d1ccd11e82593389b70
+      - name: 2025_12_CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3.csv
+        file_id: e8ae4d2b-1c5e-4e60-9003-1e001ec96e3f
+        sizes:
+          original:
+            bytes: 127692
+            bits: 1021536
+            mb: 0.1218
+          compressed:
+            bytes: 7945
+            bits: 63560
+            mb: 0.0076
+        last_updated: '2026-04-02T05:07:43.288Z'
+        xxhash: 6a60052fb1ff2f983fd32efc0d62ba19
+  ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3:
+    folder_path: /TP_export/ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3/
+    item_count: 1
+    sizes:
+      original:
+        bytes: 0
+        bits: 0
+        mb: 0.0
+      compressed:
+        bytes: 0
+        bits: 0
+        mb: 0.0
+    files:
+      - name: 2023_05_ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3
+        file_id: ''
+        sizes:
+          original:
+            bytes: 0
+            bits: 0
+            mb: 0.0
+          compressed:
+            bytes: 0
+            bits: 0
+            mb: 0.0
+        last_updated: '2025-03-07T07:08:45.603Z'
+        xxhash: f0225edc82fc3724c10e3c89097add24
+  PermanentAllocationLimitations_IFs_4.5_r3:
+    folder_path: /TP_export/PermanentAllocationLimitations_IFs_4.5_r3/
+    item_count: 6
+    sizes:
+      original:
+        bytes: 8297
+        bits: 66376
+        mb: 0.0079
+      compressed:
+        bytes: 4256
+        bits: 34048
+        mb: 0.0041
+    files:
+      - name: 2021_06_PermanentAllocationLimitations_IFs_4.5_r3.csv
+        file_id: 901f6298-da89-4055-895f-587a9bdab9fd
+        sizes:
+          original:
+            bytes: 1220
+            bits: 9760
+            mb: 0.0012
+          compressed:
+            bytes: 709
+            bits: 5672
+            mb: 0.0007
+        last_updated: '2025-11-16T14:10:05.984Z'
+        xxhash: 3a0fcff5687d8e80cb979cfe897c600c
+      - name: 2023_12_PermanentAllocationLimitations_IFs_4.5_r3.csv
+        file_id: 41daa3f5-6f51-4081-ae43-05f272cd5652
+        sizes:
+          original:
+            bytes: 1081
+            bits: 8648
+            mb: 0.001
+          compressed:
+            bytes: 722
+            bits: 5776
+            mb: 0.0007
+        last_updated: '2025-11-16T14:10:06.239Z'
+        xxhash: 162c399e73c59885d3cd5174c274e8c9
+      - name: 2024_10_PermanentAllocationLimitations_IFs_4.5_r3.csv
+        file_id: 4f50357d-90ef-4b2b-9fc1-feb1126e937c
+        sizes:
+          original:
+            bytes: 2360
+            bits: 18880
+            mb: 0.0023
+          compressed:
+            bytes: 820
+            bits: 6560
+            mb: 0.0008
+        last_updated: '2025-11-16T14:10:06.463Z'
+        xxhash: 8c8ba6d1987c2a8cafe2383d5a632c38
+      - name: 2025_04_PermanentAllocationLimitations_IFs_4.5_r3.csv
+        file_id: 0eeb65c7-1311-497b-b5a5-3ec101f3089d
+        sizes:
+          original:
+            bytes: 2028
+            bits: 16224
+            mb: 0.0019
+          compressed:
+            bytes: 795
+            bits: 6360
+            mb: 0.0008
+        last_updated: '2025-11-16T14:10:06.693Z'
+        xxhash: bcdd15ef55744e8782b653c3a3f4bb19
+      - name: 2025_08_PermanentAllocationLimitations_IFs_4.5_r3.csv
+        file_id: 5e8dd546-4d6d-41aa-9a23-1dd07a015b05
+        sizes:
+          original:
+            bytes: 822
+            bits: 6576
+            mb: 0.0008
+          compressed:
+            bytes: 605
+            bits: 4840
+            mb: 0.0006
+        last_updated: '2026-03-25T11:44:19.240Z'
+        xxhash: 1c8a232df8b8d4705277072ef6a12c9d
+      - name: 2025_11_PermanentAllocationLimitations_IFs_4.5_r3.csv
+        file_id: f48ba040-0d09-4f58-aefc-560061695216
+        sizes:
+          original:
+            bytes: 786
+            bits: 6288
+            mb: 0.0007
+          compressed:
+            bytes: 605
+            bits: 4840
+            mb: 0.0006
+        last_updated: '2025-11-16T14:10:06.934Z'
+        xxhash: a955e788109203ddf5a1190a7180d867
+  RedispatchingCrossBorder_13.1.A_r3:
+    folder_path: /TP_export/RedispatchingCrossBorder_13.1.A_r3/
+    item_count: 3
+    sizes:
+      original:
+        bytes: 1437836
+        bits: 11502688
+        mb: 1.3712
+      compressed:
+        bytes: 66564
+        bits: 532512
+        mb: 0.0635
+    files:
+      - name: 2024_04_RedispatchingCrossBorder_13.1.A_r3.csv
+        file_id: 31bc7d8e-eca7-49be-83db-9264d22e8758
+        sizes:
+          original:
+            bytes: 4213
+            bits: 33704
+            mb: 0.004
+          compressed:
+            bytes: 970
+            bits: 7760
+            mb: 0.0009
+        last_updated: '2026-05-14T06:09:39.860Z'
+        xxhash: f9f1237d90af82c2ce9e3e510c600577
+      - name: 2026_04_RedispatchingCrossBorder_13.1.A_r3.csv
+        file_id: e92892b8-7a76-414a-997a-98ea802c9b4e
+        sizes:
+          original:
+            bytes: 835590
+            bits: 6684720
+            mb: 0.7969
+          compressed:
+            bytes: 38564
+            bits: 308512
+            mb: 0.0368
+        last_updated: '2026-04-30T05:08:57.108Z'
+        xxhash: 6806c1d9c561b77ab35642fdb94c0302
+      - name: 2026_05_RedispatchingCrossBorder_13.1.A_r3.csv
+        file_id: e10c11b0-3bc5-4ca8-b1fd-e5dcaa22fa3a
+        sizes:
+          original:
+            bytes: 598033
+            bits: 4784264
+            mb: 0.5703
+          compressed:
+            bytes: 27030
+            bits: 216240
+            mb: 0.0258
+        last_updated: '2026-05-29T07:36:49.864Z'
+        xxhash: 797cea43d88d43cd817a091410987909
+  RedispatchingCrossBorder_13.1.A_r3.1:
+    folder_path: /TP_export/RedispatchingCrossBorder_13.1.A_r3.1/
+    item_count: 34
+    sizes:
+      original:
+        bytes: 25204483
+        bits: 201635864
+        mb: 24.0369
+      compressed:
+        bytes: 1075690
+        bits: 8605520
+        mb: 1.0259
+    files:
+      - name: 2016_08_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 1bc1708a-00b7-4a85-888d-8bccff0b90dd
+        sizes:
+          original:
+            bytes: 2070
+            bits: 16560
+            mb: 0.002
+          compressed:
+            bytes: 677
+            bits: 5416
+            mb: 0.0006
+        last_updated: '2025-11-16T14:11:12.879Z'
+        xxhash: 978f721f9b66cbe71c9b5e6a6231e4a1
+      - name: 2018_10_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 7ec43a40-63ad-444a-bb60-2d5f7cb39461
+        sizes:
+          original:
+            bytes: 795
+            bits: 6360
+            mb: 0.0008
+          compressed:
+            bytes: 625
+            bits: 5000
+            mb: 0.0006
+        last_updated: '2025-11-16T14:11:13.043Z'
+        xxhash: 99a8f246b59a942497f77c37196b295c
+      - name: 2021_12_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 3f523ab7-413c-48b2-89fb-ef4e1ccf3029
+        sizes:
+          original:
+            bytes: 3432
+            bits: 27456
+            mb: 0.0033
+          compressed:
+            bytes: 711
+            bits: 5688
+            mb: 0.0007
+        last_updated: '2025-11-16T14:11:13.203Z'
+        xxhash: 0b7ddedb3084bce7a29099a8c392c9a1
+      - name: 2022_01_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 0e63f686-19a8-446a-810d-e1e8d9ca14f0
+        sizes:
+          original:
+            bytes: 2047360
+            bits: 16378880
+            mb: 1.9525
+          compressed:
+            bytes: 87183
+            bits: 697464
+            mb: 0.0831
+        last_updated: '2025-11-16T14:11:13.445Z'
+        xxhash: bd28b289339b8eac511b6c6e7b2f6306
+      - name: 2022_02_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: caeed0d9-a93b-4919-a91d-7faabe946693
+        sizes:
+          original:
+            bytes: 3140105
+            bits: 25120840
+            mb: 2.9946
+          compressed:
+            bytes: 124077
+            bits: 992616
+            mb: 0.1183
+        last_updated: '2025-11-16T14:11:13.737Z'
+        xxhash: 33f0291db976300d39ce0acf34e014f2
+      - name: 2022_03_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 9551482b-21b9-4a10-9816-5cc3144622ff
+        sizes:
+          original:
+            bytes: 2540860
+            bits: 20326880
+            mb: 2.4232
+          compressed:
+            bytes: 103010
+            bits: 824080
+            mb: 0.0982
+        last_updated: '2025-11-16T14:11:14.033Z'
+        xxhash: 6a802a72f81c7720e77f48fcd6967eef
+      - name: 2022_04_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 0804df48-a8d5-4828-97fd-6fbb09c7ea9b
+        sizes:
+          original:
+            bytes: 1991046
+            bits: 15928368
+            mb: 1.8988
+          compressed:
+            bytes: 81757
+            bits: 654056
+            mb: 0.078
+        last_updated: '2025-11-16T14:11:17.048Z'
+        xxhash: 1ac0803f5ad2e7d148ed86e935758345
+      - name: 2022_05_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: ac1cd1b5-15be-42de-ae38-d87910cc1ffa
+        sizes:
+          original:
+            bytes: 1181899
+            bits: 9455192
+            mb: 1.1271
+          compressed:
+            bytes: 48376
+            bits: 387008
+            mb: 0.0461
+        last_updated: '2025-11-16T14:11:17.289Z'
+        xxhash: c264d7c96ab374f2ee32f79ddc0e1a0a
+      - name: 2022_06_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: d9a57fd2-df2a-4bb4-9e2a-cb40c7553b76
+        sizes:
+          original:
+            bytes: 724886
+            bits: 5799088
+            mb: 0.6913
+          compressed:
+            bytes: 35526
+            bits: 284208
+            mb: 0.0339
+        last_updated: '2025-11-16T14:11:17.504Z'
+        xxhash: 72d8deff26b02c670e89c818236e421d
+      - name: 2022_07_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: f74b55bf-7a4d-497d-ba74-81f6ca5ad26d
+        sizes:
+          original:
+            bytes: 897672
+            bits: 7181376
+            mb: 0.8561
+          compressed:
+            bytes: 41671
+            bits: 333368
+            mb: 0.0397
+        last_updated: '2025-11-16T14:11:17.718Z'
+        xxhash: 6dec5153ce39ebb9938b67f7e8e33b2b
+      - name: 2022_08_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 6bcc678a-d40b-4729-bf7e-5282b6e53d9e
+        sizes:
+          original:
+            bytes: 333751
+            bits: 2670008
+            mb: 0.3183
+          compressed:
+            bytes: 18259
+            bits: 146072
+            mb: 0.0174
+        last_updated: '2025-11-16T14:11:17.933Z'
+        xxhash: a2f711d46e453e41c3f52d6cfe592a08
+      - name: 2022_09_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: a7a14106-f5cb-4812-bd90-83260821f9ab
+        sizes:
+          original:
+            bytes: 809950
+            bits: 6479600
+            mb: 0.7724
+          compressed:
+            bytes: 35048
+            bits: 280384
+            mb: 0.0334
+        last_updated: '2025-11-16T14:11:18.138Z'
+        xxhash: 8e78665122434f16ba86bc39315e9bec
+      - name: 2022_10_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: de5b940c-f8ac-42aa-81ac-30f15fc5a7dc
+        sizes:
+          original:
+            bytes: 1332961
+            bits: 10663688
+            mb: 1.2712
+          compressed:
+            bytes: 56810
+            bits: 454480
+            mb: 0.0542
+        last_updated: '2025-11-16T14:11:18.362Z'
+        xxhash: 6d715f1fc7c56a2b8c29acd18d154dea
+      - name: 2022_11_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: ab52b891-1532-4781-96dd-7d6c7a94bd0b
+        sizes:
+          original:
+            bytes: 1871567
+            bits: 14972536
+            mb: 1.7849
+          compressed:
+            bytes: 76010
+            bits: 608080
+            mb: 0.0725
+        last_updated: '2025-11-16T14:11:18.619Z'
+        xxhash: cb244efc1ca9a8fe99555923fc409cc6
+      - name: 2022_12_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 607809c4-c672-48b8-808f-c2cb885c985f
+        sizes:
+          original:
+            bytes: 1390749
+            bits: 11125992
+            mb: 1.3263
+          compressed:
+            bytes: 55382
+            bits: 443056
+            mb: 0.0528
+        last_updated: '2025-11-16T14:11:18.862Z'
+        xxhash: 8034544b2011568474ab99b21dc7c8cb
+      - name: 2023_01_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 4cb8e351-1465-46b8-b173-f4e690370a75
+        sizes:
+          original:
+            bytes: 175414
+            bits: 1403312
+            mb: 0.1673
+          compressed:
+            bytes: 8258
+            bits: 66064
+            mb: 0.0079
+        last_updated: '2025-11-16T14:11:19.071Z'
+        xxhash: 83a9f4d788f75b384422f1dc5602a62a
+      - name: 2024_04_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 46496f07-62d7-4314-926e-50ad212ad1c6
+        sizes:
+          original:
+            bytes: 4297
+            bits: 34376
+            mb: 0.0041
+          compressed:
+            bytes: 999
+            bits: 7992
+            mb: 0.001
+        last_updated: '2026-05-14T06:09:39.731Z'
+        xxhash: 5841f1379e2fdf4b210c68d12ec2a7f9
+      - name: 2024_09_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: a01ce8fb-6054-4af4-9641-98db35005390
+        sizes:
+          original:
+            bytes: 1464
+            bits: 11712
+            mb: 0.0014
+          compressed:
+            bytes: 720
+            bits: 5760
+            mb: 0.0007
+        last_updated: '2025-11-16T14:11:19.237Z'
+        xxhash: e637843e04579c7331448ee828173c51
+      - name: 2025_02_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 1a86373f-83e7-4afe-a252-8a7595e0468b
+        sizes:
+          original:
+            bytes: 13482
+            bits: 107856
+            mb: 0.0129
+          compressed:
+            bytes: 1179
+            bits: 9432
+            mb: 0.0011
+        last_updated: '2025-11-16T14:11:19.404Z'
+        xxhash: cb5e084465b4b947fe5ce1c3c966c52d
+      - name: 2025_03_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: bd99e8cc-cc67-45e7-ac00-896fdad95835
+        sizes:
+          original:
+            bytes: 7366
+            bits: 58928
+            mb: 0.007
+          compressed:
+            bytes: 982
+            bits: 7856
+            mb: 0.0009
+        last_updated: '2025-11-16T14:11:19.563Z'
+        xxhash: 1851a1c20f4b63c5117da92e45dd7dc0
+      - name: 2025_04_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 1a36fc21-5b1f-4bcd-b3c0-0c5980acc3cc
+        sizes:
+          original:
+            bytes: 10408
+            bits: 83264
+            mb: 0.0099
+          compressed:
+            bytes: 879
+            bits: 7032
+            mb: 0.0008
+        last_updated: '2025-11-16T14:11:19.739Z'
+        xxhash: 1f1072c1e9805c3664b01dd35a5acc92
+      - name: 2025_06_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 62f3e3b4-cab9-40d3-aab7-8316154bf255
+        sizes:
+          original:
+            bytes: 23648
+            bits: 189184
+            mb: 0.0226
+          compressed:
+            bytes: 1771
+            bits: 14168
+            mb: 0.0017
+        last_updated: '2025-11-16T14:11:19.906Z'
+        xxhash: 4eac3ef3ed3c36c15e0a36ba3d3acc64
+      - name: 2025_07_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 72f14507-d27a-445e-8c4b-67eebe6b83f5
+        sizes:
+          original:
+            bytes: 20639
+            bits: 165112
+            mb: 0.0197
+          compressed:
+            bytes: 1893
+            bits: 15144
+            mb: 0.0018
+        last_updated: '2025-11-16T14:11:20.094Z'
+        xxhash: 4d8d8d4710fbdce9d239f811f0702414
+      - name: 2025_08_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: c918f8b8-c260-4fbe-971a-f1336b62b276
+        sizes:
+          original:
+            bytes: 94459
+            bits: 755672
+            mb: 0.0901
+          compressed:
+            bytes: 4485
+            bits: 35880
+            mb: 0.0043
+        last_updated: '2025-11-16T14:11:20.278Z'
+        xxhash: 6b3f1d4731043cfec929abd22f6473c8
+      - name: 2025_09_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: e1590975-3972-4e43-9b9d-eeb621f8ace0
+        sizes:
+          original:
+            bytes: 915475
+            bits: 7323800
+            mb: 0.8731
+          compressed:
+            bytes: 39079
+            bits: 312632
+            mb: 0.0373
+        last_updated: '2025-11-16T14:11:20.487Z'
+        xxhash: f44ff9bc4a560f79c2482cd931e0434a
+      - name: 2025_10_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: ae1b0705-3ccb-4f52-bf63-9900be778c8c
+        sizes:
+          original:
+            bytes: 1166702
+            bits: 9333616
+            mb: 1.1127
+          compressed:
+            bytes: 42927
+            bits: 343416
+            mb: 0.0409
+        last_updated: '2025-11-16T14:11:20.721Z'
+        xxhash: b65b4272dbbb907146655e22e2532e1a
+      - name: 2025_11_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: f5cb5adc-fe94-43c4-80dd-1f24c50df8d8
+        sizes:
+          original:
+            bytes: 588004
+            bits: 4704032
+            mb: 0.5608
+          compressed:
+            bytes: 29030
+            bits: 232240
+            mb: 0.0277
+        last_updated: '2026-02-11T15:07:57.250Z'
+        xxhash: 3bd78d5c4d084e55b3f7da099dacc3fc
+      - name: 2025_12_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 4370de7c-b3e8-4f93-9939-190e665bbdc0
+        sizes:
+          original:
+            bytes: 530841
+            bits: 4246728
+            mb: 0.5062
+          compressed:
+            bytes: 26567
+            bits: 212536
+            mb: 0.0253
+        last_updated: '2026-02-11T15:07:57.427Z'
+        xxhash: 85c37e339234a1d7ca76c2da4eec45cf
+      - name: 2026_01_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: bf3daa58-26ec-49b3-9f45-f661241e3a94
+        sizes:
+          original:
+            bytes: 924492
+            bits: 7395936
+            mb: 0.8817
+          compressed:
+            bytes: 40961
+            bits: 327688
+            mb: 0.0391
+        last_updated: '2026-02-11T15:07:57.632Z'
+        xxhash: 298077ab3da9af9ee34f4cfd379224af
+      - name: 2026_02_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 9755d5dd-d635-4693-8baa-9b9afdcf7fef
+        sizes:
+          original:
+            bytes: 299555
+            bits: 2396440
+            mb: 0.2857
+          compressed:
+            bytes: 15704
+            bits: 125632
+            mb: 0.015
+        last_updated: '2026-03-01T11:08:12.593Z'
+        xxhash: 7e6a15c392bdceb6e2f0cb099b877f33
+      - name: 2026_03_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 2c4b2bb0-94dc-42ee-a078-3b776014f3a7
+        sizes:
+          original:
+            bytes: 608355
+            bits: 4866840
+            mb: 0.5802
+          compressed:
+            bytes: 27500
+            bits: 220000
+            mb: 0.0262
+        last_updated: '2026-03-12T09:38:51.583Z'
+        xxhash: 7bd79a6c66e83ca60bf68248cc39e1dc
+      - name: 2026_04_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 7877d1d7-fd6f-4d91-b2e2-4a4ef12e6863
+        sizes:
+          original:
+            bytes: 901980
+            bits: 7215840
+            mb: 0.8602
+          compressed:
+            bytes: 39399
+            bits: 315192
+            mb: 0.0376
+        last_updated: '2026-04-30T05:08:56.928Z'
+        xxhash: 03606c06871bb373c3884c9f5396b1d8
+      - name: 2026_05_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 3729618b-247d-4266-8af4-aae30a4e240e
+        sizes:
+          original:
+            bytes: 646683
+            bits: 5173464
+            mb: 0.6167
+          compressed:
+            bytes: 27555
+            bits: 220440
+            mb: 0.0263
+        last_updated: '2026-05-29T07:36:49.688Z'
+        xxhash: bf5d4797931c5af2910156eaf6e4cc03
+      - name: 2026_10_RedispatchingCrossBorder_13.1.A_r3.1.csv
+        file_id: 494f11bc-7413-4041-87a9-8609a5f87de8
+        sizes:
+          original:
+            bytes: 2116
+            bits: 16928
+            mb: 0.002
+          compressed:
+            bytes: 680
+            bits: 5440
+            mb: 0.0006
+        last_updated: '2025-11-16T14:11:21.251Z'
+        xxhash: a8b783c8e8c0d80bbce574936bf5c69f
+  RedispatchingInternal_13.1.A_r3:
+    folder_path: /TP_export/RedispatchingInternal_13.1.A_r3/
+    item_count: 4
+    sizes:
+      original:
+        bytes: 3031744
+        bits: 24253952
+        mb: 2.8913
+      compressed:
+        bytes: 133649
+        bits: 1069192
+        mb: 0.1275
+    files:
+      - name: 2024_04_RedispatchingInternal_13.1.A_r3.csv
+        file_id: 8f728af6-e476-44d5-a8ff-503319242d0a
+        sizes:
+          original:
+            bytes: 4636
+            bits: 37088
+            mb: 0.0044
+          compressed:
+            bytes: 1035
+            bits: 8280
+            mb: 0.001
+        last_updated: '2026-05-04T11:12:29.072Z'
+        xxhash: 3aecdc7169f1f998b278b9b1d53fbd26
+      - name: 2026_03_RedispatchingInternal_13.1.A_r3.csv
+        file_id: 30b25e83-5c12-42d8-a398-e6e5c8e0f40f
+        sizes:
+          original:
+            bytes: 318487
+            bits: 2547896
+            mb: 0.3037
+          compressed:
+            bytes: 18976
+            bits: 151808
+            mb: 0.0181
+        last_updated: '2026-05-07T08:05:24.003Z'
+        xxhash: 724beaf04a56afd3412702af7193f4e6
+      - name: 2026_04_RedispatchingInternal_13.1.A_r3.csv
+        file_id: 1e4d140a-7e36-4509-8865-c59db639b6de
+        sizes:
+          original:
+            bytes: 320104
+            bits: 2560832
+            mb: 0.3053
+          compressed:
+            bytes: 23309
+            bits: 186472
+            mb: 0.0222
+        last_updated: '2026-05-22T10:07:38.402Z'
+        xxhash: 6cf1557f3184bd9cae0ca23322761ba8
+      - name: 2026_05_RedispatchingInternal_13.1.A_r3.csv
+        file_id: 6d9f4774-2667-4f73-a467-0fc171dade25
+        sizes:
+          original:
+            bytes: 2388517
+            bits: 19108136
+            mb: 2.2779
+          compressed:
+            bytes: 90329
+            bits: 722632
+            mb: 0.0861
+        last_updated: '2026-05-29T09:06:50.560Z'
+        xxhash: 94fa6e05fbb2bd97f3876011878b3314
+  RedispatchingInternal_13.1.A_r3.1:
+    folder_path: /TP_export/RedispatchingInternal_13.1.A_r3.1/
+    item_count: 36
+    sizes:
+      original:
+        bytes: 25196478
+        bits: 201571824
+        mb: 24.0292
+      compressed:
+        bytes: 1237061
+        bits: 9896488
+        mb: 1.1798
+    files:
+      - name: 2021_08_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: d208c0b2-1481-49d6-8ffb-6597fcce0c78
+        sizes:
+          original:
+            bytes: 2741
+            bits: 21928
+            mb: 0.0026
+          compressed:
+            bytes: 644
+            bits: 5152
+            mb: 0.0006
+        last_updated: '2025-11-16T14:11:27.236Z'
+        xxhash: 73e81fc36851f9785fd1fd5f50ac1382
+      - name: 2022_03_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: b493252c-cd47-4424-b39c-7cb75644041a
+        sizes:
+          original:
+            bytes: 4399
+            bits: 35192
+            mb: 0.0042
+          compressed:
+            bytes: 786
+            bits: 6288
+            mb: 0.0007
+        last_updated: '2025-11-16T14:11:27.380Z'
+        xxhash: 0a7a70399f6e6a0a3660f0e8bad32378
+      - name: 2022_09_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 1949d5e3-3e90-48f0-97a9-40cebc38a41f
+        sizes:
+          original:
+            bytes: 1023
+            bits: 8184
+            mb: 0.001
+          compressed:
+            bytes: 574
+            bits: 4592
+            mb: 0.0005
+        last_updated: '2025-11-16T14:11:27.534Z'
+        xxhash: d771e91d211ba24d66c15b60a321d561
+      - name: 2022_10_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: c21abcc3-6d06-4b4e-bf22-e90d8bf69f89
+        sizes:
+          original:
+            bytes: 5727
+            bits: 45816
+            mb: 0.0055
+          compressed:
+            bytes: 887
+            bits: 7096
+            mb: 0.0008
+        last_updated: '2025-11-16T14:11:27.666Z'
+        xxhash: dd9bb0bce083dc03c984922c6119f892
+      - name: 2022_12_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: bfaf44df-85a3-4d59-bb98-5e713a62ef8f
+        sizes:
+          original:
+            bytes: 815
+            bits: 6520
+            mb: 0.0008
+          compressed:
+            bytes: 559
+            bits: 4472
+            mb: 0.0005
+        last_updated: '2025-11-16T14:11:27.805Z'
+        xxhash: 4cc9e41f78fbdf07a451a692c7c12679
+      - name: 2023_01_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: f006cc49-3397-474b-b2d4-3e4b4fe2e6a9
+        sizes:
+          original:
+            bytes: 168802
+            bits: 1350416
+            mb: 0.161
+          compressed:
+            bytes: 14641
+            bits: 117128
+            mb: 0.014
+        last_updated: '2025-11-16T14:11:27.976Z'
+        xxhash: 291d4ef29be90895135954b6c92a694f
+      - name: 2023_02_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 4ce1d306-e152-4723-8c8b-8c75dc3c38a1
+        sizes:
+          original:
+            bytes: 161184
+            bits: 1289472
+            mb: 0.1537
+          compressed:
+            bytes: 14583
+            bits: 116664
+            mb: 0.0139
+        last_updated: '2025-11-16T14:11:28.135Z'
+        xxhash: 0150f6725cb86f455edb47d83c9ec94d
+      - name: 2023_03_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 67f54b4d-d767-4656-a42c-7d59a08ac8fb
+        sizes:
+          original:
+            bytes: 147900
+            bits: 1183200
+            mb: 0.141
+          compressed:
+            bytes: 13970
+            bits: 111760
+            mb: 0.0133
+        last_updated: '2025-11-16T14:11:28.298Z'
+        xxhash: 267034e9c96c65f38030582eec04e1f7
+      - name: 2023_04_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 0345bb27-6324-4008-b9ab-0c35c0aa132d
+        sizes:
+          original:
+            bytes: 178432
+            bits: 1427456
+            mb: 0.1702
+          compressed:
+            bytes: 14207
+            bits: 113656
+            mb: 0.0135
+        last_updated: '2025-11-16T14:11:28.449Z'
+        xxhash: c380404a2368bff8104d1bd6b2e04238
+      - name: 2023_05_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 8d4127d3-0688-4c30-bd31-dd8d64e76541
+        sizes:
+          original:
+            bytes: 176378
+            bits: 1411024
+            mb: 0.1682
+          compressed:
+            bytes: 13017
+            bits: 104136
+            mb: 0.0124
+        last_updated: '2025-11-16T14:11:28.627Z'
+        xxhash: da2084c2fb00bfb66624c316070a0b63
+      - name: 2023_06_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 89ba6f57-96dc-499d-aed5-75c7532cbcf5
+        sizes:
+          original:
+            bytes: 98981
+            bits: 791848
+            mb: 0.0944
+          compressed:
+            bytes: 9046
+            bits: 72368
+            mb: 0.0086
+        last_updated: '2025-11-16T14:11:28.796Z'
+        xxhash: 5864f246151fb9ac463f904785e535fe
+      - name: 2023_07_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 8ed04233-494b-43a0-a62d-b43b9532b560
+        sizes:
+          original:
+            bytes: 164305
+            bits: 1314440
+            mb: 0.1567
+          compressed:
+            bytes: 12034
+            bits: 96272
+            mb: 0.0115
+        last_updated: '2025-11-16T14:11:28.960Z'
+        xxhash: 0463a893b0da4bf541903ca0ab632aed
+      - name: 2023_08_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 2b9f701c-a50d-4a61-bbd4-2b1abfb0a817
+        sizes:
+          original:
+            bytes: 134752
+            bits: 1078016
+            mb: 0.1285
+          compressed:
+            bytes: 11486
+            bits: 91888
+            mb: 0.011
+        last_updated: '2025-11-16T14:11:29.134Z'
+        xxhash: 91735e95ef7113c5f32a3a87f9d5f53d
+      - name: 2023_09_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: f67c5a64-1147-493c-a26b-ca1e19b344b4
+        sizes:
+          original:
+            bytes: 209058
+            bits: 1672464
+            mb: 0.1994
+          compressed:
+            bytes: 17180
+            bits: 137440
+            mb: 0.0164
+        last_updated: '2025-11-16T14:11:29.314Z'
+        xxhash: 982d89c9026c88c4f9dadc596f805260
+      - name: 2023_10_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 01af2883-8f13-49fc-9219-48e4428b2159
+        sizes:
+          original:
+            bytes: 231029
+            bits: 1848232
+            mb: 0.2203
+          compressed:
+            bytes: 19948
+            bits: 159584
+            mb: 0.019
+        last_updated: '2025-11-16T14:11:29.486Z'
+        xxhash: fa5e8be712cdaecbb422bd03cf29750d
+      - name: 2023_11_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 8a08491f-da3f-4b55-a726-ac0322ae6686
+        sizes:
+          original:
+            bytes: 190767
+            bits: 1526136
+            mb: 0.1819
+          compressed:
+            bytes: 16745
+            bits: 133960
+            mb: 0.016
+        last_updated: '2025-11-16T14:11:29.652Z'
+        xxhash: 6d11fd072eac99794ba30c8349fe5c01
+      - name: 2023_12_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: fa3b86a0-4e34-4c57-b07f-67d7fc6af143
+        sizes:
+          original:
+            bytes: 207309
+            bits: 1658472
+            mb: 0.1977
+          compressed:
+            bytes: 17525
+            bits: 140200
+            mb: 0.0167
+        last_updated: '2025-11-16T14:11:29.828Z'
+        xxhash: 544a74964643d3b45b563bff44e083bb
+      - name: 2024_04_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 78d2f7db-1447-41fa-a4d1-eec9e9aaf467
+        sizes:
+          original:
+            bytes: 4720
+            bits: 37760
+            mb: 0.0045
+          compressed:
+            bytes: 1066
+            bits: 8528
+            mb: 0.001
+        last_updated: '2026-05-04T11:12:28.792Z'
+        xxhash: 0133ae612a15eae8ee9bc301d9ef9ccd
+      - name: 2024_10_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 9a67567d-d3d1-4052-9107-63573faf9692
+        sizes:
+          original:
+            bytes: 608
+            bits: 4864
+            mb: 0.0006
+          compressed:
+            bytes: 538
+            bits: 4304
+            mb: 0.0005
+        last_updated: '2025-11-16T14:11:30.113Z'
+        xxhash: 1bd38c16ebbe82676f6a0e158cd74136
+      - name: 2025_02_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 7a3f7057-99e8-4958-844d-a1532ea3a486
+        sizes:
+          original:
+            bytes: 3381
+            bits: 27048
+            mb: 0.0032
+          compressed:
+            bytes: 654
+            bits: 5232
+            mb: 0.0006
+        last_updated: '2026-02-11T15:07:59.254Z'
+        xxhash: 105b5e4f1c88516f28582eecc8b29d87
+      - name: 2025_03_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 32aa4e73-ef29-4baa-bef8-211658dfcefd
+        sizes:
+          original:
+            bytes: 608
+            bits: 4864
+            mb: 0.0006
+          compressed:
+            bytes: 532
+            bits: 4256
+            mb: 0.0005
+        last_updated: '2025-11-16T14:11:30.259Z'
+        xxhash: 42b6113298e691107a08194568551e98
+      - name: 2025_04_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: f6bb6c99-999a-4eb6-9644-3f754c647542
+        sizes:
+          original:
+            bytes: 9021
+            bits: 72168
+            mb: 0.0086
+          compressed:
+            bytes: 798
+            bits: 6384
+            mb: 0.0008
+        last_updated: '2025-11-16T14:11:30.409Z'
+        xxhash: c2aaf71a5efaa90b2491b4fa1ef59186
+      - name: 2025_05_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: e881997e-5d22-4441-b787-cd6114df8700
+        sizes:
+          original:
+            bytes: 844
+            bits: 6752
+            mb: 0.0008
+          compressed:
+            bytes: 577
+            bits: 4616
+            mb: 0.0006
+        last_updated: '2025-11-16T14:11:30.547Z'
+        xxhash: 3a1fb884e522ffa212976e4272121511
+      - name: 2025_06_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: c9936d9c-5f3a-4c21-a668-3f67fec3ac50
+        sizes:
+          original:
+            bytes: 1021494
+            bits: 8171952
+            mb: 0.9742
+          compressed:
+            bytes: 55371
+            bits: 442968
+            mb: 0.0528
+        last_updated: '2025-11-16T14:11:30.729Z'
+        xxhash: a42604d96fd498b1c6d2547902615385
+      - name: 2025_07_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: f7cb93f0-5004-4138-8de5-fa7982ce7fe0
+        sizes:
+          original:
+            bytes: 273495
+            bits: 2187960
+            mb: 0.2608
+          compressed:
+            bytes: 16160
+            bits: 129280
+            mb: 0.0154
+        last_updated: '2025-11-16T14:11:30.916Z'
+        xxhash: d234c7dcf8d9dd0502c2330672f9bf94
+      - name: 2025_08_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 95f08e99-c707-43c0-bd08-f816d838f71b
+        sizes:
+          original:
+            bytes: 870789
+            bits: 6966312
+            mb: 0.8304
+          compressed:
+            bytes: 48828
+            bits: 390624
+            mb: 0.0466
+        last_updated: '2026-02-11T15:07:59.432Z'
+        xxhash: 08be8538db4634a0c914ab12a384588d
+      - name: 2025_09_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 8f2462a9-9fe9-4d93-97e8-92d33e969006
+        sizes:
+          original:
+            bytes: 767996
+            bits: 6143968
+            mb: 0.7324
+          compressed:
+            bytes: 47041
+            bits: 376328
+            mb: 0.0449
+        last_updated: '2025-11-16T14:11:31.117Z'
+        xxhash: 1903dd71638baa02b3b50fd3ec74a310
+      - name: 2025_10_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 42ea227f-a8c2-49f8-bc63-c2fff8c7a106
+        sizes:
+          original:
+            bytes: 5283288
+            bits: 42266304
+            mb: 5.0385
+          compressed:
+            bytes: 204734
+            bits: 1637872
+            mb: 0.1952
+        last_updated: '2026-02-11T15:07:59.734Z'
+        xxhash: b890bb6a8ede1a9ca06612a515822fc1
+      - name: 2025_11_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: cd7f4b67-f89d-4e2d-9393-8000e88c3370
+        sizes:
+          original:
+            bytes: 4703427
+            bits: 37627416
+            mb: 4.4855
+          compressed:
+            bytes: 197413
+            bits: 1579304
+            mb: 0.1883
+        last_updated: '2026-02-11T15:08:00.039Z'
+        xxhash: aefd78b71cdc4180b76849720d2cfa5a
+      - name: 2025_12_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 08273d09-bac7-471d-bd34-1395e8655a1e
+        sizes:
+          original:
+            bytes: 3440712
+            bits: 27525696
+            mb: 3.2813
+          compressed:
+            bytes: 161225
+            bits: 1289800
+            mb: 0.1538
+        last_updated: '2026-02-11T15:08:00.322Z'
+        xxhash: 60e1e27ecb9b7c6adc65f4658aef74c4
+      - name: 2026_01_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: ae9ecf32-63a6-472f-876d-65c820c245cd
+        sizes:
+          original:
+            bytes: 2728617
+            bits: 21828936
+            mb: 2.6022
+          compressed:
+            bytes: 140608
+            bits: 1124864
+            mb: 0.1341
+        last_updated: '2026-03-05T08:35:33.832Z'
+        xxhash: b6804dcf4f58328732d5343c2b553c67
+      - name: 2026_02_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 446fb956-1094-4e9b-9583-023a021ae96f
+        sizes:
+          original:
+            bytes: 872972
+            bits: 6983776
+            mb: 0.8325
+          compressed:
+            bytes: 49496
+            bits: 395968
+            mb: 0.0472
+        last_updated: '2026-03-04T08:38:07.895Z'
+        xxhash: 2a62bdd046999ce055e0ae2a0f970b5f
+      - name: 2026_03_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 01f52f37-cdf7-47d3-b751-ba0af63fb8f8
+        sizes:
+          original:
+            bytes: 338621
+            bits: 2708968
+            mb: 0.3229
+          compressed:
+            bytes: 19279
+            bits: 154232
+            mb: 0.0184
+        last_updated: '2026-05-07T08:05:23.825Z'
+        xxhash: 164afceca5e341bdd35ef72a96084e53
+      - name: 2026_04_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 892a3ab3-f9b8-487b-b4e2-9ce80d99904b
+        sizes:
+          original:
+            bytes: 354377
+            bits: 2835016
+            mb: 0.338
+          compressed:
+            bytes: 23615
+            bits: 188920
+            mb: 0.0225
+        last_updated: '2026-05-22T10:07:38.236Z'
+        xxhash: 2a92a4b5d8ab54e8c894c02b579c4ca8
+      - name: 2026_05_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 0e183c94-de0c-4f69-9d2a-2891001503c2
+        sizes:
+          original:
+            bytes: 2436947
+            bits: 19495576
+            mb: 2.3241
+          compressed:
+            bytes: 90689
+            bits: 725512
+            mb: 0.0865
+        last_updated: '2026-05-29T09:06:50.305Z'
+        xxhash: fb95fafeddf452732d19b5b88435e589
+      - name: 2026_10_RedispatchingInternal_13.1.A_r3.1.csv
+        file_id: 383d7a34-50e9-46fc-9439-dc6be0db34e7
+        sizes:
+          original:
+            bytes: 959
+            bits: 7672
+            mb: 0.0009
+          compressed:
+            bytes: 605
+            bits: 4840
+            mb: 0.0006
+        last_updated: '2025-11-16T14:11:32.050Z'
+        xxhash: 728a86e7567d595ac7598f100010f6aa
+  ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3:
+    folder_path: /TP_export/ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3/
+    item_count: 3
+    sizes:
+      original:
+        bytes: 264421
+        bits: 2115368
+        mb: 0.2522
+      compressed:
+        bytes: 11492
+        bits: 91936
+        mb: 0.011
+    files:
+      - name: 2022_ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3.csv
+        file_id: df1b918e-676f-4b06-82c3-be9f89a8727d
+        sizes:
+          original:
+            bytes: 119601
+            bits: 956808
+            mb: 0.1141
+          compressed:
+            bytes: 4266
+            bits: 34128
+            mb: 0.0041
+        last_updated: '2025-04-11T11:03:03.439Z'
+        xxhash: 0ac369fcbbfd4cd9602b2f048806cca9
+      - name: 2023_ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3.csv
+        file_id: fce5078c-030d-42e9-979a-6718c9c63e1b
+        sizes:
+          original:
+            bytes: 117013
+            bits: 936104
+            mb: 0.1116
+          compressed:
+            bytes: 5216
+            bits: 41728
+            mb: 0.005
+        last_updated: '2025-04-11T11:03:03.463Z'
+        xxhash: 5eba05545841fbcdf05b26794c10df13
+      - name: 2024_ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3.csv
+        file_id: 528c7677-6869-4e6b-bffa-f3ece96d199b
+        sizes:
+          original:
+            bytes: 27807
+            bits: 222456
+            mb: 0.0265
+          compressed:
+            bytes: 2010
+            bits: 16080
+            mb: 0.0019
+        last_updated: '2025-04-11T11:03:03.439Z'
+        xxhash: 6562ac59890dad162f8133d307835ccb

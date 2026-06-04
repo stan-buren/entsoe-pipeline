@@ -14,31 +14,24 @@
 
 """ENTSO-E Data Pipeline library."""
 
+import entsoe_pipeline.config.paths as _paths
+
 from entsoe_pipeline.config.config_loader import (
     BucketsConfig,
+    ClassifierConfig,
     EntsoeEnvConfig,
     PipelineConfig,
     PortsConfig,
     RateLimitsConfig,
     RegionConfig,
     get_buckets_config,
+    get_classifier_config,
     get_config,
     get_env_config,
     get_limits_config,
+    get_paths_config,
     get_ports_config,
     get_region_config,
-)
-from entsoe_pipeline.config.paths import (
-    ADR_DIR,
-    ADR_TEMPLATE_PATH,
-    CONFIG_DIR,
-    DATA_DIR,
-    ENV_FILE,
-    FMS_METADATA_DIR,
-    MANUAL_DATA_DIR,
-    OVERVIEW_YML,
-    PROJECT_ROOT,
-    TESTS_DIR,
 )
 from entsoe_pipeline.logger import (
     EntsoeApiError,
@@ -50,20 +43,13 @@ from entsoe_pipeline.logger import (
 )
 from entsoe_pipeline.vendor_patches.entsoe_py import ConfigurableEntsoeFileClient
 
+# Dynamically bind all path constants to package namespace
+for _name in _paths.__all__:
+    globals()[_name] = getattr(_paths, _name)
+
 __all__ = [
-    # paths
-    "ADR_DIR",
-    "ADR_TEMPLATE_PATH",
-    "CONFIG_DIR",
-    "DATA_DIR",
-    "ENV_FILE",
-    "FMS_METADATA_DIR",
-    "MANUAL_DATA_DIR",
-    "OVERVIEW_YML",
-    "PROJECT_ROOT",
-    "TESTS_DIR",
     "BucketsConfig",
-    # vendor patches
+    "ClassifierConfig",
     "ConfigurableEntsoeFileClient",
     "EntsoeApiError",
     "EntsoeConfigurationError",
@@ -71,17 +57,18 @@ __all__ = [
     "EntsoeDataValidationError",
     "EntsoeEnvConfig",
     "EntsoePipelineError",
-    # configs
     "PipelineConfig",
     "PortsConfig",
     "RateLimitsConfig",
     "RegionConfig",
     "get_buckets_config",
+    "get_classifier_config",
     "get_config",
     "get_env_config",
     "get_limits_config",
+    "get_paths_config",
     "get_ports_config",
     "get_region_config",
-    # logger & exceptions
     "setup_logging",
 ]
+__all__.extend(_paths.__all__)
