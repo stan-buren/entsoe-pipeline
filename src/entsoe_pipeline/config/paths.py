@@ -45,14 +45,18 @@ def find_project_root() -> Path:
     return current_file.parents[3]
 
 
-# Export constants for package-wide utilization
+# Dynamically load all path constants using config_loader SSOT
 PROJECT_ROOT = find_project_root()
-DATA_DIR = PROJECT_ROOT / ".data"
-TESTS_DIR = PROJECT_ROOT / "tests"
-ADR_DIR = PROJECT_ROOT / "docs" / "adr"
-ADR_TEMPLATE_PATH = ADR_DIR / "template" / "ADR_TEMPLATE.md"
-CONFIG_DIR = PROJECT_ROOT / "config_env"
-MANUAL_DATA_DIR = DATA_DIR / "manual_added_data"
-ENV_FILE = PROJECT_ROOT / ".env"
-FMS_METADATA_DIR = PROJECT_ROOT / "fms_metadata"
-OVERVIEW_YML = FMS_METADATA_DIR / "overview.yml"
+PATHS_YML = PROJECT_ROOT / "config" / "paths.yml"
+
+from entsoe_pipeline.config.config_loader import load_paths_config  # noqa: E402
+
+_paths_data = load_paths_config(PROJECT_ROOT)
+
+# Populate module namespace dynamically to establish SSOT exports
+for _key, _rel_val in _paths_data.items():
+    globals()[_key] = PROJECT_ROOT / _rel_val
+
+# Expose constants for package-wide utilization
+__all__ = ["PROJECT_ROOT"]
+__all__.extend(list(_paths_data.keys()))

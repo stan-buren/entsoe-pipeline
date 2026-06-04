@@ -24,12 +24,28 @@ import os
 
 from dataclasses import dataclass
 from functools import cache
+from pathlib import Path
 
 import yaml
 
 from dotenv import load_dotenv
 
-from entsoe_pipeline.config.paths import CONFIG_DIR, ENV_FILE
+
+def load_paths_config(project_root: Path) -> dict[str, str]:
+    """Loads and parses the centralized paths configuration from paths.yml.
+
+    Args:
+        project_root: The project root directory.
+
+    Returns:
+        dict[str, str]: Mapped relative path configurations.
+    """
+    paths_file = project_root / "config" / "paths.yml"
+    if not paths_file.exists():
+        raise FileNotFoundError(f"Paths configuration file not found at: {paths_file}")
+    with paths_file.open(encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
+
 
 # =============================================================================
 # ENVIRONMENT & RUNTIME CONFIGURATIONS (Master Config and Helpers)
@@ -108,6 +124,12 @@ class PipelineConfig:
             KeyError: If the active environment configuration cannot be located.
             ValueError: If required structure keys are absent or invalid.
         """
+        from entsoe_pipeline.config.paths import (  # noqa: PLC0415
+            API_LIMITS_YML,
+            CONFIG_DIR,
+            ENV_FILE,
+        )
+
         # Load local .env environment variables into os.environ if present.
         # We explicitly use the SSOT env path for safety.
         env_file = ENV_FILE
@@ -164,16 +186,26 @@ class PipelineConfig:
             password=password,
         )
 
-        # Parse limits block
-        limits_payload = data.get("limits", {})
+        # Parse limits from our dedicated SSOT API limits configuration file
+        if not API_LIMITS_YML.exists():
+            raise FileNotFoundError(
+                f"API limits configuration file not found at: {API_LIMITS_YML}"
+            )
+
+        with API_LIMITS_YML.open(encoding="utf-8") as f:
+            limits_data = yaml.safe_load(f) or {}
+
+        safetimits = limits_data.get("safetimits", {})
+        api_overrun = limits_data.get("api_overrun_limits_ban", {})
+
         limits = RateLimitsConfig(
             standard_api_requests_per_minute=int(
-                limits_payload.get("standard_api_requests_per_minute", 400)
+                safetimits.get("api_requests_per_minute", 390)
             ),
             fms_api_requests_per_minute=int(
-                limits_payload.get("fms_api_requests_per_minute", 100)
+                safetimits.get("fms_api_requests_per_minute", 95)
             ),
-            ban_duration_seconds=int(limits_payload.get("ban_duration_seconds", 600)),
+            ban_duration_seconds=int(api_overrun.get("duration_seconds", 600)),
         )
 
         # Load sub-configurations
@@ -215,6 +247,8 @@ class BucketsConfig:
         Returns:
             BucketsConfig: The loaded buckets configuration.
         """
+        from entsoe_pipeline.config.paths import CONFIG_DIR  # noqa: PLC0415
+
         bucket_file = CONFIG_DIR / "bucket.yml"
 
         with bucket_file.open(encoding="utf-8") as f:
@@ -245,6 +279,8 @@ class RegionConfig:
         Returns:
             RegionConfig: The loaded AWS region configuration.
         """
+        from entsoe_pipeline.config.paths import CONFIG_DIR  # noqa: PLC0415
+
         region_file = CONFIG_DIR / "region.yml"
 
         with region_file.open(encoding="utf-8") as f:
@@ -280,6 +316,8 @@ class PortsConfig:
             FileNotFoundError: If ports.yml is missing.
             yaml.YAMLError: If ports.yml contains invalid syntax.
         """
+        from entsoe_pipeline.config.paths import CONFIG_DIR  # noqa: PLC0415
+
         ports_file = CONFIG_DIR / "ports.yml"
 
         with ports_file.open(encoding="utf-8") as f:
@@ -290,6 +328,152 @@ class PortsConfig:
         return cls(
             s3_compatible=int(ports_data.get("s3_compatible", 8333)),
             iceberg_catalog=int(ports_data.get("iceberg_catalog", 8181)),
+        )
+
+
+# =============================================================================
+# ENTSO-E FMS DATA DOMAINS CLASSIFIER CONFIGURATION
+# =============================================================================
+
+
+@dataclass(frozen=True)
+class ExclusionRule:
+    """Immutable sub-rule to dynamically redirect folder domains on contextual overlaps.
+
+    Attributes:
+        patterns (list[str]): Key phrases in lowercase that trigger redirect.
+        redirect_to (str): Target domain to redirect, if matched.
+    """
+
+    patterns: list[str]
+    redirect_to: str
+
+
+@dataclass(frozen=True)
+class ClassificationRule:
+    """Immutable classification rule mapping key patterns to analytical domains.
+
+    Attributes:
+        domain (str): Target data domain (e.g., 'Load', 'Transmission').
+        patterns (list[str]): Lowercase keywords to inspect in folder name.
+        exclusions (list[ExclusionRule]): Exclusions redirecting domain context.
+    """
+
+    domain: str
+    patterns: list[str]
+    exclusions: list[ExclusionRule]
+
+
+@dataclass(frozen=True)
+class LegacyRule:
+    """Immutable classification rule mapping legacy archive specifications.
+
+    Attributes:
+        archive (str): Target archive identifier (e.g. 'R3_Archives').
+        release_name (str): Official name of the release.
+        decommission_status (str): Current status and decommission date description.
+        description (str): Business context and information about the release.
+        patterns (list[str]): Key phrases in folder name to map to this archive.
+    """
+
+    archive: str
+    release_name: str
+    decommission_status: str
+    description: str
+    patterns: list[str]
+
+
+@dataclass(frozen=True)
+class ClassifierConfig:
+    """Master configuration class representing folder classification rules mapping.
+
+    Attributes:
+        domain_order (list[str]): Standardized order list of the data domains.
+        fallback_domain (str): Fallback domain identifier on no patterns matched.
+        rules (list[ClassificationRule]): Pattern matching and exclusion rules sequence.
+        legacy_rules (list[LegacyRule]): Rules defining decommissioned legacy
+            publications.
+    """
+
+    domain_order: list[str]
+    fallback_domain: str
+    rules: list[ClassificationRule]
+    legacy_rules: list[LegacyRule]
+
+    @classmethod
+    def _from_yaml(cls) -> ClassifierConfig:
+        """Loads and parses the classifier configuration from entsoe-classifier.yml.
+
+        Returns:
+            ClassifierConfig: The loaded classifier configuration.
+
+        Raises:
+            FileNotFoundError: If the entsoe-classifier.yml is not present.
+        """
+        from entsoe_pipeline.config.paths import CLASSIFIER_YML  # noqa: PLC0415
+
+        config_file = CLASSIFIER_YML
+        if not config_file.exists():
+            raise FileNotFoundError(
+                f"Classifier configuration file not found at: {config_file}"
+            )
+
+        with config_file.open(encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+
+        domain_order = list(data.get("domain_order", []))
+        fallback_domain = str(data.get("fallback_domain", "OtherMarketInformation"))
+        raw_rules = data.get("rules", [])
+
+        rules = []
+        for r in raw_rules:
+            domain = str(r.get("domain", ""))
+            patterns = [str(pat) for pat in r.get("patterns", [])]
+            raw_exclusions = r.get("exclusions", [])
+
+            exclusions = []
+            for exc in raw_exclusions:
+                exc_patterns = [str(pat) for pat in exc.get("patterns", [])]
+                redirect_to = str(exc.get("redirect_to", ""))
+                if redirect_to:
+                    exclusions.append(
+                        ExclusionRule(patterns=exc_patterns, redirect_to=redirect_to)
+                    )
+
+            if domain:
+                rules.append(
+                    ClassificationRule(
+                        domain=domain,
+                        patterns=patterns,
+                        exclusions=exclusions,
+                    )
+                )
+
+        raw_legacy_rules = data.get("legacy_rules", [])
+        legacy_rules = []
+        for lr in raw_legacy_rules:
+            archive = str(lr.get("archive", ""))
+            release_name = str(lr.get("release_name", ""))
+            decommission_status = str(lr.get("decommission_status", ""))
+            description = str(lr.get("description", ""))
+            patterns = [str(pat) for pat in lr.get("patterns", [])]
+
+            if archive:
+                legacy_rules.append(
+                    LegacyRule(
+                        archive=archive,
+                        release_name=release_name,
+                        decommission_status=decommission_status,
+                        description=description,
+                        patterns=patterns,
+                    )
+                )
+
+        return cls(
+            domain_order=domain_order,
+            fallback_domain=fallback_domain,
+            rules=rules,
+            legacy_rules=legacy_rules,
         )
 
 
@@ -413,3 +597,31 @@ def get_limits_config() -> RateLimitsConfig:
             - ban_duration_seconds (int): Penalty cooldown time on limit violations.
     """
     return get_config().limits
+
+
+@cache
+def get_classifier_config() -> ClassifierConfig:
+    """Loads and returns the cached ClassifierConfig singleton.
+
+    Returns:
+        ClassifierConfig: The loaded classifier configuration, containing:
+            - domain_order (list[str]): Categorization domains array.
+            - fallback_domain (str): Default fallback classification bucket.
+            - rules (list[ClassificationRule]): Crawl rules and exclusions:
+                - domain (str): Target domain to evaluate.
+                - patterns (list[str]): Match keywords list.
+                - exclusions (list[ExclusionRule]): Conflict redirects checklist.
+    """
+    return ClassifierConfig._from_yaml()
+
+
+@cache
+def get_paths_config() -> dict[str, str]:
+    """Loads and returns the cached paths configuration mapping relative path strings.
+
+    Returns:
+        dict[str, str]: Mapped relative path configurations from paths.yml.
+    """
+    from entsoe_pipeline.config.paths import PROJECT_ROOT  # noqa: PLC0415
+
+    return load_paths_config(PROJECT_ROOT)
