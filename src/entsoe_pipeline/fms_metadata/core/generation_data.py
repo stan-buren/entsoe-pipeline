@@ -12,19 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""ENTSO-E FMS Metadata Domain.
-
-Provides classification rules for FMS folders and automated metadata discovery.
-"""
-
 from __future__ import annotations
 
-from entsoe_pipeline.fms_metadata.core import classify_folder
-from entsoe_pipeline.fms_metadata.ingestion.overview_ingest import (
-    ingest_fms_metadata,
-)
+from datetime import UTC, datetime
 
-__all__ = [
-    "classify_folder",
-    "ingest_fms_metadata",
-]
+
+def get_generation_timestamp() -> str:
+    """Generates the standardized ISO 8601 UTC execution timestamp.
+
+    Returns:
+        str: Standard ISO timestamp string (e.g., '2026-05-29T12:00:00Z').
+    """
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")

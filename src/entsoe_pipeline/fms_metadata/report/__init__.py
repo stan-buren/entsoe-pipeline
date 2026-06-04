@@ -12,19 +12,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""ENTSO-E FMS Metadata Domain.
-
-Provides classification rules for FMS folders and automated metadata discovery.
-"""
-
-from __future__ import annotations
-
-from entsoe_pipeline.fms_metadata.core import classify_folder
-from entsoe_pipeline.fms_metadata.ingestion.overview_ingest import (
-    ingest_fms_metadata,
-)
-
-__all__ = [
-    "classify_folder",
-    "ingest_fms_metadata",
-]

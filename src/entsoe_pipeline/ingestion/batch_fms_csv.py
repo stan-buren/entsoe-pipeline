@@ -37,10 +37,9 @@ from pyspark.sql import SparkSession
 from entsoe_pipeline import (
     MANUAL_DATA_DIR,
     get_buckets_config,
-    get_config,
 )
+from entsoe_pipeline.api.client import create_fms_client
 from entsoe_pipeline.spark.spark_builder import build_spark_session
-from entsoe_pipeline.vendor_patches.entsoe_py import ConfigurableEntsoeFileClient
 
 logger = logging.getLogger("ENTSOE_Ingestion")
 logging.basicConfig(
@@ -63,8 +62,12 @@ def check_raw_file_exists(spark: SparkSession, s3_path: str) -> bool:
         True if the file exists on S3; False otherwise.
     """
     try:
-        conf = spark.sparkContext._jsc.hadoopConfiguration()
-        path_class = spark._jvm.org.apache.hadoop.fs.Path(s3_path)
+        jsc = spark.sparkContext._jsc
+        jvm = spark._jvm
+        if jsc is None or jvm is None:
+            return False
+        conf = jsc.hadoopConfiguration()
+        path_class = jvm.org.apache.hadoop.fs.Path(s3_path)
         fs = path_class.getFileSystem(conf)
         return fs.exists(path_class)
     except Exception as e:
@@ -116,9 +119,6 @@ def ingest_folder(folder_name: str, force_reload: bool = False) -> None:
     buckets_config = get_buckets_config()
 
     s3_bucket = buckets_config.s3_bucket
-
-    config = get_config()
-
     spark = build_spark_session("FMS_Batch_Ingestion")
 
     try:
@@ -137,12 +137,7 @@ def ingest_folder(folder_name: str, force_reload: bool = False) -> None:
             files_to_process = {f.name: f for f in local_files}
         else:
             logger.info("No local CSV files found. Connecting to ENTSO-E FMS.")
-            client = ConfigurableEntsoeFileClient(
-                username=config.env_config.email,
-                pwd=config.env_config.password,
-                base_url=config.env_config.base_url,
-                token_url=config.env_config.token_url,
-            )
+            client = create_fms_client()
             remote_files = client.list_folder(folder_name)
             files_to_process = {name: name for name in sorted(remote_files.keys())}
             logger.info(
