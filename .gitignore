@@ -13,6 +13,7 @@ wheels/
 __marimo__/
 pyproject.toml.example
 fms_metadata/.ideas.yml
+docs/.commit_plans/
 
 # Secrets
 .env
@@ -28,6 +29,7 @@ notebooks/getting_started/spark_notebooks/
 
 .coverage
 .htmlcov/
+.coverage*
 
 .pytest_cache/  
 

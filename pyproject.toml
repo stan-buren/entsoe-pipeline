@@ -9,8 +9,10 @@ description = "ENTSO-E Data Pipeline"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "boto3>=1.43.24",
     "duckdb>=1.5.2",
     "entsoe-py>=0.8.0",
+    "notebooklm-py>=0.7.0",
     "pyspark[connect,sql]>=4.1.1",
     "python-dotenv>=1.2.2",
     "pyyaml>=6.0.3",
@@ -25,6 +27,8 @@ dev = [
     "pytest-cov>=7.1.0",
     "pytest-mock>=3.15.1",
     "pytest-xdist>=3.8.0",
+    "ruamel-yaml>=0.19.1",
+    "ruamel-yaml-clibz>=0.3.7", # Not used now. Delete after testing ruamel.yaml
     "ruff>=0.15.12",
     "ty>=0.0.35",
 ]

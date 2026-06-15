@@ -16,7 +16,12 @@ import os
 
 from pyspark.sql import SparkSession
 
-from entsoe_pipeline import get_ports_config, get_region_config
+from entsoe_pipeline import (
+    get_buckets_config,
+    get_hosts_config,
+    get_ports_config,
+    get_region_config,
+)
 
 
 def build_spark_session(app_name: str = "ENTSOE_Lakehouse") -> SparkSession:
@@ -33,10 +38,11 @@ def build_spark_session(app_name: str = "ENTSOE_Lakehouse") -> SparkSession:
     Returns:
         An active SparkSession instance configured for the lakehouse.
     """
-    # Load dynamic configurations for ports
+    # Load dynamic configurations for hosts and ports
+    hosts = get_hosts_config()
     ports = get_ports_config()
-    s3_endpoint = f"http://localhost:{ports.s3_compatible}"
-    catalog_uri = f"http://localhost:{ports.iceberg_catalog}"
+    s3_endpoint = f"http://{hosts.seaweedfs}:{ports.s3_compatible}"
+    catalog_uri = f"http://{hosts.iceberg_catalog}:{ports.iceberg_catalog}"
 
     # Load dynamic configuration for AWS region
     region = get_region_config()
@@ -62,7 +68,10 @@ def build_spark_session(app_name: str = "ENTSOE_Lakehouse") -> SparkSession:
         .config("spark.sql.catalog.lakehouse", "org.apache.iceberg.spark.SparkCatalog")
         .config("spark.sql.catalog.lakehouse.type", "rest")
         .config("spark.sql.catalog.lakehouse.uri", catalog_uri)
-        .config("spark.sql.catalog.lakehouse.warehouse", "s3://lakehouse/")
+        .config(
+            "spark.sql.catalog.lakehouse.warehouse",
+            f"s3://{get_buckets_config().s3_lakehouse_bucket}/",
+        )
         # 2. Iceberg S3 FileIO engine configuration for direct S3 writes
         .config(
             "spark.sql.catalog.lakehouse.io-impl", "org.apache.iceberg.aws.s3.S3FileIO"

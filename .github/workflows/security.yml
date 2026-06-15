@@ -2,9 +2,9 @@ name: Security Scan
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
   workflow_dispatch:
 
 jobs:
@@ -13,9 +13,9 @@ jobs:
     # Pin the runner OS version to avoid unexpected updates from ubuntu-latest.
     runs-on: ubuntu-24.04
     permissions:
-      contents: read 
+      contents: read
       # Required to write security events and upload the SARIF report.
-      security-events: write 
+      security-events: write
 
     steps:
       - name: Checkout code
@@ -25,7 +25,7 @@ jobs:
       # This SHA corresponds to the aquasecurity/trivy-action v0.36.0 release.
       # Skip learning sandboxes (e.g.'notebooks/')
       - name: Run Trivy vulnerability scanner in repo mode
-        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
         with:
           scan-type: 'fs'
           scan-ref: '.'
