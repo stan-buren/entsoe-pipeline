@@ -53,7 +53,7 @@ def test_landing_bucket_schema_structure_parity() -> None:
     """Verify that the compiled schema matches the overview tree structure.
 
     Extracts all folders directly from overview_tree.yml and asserts that they
-    match the list declared in config/landing_bucket_schema.yml exactly.
+    match the list declared in config/entsoe_fms_folder_schema.yml exactly.
     """
     # -------------------------------------------------------------------------
     # ARRANGE: Load both overview tree and schema catalogs
@@ -88,6 +88,6 @@ def test_landing_bucket_schema_structure_parity() -> None:
 
     # Every expected prefix must be in the actual schema, and vice versa
     assert set(actual_folders) == set(expected_folders), (
-        "Folders list in landing_bucket_schema.yml does not match overview_tree.yml. "
+        "Folders list in entsoe_fms_folder_schema.yml does not match overview_tree.yml. "
         "Please run landing_bucket_schema_builder.py to update it."
     )

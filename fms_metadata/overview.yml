@@ -1,14 +1,16 @@
+generated_at: '2026-06-15T16:12:31Z'
 environments:
   IOP:
     description: ENTSO-E Integration/Test Platform
     root_directories:
       - name: TP_export
         description: Active publications folder
-        item_count: 79
+        item_count: 83
         domains:
           Load:
             - ActualTotalLoad_6.1.A_r3
             - DayAheadTotalLoadForecast_6.1.B_r3
+            - OperationalAgreementsOfLoadFrequencyControlBlocks_SOGL_184.3_r3
             - TotalLoadForecast_6.1.C_D_E_r3
           Generation:
             - ActualGenerationOutputPerGenerationUnit_16.1.A_r3
@@ -21,7 +23,7 @@ environments:
           Transmission:
             - CommercialSchedulesNetPositions_12.1.F_r3
             - CommercialSchedules_12.1.F_r3
-            - CrossBorderCapacityForDCLinksRampingRestrictions_11.3_r3 # new?
+            - CrossBorderCapacityForDCLinksRampingRestrictions_11.3_r3
             - CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3_r3
             - FlowBasedAllocationsCongestionIncome_12.1.E_r3
             - FlowBasedCapacityAllocation_11.1.B_r3
@@ -29,6 +31,7 @@ environments:
             - ImplicitAllocationsCongestionIncome_12.1.E_r3
             - ImplicitAllocationsNetPositions_12.1.E_r3
             - OfferedTransferCapacitiesContinuousEvolution_11.1_r3
+            - OfferedTransferCapacitiesContinuousEvolution_11.1_r3.1
             - OfferedTransferCapacitiesContinuous_11.1_r3
             - OfferedTransferCapacitiesExplicit_11.1_r3
             - OfferedTransferCapacitiesImplicit_11.1_r3
@@ -53,6 +56,7 @@ environments:
             - ElasticDemands_IFs_mFRR3.4_aFRR3.4_r3
             - Fallbacks_IF_IN7.2_mFRR3.11_aFRR3.10_r3
             - FinancialExpensesAndIncomeForBalancing_17.1.I_r3
+            - ImbalanceNetting_186.2_r3
             - ImbalancePrices_17.1.G_r3
             - NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3
             - NettedAndExchangedVolumes_IFs_IN3.10_mFRR3.17_r3
@@ -91,6 +95,7 @@ environments:
           OtherMarketInformation:
             - Export_log_r3.csv
             - Export_oce_log_r3.csv
+            - InformationOnConversionIntoStandardProducts_12.3.D_r3
             - OtherMarketInformation_r3
             - OtherMarketInformation_r3.1
       - name: TP_Legacy_Publications
@@ -148,11 +153,12 @@ environments:
     root_directories:
       - name: TP_export
         description: Active publications folder
-        item_count: 74
+        item_count: 76
         domains:
           Load:
             - ActualTotalLoad_6.1.A_r3
             - DayAheadTotalLoadForecast_6.1.B_r3
+            - OperationalAgreementsOfLoadFrequencyControlBlocks_SOGL_184.3_r3
             - TotalLoadForecast_6.1.C_D_E_r3
             - YearAheadForecastMargin_8.1_r3
           Generation:
@@ -231,6 +237,7 @@ environments:
           OtherMarketInformation:
             - Export_log_r3.csv
             - Export_oce_log_r3.csv
+            - InformationOnConversionIntoStandardProducts_12.3.D_r3
             - OtherMarketInformation_r3.1
       - name: TP_Legacy_Publications
         description: Legacy publications folder

@@ -133,14 +133,31 @@ all-checks: lint security test
 
 
 # =============================================================================
-# 4. FMS REMOTE METADATA HARVESTING
+# 4. FMS METADATA REFRESH
 # =============================================================================
 
 # Crawl remote ENTSO-E platforms (IOP & PROD) and regenerate overview.yml
 fms-overview:
     @echo "[JUST][METADATA] Crawling remote FMS directory structures and regenerating overview.yml..."
-    uv run python src/entsoe_pipeline/fms_metadata/overview_ingest.py
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/overview_ingest.py
 
+# Compile the local FMS overview tree structure overview_tree.yml from physical catalog
+fms-tree:
+    @echo "[JUST][METADATA] Compiling FMS folder structure and regenerating overview_tree.yml..."
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/overview_tree_ingest.py
+
+# Ingest all active domains and historical archives to fully populate physical_catalog/
+fms-physical-catalog: ingest-tp-export ingest-tp-legacy
+
+# Build the landing bucket schema contract config/entsoe_fms_folder_schema.yml
+fms-folder-schema:
+    @echo "[JUST][METADATA] Building landing bucket schema contract and regenerating entsoe_fms_folder_schema.yml..."
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/landing_bucket_schema.py
+
+# Generate the active domains configuration checklist config/domains/my_entsoe_domains.yml
+my-entsoe-domains:
+    @echo "[JUST][METADATA] Generating active domains configuration checklist..."
+    uv run python src/entsoe_pipeline/fms_metadata/ingestion/my_entsoe_domains.py
 
 # =============================================================================
 # 5. PLATFORM ENVIRONMENT SWITCHERS
@@ -158,7 +175,6 @@ use-iop:
 alias prod := use-prod
 alias iop  := use-iop
 alias dev  := use-iop
-
 
 # =============================================================================
 # 6. EXTERNAL TECHNICAL DOCUMENTATION SCAPERS
@@ -184,7 +200,7 @@ seaweed-docs:
 # 7. PHYSICAL METADATA CATALOG INGESTION
 # =============================================================================
 
-# Ingest all active physical metadata catalogs under TP_export (balancing, load, market, operations, transmission, outages, generation, etc.)
+# Ingest all active physical metadata catalogs under TP_export for the active environment (balancing, load, market, operations, transmission, outages, generation, etc.)
 ingest-tp-export:
     @echo "[JUST][METADATA] Ingesting all active domains under TP_export..."
     uv run python src/entsoe_pipeline/fms_metadata/ingestion/balancing_ingest.py
@@ -196,8 +212,50 @@ ingest-tp-export:
     uv run python src/entsoe_pipeline/fms_metadata/ingestion/outages_ingest.py
     uv run python src/entsoe_pipeline/fms_metadata/ingestion/transmission_ingest.py
 
-# Ingest all historical publications archives under TP_Legacy_Publications
+# Ingest all historical publications archives under TP_Legacy_Publications for the active environment
 ingest-tp-legacy:
     @echo "[JUST][METADATA] Ingesting all historical legacy archives..."
     uv run python src/entsoe_pipeline/fms_metadata/ingestion/legacy_ingest.py
 
+# Ingest active domains under TP_export using IOP environment
+iop-ingest-tp-export: use-iop ingest-tp-export
+
+# Ingest historical archives under TP_Legacy_Publications using IOP environment
+iop-ingest-tp-legacy: use-iop ingest-tp-legacy
+
+# Ingest active domains under TP_export using PROD environment
+prod-ingest-tp-export: use-prod ingest-tp-export
+
+# Ingest historical archives under TP_Legacy_Publications using PROD environment
+prod-ingest-tp-legacy: use-prod ingest-tp-legacy
+
+
+# =============================================================================
+# 8. DATA INGESTION JOBS (S3 landing zone syncing)
+# =============================================================================
+
+# Ingest active domains datasets to landing zone for the active environment
+ingest-active-domains:
+    @echo "[JUST][INGEST] Starting active ENTSO-E domains ingestion job..."
+    uv run python jobs/staging/landing/ingest_my_entsoe_domains.py
+
+# Run active domains ingestion job using IOP environment
+iop-ingest-active-domains: use-iop ingest-active-domains
+
+# Run active domains ingestion job using PROD environment
+prod-ingest-active-domains: use-prod ingest-active-domains
+
+
+# =============================================================================
+# 9. CLEAR DEVELOPER LEARNING STUFF
+# =============================================================================
+
+clean-stan-buren-learning-stuff:
+    @echo "[JUST][CLEAN] Cleaning developer learning stuff..."
+    rm -rf docs/knowledge/* 
+    rm -rf notebooks/*
+
+remove-agents-folder:
+    @echo "[JUST][CLEAN] Removing notebooks folder..."
+    rm -rf .agents/*
+    

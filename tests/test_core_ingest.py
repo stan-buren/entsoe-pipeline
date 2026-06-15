@@ -60,7 +60,7 @@ def test_ingest_domain_metadata_orchestrates_flow(
     # -------------------------------------------------------------------------
     # ASSERT: Verify environments are crawled and catalogs are serialized
     # -------------------------------------------------------------------------
-    assert mock_get_folders.call_count == 2
-    assert mock_create_client.call_count == 2
-    assert mock_list_items.call_count == 4
-    assert mock_save_catalog.call_count == 2
+    assert mock_get_folders.call_count == 1
+    assert mock_create_client.call_count == 1
+    assert mock_list_items.call_count == 2
+    assert mock_save_catalog.call_count == 1

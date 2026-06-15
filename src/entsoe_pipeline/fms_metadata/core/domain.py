@@ -22,7 +22,7 @@ from __future__ import annotations
 
 import logging
 
-from entsoe_pipeline import PHYSICAL_CATALOG_DIR
+from entsoe_pipeline import PHYSICAL_CATALOG_DIR, get_config
 from entsoe_pipeline.api import create_fms_client, list_folder_raw_items
 from entsoe_pipeline.fms_metadata.utils.overview_parser import get_domain_folders
 from entsoe_pipeline.fms_metadata.utils.serializer import save_fms_catalog
@@ -37,100 +37,95 @@ logger = logging.getLogger("entsoe_pipeline.fms_metadata.core.domain")
 
 
 def ingest_domain_metadata(domain_name: str) -> None:
-    """Orchestrates metadata gathering for any specified FMS domain across IOP and PROD.
+    """Orchestrates metadata gathering for any specified FMS domain in the active environment.
 
     Args:
         domain_name: The target ENTSO-E data domain (e.g. 'Load', 'Market').
     """
     logger.info(
-        "=== STARTING MULTI-ENVIRONMENT %s METADATA EXPLORATION ===",
+        "=== STARTING %s METADATA EXPLORATION ===",
         domain_name.upper(),
     )
 
-    comparative_stats = {}
+    env = get_config().active_environment
 
-    for env in ["IOP", "PROD"]:
-        logger.info("-" * 60)
-        logger.info("PROCESSING ENVIRONMENT: %s", env)
-        logger.info("-" * 60)
+    logger.info("-" * 60)
+    logger.info("PROCESSING ENVIRONMENT: %s", env)
+    logger.info("-" * 60)
 
-        # Retrieve domain folders dynamically from overview.yml SSOT
+    # Retrieve domain folders dynamically from overview.yml SSOT
+    try:
+        folders = get_domain_folders(domain_name, env)
+    except Exception:
+        logger.exception(
+            "Failed to retrieve domain folders for %s on env %s",
+            domain_name,
+            env,
+        )
+        return
+
+    # Track FMS requests count for watermarking audits
+    api_counter = [0]
+
+    try:
+        client = create_fms_client(env)
+    except Exception:
+        logger.exception("Failed to initialize FMS client for environment %s", env)
+        return
+
+    domain_metadata = {}
+    all_env_file_details = []
+
+    # Fetch root raw items once to dynamically catalog root-level files (like CSVs)
+    try:
+        root_raw_items = list_folder_raw_items(client, "", api_counter)
+        root_files_by_name = {item["name"]: item for item in root_raw_items}
+    except Exception:
+        logger.exception("Failed to fetch root items for environment %s", env)
+        root_files_by_name = {}
+
+    for folder in folders:
+        logger.info("Processing folder: %s", folder)
         try:
-            folders = get_domain_folders(domain_name, env)
-        except Exception:
-            logger.exception(
-                "Failed to retrieve domain folders for %s on env %s",
-                domain_name,
-                env,
-            )
-            continue
-
-        # Track FMS requests count for watermarking audits
-        api_counter = [0]
-
-        try:
-            client = create_fms_client(env)
-        except Exception:
-            logger.exception("Failed to initialize FMS client for environment %s", env)
-            continue
-
-        domain_metadata = {}
-        all_env_file_details = []
-
-        # Fetch root raw items once to dynamically catalog root-level files (like CSVs)
-        try:
-            root_raw_items = list_folder_raw_items(client, "", api_counter)
-            root_files_by_name = {item["name"]: item for item in root_raw_items}
-        except Exception:
-            logger.exception("Failed to fetch root items for environment %s", env)
-            root_files_by_name = {}
-
-        for folder in folders:
-            logger.info("Processing folder: %s", folder)
-            try:
-                if folder.endswith(".csv"):
-                    # Root file. Retrieve its pre-fetched metadata dict.
-                    raw_item = root_files_by_name.get(folder)
-                    if raw_item:
-                        files = [map_raw_fms_item(raw_item)]
-                    else:
-                        logger.warning(
-                            "Root file '%s' not found in root items on env %s",
-                            folder,
-                            env,
-                        )
-                        files = []
+            if folder.endswith(".csv"):
+                # Root file. Retrieve its pre-fetched metadata dict.
+                raw_item = root_files_by_name.get(folder)
+                if raw_item:
+                    files = [map_raw_fms_item(raw_item)]
                 else:
-                    # Regular directory. Crawl FMS items via Layer 2 API
-                    raw_items = list_folder_raw_items(client, folder, api_counter)
-                    files = [map_raw_fms_item(item) for item in raw_items]
-            except Exception:
-                logger.exception(
-                    "Error crawling folder %s on environment %s", folder, env
-                )
-                continue
+                    logger.warning(
+                        "Root file '%s' not found in root items on env %s",
+                        folder,
+                        env,
+                    )
+                    files = []
+            else:
+                # Regular directory. Crawl FMS items via Layer 2 API
+                raw_items = list_folder_raw_items(client, folder, api_counter)
+                files = [map_raw_fms_item(item) for item in raw_items]
+        except Exception:
+            logger.exception("Error crawling folder %s on environment %s", folder, env)
+            continue
 
-            # Aggregate physical stats dynamically via Layer 3 aggregates compiler
-            domain_metadata[folder] = compile_folder_metadata(folder, files)
-            all_env_file_details.extend(files)
+        # Aggregate physical stats dynamically via Layer 3 aggregates compiler
+        domain_metadata[folder] = compile_folder_metadata(folder, files)
+        all_env_file_details.extend(files)
 
-        # Serialize results cleanly to the correct subdirectory conforming to paths SSOT
-        output_path = (
-            PHYSICAL_CATALOG_DIR / env.lower() / "TP_export" / f"{domain_name}.yml"
-        )
-        logger.info("Persisting %s metadata to: %s", env, output_path)
+    # Serialize results cleanly to the correct subdirectory conforming to paths SSOT
+    output_path = (
+        PHYSICAL_CATALOG_DIR / env.lower() / "TP_export" / f"{domain_name}.yml"
+    )
+    logger.info("Persisting %s metadata to: %s", env, output_path)
 
-        # Save catalog gracefully using our common serialization helper
-        save_fms_catalog(output_path, api_counter[0], domain_metadata)
+    # Save catalog gracefully using our common serialization helper
+    save_fms_catalog(output_path, api_counter[0], domain_metadata)
 
-        # Compile environmental statistics for comparative summaries
-        comparative_stats[env] = compile_env_stats(
-            env, all_env_file_details, api_counter[0]
-        )
+    # Compile environmental statistics for comparative summaries
+    stats = compile_env_stats(env, all_env_file_details, api_counter[0])
 
     # Print high-level comparative report
     logger.info("=" * 60)
-    logger.info("             MULTI-ENVIRONMENT COMPARISON SUMMARY        ")
+    logger.info("             ENVIRONMENT COMPARISON SUMMARY        ")
     logger.info("=" * 60)
     logger.info(
         "%-8s | %-12s | %-10s | %-10s | %-12s | %-10s",
@@ -143,14 +138,13 @@ def ingest_domain_metadata(domain_name: str) -> None:
     )
     logger.info("-" * 75)
 
-    for env, stats in comparative_stats.items():
-        logger.info(
-            "%-8s | %-12d | %-10.2f | %-10.2f | %-12s | %-10d",
-            env,
-            stats["file_count"],
-            stats["original_mb"],
-            stats["compressed_mb"],
-            stats["date_range"],
-            stats["api_requests"],
-        )
+    logger.info(
+        "%-8s | %-12d | %-10.2f | %-10.2f | %-12s | %-10d",
+        env,
+        stats["file_count"],
+        stats["original_mb"],
+        stats["compressed_mb"],
+        stats["date_range"],
+        stats["api_requests"],
+    )
     logger.info("=" * 60)

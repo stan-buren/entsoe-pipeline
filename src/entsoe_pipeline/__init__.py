@@ -12,7 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""ENTSO-E Data Pipeline library."""
+"""ENTSO-E Data Pipeline library.
+
+This library provides core components, configuration loaders, S3 I/O sync,
+logger setups, and Apache Spark integrations for the ENTSO-E metadata pipeline.
+
+All repository and workspace paths are dynamically resolved and bound to this
+package namespace, acting as the Single Source of Truth (SSOT). You can import
+these path constants directly from the package:
+
+Typical usage example:
+
+  from entsoe_pipeline import PROJECT_ROOT, DATA_DIR, CONFIG_DIR
+  print(f"Project root is: {PROJECT_ROOT}")
+  print(f"Data directory: {DATA_DIR}")
+"""
 
 import typing
 

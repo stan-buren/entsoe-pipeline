@@ -97,7 +97,7 @@ def ensure_bucket_exists(client: Any, bucket_name: str) -> None:
 
 
 def create_directories_with_prefix(prefix: str) -> None:
-    """Reads landing_bucket_schema.yml and creates folders under the specified prefix.
+    """Reads entsoe_fms_folder_schema.yml and creates folders under the specified prefix.
 
     Args:
         prefix (str): Prefix path (e.g., 'iop/TP_export/').
