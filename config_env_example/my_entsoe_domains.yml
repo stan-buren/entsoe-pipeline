@@ -2,7 +2,7 @@
 active_mode: Default
 # Configuration file name (without .yml extension) located in config/domains/examples/ or config/domains/custom/
 # Required if active_mode is Example or Custom.
-config_name: ~
+config_name:
 
 metadata:
   active_mode:
@@ -34,7 +34,7 @@ metadata:
     default: ""
     type: "string"
 
-    data_engineering_meaning: |
+    data_engineering_meaning: |-
       We use this configuration to control ingestion scope.
       - "Default" mode focuses on Load (91% interest),
         Generation (85% interest),

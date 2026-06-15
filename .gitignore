@@ -24,6 +24,7 @@ config_env/
 .data/
 notebooks/.learning_scripts/results/
 notebooks/getting_started/spark_notebooks/
+config/domains/my_entsoe_domains.yml
 
 .ruff_cache/
 
