@@ -1107,7 +1107,8 @@ folders:
         last_updated: '2026-05-28T10:08:04.765Z'
         xxhash: a51cc63f3209c1ed7f918e9d088366b8
   AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3:
-    folder_path: /TP_export/AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3/
+    folder_path: 
+      /TP_export/AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3/
     item_count: 82
     sizes:
       original:
@@ -1119,7 +1120,8 @@ folders:
         bits: 122309232
         mb: 14.5804
     files:
-      - name: 2015_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2015_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: cd33fad2-dccd-4a31-93fe-4bb6760b2165
         sizes:
           original:
@@ -1132,7 +1134,8 @@ folders:
             mb: 0.0006
         last_updated: '2026-02-25T15:09:16.642Z'
         xxhash: 0cd9ced6340027545174e66f37a54ea0
-      - name: 2020_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2020_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 2412a980-f9e2-45aa-a1cf-3d36f7fad175
         sizes:
           original:
@@ -1145,7 +1148,8 @@ folders:
             mb: 0.0015
         last_updated: '2026-02-25T15:09:16.796Z'
         xxhash: ec320396ba0e0c6f475cc60ff59fad71
-      - name: 2020_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2020_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: ff9dfbe5-9ca5-4216-9760-b0a0d4e5e9ac
         sizes:
           original:
@@ -1158,7 +1162,8 @@ folders:
             mb: 0.0087
         last_updated: '2026-02-25T15:09:16.993Z'
         xxhash: 93c9cc74bb15131c1ba4800b7fd7be95
-      - name: 2021_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2021_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 01078121-4414-4257-a7ec-f87cb22931cb
         sizes:
           original:
@@ -1171,7 +1176,8 @@ folders:
             mb: 0.0007
         last_updated: '2026-02-25T15:09:17.208Z'
         xxhash: c90c6ca1407f8b8172e005a2ffc7ecf6
-      - name: 2021_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2021_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 68865c17-57ec-4fd2-be86-85dc3edf97db
         sizes:
           original:
@@ -1184,7 +1190,8 @@ folders:
             mb: 0.0088
         last_updated: '2026-02-25T15:09:17.415Z'
         xxhash: 182ce4fe5d983a991f83c1f3425e66ed
-      - name: 2022_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2022_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 612511e4-764e-4366-aced-58895d3a8b67
         sizes:
           original:
@@ -1197,7 +1204,8 @@ folders:
             mb: 0.0047
         last_updated: '2025-11-14T10:44:00.994Z'
         xxhash: 62257380cf05bd8ae7bcd9ad6015c5fc
-      - name: 2022_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2022_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: ea69111e-cc7c-43dc-a635-1b34cddb50dd
         sizes:
           original:
@@ -1210,7 +1218,8 @@ folders:
             mb: 0.0012
         last_updated: '2026-05-28T12:36:34.878Z'
         xxhash: aaf7fc6a9c2a39e6a9afffd78605a8bb
-      - name: 2022_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2022_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 012a3b73-3feb-4608-84f2-6065ea0ac927
         sizes:
           original:
@@ -1223,7 +1232,8 @@ folders:
             mb: 0.0158
         last_updated: '2025-11-14T10:44:01.381Z'
         xxhash: 3c308128ca5be94cc752d52a3af00922
-      - name: 2023_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 2572145b-3dad-4cfb-b619-663d7af8a96d
         sizes:
           original:
@@ -1236,7 +1246,8 @@ folders:
             mb: 0.1967
         last_updated: '2025-11-14T10:44:02.054Z'
         xxhash: 82f6fefb1f9a84511b92c42dbb7a5450
-      - name: 2023_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: e94cc00d-18f7-48a8-a424-b68c46a14f57
         sizes:
           original:
@@ -1249,7 +1260,8 @@ folders:
             mb: 0.2125
         last_updated: '2025-11-14T10:44:02.921Z'
         xxhash: 5fed078e783df11c1a86fe970f9835e9
-      - name: 2023_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: efadeb38-8b91-48e2-9ba4-652aeb6a70bf
         sizes:
           original:
@@ -1262,7 +1274,8 @@ folders:
             mb: 0.242
         last_updated: '2025-11-14T10:44:03.816Z'
         xxhash: 995281de734843fcdede0dad7ba2a09e
-      - name: 2023_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 200b532a-d251-4f29-a2ed-d73697c943f4
         sizes:
           original:
@@ -1275,7 +1288,8 @@ folders:
             mb: 0.2845
         last_updated: '2025-11-14T10:44:04.730Z'
         xxhash: acb373fb5b69a9590297c1872ed97fc0
-      - name: 2023_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 0a4fcd5a-ce1d-4279-a05a-b7f5ca9eb3a8
         sizes:
           original:
@@ -1288,7 +1302,8 @@ folders:
             mb: 0.8275
         last_updated: '2025-11-14T10:44:05.866Z'
         xxhash: afc37f6301b4406e4c91c4cea33d4ca6
-      - name: 2023_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 10bdb549-6648-477a-b892-8f79ad3aeeae
         sizes:
           original:
@@ -1301,7 +1316,8 @@ folders:
             mb: 0.0638
         last_updated: '2025-11-14T10:44:06.671Z'
         xxhash: e33afcc5143f2cb94e7283cdd37597b4
-      - name: 2023_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 18ac25e7-137b-40b1-a1ff-ccf94fe7a617
         sizes:
           original:
@@ -1314,7 +1330,8 @@ folders:
             mb: 0.0187
         last_updated: '2025-11-14T10:44:07.115Z'
         xxhash: 76ddb49098a12da705820e07e3898284
-      - name: 2023_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 2864654e-73b5-4778-bbd5-c2b3adcb0649
         sizes:
           original:
@@ -1327,7 +1344,8 @@ folders:
             mb: 0.0187
         last_updated: '2025-11-14T10:44:07.433Z'
         xxhash: 2dcf948d57e5ca270f22a8df7e10eea6
-      - name: 2023_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 86c98756-10b9-4484-93de-95d84e218f31
         sizes:
           original:
@@ -1340,7 +1358,8 @@ folders:
             mb: 0.0181
         last_updated: '2025-11-14T10:44:07.737Z'
         xxhash: 5a2a273233fb91856195bcf16a04f2f1
-      - name: 2023_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: fb4684b9-e06a-47d5-b564-5c232bc4d18a
         sizes:
           original:
@@ -1353,7 +1372,8 @@ folders:
             mb: 0.0187
         last_updated: '2025-11-14T10:44:08.096Z'
         xxhash: d7c252d37b21032580d1c7745599fbe2
-      - name: 2023_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 58af2f42-d43e-42f0-ada8-c8d580d7c02d
         sizes:
           original:
@@ -1366,7 +1386,8 @@ folders:
             mb: 0.0206
         last_updated: '2026-05-28T12:36:35.064Z'
         xxhash: b2c0b7ac0abd9b151ba0050f1217c7b9
-      - name: 2023_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2023_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: cdb7e507-1a55-463d-af89-e05bc6dbbf1f
         sizes:
           original:
@@ -1379,7 +1400,8 @@ folders:
             mb: 0.019
         last_updated: '2025-11-14T10:44:08.730Z'
         xxhash: df5c8c51a1492720d846be5ddbdec254
-      - name: 2024_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 0bbe17ba-069d-46a7-b805-3072cc48827f
         sizes:
           original:
@@ -1392,7 +1414,8 @@ folders:
             mb: 0.0222
         last_updated: '2026-03-17T15:45:14.090Z'
         xxhash: d513a86116a04b21a020be57bdc51b5d
-      - name: 2024_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 074a972b-a9c0-45fa-acaf-3e5f8fc89231
         sizes:
           original:
@@ -1405,7 +1428,8 @@ folders:
             mb: 0.0286
         last_updated: '2026-01-28T15:42:47.461Z'
         xxhash: dff1c2c793f5a79f194584a5572c7aac
-      - name: 2024_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: eb61ec27-4585-455f-9e0e-91a4cb4a5079
         sizes:
           original:
@@ -1418,7 +1442,8 @@ folders:
             mb: 0.0164
         last_updated: '2025-11-14T10:44:10.038Z'
         xxhash: ad6f84c5ab2864b88b26131921744ca0
-      - name: 2024_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 4a3d7a0f-d2bc-46fd-b01b-99deb9ad683d
         sizes:
           original:
@@ -1431,7 +1456,8 @@ folders:
             mb: 0.0175
         last_updated: '2025-11-14T10:44:10.343Z'
         xxhash: c5179061d2da16af295e099c7169a308
-      - name: 2024_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 4f59428a-4fcc-41bc-ac51-df6be4e15cf3
         sizes:
           original:
@@ -1444,7 +1470,8 @@ folders:
             mb: 0.0157
         last_updated: '2025-11-14T10:44:10.729Z'
         xxhash: 47f53a707e6551837de9edfb05dbddec
-      - name: 2024_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 68199502-4804-4915-9a6f-aebc9386d9b2
         sizes:
           original:
@@ -1457,7 +1484,8 @@ folders:
             mb: 0.0159
         last_updated: '2026-05-28T12:36:35.274Z'
         xxhash: edd09daed82e4432554334d7bc3c1056
-      - name: 2024_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 24f365cc-2a17-478c-be67-3bc7923bead9
         sizes:
           original:
@@ -1470,7 +1498,8 @@ folders:
             mb: 0.0157
         last_updated: '2025-11-14T10:44:11.248Z'
         xxhash: f07259e2bd3f1e96e780b03944b7b3a5
-      - name: 2024_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 0a53f5fb-9246-48ec-a149-d698e37355de
         sizes:
           original:
@@ -1483,7 +1512,8 @@ folders:
             mb: 0.0411
         last_updated: '2026-05-28T12:36:35.470Z'
         xxhash: d4e6486d046d33d88a27e35b8dc62a42
-      - name: 2024_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 2303ef43-f6b9-4e48-8e96-9055bfba27bb
         sizes:
           original:
@@ -1496,7 +1526,8 @@ folders:
             mb: 0.0159
         last_updated: '2026-05-28T12:36:35.671Z'
         xxhash: 648afc918f83c381ec2174ab42e763c0
-      - name: 2024_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 9301cd42-8963-439f-a165-60ae1c10ca0e
         sizes:
           original:
@@ -1509,7 +1540,8 @@ folders:
             mb: 0.0257
         last_updated: '2025-11-14T10:44:12.003Z'
         xxhash: 1ea9b311211eb6f099c70640ce0384e9
-      - name: 2024_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 5ec2069f-22dc-4bad-93e4-a1f231ad2b2e
         sizes:
           original:
@@ -1522,7 +1554,8 @@ folders:
             mb: 0.0173
         last_updated: '2026-05-28T12:36:35.864Z'
         xxhash: e20d4a7c8a384da852035c8a33a6bc87
-      - name: 2024_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2024_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 9e75a697-15ea-437c-93a9-15bc833f5853
         sizes:
           original:
@@ -1535,7 +1568,8 @@ folders:
             mb: 0.0193
         last_updated: '2026-01-28T15:42:48.515Z'
         xxhash: 4fa274507ad5be8f67347c107a74086b
-      - name: 2025_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 3a024a01-6ae2-4b58-92bc-2d752700904b
         sizes:
           original:
@@ -1548,7 +1582,8 @@ folders:
             mb: 0.2563
         last_updated: '2026-05-28T12:36:36.382Z'
         xxhash: 39127f370a54043ef5c5bd0d1415ff9c
-      - name: 2025_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: b82e32b9-8d06-4e3f-b1df-61571936f9f6
         sizes:
           original:
@@ -1561,7 +1596,8 @@ folders:
             mb: 0.2166
         last_updated: '2026-01-28T15:42:49.930Z'
         xxhash: 4f5f4b83719259b9a4c9c9799913a94b
-      - name: 2025_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 1f5ab6d0-8759-4bc7-be84-44003db46de0
         sizes:
           original:
@@ -1574,7 +1610,8 @@ folders:
             mb: 0.1332
         last_updated: '2026-01-28T15:42:50.557Z'
         xxhash: 4816b46c2b4c628b631adbe20895d65a
-      - name: 2025_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 1e016254-860c-40b3-9d86-1b8a09a795f7
         sizes:
           original:
@@ -1587,7 +1624,8 @@ folders:
             mb: 0.1394
         last_updated: '2026-05-28T12:36:36.900Z'
         xxhash: a7afadd47cd798a3bd98f9a614c24055
-      - name: 2025_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 0d5e7a77-d87a-4d39-8f9c-fa73fe707c5a
         sizes:
           original:
@@ -1600,7 +1638,8 @@ folders:
             mb: 0.1824
         last_updated: '2026-05-28T12:36:37.449Z'
         xxhash: 40ea985cbd80c5eb8a8367a798070c35
-      - name: 2025_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 44714c3d-fb5d-4bed-8df9-d1b275e8c675
         sizes:
           original:
@@ -1613,7 +1652,8 @@ folders:
             mb: 0.4185
         last_updated: '2026-01-28T15:42:52.480Z'
         xxhash: fb713ab2681b863362eedecbbe239b4f
-      - name: 2025_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 29727fef-e1de-4f67-9647-657c846116d2
         sizes:
           original:
@@ -1626,7 +1666,8 @@ folders:
             mb: 0.7021
         last_updated: '2026-01-28T15:42:53.677Z'
         xxhash: 4b5ea31adb74298e5ac4d182cb93ef92
-      - name: 2025_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 90bfe0a3-51f6-4c23-a905-bc18ec121a22
         sizes:
           original:
@@ -1639,7 +1680,8 @@ folders:
             mb: 0.8056
         last_updated: '2026-04-01T16:09:09.127Z'
         xxhash: 589ffe3df3d9a9acbf0ede9082e360ea
-      - name: 2025_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 7b9d6854-b7ae-42a9-ae37-2f691f1f83b9
         sizes:
           original:
@@ -1652,7 +1694,8 @@ folders:
             mb: 1.0812
         last_updated: '2026-04-01T16:09:10.945Z'
         xxhash: c488efe950e4cc41a86ee8105f60c39b
-      - name: 2025_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 16bdfc84-3b5d-4513-9dee-1bce33c338c6
         sizes:
           original:
@@ -1665,7 +1708,8 @@ folders:
             mb: 1.2976
         last_updated: '2026-01-28T15:42:59.208Z'
         xxhash: 8e12fd90baf6ae66b7f5b2bc04f29e69
-      - name: 2025_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 8d121aa9-0afc-4d2f-ab41-40361854a1fd
         sizes:
           original:
@@ -1678,7 +1722,8 @@ folders:
             mb: 1.1649
         last_updated: '2026-05-15T15:42:53.491Z'
         xxhash: 96d87ea1caf13c60c8b9813e79679c59
-      - name: 2025_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2025_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 1c5f02c3-9ea1-4280-90af-51ef409fa234
         sizes:
           original:
@@ -1691,7 +1736,8 @@ folders:
             mb: 1.074
         last_updated: '2026-03-30T16:14:17.670Z'
         xxhash: fd75cda0672c19bbe2572ebe7a58d414
-      - name: 2026_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 12a7081a-efe7-4720-8ab1-a115b51b3ba4
         sizes:
           original:
@@ -1704,7 +1750,8 @@ folders:
             mb: 0.9233
         last_updated: '2026-05-13T11:36:44.177Z'
         xxhash: 6c43be57b9e766e7c5d52c7392d3f497
-      - name: 2026_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 7bdcbe50-d690-45a7-993a-34fff156d9b5
         sizes:
           original:
@@ -1717,7 +1764,8 @@ folders:
             mb: 0.908
         last_updated: '2026-05-12T16:07:29.370Z'
         xxhash: f400c48156b283946de645def2ac0c2e
-      - name: 2026_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: e335dd27-5669-42cc-a16d-78dd660ff3f5
         sizes:
           original:
@@ -1730,7 +1778,8 @@ folders:
             mb: 0.9316
         last_updated: '2026-05-21T14:07:34.719Z'
         xxhash: e08d697de3c71ca583cd2ea5e9b1be76
-      - name: 2026_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: f24f6377-035b-4251-b8dd-a68b4a4b4adb
         sizes:
           original:
@@ -1743,7 +1792,8 @@ folders:
             mb: 0.8062
         last_updated: '2026-05-20T12:07:43.048Z'
         xxhash: 94e0d4a6e21ec4c6921d573bb8fdb445
-      - name: 2026_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 4a9cf60f-029c-47fd-9b78-138ef5b218a3
         sizes:
           original:
@@ -1756,7 +1806,8 @@ folders:
             mb: 0.7905
         last_updated: '2026-05-29T09:35:39.582Z'
         xxhash: 49e6a959e108c91de861766613e494d3
-      - name: 2026_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: db5be9e0-9173-4e1c-8483-2915d72619b5
         sizes:
           original:
@@ -1769,7 +1820,8 @@ folders:
             mb: 0.059
         last_updated: '2026-04-15T10:21:15.777Z'
         xxhash: aab11cb051b4d0318b0f13ef09440153
-      - name: 2026_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: d078ed00-6180-4058-be71-82d28efa5d3b
         sizes:
           original:
@@ -1782,7 +1834,8 @@ folders:
             mb: 0.0501
         last_updated: '2026-03-30T14:47:58.854Z'
         xxhash: 3a4d0c71026de2d4ca0b385939b3caec
-      - name: 2026_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 65dcb7c1-c9c8-495b-8875-7b13ddfaedd4
         sizes:
           original:
@@ -1795,7 +1848,8 @@ folders:
             mb: 0.0508
         last_updated: '2026-03-30T14:48:00.267Z'
         xxhash: 91affd5a2dc60a83756c8cf1aa2f6fcd
-      - name: 2026_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: cd4ab84d-9300-4a02-bb1f-614d65760ee8
         sizes:
           original:
@@ -1808,7 +1862,8 @@ folders:
             mb: 0.0488
         last_updated: '2026-03-30T14:48:00.665Z'
         xxhash: 603768e3b08a0c8d3903014e8623b3e4
-      - name: 2026_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 15bb4104-40d2-4f06-8d76-75afd08f3256
         sizes:
           original:
@@ -1821,7 +1876,8 @@ folders:
             mb: 0.0533
         last_updated: '2026-03-30T14:48:01.026Z'
         xxhash: c1c2b6d43adfe805018394450824790e
-      - name: 2026_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 614a2a65-9147-4539-98d4-d9fb8c640fc5
         sizes:
           original:
@@ -1834,7 +1890,8 @@ folders:
             mb: 0.0494
         last_updated: '2026-03-30T14:48:01.460Z'
         xxhash: 23461af19fea6fa47aee2d0d07383221
-      - name: 2026_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2026_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: fede7c9b-d316-4b69-82f5-b306bcf470eb
         sizes:
           original:
@@ -1847,7 +1904,8 @@ folders:
             mb: 0.0513
         last_updated: '2026-03-30T14:48:01.820Z'
         xxhash: 43c6e9479c2918a7a45e338294ee1e18
-      - name: 2027_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: c98353e8-a8f0-4b57-b322-8b6f76998803
         sizes:
           original:
@@ -1860,7 +1918,8 @@ folders:
             mb: 0.0052
         last_updated: '2026-04-17T12:38:11.454Z'
         xxhash: d563e2b969e360f12dfc16c5848ea17c
-      - name: 2027_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: a7707ec4-0316-425a-95f1-e859441971b4
         sizes:
           original:
@@ -1873,7 +1932,8 @@ folders:
             mb: 0.0051
         last_updated: '2026-04-17T12:38:11.643Z'
         xxhash: 4878a61d7ba814219255178ffede9db1
-      - name: 2027_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 1a7da811-30f1-4742-bc27-a9f8dffbbf6b
         sizes:
           original:
@@ -1886,7 +1946,8 @@ folders:
             mb: 0.0055
         last_updated: '2026-04-17T12:38:11.804Z'
         xxhash: ee0ef4fccdb8600f1cc8f3ed1cf010e5
-      - name: 2027_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: ef79decb-7cd4-459e-bc2b-9cc944770318
         sizes:
           original:
@@ -1899,7 +1960,8 @@ folders:
             mb: 0.0052
         last_updated: '2026-04-17T12:38:11.965Z'
         xxhash: d1accd59db6920e9380a8425ea57cda7
-      - name: 2027_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 3d499564-f36a-44c1-8940-55679eae48d2
         sizes:
           original:
@@ -1912,7 +1974,8 @@ folders:
             mb: 0.0052
         last_updated: '2026-04-17T12:38:12.135Z'
         xxhash: 3f176dc188f146db3e7ac63aa41792a9
-      - name: 2027_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 7d9c3b23-da0a-4dd2-91a0-19caf9e1115f
         sizes:
           original:
@@ -1925,7 +1988,8 @@ folders:
             mb: 0.0055
         last_updated: '2026-04-17T12:38:12.291Z'
         xxhash: a09e43d0622fa42e2b4aa8940fee56da
-      - name: 2027_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: e74ddf8f-66cf-4f69-a6c0-838aa866f9c4
         sizes:
           original:
@@ -1938,7 +2002,8 @@ folders:
             mb: 0.0091
         last_updated: '2026-03-23T14:45:50.679Z'
         xxhash: 326f49264864ba2ac85bf2bcb8e59206
-      - name: 2027_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: c5904876-3b4b-4a82-a412-9688782fb3ff
         sizes:
           original:
@@ -1951,7 +2016,8 @@ folders:
             mb: 0.0096
         last_updated: '2026-03-23T14:45:50.886Z'
         xxhash: 8f82c71aa39100a87e281b5b5b6eaf94
-      - name: 2027_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 60db9ba2-473c-4bea-b461-eb869b887bca
         sizes:
           original:
@@ -1964,7 +2030,8 @@ folders:
             mb: 0.0022
         last_updated: '2026-05-07T12:05:30.702Z'
         xxhash: 335142d090960472c3dd676d9c169281
-      - name: 2027_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 1744612d-7e56-4259-b3bb-d1f19a743fcf
         sizes:
           original:
@@ -1977,7 +2044,8 @@ folders:
             mb: 0.0096
         last_updated: '2026-03-23T14:45:51.269Z'
         xxhash: 82951c0904d746437de95c5e8d10d27d
-      - name: 2027_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 81e714ce-d798-474d-9bb1-61cd933fc0dd
         sizes:
           original:
@@ -1990,7 +2058,8 @@ folders:
             mb: 0.0093
         last_updated: '2026-03-23T14:45:51.457Z'
         xxhash: 9c23f2b66163f076e75c4328a3ef3e46
-      - name: 2027_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2027_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: d7f64ff5-9daa-4833-a517-41e640645b20
         sizes:
           original:
@@ -2003,7 +2072,8 @@ folders:
             mb: 0.0098
         last_updated: '2026-03-23T14:45:51.662Z'
         xxhash: ab6147ed4f7d62cfeb2db43c4c0c8304
-      - name: 2028_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_01_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: ae93731a-0a6b-4716-9d0f-4b662ae9502a
         sizes:
           original:
@@ -2016,7 +2086,8 @@ folders:
             mb: 0.0055
         last_updated: '2025-11-14T10:44:25.802Z'
         xxhash: 995233f8e7bdfade5c45f64243ea928d
-      - name: 2028_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_02_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 4fae0cca-4012-4cde-b167-0e8b2827293e
         sizes:
           original:
@@ -2029,7 +2100,8 @@ folders:
             mb: 0.0054
         last_updated: '2025-11-14T10:44:25.983Z'
         xxhash: 4db19c1ebc023dc0934509866378077e
-      - name: 2028_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_03_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: bb31cdbb-e9af-48f1-96bd-6e0eabd71fbc
         sizes:
           original:
@@ -2042,7 +2114,8 @@ folders:
             mb: 0.0056
         last_updated: '2025-11-14T10:44:26.185Z'
         xxhash: d1f6422e1b4366526659085f2abc2322
-      - name: 2028_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_04_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 28c4ec2a-44ed-4000-bc83-2bb719f2fc4b
         sizes:
           original:
@@ -2055,7 +2128,8 @@ folders:
             mb: 0.0055
         last_updated: '2025-11-14T10:44:26.388Z'
         xxhash: dbef2c0c83d11da668ba9bc9116ef28a
-      - name: 2028_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_05_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 94f233f6-5a36-4add-9e58-9bf489656e3f
         sizes:
           original:
@@ -2068,7 +2142,8 @@ folders:
             mb: 0.0056
         last_updated: '2025-11-14T10:44:26.593Z'
         xxhash: a7697d4a2040d8f7c82518c7e0a34558
-      - name: 2028_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_06_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: d2a211e2-af52-46f3-ba91-b8b89acb508f
         sizes:
           original:
@@ -2081,7 +2156,8 @@ folders:
             mb: 0.0053
         last_updated: '2025-11-14T10:44:26.785Z'
         xxhash: f1af40db16c56572dd71943ecf2b1c43
-      - name: 2028_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_07_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 3bc2ad5d-cdab-4259-84de-ee5d62f7abdb
         sizes:
           original:
@@ -2094,7 +2170,8 @@ folders:
             mb: 0.0056
         last_updated: '2025-11-14T10:44:26.968Z'
         xxhash: 000fb0fdc08aa2b42ea58e4f0b3b10ad
-      - name: 2028_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_08_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: ed1b27e2-0b66-4361-8c20-fcf758f462fd
         sizes:
           original:
@@ -2107,7 +2184,8 @@ folders:
             mb: 0.0056
         last_updated: '2025-11-14T10:44:27.158Z'
         xxhash: 5459286d91fcb2acb477e8c0cc961d32
-      - name: 2028_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 69c45c0b-663b-4b04-aeed-248e2f702eaf
         sizes:
           original:
@@ -2120,7 +2198,8 @@ folders:
             mb: 0.0054
         last_updated: '2025-11-14T10:44:27.362Z'
         xxhash: e9f72b15e2c4be6b39db92502e84a237
-      - name: 2028_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 0c79a07c-b8ed-44e7-891f-33a057fbd4f7
         sizes:
           original:
@@ -2133,7 +2212,8 @@ folders:
             mb: 0.0056
         last_updated: '2025-11-14T10:44:27.557Z'
         xxhash: 2bd5300d681264153a38dd6ad7b7c00f
-      - name: 2028_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_11_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: c666e3d4-af78-4cae-89b6-67378c289de5
         sizes:
           original:
@@ -2146,7 +2226,8 @@ folders:
             mb: 0.0055
         last_updated: '2025-11-14T10:44:27.749Z'
         xxhash: 6f3f9b87b9c25479ee1bfd9a7b9ccf64
-      - name: 2028_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2028_12_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 4f8db025-70e0-4ab4-9139-7d2f46ce54a3
         sizes:
           original:
@@ -2159,7 +2240,8 @@ folders:
             mb: 0.0056
         last_updated: '2025-11-14T10:44:27.940Z'
         xxhash: f3d56c78e60dc2396c142278d5526f82
-      - name: 2029_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2029_10_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 51809a41-4f89-4e6c-9da9-640a43212a8d
         sizes:
           original:
@@ -2172,7 +2254,8 @@ folders:
             mb: 0.0021
         last_updated: '2025-11-14T10:44:28.134Z'
         xxhash: da89bbaa75cef9972829e2bfd9def42d
-      - name: 2035_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
+      - name: 
+          2035_09_AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3.csv
         file_id: 056845b0-2d93-4c39-9a37-f2f9f5c8b3fb
         sizes:
           original:
@@ -9271,7 +9354,8 @@ folders:
         last_updated: '2026-05-29T09:35:58.819Z'
         xxhash: 37054f4ced5d5e158bf4a8d4f23e4d2d
   ChangesToBidAvailabilityArchives_IFs_mFRR9.9_aFRR9.6_9.8_r3:
-    folder_path: /TP_export/ChangesToBidAvailabilityArchives_IFs_mFRR9.9_aFRR9.6_9.8_r3/
+    folder_path: 
+      /TP_export/ChangesToBidAvailabilityArchives_IFs_mFRR9.9_aFRR9.6_9.8_r3/
     item_count: 10
     sizes:
       original:
@@ -14783,7 +14867,8 @@ folders:
         last_updated: '2026-05-12T08:06:53.624Z'
         xxhash: d6044129b431a65d6996b175ca5b297c
   NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3:
-    folder_path: /TP_export/NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3/
+    folder_path: 
+      /TP_export/NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3/
     item_count: 2
     sizes:
       original:
@@ -14795,7 +14880,8 @@ folders:
         bits: 33968
         mb: 0.004
     files:
-      - name: 2024_01_NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3.csv
+      - name: 
+          2024_01_NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3.csv
         file_id: edc3c2a3-795e-43d8-b217-f395d7102022
         sizes:
           original:
@@ -14808,7 +14894,8 @@ folders:
             mb: 0.0018
         last_updated: '2025-04-23T13:25:08.880Z'
         xxhash: 5e4701ef4510b569f8528302888a8bea
-      - name: 2024_02_NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3.csv
+      - name: 
+          2024_02_NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3.csv
         file_id: 48f5518a-7327-45de-9211-a9196dba3a7b
         sizes:
           original:

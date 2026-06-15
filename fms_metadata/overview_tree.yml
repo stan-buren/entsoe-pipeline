@@ -534,53 +534,60 @@ environments:
                 - 2030_09_CommercialSchedules_12.1.F_r3.csv
             - CrossBorderCapacityForDCLinksRampingRestrictions_11.3_r3:
                 - 20150101-20191231_20150101_NO_Ramping_restrictions-Norway.pdf
-                - 20161231-20191231_20151208_LT_Ramping restriction on LT-PL cross
-                  border.pdf
+                - 20161231-20191231_20151208_LT_Ramping restriction on LT-PL 
+                  cross border.pdf
                 - 20170101-20200101_20170419_SE_Article 11 3 20170419.pdf
-                - 20170101-20220320_20180410_PL_Ramping Restrictions on cross-border
-                  DC links Poland_Sweden_and_Poland_Lithuania v02.pdf
-                - 20171231-20181231_20171221_EE_Ramping restrictions on DC links between
-                  Finland and Estonia.pdf
+                - 20170101-20220320_20180410_PL_Ramping Restrictions on 
+                  cross-border DC links Poland_Sweden_and_Poland_Lithuania 
+                  v02.pdf
+                - 20171231-20181231_20171221_EE_Ramping restrictions on DC links
+                  between Finland and Estonia.pdf
                 - 20180101-20181231_20180522_DK_Article 11 3 Energinet 2018.pdf
-                - 20180101-20181231_20180525_DE_50HzT_Article 11 3 Energienet dk-2018.pdf
-                - 20181001-20190301_20190301_NIE_Ramping Restriction Transparency
+                - 20180101-20181231_20180525_DE_50HzT_Article 11 3 Energienet 
+                  dk-2018.pdf
+                - 20181001-20190301_20190301_NIE_Ramping Restriction 
+                  Transparency Information (01 10 18).pdf
+                - 20181001-20191231_20181001_IE_Ramping Restriction Transparency
                   Information (01 10 18).pdf
-                - 20181001-20191231_20181001_IE_Ramping Restriction Transparency Information
-                  (01 10 18).pdf
-                - 20190302-20200828_20190828_NIE_Ramping Restriction Transparency
-                  Information (28 08 19).pdf
-                - 20200828-20210827_20200902_NIE_Ramping Restriction Transparency
-                  Information (28 08 20).pdf
-                - 20210101-20221231_20210913_GE_Ramping restriction on GE-TR cross
-                  border v-1.pdf
-                - 20211202-20221231_20211202_NO_Ramping restrictions Norway (11 3).pdf
-                - 20220101-20221231_20220107_DE_50HzT_Article 11 3 Energinet dk 2022.pdf
+                - 20190302-20200828_20190828_NIE_Ramping Restriction 
+                  Transparency Information (28 08 19).pdf
+                - 20200828-20210827_20200902_NIE_Ramping Restriction 
+                  Transparency Information (28 08 20).pdf
+                - 20210101-20221231_20210913_GE_Ramping restriction on GE-TR 
+                  cross border v-1.pdf
+                - 20211202-20221231_20211202_NO_Ramping restrictions Norway (11 
+                  3).pdf
+                - 20220101-20221231_20220107_DE_50HzT_Article 11 3 Energinet dk 
+                  2022.pdf
                 - 20220101-20221231_20220107_DK_Article 11 3 Energinet-2022.pdf
-                - 20220321-20241231_20241111_PL_Ramping Restrictions on cross-border
-                  DC links Poland_Sweden_and_Poland_Lithuania.pdf
-                - 20221017-20231231_20221017_NO_TR 11 3 Ramping Restrictions Statnett.pdf
-                - 20230101-20231228_20231221_DE_50HzT_Article 11 3 Energinet 2023.pdf
-                - 20230101-20231228_20231221_DK_Ramping Restrictions under Article
-                  11 3.pdf
-                - 20230101-20231231_20221223_GE_Ramping restriction on GE-TR cross
-                  border v-1.pdf
-                - 20231229-20241231_20231221_DE_50HzT_Article 11 3 Energinet 2024.pdf
-                - 20240101-20241231_20240101_GE_Ramping restriction on GE-TR cross
-                  border v-1 (1).pdf
-                - 20240101-20241231_20240131_NO_TR 11 3 Ramping Restrictions Statnett
+                - 20220321-20241231_20241111_PL_Ramping Restrictions on 
+                  cross-border DC links Poland_Sweden_and_Poland_Lithuania.pdf
+                - 20221017-20231231_20221017_NO_TR 11 3 Ramping Restrictions 
+                  Statnett.pdf
+                - 20230101-20231228_20231221_DE_50HzT_Article 11 3 Energinet 
+                  2023.pdf
+                - 20230101-20231228_20231221_DK_Ramping Restrictions under 
+                  Article 11 3.pdf
+                - 20230101-20231231_20221223_GE_Ramping restriction on GE-TR 
+                  cross border v-1.pdf
+                - 20231229-20241231_20231221_DE_50HzT_Article 11 3 Energinet 
                   2024.pdf
-                - 20250101-20250208_20250130_PL_Ramping Restrictions on cross-border
-                  DC links Poland_Sweden_and_Poland_Lithuania.pdf
-                - 20250101-20250217_20250402_DK_Ramping Restrictions under Article
-                  11 3.pdf
-                - 20250209-20251231_20250130_PL_Ramping Restrictions on cross-border
-                  DC links Poland_Sweden.pdf
-                - 20250218-20250318_20250402_DK_Ramping Restrictions under Article
-                  11 3, 18 02 2025 18 03 2025.pdf
-                - 20250319-20251231_20250402_DK_Ramping Restrictions under Article
-                  11 3, 19 03 2025.pdf
-                - 20250610-20290405_20250610_CZ_TR 11 3 Ramping Restrictions Statnett
-                  (2).pdf
+                - 20240101-20241231_20240101_GE_Ramping restriction on GE-TR 
+                  cross border v-1 (1).pdf
+                - 20240101-20241231_20240131_NO_TR 11 3 Ramping Restrictions 
+                  Statnett 2024.pdf
+                - 20250101-20250208_20250130_PL_Ramping Restrictions on 
+                  cross-border DC links Poland_Sweden_and_Poland_Lithuania.pdf
+                - 20250101-20250217_20250402_DK_Ramping Restrictions under 
+                  Article 11 3.pdf
+                - 20250209-20251231_20250130_PL_Ramping Restrictions on 
+                  cross-border DC links Poland_Sweden.pdf
+                - 20250218-20250318_20250402_DK_Ramping Restrictions under 
+                  Article 11 3, 18 02 2025 18 03 2025.pdf
+                - 20250319-20251231_20250402_DK_Ramping Restrictions under 
+                  Article 11 3, 19 03 2025.pdf
+                - 20250610-20290405_20250610_CZ_TR 11 3 Ramping Restrictions 
+                  Statnett (2).pdf
             - CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3_r3:
                 - 2020_09_CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3_r3.csv
                 - 2022_12_CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3_r3.csv
@@ -3544,350 +3551,467 @@ environments:
                 - 2026_05_EnergyPrices_12.1.D_r3.csv
             - ExpansionAndDismantlingProjectsReport_9.1_r3:
                 - 20150101-20151231_20151030_IT_Terna report 9_1_FV.pdf
-                - 20150101-20171231_20150722_BE_Elia transmission infrastructure development
-                  2015-2017.pdf
-                - 20150101-20171231_20151215_FR_RTE Transmission infrastructure development
-                  2015-2017.pdf
+                - 20150101-20171231_20150722_BE_Elia transmission infrastructure
+                  development 2015-2017.pdf
+                - 20150101-20171231_20151215_FR_RTE Transmission infrastructure 
+                  development 2015-2017.pdf
                 - 20150101-20171231_20161006_NL_Template report 9 2015-2017.pdf
                 - 20150101-20180101_20161216_RS_TemplateArt9(1)_approved_Apr15-EMS.pdf
-                - 20150915-20180917_20150915_LT_LITGRID transmission infrastructure
-                  development report.pdf
-                - 20150930-20180930_20151002_SE_Report on transmission infrastructure
-                  article 9 1.pdf
-                - 20151120-20171231_20151120_PL_PSE transmission infrastructure development
-                  report 2015-2017.pdf
-                - 20151201-20160331_20151201_NIE_151201 TemplateArt9(1)_approved_Apr15
-                  Moyle.pdf
+                - 20150915-20180917_20150915_LT_LITGRID transmission 
+                  infrastructure development report.pdf
+                - 20150930-20180930_20151002_SE_Report on transmission 
+                  infrastructure article 9 1.pdf
+                - 20151120-20171231_20151120_PL_PSE transmission infrastructure 
+                  development report 2015-2017.pdf
+                - 20151201-20160331_20151201_NIE_151201 
+                  TemplateArt9(1)_approved_Apr15 Moyle.pdf
                 - 20151208-20181231_20151208_SE_report 9_1 SvK dec 2015.pdf
-                - 20151215-20161215_20151215_ES_REE_2015_Report 9 1_For_ES-PT.pdf
+                - 20151215-20161215_20151215_ES_REE_2015_Report 9 
+                  1_For_ES-PT.pdf
                 - 20151215-20161215_20151215_HU_TemplateArt9(1)_approved_Apr15_MAVIR_final.pdf
-                - 20151215-20161215_20160304_ES_REE_2015_Report 9 1_For_ES-FR_V2.pdf
-                - 20151215-20181231_20151215_DK_Report 9 1 Energinet dk Dec 2015.pdf
+                - 20151215-20161215_20160304_ES_REE_2015_Report 9 
+                  1_For_ES-FR_V2.pdf
+                - 20151215-20181231_20151215_DK_Report 9 1 Energinet dk Dec 
+                  2015.pdf
                 - 20160101-20161231_20151214_EE_Report 9 1_Elering AS.pdf
-                - 20160101-20161231_20151222_IT_Terna report 9 1_Dicembre 2015_def.pdf
-                - 20160101-20161231_20160713_FR_RTE Art 9 Transmission Infrastructure
-                  2016-18.pdf
-                - 20160101-20181231_20151201_DE_TransnetBW_EU-VO-543-2013_Art 9_Report-2016-2018.pdf
-                - 20160101-20181231_20151211_BE_Elia transmission infrastructure development
-                  2016-2018.pdf
-                - 20160101-20181231_20151215_DE_50HzT_Proposta template report 9 1_50hertz_14122015.pdf
-                - 20160101-20181231_20151215_DE_TenneT_GER_Report_art 9 1_TTG.pdf
-                - 20160101-20181231_20151215_PT_20151215-EU Regulation543_2013-Art
-                  9_1-REN 2016-2018.pdf
+                - 20160101-20161231_20151222_IT_Terna report 9 1_Dicembre 
+                  2015_def.pdf
+                - 20160101-20161231_20160713_FR_RTE Art 9 Transmission 
+                  Infrastructure 2016-18.pdf
+                - 20160101-20181231_20151201_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report-2016-2018.pdf
+                - 20160101-20181231_20151211_BE_Elia transmission infrastructure
+                  development 2016-2018.pdf
+                - 20160101-20181231_20151215_DE_50HzT_Proposta template report 9
+                  1_50hertz_14122015.pdf
+                - 20160101-20181231_20151215_DE_TenneT_GER_Report_art 9 
+                  1_TTG.pdf
+                - 20160101-20181231_20151215_PT_20151215-EU 
+                  Regulation543_2013-Art 9_1-REN 2016-2018.pdf
                 - 20160101-20181231_20151217_SI_151215_ELES_Report_related_to_Art_9_1_period_2016-2018.pdf
                 - 20160101-20181231_20151231_DE_Amprion_Umsetzung_Art_9 1.pdf
-                - 20160101-20181231_20160307_PL_PSE transmission infrastructure development
-                  report 2016-2018.pdf
+                - 20160101-20181231_20160307_PL_PSE transmission infrastructure 
+                  development report 2016-2018.pdf
                 - 20160101-20181231_20161006_NL_Template report 9 2016-2018.pdf
-                - 20160301-20190301_20160301_DK_Report 9 1 Energinet dk March 2016.pdf
-                - 20160601-20190601_20160704_DK_Report 9 1 Energinet dk June 2016.pdf
-                - 20160901-20190901_20160929_DK_Report 9 1 Energinet dk September
+                - 20160301-20190301_20160301_DK_Report 9 1 Energinet dk March 
                   2016.pdf
-                - 20161201-20191201_20161206_DK_Report 9 1 Energinet dk Dec 2016.pdf
+                - 20160601-20190601_20160704_DK_Report 9 1 Energinet dk June 
+                  2016.pdf
+                - 20160901-20190901_20160929_DK_Report 9 1 Energinet dk 
+                  September 2016.pdf
+                - 20161201-20191201_20161206_DK_Report 9 1 Energinet dk Dec 
+                  2016.pdf
                 - 20161209-20191231_20161209_SE_Report 9 1 SvK december 2016.pdf
-                - 20161215-20171215_20161215_ES_REE_2016_Report 9 1_For_ES-FR.pdf
-                - 20161215-20171215_20161215_ES_REE_2016_Report 9 1_For_ES-PT.pdf
+                - 20161215-20171215_20161215_ES_REE_2016_Report 9 
+                  1_For_ES-FR.pdf
+                - 20161215-20171215_20161215_ES_REE_2016_Report 9 
+                  1_For_ES-PT.pdf
                 - 20161215-20171231_20161215_EE_Report 9 1_Elering AS (2016).pdf
                 - 20170101-20171231_20161123_AT_Expansion_Projects.pdf
-                - 20170101-20171231_20161215_FR_RTE Art 9 Transmission Infrastructure
-                  2017-19 v1.pdf
-                - 20170101-20171231_20161215_IT_Terna report 9 1_Dicembre 2016_def.pdf
-                - 20170101-20191231_20161201_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2017-2019.pdf
+                - 20170101-20171231_20161215_FR_RTE Art 9 Transmission 
+                  Infrastructure 2017-19 v1.pdf
+                - 20170101-20171231_20161215_IT_Terna report 9 1_Dicembre 
+                  2016_def.pdf
+                - 20170101-20191231_20161201_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2017-2019.pdf
                 - 20170101-20191231_20161201_NL_Template report 9 2017-2019.pdf
                 - 20170101-20191231_20161201_SI_ELES_Reg_543-2013_Article_9-1_2017-2019.pdf
-                - 20170101-20191231_20161205_PL_PSE transmission infrastructure development
-                  report 2017-2019.pdf
-                - 20170101-20191231_20161213_CH_Swissgrid transmission infrastructure
-                  development 2017-2019.pdf
-                - 20170101-20191231_20161214_DE_TenneT_GER_Report_art 9 1_TTG_2017-2019.pdf
-                - 20170101-20191231_20161215_DE_50HzT_Proposta template report 9_1_50Hertz_14122016.pdf
-                - 20170101-20191231_20161215_PT_20161215-EU Regulation543_2013-Art
-                  9_1-REN 2017-2019.pdf
+                - 20170101-20191231_20161205_PL_PSE transmission infrastructure 
+                  development report 2017-2019.pdf
+                - 20170101-20191231_20161213_CH_Swissgrid transmission 
+                  infrastructure development 2017-2019.pdf
+                - 20170101-20191231_20161214_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2017-2019.pdf
+                - 20170101-20191231_20161215_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_14122016.pdf
+                - 20170101-20191231_20161215_PT_20161215-EU 
+                  Regulation543_2013-Art 9_1-REN 2017-2019.pdf
                 - 20170101-20191231_20161231_DE_Amprion_Umsetzung_Art_9 1.pdf
-                - 20170101-20191231_20170612_BE_Elia transmission infrastructure development
-                  2017-2019_20170612.pdf
+                - 20170101-20191231_20170612_BE_Elia transmission infrastructure
+                  development 2017-2019_20170612.pdf
                 - 20170101-20200101_20161215_HU_MAVIR_Art91_2017_2019.pdf
                 - 20170101-20201231_20170127_MK_EMFIP.pdf
-                - 20170301-20200301_20170222_DK_Report 9 1 Energinet dk March 2017.pdf
-                - 20170601-20191231_20170724_SE_Report 9 1 Svk June 2017.pdf
-                - 20170601-20200601_20170630_DK_Report 9 1 Energinet dk June 2017.pdf
-                - 20170901-20200901_20170929_DK_Report 9 1 Energinet dk September
+                - 20170301-20200301_20170222_DK_Report 9 1 Energinet dk March 
                   2017.pdf
+                - 20170601-20191231_20170724_SE_Report 9 1 Svk June 2017.pdf
+                - 20170601-20200601_20170630_DK_Report 9 1 Energinet dk June 
+                  2017.pdf
+                - 20170901-20200901_20170929_DK_Report 9 1 Energinet dk 
+                  September 2017.pdf
                 - 20170915-20191231_20170915_SE_report 9_1 Svk sep 2017.pdf
-                - 20171201-20201201_20171215_DK_Report 9 1 Energinet dk December 2017.pdf
+                - 20171201-20201201_20171215_DK_Report 9 1 Energinet dk December
+                  2017.pdf
                 - 20171212-20201231_20171212_SE_report 9_1 Svk dec_2017.pdf
-                - 20171215-20181215_20171215_ES_REE_2017_Report 9 1_For_ES-FR.pdf
-                - 20171215-20181215_20171215_ES_REE_2017_Report 9 1_For_ES-PT.pdf
+                - 20171215-20181215_20171215_ES_REE_2017_Report 9 
+                  1_For_ES-FR.pdf
+                - 20171215-20181215_20171215_ES_REE_2017_Report 9 
+                  1_For_ES-PT.pdf
                 - 20171231-20181231_20171215_EE_Report 9 1_Elering AS (2017).pdf
                 - 20180101-20181231_20171011_AT_AT_Network_Projects_2018.pdf
                 - 20180101-20181231_20171204_NL_Template report 9 2018-2020.pdf
-                - 20180101-20181231_20171214_IT_Terna report 9 1_Dicembre 2017_def.pdf
-                - 20180101-20181231_20171215_FR_RTE Art 9 Transmission Infrastructure
-                  2018-20.pdf
-                - 20180101-20181231_20180312_NL_Template report 9 2018-2020 version
-                  2.pdf
-                - 20180101-20181231_20180910_NL_Template report 9 2018-2020 version
-                  3.pdf
-                - 20180101-20191231_20171214_DE_TenneT_GER_Report_art 9 1_TTG_2018-2020.pdf
-                - 20180101-20191231_20171220_GB_ETYS Interconnector Table for Article
-                  9 1.pdf
-                - 20180101-20201231_20171114_PL_PSE transmission infrastructure development
-                  report 2018-2020.pdf
-                - 20180101-20201231_20171201_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2018-2020.pdf
-                - 20180101-20201231_20171215_DE_50HzT_Proposta template report 9_1_50Hertz_14122017.pdf
-                - 20180101-20201231_20171215_PT_20171215-EU Regulation543_2013-Art
-                  9_1-REN 2018-2020.pdf
+                - 20180101-20181231_20171214_IT_Terna report 9 1_Dicembre 
+                  2017_def.pdf
+                - 20180101-20181231_20171215_FR_RTE Art 9 Transmission 
+                  Infrastructure 2018-20.pdf
+                - 20180101-20181231_20180312_NL_Template report 9 2018-2020 
+                  version 2.pdf
+                - 20180101-20181231_20180910_NL_Template report 9 2018-2020 
+                  version 3.pdf
+                - 20180101-20191231_20171214_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2018-2020.pdf
+                - 20180101-20191231_20171220_GB_ETYS Interconnector Table for 
+                  Article 9 1.pdf
+                - 20180101-20201231_20171114_PL_PSE transmission infrastructure 
+                  development report 2018-2020.pdf
+                - 20180101-20201231_20171201_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2018-2020.pdf
+                - 20180101-20201231_20171215_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_14122017.pdf
+                - 20180101-20201231_20171215_PT_20171215-EU 
+                  Regulation543_2013-Art 9_1-REN 2018-2020.pdf
                 - 20180101-20201231_20171215_RS_TemplateArt9(1)_approved_EMS_2018.pdf
                 - 20180101-20201231_20171231_DE_Amprion_Umsetzung Art_9 1.pdf
-                - 20180101-20201231_20180606_BE_Elia transmission infrastructure development
-                  2018-2020_v180606_01.pdf
+                - 20180101-20201231_20180606_BE_Elia transmission infrastructure
+                  development 2018-2020_v180606_01.pdf
                 - 20180205-20190101_20180205_LV_Report 9 1 AST 2018-2020.pdf
-                - 20180301-20210301_20180319_DK_Report 9 1 Energinet dk March 2018.pdf
+                - 20180301-20210301_20180319_DK_Report 9 1 Energinet dk March 
+                  2018.pdf
                 - 20180406-20211231_20180406_SE_report 9_1 Svk apr_2018.pdf
-                - 20180601-20210601_20180615_DK_Report 9 1 Energinet dk June 2018.pdf
-                - 20180629-20201231_20180629_DE_50HzT_Proposta template report 9_1_Update_50Hertz_29062018.pdf
-                - 20180901-20210901_20180921_DK_Report 9 1 Energinet September 2018.pdf
+                - 20180601-20210601_20180615_DK_Report 9 1 Energinet dk June 
+                  2018.pdf
+                - 20180629-20201231_20180629_DE_50HzT_Proposta template report 
+                  9_1_Update_50Hertz_29062018.pdf
+                - 20180901-20210901_20180921_DK_Report 9 1 Energinet September 
+                  2018.pdf
                 - 20180912-20211231_20180912_SE_report 9_1 Svk sept_2018.pdf
-                - 20181001-20211001_20181001_DE_50HzT_Proposta template report 9_1_Update_50Hertz_01102018.pdf
+                - 20181001-20211001_20181001_DE_50HzT_Proposta template report 
+                  9_1_Update_50Hertz_01102018.pdf
                 - 20181107-20211231_20181107_SE_report 9_1 Svk okt_2018.pdf
-                - 20181201-20211201_20181213_DK_Report 9 1 Energinet December 2018.pdf
+                - 20181201-20211201_20181213_DK_Report 9 1 Energinet December 
+                  2018.pdf
                 - 20181207-20211231_20181207_SE_report 9_1 Svk dec_2018.pdf
                 - 20181214-20211231_20181213_HU_TemplateArt9(1)_approved_Apr15_MAVIR_final_2018
                   12.pdf
-                - 20181215-20191215_20191219_ES_REE_2018_Report 9 1_For_ES-FR.pdf
-                - 20181215-20191215_20191219_ES_REE_2018_Report 9 1_For_ES-PT.pdf
-                - 20190101-20190131_20190131_BE_Elia transmission infrastructure development
-                  2019-2021_v190114_01.pdf
+                - 20181215-20191215_20191219_ES_REE_2018_Report 9 
+                  1_For_ES-FR.pdf
+                - 20181215-20191215_20191219_ES_REE_2018_Report 9 
+                  1_For_ES-PT.pdf
+                - 20190101-20190131_20190131_BE_Elia transmission infrastructure
+                  development 2019-2021_v190114_01.pdf
                 - 20190101-20191231_20181011_AT_9 1_APG_2019.pdf
                 - 20190101-20191231_20181213_EE_Report 9 1_Elering AS_2018.pdf
-                - 20190101-20191231_20181214_FR_RTE Art 9 Transmission Infrastructure
-                  2019-21.pdf
-                - 20190101-20191231_20181214_IT_Terna report 9 1_Dicembre 2018_def.pdf
+                - 20190101-20191231_20181214_FR_RTE Art 9 Transmission 
+                  Infrastructure 2019-21.pdf
+                - 20190101-20191231_20181214_IT_Terna report 9 1_Dicembre 
+                  2018_def.pdf
                 - 20190101-20191231_20181219_GB_Article 9 1 report Dec 2018.pdf
                 - 20190101-20200101_20190212_LV_Report 9 1 AST 2019-2021.pdf
-                - 20190101-20201231_20181210_DE_TenneT_GER_Report_art 9 1_TTG_2019-2021.pdf
+                - 20190101-20201231_20181210_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2019-2021.pdf
                 - 20190101-20201231_20191215_EE_Report 9 1_Elering AS_2020.pdf
                 - 20190101-20211231_20181108_SI_9 1_ELES_2019-2021.pdf
                 - 20190101-20211231_20181114_RS_TemplateArt9(1)_approved_Apr15-EMS-2019.pdf
-                - 20190101-20211231_20181201_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2019-2021.pdf
-                - 20190101-20211231_20181211_DE_50HzT_Proposta template report 9_1_50Hertz_11122018.pdf
+                - 20190101-20211231_20181201_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2019-2021.pdf
+                - 20190101-20211231_20181211_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_11122018.pdf
                 - 20190101-20211231_20181228_DE_Amprion_Amprion Art_9 1.pdf
-                - 20190101-20211231_20190219_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2019_2021.pdf
-                - 20190101-20211231_20190306_PL_PSE transmission infrastructure development
-                  report 2019-2021.pdf
-                - 20190101-20211231_20190411_DE_50HzT_Proposta template report 9_1_50Hertz_11042019.pdf
-                - 20190101-20211231_20190819_DE_50HzT_Proposta template report 9_1_50Hertz_19082019.pdf
-                - 20190101-20211231_20190925_DE_50HzT_Proposta template report 9_1_50Hertz_25092019.pdf
+                - 20190101-20211231_20190219_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2019_2021.pdf
+                - 20190101-20211231_20190306_PL_PSE transmission infrastructure 
+                  development report 2019-2021.pdf
+                - 20190101-20211231_20190411_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_11042019.pdf
+                - 20190101-20211231_20190819_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_19082019.pdf
+                - 20190101-20211231_20190925_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_25092019.pdf
                 - 20190101-20211231_20200217_HU_TemplateArt9(1)_approved_Apr15_MAVIR_final_201912.pdf
                 - 20190110-20210301_20190110_NO_Report_9_1-2019.pdf
-                - 20190201-20211231_20190508_BE_Elia transmission infrastructure development
-                  201902-2021_v190508_01.pdf
-                - 20190301-20220301_20190401_DK_Report 9 1 Energinet March 2019.pdf
-                - 20190601-20220601_20190524_DK_Report 9 1 Energinet June 2019.pdf
-                - 20190822-20221231_20190822_GE_cross border 9 1_report_22_08_19 (3).pdf
-                - 20190901-20220901_20191001_DK_Report 9 1 Energinet September 2019.pdf
-                - 20191201-20221201_20191219_DK_Report 9 1 Energinet December 2019.pdf
-                - 20191215-20201215_20191219_ES_REE_2019_Report 9 1_For_ES-FR.pdf
-                - 20191215-20201215_20191219_ES_REE_2019_Report 9 1_For_ES-PT.pdf
+                - 20190201-20211231_20190508_BE_Elia transmission infrastructure
+                  development 201902-2021_v190508_01.pdf
+                - 20190301-20220301_20190401_DK_Report 9 1 Energinet March 
+                  2019.pdf
+                - 20190601-20220601_20190524_DK_Report 9 1 Energinet June 
+                  2019.pdf
+                - 20190822-20221231_20190822_GE_cross border 9 1_report_22_08_19
+                  (3).pdf
+                - 20190901-20220901_20191001_DK_Report 9 1 Energinet September 
+                  2019.pdf
+                - 20191201-20221201_20191219_DK_Report 9 1 Energinet December 
+                  2019.pdf
+                - 20191215-20201215_20191219_ES_REE_2019_Report 9 
+                  1_For_ES-FR.pdf
+                - 20191215-20201215_20191219_ES_REE_2019_Report 9 
+                  1_For_ES-PT.pdf
                 - 20200101-20200513_20191115_AT_9 1_APG_2020.pdf
-                - 20200101-20201231_20191204_FR_RTE Art 9 Transmission Infrastructure
-                  2020-22.pdf
-                - 20200101-20201231_20191213_IT_Terna report 9 1_Dicembre 2019_def.pdf
+                - 20200101-20201231_20191204_FR_RTE Art 9 Transmission 
+                  Infrastructure 2020-22.pdf
+                - 20200101-20201231_20191213_IT_Terna report 9 1_Dicembre 
+                  2019_def.pdf
                 - 20200101-20201231_20200207_SK_EMFIP_9_1_report_SK2020-2022.pdf
                 - 20200101-20201231_20201130_GB_Article 9 1 report Dec 2019.pdf
-                - 20200101-20211231_20191217_DE_TenneT_GER_Report_art 9 1_TTG_2020-2022.pdf
+                - 20200101-20211231_20191217_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2020-2022.pdf
                 - 20200101-20211231_20200129_RO_Report related to Art9-1.pdf
                 - 20200101-20211231_20210121_HU_Art9(1)_MAVIR_final_2020_2021.pdf
                 - 20200101-20221231_20191119_SI_9 1_ELES_2020-2022.pdf
                 - 20200101-20221231_20191122_RS_TemplateArt9(1)_approved_Apr15-EMS-2020.pdf
-                - 20200101-20221231_20191202_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2020-2022.pdf
-                - 20200101-20221231_20191211_LT_LITGRID transmission infrastructure
-                  development report 2020-2022.pdf
-                - 20200101-20221231_20191216_DE_50HzT_Proposta template report 9_1_50Hertz_16122019.pdf
-                - 20200101-20221231_20200219_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2020_2022.pdf
-                - 20200101-20221231_20200331_DE_50HzT_Proposta template report 9_1_50Hertz_31032020.pdf
-                - 20200101-20221231_20200630_DE_50HzT_Proposta template report 9_1_50Hertz_30062020.pdf
-                - 20200101-20221231_20201001_DE_50HzT_Proposta template report 9_1_50Hertz_30092020.pdf
-                - 20200101-20221231_20201005_FR_RTE Art 9 Transmission Infrastructure
-                  2020-22 v1 2 (002).pdf
-                - 20200101-20221231_20201015_BE_Elia transmission infrastructure development
-                  2020-2022_v201015_01.pdf
+                - 20200101-20221231_20191202_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2020-2022.pdf
+                - 20200101-20221231_20191211_LT_LITGRID transmission 
+                  infrastructure development report 2020-2022.pdf
+                - 20200101-20221231_20191216_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_16122019.pdf
+                - 20200101-20221231_20200219_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2020_2022.pdf
+                - 20200101-20221231_20200331_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_31032020.pdf
+                - 20200101-20221231_20200630_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_30062020.pdf
+                - 20200101-20221231_20201001_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_30092020.pdf
+                - 20200101-20221231_20201005_FR_RTE Art 9 Transmission 
+                  Infrastructure 2020-22 v1 2 (002).pdf
+                - 20200101-20221231_20201015_BE_Elia transmission infrastructure
+                  development 2020-2022_v201015_01.pdf
                 - 20200101-20221231_20201015_DE_Amprion_Amprion Art_9 1.pdf
-                - 20200101-20221231_20201015_PL_PSE transmission infrastructure development
-                  report 2020-2022.pdf
+                - 20200101-20221231_20201015_PL_PSE transmission infrastructure 
+                  development report 2020-2022.pdf
                 - 20200101-20221231_20210121_HU_Art9(1)_MAVIR_final_2020_2023.pdf
-                - 20200301-20230301_20200330_DK_Report 9 1 Energinet March 2020.pdf
-                - 20200508-20230712_20200508_GE_Cross-border related infrastructure
-                  2020-2023 ENG_v2 08 05.pdf
+                - 20200301-20230301_20200330_DK_Report 9 1 Energinet March 
+                  2020.pdf
+                - 20200508-20230712_20200508_GE_Cross-border related 
+                  infrastructure 2020-2023 ENG_v2 08 05.pdf
                 - 20200514-20201231_20200514_AT_9 1_APG_2020_v2.pdf
-                - 20200601-20230601_20200630_DK_Report 9 1 Energinet June 2020.pdf
-                - 20200901-20230901_20200930_DK_Report 9 1 Energinet September 2020.pdf
+                - 20200601-20230601_20200630_DK_Report 9 1 Energinet June 
+                  2020.pdf
+                - 20200901-20230901_20200930_DK_Report 9 1 Energinet September 
+                  2020.pdf
                 - 20200925-20210101_20200925_NO_Report_9_1-2020.pdf
-                - 20200930-20221231_20200930_IT_Terna report 9 1_Dicembre 2019_30_09_2020.pdf
+                - 20200930-20221231_20200930_IT_Terna report 9 1_Dicembre 
+                  2019_30_09_2020.pdf
                 - 20201113-20201231_20201113_SK_EMFIP_9_1_report_SK2020-2022_update.pdf
-                - 20201201-20231201_20201218_DK_Report 9 1 Energinet December 2020.pdf
-                - 20201215-20211215_20201215_ES_REE_2020_Report 9 1_For_ES-FR.pdf
-                - 20201215-20211215_20201215_ES_REE_2020_Report 9 1_For_ES-PT.pdf
+                - 20201201-20231201_20201218_DK_Report 9 1 Energinet December 
+                  2020.pdf
+                - 20201215-20211215_20201215_ES_REE_2020_Report 9 
+                  1_For_ES-FR.pdf
+                - 20201215-20211215_20201215_ES_REE_2020_Report 9 
+                  1_For_ES-PT.pdf
                 - 20201216-20231231_20201216_HR_9 1_HOPS_2021_2023.pdf
-                - 20201231-20231231_20201215_GE_Cross-border related infrastructure
-                  2020-2023 ENG_1.pdf
+                - 20201231-20231231_20201215_GE_Cross-border related 
+                  infrastructure 2020-2023 ENG_1.pdf
                 - 20210101-20211231_20201106_AT_9 1_APG_2021.pdf
                 - 20210101-20211231_20201130_GB_Article 9 1 report Dec 2020.pdf
                 - 20210101-20211231_20201202_GB_Article 9 1 report Dec 2020.pdf
                 - 20210101-20211231_20201209_SK_EMFIP_9_1_report_SK2021-2023.pdf
-                - 20210101-20221231_20201211_FR_RTE Art 9 Transmission Infrastructure
-                  2021-23 v1.pdf
-                - 20210101-20221231_20201231_FR_RTE Art 9 Transmission Infrastructure
-                  2021-23 v1 3.pdf
+                - 20210101-20221231_20201211_FR_RTE Art 9 Transmission 
+                  Infrastructure 2021-23 v1.pdf
+                - 20210101-20221231_20201231_FR_RTE Art 9 Transmission 
+                  Infrastructure 2021-23 v1 3.pdf
                 - 20210101-20231231_20201118_SI_9 1_ELES_2021-2023.pdf
                 - 20210101-20231231_20201127_RS_TemplateArt9(1)_approved_Apr15-EMS-2021.pdf
-                - 20210101-20231231_20201210_BE_Elia transmission infrastructure development
-                  2021-2023_v201210_02.pdf
-                - 20210101-20231231_20201210_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
+                - 20210101-20231231_20201210_BE_Elia transmission infrastructure
+                  development 2021-2023_v201210_02.pdf
+                - 20210101-20231231_20201210_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2021-2023.pdf
+                - 20210101-20231231_20201215_DE_Amprion_Amprion Art 9 1 
                   2021-2023.pdf
-                - 20210101-20231231_20201215_DE_Amprion_Amprion Art 9 1 2021-2023.pdf
-                - 20210101-20231231_20201215_IT_Terna report 9 1_Dicembre 2020.pdf
-                - 20210101-20231231_20201221_DE_50HzT_Proposta template report 9_1_50Hertz_21122020.pdf
-                - 20210101-20231231_20201221_DE_TenneT_GER_Report_art 9 1_TTG_2021-2023.pdf
-                - 20210101-20231231_20210202_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2021_2023.pdf
-                - 20210101-20231231_20210326_DE_50HzT_Proposta template report 9_1_50Hertz_26032021.pdf
-                - 20210101-20231231_20210701_DE_50HzT_Proposta template report 9_1_50Hertz_01072021.pdf
-                - 20210101-20231231_20210930_PL_PSE transmission infrastructure development
-                  report 2021-2023.pdf
-                - 20210101-20231231_20211001_DE_50HzT_Proposta template report 9_1_50Hertz_01102021.pdf
-                - 20210419-20231231_20210419_IT_Terna report 9 1_Dicembre 2020 20_04_2021.pdf
-                - 20210901-20240901_20211230_DK_Report 9 1 Energinet september 2021.pdf
-                - 20211108-20231231_20211108_IT_Terna report 9 1_Dicembre 2020 08_11_2021.pdf
-                - 20211201-20241201_20211230_DK_Report 9 1 Energinet December 2021.pdf
+                - 20210101-20231231_20201215_IT_Terna report 9 1_Dicembre 
+                  2020.pdf
+                - 20210101-20231231_20201221_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_21122020.pdf
+                - 20210101-20231231_20201221_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2021-2023.pdf
+                - 20210101-20231231_20210202_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2021_2023.pdf
+                - 20210101-20231231_20210326_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_26032021.pdf
+                - 20210101-20231231_20210701_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01072021.pdf
+                - 20210101-20231231_20210930_PL_PSE transmission infrastructure 
+                  development report 2021-2023.pdf
+                - 20210101-20231231_20211001_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01102021.pdf
+                - 20210419-20231231_20210419_IT_Terna report 9 1_Dicembre 2020 
+                  20_04_2021.pdf
+                - 20210901-20240901_20211230_DK_Report 9 1 Energinet september 
+                  2021.pdf
+                - 20211108-20231231_20211108_IT_Terna report 9 1_Dicembre 2020 
+                  08_11_2021.pdf
+                - 20211201-20241201_20211230_DK_Report 9 1 Energinet December 
+                  2021.pdf
                 - 20211215-20211231_20211215_SK_EMFIP_9_1_report_SK2022-2024.pdf
-                - 20211215-20221215_20220307_ES_REE_2022_Report 9 1_For_ES-FR.pdf
-                - 20211215-20221215_20220307_ES_REE_2022_Report 9 1_For_ES-PT.pdf
-                - 20220101-20221231_20211215_GE_Cross-border related infrastructure
-                  2022-2024 ENG.pdf
+                - 20211215-20221215_20220307_ES_REE_2022_Report 9 
+                  1_For_ES-FR.pdf
+                - 20211215-20221215_20220307_ES_REE_2022_Report 9 
+                  1_For_ES-PT.pdf
+                - 20220101-20221231_20211215_GE_Cross-border related 
+                  infrastructure 2022-2024 ENG.pdf
                 - 20220101-20221231_20220223_AT_9 1_APG_2022.pdf
-                - 20220101-20231231_20211214_FR_RTE Art 9 Transmission Infrastructure
-                  2022-24 v1 2.pdf
+                - 20220101-20231231_20211214_FR_RTE Art 9 Transmission 
+                  Infrastructure 2022-24 v1 2.pdf
                 - 20220101-20241231_20211123_RS_TemplateArt9(1)_approved_Apr15-EMS-2022.pdf
                 - 20220101-20241231_20211129_SI_9 1_ELES_2022-2024.pdf
-                - 20220101-20241231_20211202_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2022_2024.pdf
-                - 20220101-20241231_20211214_BE_Elia transmission infrastructure development
-                  2022-2024_v121214_01.pdf
-                - 20220101-20241231_20211214_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2022-2024.pdf
-                - 20220101-20241231_20211215_IT_Terna report 9 1_Dicembre 2021.pdf
-                - 20220101-20241231_20211215_ME_9 1 Transmission infrastructure.pdf
-                - 20220101-20241231_20211223_DE_50HzT_Proposta template report 9_1_50Hertz_23122021.pdf
+                - 20220101-20241231_20211202_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2022_2024.pdf
+                - 20220101-20241231_20211214_BE_Elia transmission infrastructure
+                  development 2022-2024_v121214_01.pdf
+                - 20220101-20241231_20211214_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2022-2024.pdf
+                - 20220101-20241231_20211215_IT_Terna report 9 1_Dicembre 
+                  2021.pdf
+                - 20220101-20241231_20211215_ME_9 1 Transmission 
+                  infrastructure.pdf
+                - 20220101-20241231_20211223_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_23122021.pdf
                 - 20220101-20241231_20211223_LV_Report 9 1 AST_2022-2024.pdf
-                - 20220101-20241231_20211230_10YUA-WEPS-----0_Changes in the system
-                  components and in the internal lines projects are not expected in
-                  2022.pdf
-                - 20220101-20241231_20211230_UA_IPS_Changes in the system components
-                  and in the internal lines projects are not expected in 2022.pdf
+                - 20220101-20241231_20211230_10YUA-WEPS-----0_Changes in the 
+                  system components and in the internal lines projects are not 
+                  expected in 2022.pdf
+                - 20220101-20241231_20211230_UA_IPS_Changes in the system 
+                  components and in the internal lines projects are not expected
+                  in 2022.pdf
                 - 20220101-20241231_20220110_RO_Report related to Art9-1.pdf
-                - 20220101-20241231_20220128_DE_TenneT_GER_Report_art 9 1_TTG_2022-2024.pdf
-                - 20220101-20241231_20220131_DE_Amprion_Amprion Art 9 1 2022-2024.pdf
+                - 20220101-20241231_20220128_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2022-2024.pdf
+                - 20220101-20241231_20220131_DE_Amprion_Amprion Art 9 1 
+                  2022-2024.pdf
                 - 20220101-20241231_20220303_AL_Expansion Projects OST.pdf
-                - 20220101-20241231_20220425_DE_50HzT_Proposta template report 9_1_50Hertz_25042022.pdf
+                - 20220101-20241231_20220425_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_25042022.pdf
                 - 20220101-20241231_20220606_SI_9 1_ELES_2022-2024 update1.pdf
-                - 20220101-20241231_20220628_DE_50HzT_Proposta template report 9_1_50Hertz_28062022.pdf
-                - 20220101-20241231_20221208_DE_50HzT_Proposta template report 9_1_50Hertz_08122022.pdf
-                - 20220101-20241231_20240905_PL_Art 9 1 PSE transmission infrastructure
-                  development report 2022-2024.pdf
-                - 20220208-20241231_20220208_IT_Terna report 9 1_Dicembre 2021_08_02_2022.pdf
-                - 20220301-20250301_20220330_DK_Report 9 1 Energinet March 2022.pdf
-                - 20220422-20241231_20220422_IT_Terna report 9 1_Dicembre 2021_22_04_2022.pdf
-                - 20220524-20241231_20220524_IT_Terna report 9 1_Dicembre 2021_24_05_2022.pdf
-                - 20220805-20220930_20220808_DK_Report 9 1 Energinet August 2022.pdf
-                - 20221001-20221231_20221012_DK_Report 9 1 Energinet Oktober 2022.pdf
-                - 20221104-20241231_20221130_IT_Terna report 9 1_Dicembre 2021_30_11_2022.pdf
+                - 20220101-20241231_20220628_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_28062022.pdf
+                - 20220101-20241231_20221208_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_08122022.pdf
+                - 20220101-20241231_20240905_PL_Art 9 1 PSE transmission 
+                  infrastructure development report 2022-2024.pdf
+                - 20220208-20241231_20220208_IT_Terna report 9 1_Dicembre 
+                  2021_08_02_2022.pdf
+                - 20220301-20250301_20220330_DK_Report 9 1 Energinet March 
+                  2022.pdf
+                - 20220422-20241231_20220422_IT_Terna report 9 1_Dicembre 
+                  2021_22_04_2022.pdf
+                - 20220524-20241231_20220524_IT_Terna report 9 1_Dicembre 
+                  2021_24_05_2022.pdf
+                - 20220805-20220930_20220808_DK_Report 9 1 Energinet August 
+                  2022.pdf
+                - 20221001-20221231_20221012_DK_Report 9 1 Energinet Oktober 
+                  2022.pdf
+                - 20221104-20241231_20221130_IT_Terna report 9 1_Dicembre 
+                  2021_30_11_2022.pdf
                 - 20221125-20251231_20221125_NO_Report_9_1-2023_2025.pdf
-                - 20221215-20231215_20231215_ES_REE_2023_Report 9 1_For_ES-PT.pdf
-                - 20230101-20230331_20221216_DK_Report 9 1 Energinet December 2022.pdf
-                - 20230101-20230331_20230331_DK_Report 9 1 Energinet March 2023.pdf
+                - 20221215-20231215_20231215_ES_REE_2023_Report 9 
+                  1_For_ES-PT.pdf
+                - 20230101-20230331_20221216_DK_Report 9 1 Energinet December 
+                  2022.pdf
+                - 20230101-20230331_20230331_DK_Report 9 1 Energinet March 
+                  2023.pdf
                 - 20230101-20231231_20221123_AT_9 1_APG_2023.pdf
-                - 20230101-20241231_20221215_FR_RTE Art 9 Transmission Infrastructure
-                  2023-2025.pdf
+                - 20230101-20241231_20221215_FR_RTE Art 9 Transmission 
+                  Infrastructure 2023-2025.pdf
                 - 20230101-20251231_20221202_RS_TemplateArt9(1)_approved_Apr15-EMS-2023.pdf
-                - 20230101-20251231_20221213_BE_Elia transmission infrastructure development
-                  2023-2025_v221205_01.pdf
-                - 20230101-20251231_20221213_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
+                - 20230101-20251231_20221213_BE_Elia transmission infrastructure
+                  development 2023-2025_v221205_01.pdf
+                - 20230101-20251231_20221213_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2023-2025.pdf
+                - 20230101-20251231_20221215_IT_Terna report 9 1_Dicembre 
+                  2022_15_12_2022.pdf
+                - 20230101-20251231_20230106_DE_Amprion_Amprion Art 9 1 
                   2023-2025.pdf
-                - 20230101-20251231_20221215_IT_Terna report 9 1_Dicembre 2022_15_12_2022.pdf
-                - 20230101-20251231_20230106_DE_Amprion_Amprion Art 9 1 2023-2025.pdf
-                - 20230101-20251231_20230117_DE_50HzT_Proposta template report 9_1_50Hertz_17012023.pdf
-                - 20230101-20251231_20230123_DE_TenneT_GER_Report_art 9 1_TTG_2023-2025.pdf
-                - 20230101-20251231_20230401_DE_50HzT_Proposta template report 9_1_50Hertz_01042023.pdf
-                - 20230101-20251231_20230501_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2023_2025.pdf
-                - 20230101-20251231_20230523_DE_TenneT_GER_Report_art 9 1_TTG_2023-2025.pdf
-                - 20230101-20251231_20230622_DE_50HzT_Proposta template report 9_1_50Hertz_22062023.pdf
-                - 20230101-20251231_20230626_BE_Elia transmission infrastructure development
-                  2023-2025_v221205_02.pdf
-                - 20230101-20251231_20230913_BE_Elia transmission infrastructure development
-                  2023-2025_v221205_03.pdf
-                - 20230101-20251231_20230929_DE_50HzT_Proposta template report 9_1_50Hertz_29092023.pdf
-                - 20230101-20251231_20240905_PL_Art 9 1 PSE transmission infrastructure
-                  development report 2023-2025.pdf
-                - 20230209-20251231_20230209_LT_LITGRID transmission infrastructure
-                  development report 2023-2025.pdf
-                - 20230322-20251231_20230322_IT_Terna report 9 1_Dicembre 2022_22_03_2023.pdf
-                - 20230401-20230630_20231114_DK_Report 9 1 Energinet June 2023.pdf
-                - 20230701-20230930_20231114_DK_Report 9 1 Energinet September 2023.pdf
-                - 20230802-20251231_20230802_IT_Terna report 9 1_Dicembre 2022_02_08_2023.pdf
-                - 20231001-20231231_20240123_DK_Report 9 1 Energinet January 2024.pdf
+                - 20230101-20251231_20230117_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_17012023.pdf
+                - 20230101-20251231_20230123_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2023-2025.pdf
+                - 20230101-20251231_20230401_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01042023.pdf
+                - 20230101-20251231_20230501_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2023_2025.pdf
+                - 20230101-20251231_20230523_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2023-2025.pdf
+                - 20230101-20251231_20230622_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_22062023.pdf
+                - 20230101-20251231_20230626_BE_Elia transmission infrastructure
+                  development 2023-2025_v221205_02.pdf
+                - 20230101-20251231_20230913_BE_Elia transmission infrastructure
+                  development 2023-2025_v221205_03.pdf
+                - 20230101-20251231_20230929_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_29092023.pdf
+                - 20230101-20251231_20240905_PL_Art 9 1 PSE transmission 
+                  infrastructure development report 2023-2025.pdf
+                - 20230209-20251231_20230209_LT_LITGRID transmission 
+                  infrastructure development report 2023-2025.pdf
+                - 20230322-20251231_20230322_IT_Terna report 9 1_Dicembre 
+                  2022_22_03_2023.pdf
+                - 20230401-20230630_20231114_DK_Report 9 1 Energinet June 
+                  2023.pdf
+                - 20230701-20230930_20231114_DK_Report 9 1 Energinet September 
+                  2023.pdf
+                - 20230802-20251231_20230802_IT_Terna report 9 1_Dicembre 
+                  2022_02_08_2023.pdf
+                - 20231001-20231231_20240123_DK_Report 9 1 Energinet January 
+                  2024.pdf
                 - 20231214-20261231_20231214_NO_Report_9_1_2024-2026.pdf
-                - 20231215-20241215_20231215_ES_REE_2024_Report 9 1_For_ES-FR.pdf
-                - 20231215-20241215_20231215_ES_REE_2024_Report 9 1_For_ES-PT.pdf
-                - 20231215-20261231_20231215_IT_Terna report 9 1_Dicembre 2023_15_12_2023.pdf
+                - 20231215-20241215_20231215_ES_REE_2024_Report 9 
+                  1_For_ES-FR.pdf
+                - 20231215-20241215_20231215_ES_REE_2024_Report 9 
+                  1_For_ES-PT.pdf
+                - 20231215-20261231_20231215_IT_Terna report 9 1_Dicembre 
+                  2023_15_12_2023.pdf
                 - 20240101-20241231_20231115_AT_9 1_APG_2024.pdf
-                - 20240101-20261231_20231130_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2024-2026.pdf
-                - 20240101-20261231_20231201_DE_50HzT_Proposta template report 9_1_50Hertz_01122023.pdf
-                - 20240101-20261231_20231213_BE_Elia transmission infrastructure development
-                  2024-2026 v01.pdf
-                - 20240101-20261231_20231215_DE_TenneT_GER_Report_art 9 1_TTG_2024-2026.pdf
+                - 20240101-20261231_20231130_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2024-2026.pdf
+                - 20240101-20261231_20231201_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01122023.pdf
+                - 20240101-20261231_20231213_BE_Elia transmission infrastructure
+                  development 2024-2026 v01.pdf
+                - 20240101-20261231_20231215_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2024-2026.pdf
                 - 20240101-20261231_20231215_SE_Report_9_1_2024-2026.pdf
-                - 20240101-20261231_20231222_FR_RTE Art 9 Transmission Infrastructure
-                  2024-26 v1 0.pdf
-                - 20240101-20261231_20240101_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2024_2026.pdf
-                - 20240101-20261231_20240312_BE_Elia transmission infrastructure development
-                  2024-2026 v02.pdf
-                - 20240101-20261231_20240328_DE_50HzT_Proposta template report 9_1_50Hertz_28032024.pdf
-                - 20240101-20261231_20240701_DE_50HzT_Proposta template report 9_1_50Hertz_01072024.pdf
-                - 20240101-20261231_20240905_PL_Art 9 1 PSE transmission infrastructure
-                  development report 2024-2026.pdf
-                - 20240101-20261231_20240930_DE_50HzT_Proposta template report 9_1_50Hertz_30092024.pdf
+                - 20240101-20261231_20231222_FR_RTE Art 9 Transmission 
+                  Infrastructure 2024-26 v1 0.pdf
+                - 20240101-20261231_20240101_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2024_2026.pdf
+                - 20240101-20261231_20240312_BE_Elia transmission infrastructure
+                  development 2024-2026 v02.pdf
+                - 20240101-20261231_20240328_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_28032024.pdf
+                - 20240101-20261231_20240701_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01072024.pdf
+                - 20240101-20261231_20240905_PL_Art 9 1 PSE transmission 
+                  infrastructure development report 2024-2026.pdf
+                - 20240101-20261231_20240930_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_30092024.pdf
                 - 20240612-20261231_20240612_UA_IPS_Report_9_1_2024-2026.pdf
-                - 20241008-20260101_20241008_CZ_Art 9 1 CEPS transmission infrastructure
-                  development report 2024-2026.pdf
-                - 20241215-20251215_20250228_ES_REE_2025_Report 9 1_For_ES-FR.pdf
-                - 20241215-20251215_20250228_ES_REE_2025_Report 9 1_For_ES-PT.pdf
+                - 20241008-20260101_20241008_CZ_Art 9 1 CEPS transmission 
+                  infrastructure development report 2024-2026.pdf
+                - 20241215-20251215_20250228_ES_REE_2025_Report 9 
+                  1_For_ES-FR.pdf
+                - 20241215-20251215_20250228_ES_REE_2025_Report 9 
+                  1_For_ES-PT.pdf
                 - 20250101-20251231_20241128_AT_9 1_APG_2025.pdf
-                - 20250101-20271231_20241209_BE_Elia transmission infrastructure development
-                  2025-2027 v01.pdf
-                - 20250101-20271231_20241213_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2025-2027.pdf
-                - 20250101-20271231_20241213_IT_Terna report 9 1_Dicembre 2023_15_12_2024.pdf
+                - 20250101-20271231_20241209_BE_Elia transmission infrastructure
+                  development 2025-2027 v01.pdf
+                - 20250101-20271231_20241213_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2025-2027.pdf
+                - 20250101-20271231_20241213_IT_Terna report 9 1_Dicembre 
+                  2023_15_12_2024.pdf
                 - 20250101-20271231_20241213_NO_Report_TR_9 1 2025-2027.pdf
                 - 20250101-20271231_20241216_RS_TemplateArt9(1)_approved_Apr15-EMS-2024.pdf
-                - 20250101-20271231_20241231_DE_50HzT_Proposta template report 9_1_50Hertz_31122024.pdf
-                - 20250101-20271231_20250113_DE_TenneT_GER_Report_art 9 1_TTG_2025-2027.pdf
-                - 20250101-20271231_20250325_PL_Art 9 1 PSE transmission infrastructure
-                  development report 2025-2027.pdf
-                - 20250101-20271231_20250331_DE_50HzT_Proposta template report 9_1_50Hertz_31032025.pdf
-                - 20250101-20271231_20250630_DE_50HzT_Proposta template report 9_1_50Hertz_30062025.pdf
+                - 20250101-20271231_20241231_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_31122024.pdf
+                - 20250101-20271231_20250113_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2025-2027.pdf
+                - 20250101-20271231_20250325_PL_Art 9 1 PSE transmission 
+                  infrastructure development report 2025-2027.pdf
+                - 20250101-20271231_20250331_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_31032025.pdf
+                - 20250101-20271231_20250630_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_30062025.pdf
                 - 20250101-20281231_20250218_SI_9 1_ELES_2025-2028.pdf
-                - 20250610-20300111_20250610_CZ_TR 11 3 Ramping Restrictions Statnett
-                  (2).pdf
+                - 20250610-20300111_20250610_CZ_TR 11 3 Ramping Restrictions 
+                  Statnett (2).pdf
             - ExpansionAndDismantlingProjects_9.1_r3:
                 - 2014_ExpansionAndDismantlingProjects_9.1_r3.csv
                 - 2015_ExpansionAndDismantlingProjects_9.1_r3.csv
@@ -5226,28 +5350,30 @@ environments:
                 - 2023_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
                 - 2024_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
             - Algorithm_12.3.K_r3:
-                - 20181218-20220906_20201207_FCR_FCR overview of the procurement principles.pdf
+                - 20181218-20220906_20201207_FCR_FCR overview of the procurement
+                  principles.pdf
                 - 20191213-20201231_20191213_RR_CZ_RR_Algorithm_2019.pdf
                 - 20210101-20211231_20201217_RR_201020-TERRE_AOF_description.pdf
-                - 20210514-20220405_20210514_IN_20210512 IN_OPTIMISATION ALGORITHM
-                  Description.pdf
-                - 20220406-20240804_20220406_aFRR_20220406_PICASSO Public Algorithm
-                  description_v1 0.pdf
-                - 20250610-infinity_20250610_IN_TR 11 3 Ramping Restrictions Statnett
-                  (2).pdf
-                - 20250908-20250930_20250909_aFRR_PICASSO Public Algorithm description_v4
-                  0.pdf
+                - 20210514-20220405_20210514_IN_20210512 IN_OPTIMISATION 
+                  ALGORITHM Description.pdf
+                - 20220406-20240804_20220406_aFRR_20220406_PICASSO Public 
+                  Algorithm description_v1 0.pdf
+                - 20250610-infinity_20250610_IN_TR 11 3 Ramping Restrictions 
+                  Statnett (2).pdf
+                - 20250908-20250930_20250909_aFRR_PICASSO Public Algorithm 
+                  description_v4 0.pdf
             - ApprovedMethodologies_12.3.J_r3:
-                - 20240322-infinity_20240322_Nordic_Approved Methodologies-Nordic.pdf
-                - 20250610-infinity_20250610_CWE_TR 11 3 Ramping Restrictions Statnett
-                  (2).pdf
+                - 20240322-infinity_20240322_Nordic_Approved 
+                  Methodologies-Nordic.pdf
+                - 20250610-infinity_20250610_CWE_TR 11 3 Ramping Restrictions 
+                  Statnett (2).pdf
                 - 20250915-infinity_20250930_Nordic_BALANCING_DOCUMENTS_APPROVEDMETHODOLOGIES_20250101_20260101.pdf
             - CommonAnnualReport_12.3.L_r3:
                 - 20200101-20210101_20200916_COMMON_ANNUAL_REPORT_ENTSO-E_Balancing_Report_2020.pdf
                 - 20220101-20230101_20220630_COMMON_ANNUAL_REPORT_2022_ENTSO_E_Balancing_Report_2022.pdf
                 - 20240101-20250101_20240624_COMMON_ANNUAL_REPORT_240628_ENTSO-E_Balancing_Report_2024.pdf
-                - 20250101-20260101_20250610_COMMON_ANNUAL_REPORT_TR 11 3 Ramping
-                  Restrictions Statnett.pdf
+                - 20250101-20260101_20250610_COMMON_ANNUAL_REPORT_TR 11 3 
+                  Ramping Restrictions Statnett.pdf
             - Countertrading_13.1.B_r3:
                 - 2024_04_Countertrading_13.1.B_r3.csv
                 - 2024_05_Countertrading_13.1.B_r3.csv
@@ -13004,79 +13130,96 @@ environments:
                 - 2026_04_CommercialSchedules_12.1.F_r3.csv
                 - 2026_05_CommercialSchedules_12.1.F_r3.csv
             - CrossBorderCapacityForDCLinksRampingRestrictions_11.3_r3:
-                - 20150101-20151231_20150101_DE_50HzT_Article 11 3 Energinet dk-2015.pdf
-                - 20150101-20151231_20150101_DK_Article 11 3 Energinet dk-2015.pdf
-                - 20150101-20161231_20151209_PL_Ramping Restrictions on cross-border
-                  DC links Poland_Sweden_and_Poland_Lithuania v02.pdf
+                - 20150101-20151231_20150101_DE_50HzT_Article 11 3 Energinet 
+                  dk-2015.pdf
+                - 20150101-20151231_20150101_DK_Article 11 3 Energinet 
+                  dk-2015.pdf
+                - 20150101-20161231_20151209_PL_Ramping Restrictions on 
+                  cross-border DC links Poland_Sweden_and_Poland_Lithuania 
+                  v02.pdf
                 - 20150101-20191231_20150101_NO_Ramping_restrictions-Norway.pdf
-                - 20150105-20161231_20150105_EE_Ramping restrictions on DC links between
-                  Finland and Estonia.pdf
-                - 20150105-20180105_20150930_GB_Ramping Restrictions Moyle Interconnector
-                  SEM-GB.pdf
-                - 20151209-20161231_20151208_LT_Ramping restriction on LT-PL cross
-                  border.pdf
-                - 20160101-20161231_20160101_DE_50HzT_Article 11 3 Energinet dk-2016.pdf
-                - 20160101-20161231_20160101_DK_Article 11 3 Energinet dk-2016.pdf
-                - 20160606-20160919_20160527_IE_Ramping Restrictions East West Interconnector
-                  SEM-GB June 2016.pdf
-                - 20160930-20161101_20160923_NIE_Ramping Restrictions Moyle Interconnector
-                  SEM-GB_Sept_16.pdf
-                - 20161231-20191231_20151208_LT_Ramping restriction on LT-PL cross
-                  border.pdf
-                - 20170101-20171231_20170101_DE_50HzT_Article 11 3 Energinet dk-2017.pdf
-                - 20170101-20171231_20170101_DK_Article 11 3 Energinet dk-2017.pdf
+                - 20150105-20161231_20150105_EE_Ramping restrictions on DC links
+                  between Finland and Estonia.pdf
+                - 20150105-20180105_20150930_GB_Ramping Restrictions Moyle 
+                  Interconnector SEM-GB.pdf
+                - 20151209-20161231_20151208_LT_Ramping restriction on LT-PL 
+                  cross border.pdf
+                - 20160101-20161231_20160101_DE_50HzT_Article 11 3 Energinet 
+                  dk-2016.pdf
+                - 20160101-20161231_20160101_DK_Article 11 3 Energinet 
+                  dk-2016.pdf
+                - 20160606-20160919_20160527_IE_Ramping Restrictions East West 
+                  Interconnector SEM-GB June 2016.pdf
+                - 20160930-20161101_20160923_NIE_Ramping Restrictions Moyle 
+                  Interconnector SEM-GB_Sept_16.pdf
+                - 20161231-20191231_20151208_LT_Ramping restriction on LT-PL 
+                  cross border.pdf
+                - 20170101-20171231_20170101_DE_50HzT_Article 11 3 Energinet 
+                  dk-2017.pdf
+                - 20170101-20171231_20170101_DK_Article 11 3 Energinet 
+                  dk-2017.pdf
                 - 20170101-20200101_20170419_SE_Article 11 3 20170419.pdf
-                - 20170101-20220320_20180410_PL_Ramping Restrictions on cross-border
-                  DC links Poland_Sweden_and_Poland_Lithuania v02.pdf
+                - 20170101-20220320_20180410_PL_Ramping Restrictions on 
+                  cross-border DC links Poland_Sweden_and_Poland_Lithuania 
+                  v02.pdf
                 - 20170116-20171231_20170113_NIE_Ramping_Restrictions_Moyle_Interconnector_SEM-GB_Jan_17.pdf
-                - 20170201-20171231_20161231_EE_Ramping restrictions on DC links between
-                  Finland and Estonia.pdf
-                - 20171231-20181231_20171221_EE_Ramping restrictions on DC links between
-                  Finland and Estonia.pdf
+                - 20170201-20171231_20161231_EE_Ramping restrictions on DC links
+                  between Finland and Estonia.pdf
+                - 20171231-20181231_20171221_EE_Ramping restrictions on DC links
+                  between Finland and Estonia.pdf
                 - 20180101-20181231_20180522_DK_Article 11 3 Energinet 2018.pdf
-                - 20180101-20181231_20180525_DE_50HzT_Article 11 3 Energienet dk-2018.pdf
-                - 20181001-20190301_20190301_NIE_Ramping Restriction Transparency
+                - 20180101-20181231_20180525_DE_50HzT_Article 11 3 Energienet 
+                  dk-2018.pdf
+                - 20181001-20190301_20190301_NIE_Ramping Restriction 
+                  Transparency Information (01 10 18).pdf
+                - 20181001-20191231_20181001_IE_Ramping Restriction Transparency
                   Information (01 10 18).pdf
-                - 20181001-20191231_20181001_IE_Ramping Restriction Transparency Information
-                  (01 10 18).pdf
-                - 20190302-20200828_20190828_NIE_Ramping Restriction Transparency
-                  Information (28 08 19).pdf
-                - 20200828-20210827_20200902_NIE_Ramping Restriction Transparency
-                  Information (28 08 20).pdf
-                - 20210101-20221231_20210913_GE_Ramping restriction on GE-TR cross
-                  border v-1.pdf
-                - 20211202-20221231_20211202_NO_Ramping restrictions Norway (11 3).pdf
-                - 20220101-20221231_20220107_DE_50HzT_Article 11 3 Energinet dk 2022.pdf
+                - 20190302-20200828_20190828_NIE_Ramping Restriction 
+                  Transparency Information (28 08 19).pdf
+                - 20200828-20210827_20200902_NIE_Ramping Restriction 
+                  Transparency Information (28 08 20).pdf
+                - 20210101-20221231_20210913_GE_Ramping restriction on GE-TR 
+                  cross border v-1.pdf
+                - 20211202-20221231_20211202_NO_Ramping restrictions Norway (11 
+                  3).pdf
+                - 20220101-20221231_20220107_DE_50HzT_Article 11 3 Energinet dk 
+                  2022.pdf
                 - 20220101-20221231_20220107_DK_Article 11 3 Energinet-2022.pdf
-                - 20220321-20241231_20241111_PL_Ramping Restrictions on cross-border
-                  DC links Poland_Sweden_and_Poland_Lithuania.pdf
-                - 20221017-20231231_20221017_NO_TR 11 3 Ramping Restrictions Statnett.pdf
-                - 20230101-20231228_20231221_DE_50HzT_Article 11 3 Energinet 2023.pdf
-                - 20230101-20231228_20231221_DK_Ramping Restrictions under Article
-                  11 3.pdf
-                - 20230101-20231231_20221223_GE_Ramping restriction on GE-TR cross
-                  border v-1.pdf
-                - 20231229-20241231_20231221_DE_50HzT_Article 11 3 Energinet 2024.pdf
-                - 20240101-20241231_20240101_GE_Ramping restriction on GE-TR cross
-                  border v-1 (1).pdf
-                - 20240101-20241231_20240131_NO_TR 11 3 Ramping Restrictions Statnett
+                - 20220321-20241231_20241111_PL_Ramping Restrictions on 
+                  cross-border DC links Poland_Sweden_and_Poland_Lithuania.pdf
+                - 20221017-20231231_20221017_NO_TR 11 3 Ramping Restrictions 
+                  Statnett.pdf
+                - 20230101-20231228_20231221_DE_50HzT_Article 11 3 Energinet 
+                  2023.pdf
+                - 20230101-20231228_20231221_DK_Ramping Restrictions under 
+                  Article 11 3.pdf
+                - 20230101-20231231_20221223_GE_Ramping restriction on GE-TR 
+                  cross border v-1.pdf
+                - 20231229-20241231_20231221_DE_50HzT_Article 11 3 Energinet 
                   2024.pdf
-                - 20250101-20250208_20250130_PL_Ramping Restrictions on cross-border
-                  DC links Poland_Sweden_and_Poland_Lithuania.pdf
-                - 20250101-20250217_20250402_DK_Ramping Restrictions under Article
-                  11 3.pdf
-                - 20250101-20251231_20250101_NO_TR 11 3 Ramping Restrictions Statnett.pdf
-                - 20250209-20251231_20250130_PL_Ramping Restrictions on cross-border
-                  DC links Poland_Sweden.pdf
-                - 20250218-20250318_20250402_DK_Ramping Restrictions under Article
-                  11 3, 18 02 2025 18 03 2025.pdf
-                - 20250319-20251231_20250402_DK_Ramping Restrictions under Article
-                  11 3, 19 03 2025.pdf
-                - 20250319-20261231_20251006_NO_TR 11 3 Ramping Restrictions Statnett_2025.pdf
+                - 20240101-20241231_20240101_GE_Ramping restriction on GE-TR 
+                  cross border v-1 (1).pdf
+                - 20240101-20241231_20240131_NO_TR 11 3 Ramping Restrictions 
+                  Statnett 2024.pdf
+                - 20250101-20250208_20250130_PL_Ramping Restrictions on 
+                  cross-border DC links Poland_Sweden_and_Poland_Lithuania.pdf
+                - 20250101-20250217_20250402_DK_Ramping Restrictions under 
+                  Article 11 3.pdf
+                - 20250101-20251231_20250101_NO_TR 11 3 Ramping Restrictions 
+                  Statnett.pdf
+                - 20250209-20251231_20250130_PL_Ramping Restrictions on 
+                  cross-border DC links Poland_Sweden.pdf
+                - 20250218-20250318_20250402_DK_Ramping Restrictions under 
+                  Article 11 3, 18 02 2025 18 03 2025.pdf
+                - 20250319-20251231_20250402_DK_Ramping Restrictions under 
+                  Article 11 3, 19 03 2025.pdf
+                - 20250319-20261231_20251006_NO_TR 11 3 Ramping Restrictions 
+                  Statnett_2025.pdf
                 - null_Article 11 3.pdf
                 - null_Ramping Restrictions East West Interconnector SEM-GB.pdf
                 - null_Ramping Restrictions Moyle Interconnector SEM-GB.pdf
-                - null_Ramping restrictions on DC links between Finland and Estonia.pdf
+                - null_Ramping restrictions on DC links between Finland and 
+                  Estonia.pdf
                 - null_Ramping_restrictions-Norway.pdf
             - CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3_r3:
                 - 2014_12_CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3_r3.csv
@@ -18295,370 +18438,496 @@ environments:
                 - 2026_05_EnergyPrices_12.1.D_r3.csv
             - ExpansionAndDismantlingProjectsReport_9.1_r3:
                 - 20150101-20151231_20151030_IT_Terna report 9_1_FV.pdf
-                - 20150101-20171231_20150722_BE_Elia transmission infrastructure development
-                  2015-2017.pdf
-                - 20150101-20171231_20151215_FR_RTE Transmission infrastructure development
-                  2015-2017.pdf
+                - 20150101-20171231_20150722_BE_Elia transmission infrastructure
+                  development 2015-2017.pdf
+                - 20150101-20171231_20151215_FR_RTE Transmission infrastructure 
+                  development 2015-2017.pdf
                 - 20150101-20171231_20161006_NL_Template report 9 2015-2017.pdf
                 - 20150101-20180101_20161216_RS_TemplateArt9(1)_approved_Apr15-EMS.pdf
-                - 20150915-20180917_20150915_LT_LITGRID transmission infrastructure
-                  development report.pdf
-                - 20150930-20180930_20151002_SE_Report on transmission infrastructure
-                  article 9 1.pdf
-                - 20151120-20171231_20151120_PL_PSE transmission infrastructure development
-                  report 2015-2017.pdf
-                - 20151201-20160331_20151201_NIE_151201 TemplateArt9(1)_approved_Apr15
-                  Moyle.pdf
+                - 20150915-20180917_20150915_LT_LITGRID transmission 
+                  infrastructure development report.pdf
+                - 20150930-20180930_20151002_SE_Report on transmission 
+                  infrastructure article 9 1.pdf
+                - 20151120-20171231_20151120_PL_PSE transmission infrastructure 
+                  development report 2015-2017.pdf
+                - 20151201-20160331_20151201_NIE_151201 
+                  TemplateArt9(1)_approved_Apr15 Moyle.pdf
                 - 20151208-20181231_20151208_SE_report 9_1 SvK dec 2015.pdf
-                - 20151215-20161215_20151215_ES_REE_2015_Report 9 1_For_ES-PT.pdf
+                - 20151215-20161215_20151215_ES_REE_2015_Report 9 
+                  1_For_ES-PT.pdf
                 - 20151215-20161215_20151215_HU_TemplateArt9(1)_approved_Apr15_MAVIR_final.pdf
-                - 20151215-20161215_20160304_ES_REE_2015_Report 9 1_For_ES-FR_V2.pdf
-                - 20151215-20181231_20151215_DK_Report 9 1 Energinet dk Dec 2015.pdf
+                - 20151215-20161215_20160304_ES_REE_2015_Report 9 
+                  1_For_ES-FR_V2.pdf
+                - 20151215-20181231_20151215_DK_Report 9 1 Energinet dk Dec 
+                  2015.pdf
                 - 20160101-20161231_20151214_EE_Report 9 1_Elering AS.pdf
-                - 20160101-20161231_20151222_IT_Terna report 9 1_Dicembre 2015_def.pdf
-                - 20160101-20161231_20160713_FR_RTE Art 9 Transmission Infrastructure
-                  2016-18.pdf
-                - 20160101-20181231_20151201_DE_TransnetBW_EU-VO-543-2013_Art 9_Report-2016-2018.pdf
-                - 20160101-20181231_20151211_BE_Elia transmission infrastructure development
-                  2016-2018.pdf
-                - 20160101-20181231_20151215_DE_50HzT_Proposta template report 9 1_50hertz_14122015.pdf
-                - 20160101-20181231_20151215_DE_TenneT_GER_Report_art 9 1_TTG.pdf
-                - 20160101-20181231_20151215_PT_20151215-EU Regulation543_2013-Art
-                  9_1-REN 2016-2018.pdf
+                - 20160101-20161231_20151222_IT_Terna report 9 1_Dicembre 
+                  2015_def.pdf
+                - 20160101-20161231_20160713_FR_RTE Art 9 Transmission 
+                  Infrastructure 2016-18.pdf
+                - 20160101-20181231_20151201_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report-2016-2018.pdf
+                - 20160101-20181231_20151211_BE_Elia transmission infrastructure
+                  development 2016-2018.pdf
+                - 20160101-20181231_20151215_DE_50HzT_Proposta template report 9
+                  1_50hertz_14122015.pdf
+                - 20160101-20181231_20151215_DE_TenneT_GER_Report_art 9 
+                  1_TTG.pdf
+                - 20160101-20181231_20151215_PT_20151215-EU 
+                  Regulation543_2013-Art 9_1-REN 2016-2018.pdf
                 - 20160101-20181231_20151217_SI_151215_ELES_Report_related_to_Art_9_1_period_2016-2018.pdf
                 - 20160101-20181231_20151231_DE_Amprion_Umsetzung_Art_9 1.pdf
-                - 20160101-20181231_20160307_PL_PSE transmission infrastructure development
-                  report 2016-2018.pdf
+                - 20160101-20181231_20160307_PL_PSE transmission infrastructure 
+                  development report 2016-2018.pdf
                 - 20160101-20181231_20161006_NL_Template report 9 2016-2018.pdf
-                - 20160301-20190301_20160301_DK_Report 9 1 Energinet dk March 2016.pdf
-                - 20160601-20190601_20160704_DK_Report 9 1 Energinet dk June 2016.pdf
-                - 20160901-20190901_20160929_DK_Report 9 1 Energinet dk September
+                - 20160301-20190301_20160301_DK_Report 9 1 Energinet dk March 
                   2016.pdf
-                - 20161201-20191201_20161206_DK_Report 9 1 Energinet dk Dec 2016.pdf
+                - 20160601-20190601_20160704_DK_Report 9 1 Energinet dk June 
+                  2016.pdf
+                - 20160901-20190901_20160929_DK_Report 9 1 Energinet dk 
+                  September 2016.pdf
+                - 20161201-20191201_20161206_DK_Report 9 1 Energinet dk Dec 
+                  2016.pdf
                 - 20161209-20191231_20161209_SE_Report 9 1 SvK december 2016.pdf
-                - 20161215-20171215_20161215_ES_REE_2016_Report 9 1_For_ES-FR.pdf
-                - 20161215-20171215_20161215_ES_REE_2016_Report 9 1_For_ES-PT.pdf
+                - 20161215-20171215_20161215_ES_REE_2016_Report 9 
+                  1_For_ES-FR.pdf
+                - 20161215-20171215_20161215_ES_REE_2016_Report 9 
+                  1_For_ES-PT.pdf
                 - 20161215-20171231_20161215_EE_Report 9 1_Elering AS (2016).pdf
                 - 20170101-20171231_20161123_AT_Expansion_Projects.pdf
-                - 20170101-20171231_20161215_FR_RTE Art 9 Transmission Infrastructure
-                  2017-19 v1.pdf
-                - 20170101-20171231_20161215_IT_Terna report 9 1_Dicembre 2016_def.pdf
-                - 20170101-20191231_20161201_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2017-2019.pdf
+                - 20170101-20171231_20161215_FR_RTE Art 9 Transmission 
+                  Infrastructure 2017-19 v1.pdf
+                - 20170101-20171231_20161215_IT_Terna report 9 1_Dicembre 
+                  2016_def.pdf
+                - 20170101-20191231_20161201_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2017-2019.pdf
                 - 20170101-20191231_20161201_NL_Template report 9 2017-2019.pdf
                 - 20170101-20191231_20161201_SI_ELES_Reg_543-2013_Article_9-1_2017-2019.pdf
-                - 20170101-20191231_20161205_PL_PSE transmission infrastructure development
-                  report 2017-2019.pdf
-                - 20170101-20191231_20161213_CH_Swissgrid transmission infrastructure
-                  development 2017-2019.pdf
-                - 20170101-20191231_20161214_DE_TenneT_GER_Report_art 9 1_TTG_2017-2019.pdf
-                - 20170101-20191231_20161215_DE_50HzT_Proposta template report 9_1_50Hertz_14122016.pdf
-                - 20170101-20191231_20161215_PT_20161215-EU Regulation543_2013-Art
-                  9_1-REN 2017-2019.pdf
+                - 20170101-20191231_20161205_PL_PSE transmission infrastructure 
+                  development report 2017-2019.pdf
+                - 20170101-20191231_20161213_CH_Swissgrid transmission 
+                  infrastructure development 2017-2019.pdf
+                - 20170101-20191231_20161214_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2017-2019.pdf
+                - 20170101-20191231_20161215_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_14122016.pdf
+                - 20170101-20191231_20161215_PT_20161215-EU 
+                  Regulation543_2013-Art 9_1-REN 2017-2019.pdf
                 - 20170101-20191231_20161231_DE_Amprion_Umsetzung_Art_9 1.pdf
-                - 20170101-20191231_20170612_BE_Elia transmission infrastructure development
-                  2017-2019_20170612.pdf
+                - 20170101-20191231_20170612_BE_Elia transmission infrastructure
+                  development 2017-2019_20170612.pdf
                 - 20170101-20200101_20161215_HU_MAVIR_Art91_2017_2019.pdf
                 - 20170101-20201231_20170127_MK_EMFIP.pdf
-                - 20170301-20200301_20170222_DK_Report 9 1 Energinet dk March 2017.pdf
-                - 20170601-20191231_20170724_SE_Report 9 1 Svk June 2017.pdf
-                - 20170601-20200601_20170630_DK_Report 9 1 Energinet dk June 2017.pdf
-                - 20170901-20200901_20170929_DK_Report 9 1 Energinet dk September
+                - 20170301-20200301_20170222_DK_Report 9 1 Energinet dk March 
                   2017.pdf
+                - 20170601-20191231_20170724_SE_Report 9 1 Svk June 2017.pdf
+                - 20170601-20200601_20170630_DK_Report 9 1 Energinet dk June 
+                  2017.pdf
+                - 20170901-20200901_20170929_DK_Report 9 1 Energinet dk 
+                  September 2017.pdf
                 - 20170915-20191231_20170915_SE_report 9_1 Svk sep 2017.pdf
-                - 20171201-20201201_20171215_DK_Report 9 1 Energinet dk December 2017.pdf
+                - 20171201-20201201_20171215_DK_Report 9 1 Energinet dk December
+                  2017.pdf
                 - 20171212-20201231_20171212_SE_report 9_1 Svk dec_2017.pdf
-                - 20171215-20181215_20171215_ES_REE_2017_Report 9 1_For_ES-FR.pdf
-                - 20171215-20181215_20171215_ES_REE_2017_Report 9 1_For_ES-PT.pdf
+                - 20171215-20181215_20171215_ES_REE_2017_Report 9 
+                  1_For_ES-FR.pdf
+                - 20171215-20181215_20171215_ES_REE_2017_Report 9 
+                  1_For_ES-PT.pdf
                 - 20171231-20181231_20171215_EE_Report 9 1_Elering AS (2017).pdf
                 - 20180101-20181231_20171011_AT_AT_Network_Projects_2018.pdf
                 - 20180101-20181231_20171204_NL_Template report 9 2018-2020.pdf
-                - 20180101-20181231_20171214_IT_Terna report 9 1_Dicembre 2017_def.pdf
-                - 20180101-20181231_20171215_FR_RTE Art 9 Transmission Infrastructure
-                  2018-20.pdf
-                - 20180101-20181231_20180312_NL_Template report 9 2018-2020 version
-                  2.pdf
-                - 20180101-20181231_20180910_NL_Template report 9 2018-2020 version
-                  3.pdf
-                - 20180101-20191231_20171214_DE_TenneT_GER_Report_art 9 1_TTG_2018-2020.pdf
-                - 20180101-20191231_20171220_GB_ETYS Interconnector Table for Article
-                  9 1.pdf
-                - 20180101-20201231_20171114_PL_PSE transmission infrastructure development
-                  report 2018-2020.pdf
-                - 20180101-20201231_20171201_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2018-2020.pdf
-                - 20180101-20201231_20171215_DE_50HzT_Proposta template report 9_1_50Hertz_14122017.pdf
-                - 20180101-20201231_20171215_PT_20171215-EU Regulation543_2013-Art
-                  9_1-REN 2018-2020.pdf
+                - 20180101-20181231_20171214_IT_Terna report 9 1_Dicembre 
+                  2017_def.pdf
+                - 20180101-20181231_20171215_FR_RTE Art 9 Transmission 
+                  Infrastructure 2018-20.pdf
+                - 20180101-20181231_20180312_NL_Template report 9 2018-2020 
+                  version 2.pdf
+                - 20180101-20181231_20180910_NL_Template report 9 2018-2020 
+                  version 3.pdf
+                - 20180101-20191231_20171214_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2018-2020.pdf
+                - 20180101-20191231_20171220_GB_ETYS Interconnector Table for 
+                  Article 9 1.pdf
+                - 20180101-20201231_20171114_PL_PSE transmission infrastructure 
+                  development report 2018-2020.pdf
+                - 20180101-20201231_20171201_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2018-2020.pdf
+                - 20180101-20201231_20171215_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_14122017.pdf
+                - 20180101-20201231_20171215_PT_20171215-EU 
+                  Regulation543_2013-Art 9_1-REN 2018-2020.pdf
                 - 20180101-20201231_20171215_RS_TemplateArt9(1)_approved_EMS_2018.pdf
                 - 20180101-20201231_20171231_DE_Amprion_Umsetzung Art_9 1.pdf
-                - 20180101-20201231_20180606_BE_Elia transmission infrastructure development
-                  2018-2020_v180606_01.pdf
+                - 20180101-20201231_20180606_BE_Elia transmission infrastructure
+                  development 2018-2020_v180606_01.pdf
                 - 20180205-20190101_20180205_LV_Report 9 1 AST 2018-2020.pdf
-                - 20180301-20210301_20180319_DK_Report 9 1 Energinet dk March 2018.pdf
+                - 20180301-20210301_20180319_DK_Report 9 1 Energinet dk March 
+                  2018.pdf
                 - 20180406-20211231_20180406_SE_report 9_1 Svk apr_2018.pdf
-                - 20180601-20210601_20180615_DK_Report 9 1 Energinet dk June 2018.pdf
-                - 20180629-20201231_20180629_DE_50HzT_Proposta template report 9_1_Update_50Hertz_29062018.pdf
-                - 20180901-20210901_20180921_DK_Report 9 1 Energinet September 2018.pdf
+                - 20180601-20210601_20180615_DK_Report 9 1 Energinet dk June 
+                  2018.pdf
+                - 20180629-20201231_20180629_DE_50HzT_Proposta template report 
+                  9_1_Update_50Hertz_29062018.pdf
+                - 20180901-20210901_20180921_DK_Report 9 1 Energinet September 
+                  2018.pdf
                 - 20180912-20211231_20180912_SE_report 9_1 Svk sept_2018.pdf
-                - 20181001-20211001_20181001_DE_50HzT_Proposta template report 9_1_Update_50Hertz_01102018.pdf
+                - 20181001-20211001_20181001_DE_50HzT_Proposta template report 
+                  9_1_Update_50Hertz_01102018.pdf
                 - 20181107-20211231_20181107_SE_report 9_1 Svk okt_2018.pdf
-                - 20181201-20211201_20181213_DK_Report 9 1 Energinet December 2018.pdf
+                - 20181201-20211201_20181213_DK_Report 9 1 Energinet December 
+                  2018.pdf
                 - 20181207-20211231_20181207_SE_report 9_1 Svk dec_2018.pdf
                 - 20181214-20211231_20181213_HU_TemplateArt9(1)_approved_Apr15_MAVIR_final_2018
                   12.pdf
-                - 20181215-20191215_20191219_ES_REE_2018_Report 9 1_For_ES-FR.pdf
-                - 20181215-20191215_20191219_ES_REE_2018_Report 9 1_For_ES-PT.pdf
-                - 20190101-20190131_20190131_BE_Elia transmission infrastructure development
-                  2019-2021_v190114_01.pdf
+                - 20181215-20191215_20191219_ES_REE_2018_Report 9 
+                  1_For_ES-FR.pdf
+                - 20181215-20191215_20191219_ES_REE_2018_Report 9 
+                  1_For_ES-PT.pdf
+                - 20190101-20190131_20190131_BE_Elia transmission infrastructure
+                  development 2019-2021_v190114_01.pdf
                 - 20190101-20191231_20181011_AT_9 1_APG_2019.pdf
                 - 20190101-20191231_20181213_EE_Report 9 1_Elering AS_2018.pdf
-                - 20190101-20191231_20181214_FR_RTE Art 9 Transmission Infrastructure
-                  2019-21.pdf
-                - 20190101-20191231_20181214_IT_Terna report 9 1_Dicembre 2018_def.pdf
+                - 20190101-20191231_20181214_FR_RTE Art 9 Transmission 
+                  Infrastructure 2019-21.pdf
+                - 20190101-20191231_20181214_IT_Terna report 9 1_Dicembre 
+                  2018_def.pdf
                 - 20190101-20191231_20181219_GB_Article 9 1 report Dec 2018.pdf
                 - 20190101-20200101_20190212_LV_Report 9 1 AST 2019-2021.pdf
-                - 20190101-20201231_20181210_DE_TenneT_GER_Report_art 9 1_TTG_2019-2021.pdf
+                - 20190101-20201231_20181210_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2019-2021.pdf
                 - 20190101-20201231_20191215_EE_Report 9 1_Elering AS_2020.pdf
                 - 20190101-20211231_20181108_SI_9 1_ELES_2019-2021.pdf
                 - 20190101-20211231_20181114_RS_TemplateArt9(1)_approved_Apr15-EMS-2019.pdf
-                - 20190101-20211231_20181201_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2019-2021.pdf
-                - 20190101-20211231_20181211_DE_50HzT_Proposta template report 9_1_50Hertz_11122018.pdf
+                - 20190101-20211231_20181201_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2019-2021.pdf
+                - 20190101-20211231_20181211_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_11122018.pdf
                 - 20190101-20211231_20181228_DE_Amprion_Amprion Art_9 1.pdf
-                - 20190101-20211231_20190219_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2019_2021.pdf
-                - 20190101-20211231_20190306_PL_PSE transmission infrastructure development
-                  report 2019-2021.pdf
-                - 20190101-20211231_20190411_DE_50HzT_Proposta template report 9_1_50Hertz_11042019.pdf
-                - 20190101-20211231_20190819_DE_50HzT_Proposta template report 9_1_50Hertz_19082019.pdf
-                - 20190101-20211231_20190925_DE_50HzT_Proposta template report 9_1_50Hertz_25092019.pdf
+                - 20190101-20211231_20190219_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2019_2021.pdf
+                - 20190101-20211231_20190306_PL_PSE transmission infrastructure 
+                  development report 2019-2021.pdf
+                - 20190101-20211231_20190411_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_11042019.pdf
+                - 20190101-20211231_20190819_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_19082019.pdf
+                - 20190101-20211231_20190925_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_25092019.pdf
                 - 20190101-20211231_20200217_HU_TemplateArt9(1)_approved_Apr15_MAVIR_final_201912.pdf
                 - 20190110-20210301_20190110_NO_Report_9_1-2019.pdf
-                - 20190201-20211231_20190508_BE_Elia transmission infrastructure development
-                  201902-2021_v190508_01.pdf
-                - 20190301-20220301_20190401_DK_Report 9 1 Energinet March 2019.pdf
-                - 20190601-20220601_20190524_DK_Report 9 1 Energinet June 2019.pdf
-                - 20190822-20221231_20190822_GE_cross border 9 1_report_22_08_19 (3).pdf
-                - 20190901-20220901_20191001_DK_Report 9 1 Energinet September 2019.pdf
-                - 20191201-20221201_20191219_DK_Report 9 1 Energinet December 2019.pdf
-                - 20191215-20201215_20191219_ES_REE_2019_Report 9 1_For_ES-FR.pdf
-                - 20191215-20201215_20191219_ES_REE_2019_Report 9 1_For_ES-PT.pdf
+                - 20190201-20211231_20190508_BE_Elia transmission infrastructure
+                  development 201902-2021_v190508_01.pdf
+                - 20190301-20220301_20190401_DK_Report 9 1 Energinet March 
+                  2019.pdf
+                - 20190601-20220601_20190524_DK_Report 9 1 Energinet June 
+                  2019.pdf
+                - 20190822-20221231_20190822_GE_cross border 9 1_report_22_08_19
+                  (3).pdf
+                - 20190901-20220901_20191001_DK_Report 9 1 Energinet September 
+                  2019.pdf
+                - 20191201-20221201_20191219_DK_Report 9 1 Energinet December 
+                  2019.pdf
+                - 20191215-20201215_20191219_ES_REE_2019_Report 9 
+                  1_For_ES-FR.pdf
+                - 20191215-20201215_20191219_ES_REE_2019_Report 9 
+                  1_For_ES-PT.pdf
                 - 20200101-20200513_20191115_AT_9 1_APG_2020.pdf
-                - 20200101-20201231_20191204_FR_RTE Art 9 Transmission Infrastructure
-                  2020-22.pdf
-                - 20200101-20201231_20191213_IT_Terna report 9 1_Dicembre 2019_def.pdf
+                - 20200101-20201231_20191204_FR_RTE Art 9 Transmission 
+                  Infrastructure 2020-22.pdf
+                - 20200101-20201231_20191213_IT_Terna report 9 1_Dicembre 
+                  2019_def.pdf
                 - 20200101-20201231_20200207_SK_EMFIP_9_1_report_SK2020-2022.pdf
                 - 20200101-20201231_20201130_GB_Article 9 1 report Dec 2019.pdf
-                - 20200101-20211231_20191217_DE_TenneT_GER_Report_art 9 1_TTG_2020-2022.pdf
+                - 20200101-20211231_20191217_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2020-2022.pdf
                 - 20200101-20211231_20200129_RO_Report related to Art9-1.pdf
                 - 20200101-20211231_20210121_HU_Art9(1)_MAVIR_final_2020_2021.pdf
                 - 20200101-20221231_20191119_SI_9 1_ELES_2020-2022.pdf
                 - 20200101-20221231_20191122_RS_TemplateArt9(1)_approved_Apr15-EMS-2020.pdf
-                - 20200101-20221231_20191202_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2020-2022.pdf
-                - 20200101-20221231_20191211_LT_LITGRID transmission infrastructure
-                  development report 2020-2022.pdf
-                - 20200101-20221231_20191216_DE_50HzT_Proposta template report 9_1_50Hertz_16122019.pdf
-                - 20200101-20221231_20200219_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2020_2022.pdf
-                - 20200101-20221231_20200331_DE_50HzT_Proposta template report 9_1_50Hertz_31032020.pdf
-                - 20200101-20221231_20200630_DE_50HzT_Proposta template report 9_1_50Hertz_30062020.pdf
-                - 20200101-20221231_20201001_DE_50HzT_Proposta template report 9_1_50Hertz_30092020.pdf
-                - 20200101-20221231_20201005_FR_RTE Art 9 Transmission Infrastructure
-                  2020-22 v1 2 (002).pdf
-                - 20200101-20221231_20201015_BE_Elia transmission infrastructure development
-                  2020-2022_v201015_01.pdf
+                - 20200101-20221231_20191202_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2020-2022.pdf
+                - 20200101-20221231_20191211_LT_LITGRID transmission 
+                  infrastructure development report 2020-2022.pdf
+                - 20200101-20221231_20191216_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_16122019.pdf
+                - 20200101-20221231_20200219_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2020_2022.pdf
+                - 20200101-20221231_20200331_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_31032020.pdf
+                - 20200101-20221231_20200630_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_30062020.pdf
+                - 20200101-20221231_20201001_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_30092020.pdf
+                - 20200101-20221231_20201005_FR_RTE Art 9 Transmission 
+                  Infrastructure 2020-22 v1 2 (002).pdf
+                - 20200101-20221231_20201015_BE_Elia transmission infrastructure
+                  development 2020-2022_v201015_01.pdf
                 - 20200101-20221231_20201015_DE_Amprion_Amprion Art_9 1.pdf
-                - 20200101-20221231_20201015_PL_PSE transmission infrastructure development
-                  report 2020-2022.pdf
+                - 20200101-20221231_20201015_PL_PSE transmission infrastructure 
+                  development report 2020-2022.pdf
                 - 20200101-20221231_20210121_HU_Art9(1)_MAVIR_final_2020_2023.pdf
-                - 20200301-20230301_20200330_DK_Report 9 1 Energinet March 2020.pdf
-                - 20200508-20230712_20200508_GE_Cross-border related infrastructure
-                  2020-2023 ENG_v2 08 05.pdf
+                - 20200301-20230301_20200330_DK_Report 9 1 Energinet March 
+                  2020.pdf
+                - 20200508-20230712_20200508_GE_Cross-border related 
+                  infrastructure 2020-2023 ENG_v2 08 05.pdf
                 - 20200514-20201231_20200514_AT_9 1_APG_2020_v2.pdf
-                - 20200601-20230601_20200630_DK_Report 9 1 Energinet June 2020.pdf
-                - 20200901-20230901_20200930_DK_Report 9 1 Energinet September 2020.pdf
+                - 20200601-20230601_20200630_DK_Report 9 1 Energinet June 
+                  2020.pdf
+                - 20200901-20230901_20200930_DK_Report 9 1 Energinet September 
+                  2020.pdf
                 - 20200925-20210101_20200925_NO_Report_9_1-2020.pdf
-                - 20200930-20221231_20200930_IT_Terna report 9 1_Dicembre 2019_30_09_2020.pdf
+                - 20200930-20221231_20200930_IT_Terna report 9 1_Dicembre 
+                  2019_30_09_2020.pdf
                 - 20201113-20201231_20201113_SK_EMFIP_9_1_report_SK2020-2022_update.pdf
-                - 20201201-20231201_20201218_DK_Report 9 1 Energinet December 2020.pdf
-                - 20201215-20211215_20201215_ES_REE_2020_Report 9 1_For_ES-FR.pdf
-                - 20201215-20211215_20201215_ES_REE_2020_Report 9 1_For_ES-PT.pdf
+                - 20201201-20231201_20201218_DK_Report 9 1 Energinet December 
+                  2020.pdf
+                - 20201215-20211215_20201215_ES_REE_2020_Report 9 
+                  1_For_ES-FR.pdf
+                - 20201215-20211215_20201215_ES_REE_2020_Report 9 
+                  1_For_ES-PT.pdf
                 - 20201216-20231231_20201216_HR_9 1_HOPS_2021_2023.pdf
-                - 20201231-20231231_20201215_GE_Cross-border related infrastructure
-                  2020-2023 ENG_1.pdf
+                - 20201231-20231231_20201215_GE_Cross-border related 
+                  infrastructure 2020-2023 ENG_1.pdf
                 - 20210101-20211231_20201106_AT_9 1_APG_2021.pdf
                 - 20210101-20211231_20201130_GB_Article 9 1 report Dec 2020.pdf
                 - 20210101-20211231_20201202_GB_Article 9 1 report Dec 2020.pdf
                 - 20210101-20211231_20201209_SK_EMFIP_9_1_report_SK2021-2023.pdf
-                - 20210101-20221231_20201211_FR_RTE Art 9 Transmission Infrastructure
-                  2021-23 v1.pdf
-                - 20210101-20221231_20201231_FR_RTE Art 9 Transmission Infrastructure
-                  2021-23 v1 3.pdf
+                - 20210101-20221231_20201211_FR_RTE Art 9 Transmission 
+                  Infrastructure 2021-23 v1.pdf
+                - 20210101-20221231_20201231_FR_RTE Art 9 Transmission 
+                  Infrastructure 2021-23 v1 3.pdf
                 - 20210101-20231231_20201118_SI_9 1_ELES_2021-2023.pdf
                 - 20210101-20231231_20201127_RS_TemplateArt9(1)_approved_Apr15-EMS-2021.pdf
-                - 20210101-20231231_20201210_BE_Elia transmission infrastructure development
-                  2021-2023_v201210_02.pdf
-                - 20210101-20231231_20201210_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
+                - 20210101-20231231_20201210_BE_Elia transmission infrastructure
+                  development 2021-2023_v201210_02.pdf
+                - 20210101-20231231_20201210_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2021-2023.pdf
+                - 20210101-20231231_20201215_DE_Amprion_Amprion Art 9 1 
                   2021-2023.pdf
-                - 20210101-20231231_20201215_DE_Amprion_Amprion Art 9 1 2021-2023.pdf
-                - 20210101-20231231_20201215_IT_Terna report 9 1_Dicembre 2020.pdf
-                - 20210101-20231231_20201221_DE_50HzT_Proposta template report 9_1_50Hertz_21122020.pdf
-                - 20210101-20231231_20201221_DE_TenneT_GER_Report_art 9 1_TTG_2021-2023.pdf
-                - 20210101-20231231_20210202_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2021_2023.pdf
-                - 20210101-20231231_20210326_DE_50HzT_Proposta template report 9_1_50Hertz_26032021.pdf
-                - 20210101-20231231_20210701_DE_50HzT_Proposta template report 9_1_50Hertz_01072021.pdf
-                - 20210101-20231231_20210930_PL_PSE transmission infrastructure development
-                  report 2021-2023.pdf
-                - 20210101-20231231_20211001_DE_50HzT_Proposta template report 9_1_50Hertz_01102021.pdf
-                - 20210419-20231231_20210419_IT_Terna report 9 1_Dicembre 2020 20_04_2021.pdf
-                - 20210901-20240901_20211230_DK_Report 9 1 Energinet september 2021.pdf
-                - 20211108-20231231_20211108_IT_Terna report 9 1_Dicembre 2020 08_11_2021.pdf
-                - 20211201-20241201_20211230_DK_Report 9 1 Energinet December 2021.pdf
+                - 20210101-20231231_20201215_IT_Terna report 9 1_Dicembre 
+                  2020.pdf
+                - 20210101-20231231_20201221_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_21122020.pdf
+                - 20210101-20231231_20201221_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2021-2023.pdf
+                - 20210101-20231231_20210202_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2021_2023.pdf
+                - 20210101-20231231_20210326_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_26032021.pdf
+                - 20210101-20231231_20210701_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01072021.pdf
+                - 20210101-20231231_20210930_PL_PSE transmission infrastructure 
+                  development report 2021-2023.pdf
+                - 20210101-20231231_20211001_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01102021.pdf
+                - 20210419-20231231_20210419_IT_Terna report 9 1_Dicembre 2020 
+                  20_04_2021.pdf
+                - 20210901-20240901_20211230_DK_Report 9 1 Energinet september 
+                  2021.pdf
+                - 20211108-20231231_20211108_IT_Terna report 9 1_Dicembre 2020 
+                  08_11_2021.pdf
+                - 20211201-20241201_20211230_DK_Report 9 1 Energinet December 
+                  2021.pdf
                 - 20211215-20211231_20211215_SK_EMFIP_9_1_report_SK2022-2024.pdf
-                - 20211215-20221215_20220307_ES_REE_2022_Report 9 1_For_ES-FR.pdf
-                - 20211215-20221215_20220307_ES_REE_2022_Report 9 1_For_ES-PT.pdf
-                - 20220101-20221231_20211215_GE_Cross-border related infrastructure
-                  2022-2024 ENG.pdf
+                - 20211215-20221215_20220307_ES_REE_2022_Report 9 
+                  1_For_ES-FR.pdf
+                - 20211215-20221215_20220307_ES_REE_2022_Report 9 
+                  1_For_ES-PT.pdf
+                - 20220101-20221231_20211215_GE_Cross-border related 
+                  infrastructure 2022-2024 ENG.pdf
                 - 20220101-20221231_20220223_AT_9 1_APG_2022.pdf
-                - 20220101-20231231_20211214_FR_RTE Art 9 Transmission Infrastructure
-                  2022-24 v1 2.pdf
+                - 20220101-20231231_20211214_FR_RTE Art 9 Transmission 
+                  Infrastructure 2022-24 v1 2.pdf
                 - 20220101-20241231_20211123_RS_TemplateArt9(1)_approved_Apr15-EMS-2022.pdf
                 - 20220101-20241231_20211129_SI_9 1_ELES_2022-2024.pdf
-                - 20220101-20241231_20211202_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2022_2024.pdf
-                - 20220101-20241231_20211214_BE_Elia transmission infrastructure development
-                  2022-2024_v121214_01.pdf
-                - 20220101-20241231_20211214_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2022-2024.pdf
-                - 20220101-20241231_20211215_IT_Terna report 9 1_Dicembre 2021.pdf
-                - 20220101-20241231_20211215_ME_9 1 Transmission infrastructure.pdf
-                - 20220101-20241231_20211223_DE_50HzT_Proposta template report 9_1_50Hertz_23122021.pdf
+                - 20220101-20241231_20211202_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2022_2024.pdf
+                - 20220101-20241231_20211214_BE_Elia transmission infrastructure
+                  development 2022-2024_v121214_01.pdf
+                - 20220101-20241231_20211214_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2022-2024.pdf
+                - 20220101-20241231_20211215_IT_Terna report 9 1_Dicembre 
+                  2021.pdf
+                - 20220101-20241231_20211215_ME_9 1 Transmission 
+                  infrastructure.pdf
+                - 20220101-20241231_20211223_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_23122021.pdf
                 - 20220101-20241231_20211223_LV_Report 9 1 AST_2022-2024.pdf
-                - 20220101-20241231_20211230_10YUA-WEPS-----0_Changes in the system
-                  components and in the internal lines projects are not expected in
-                  2022.pdf
-                - 20220101-20241231_20211230_UA_IPS_Changes in the system components
-                  and in the internal lines projects are not expected in 2022.pdf
+                - 20220101-20241231_20211230_10YUA-WEPS-----0_Changes in the 
+                  system components and in the internal lines projects are not 
+                  expected in 2022.pdf
+                - 20220101-20241231_20211230_UA_IPS_Changes in the system 
+                  components and in the internal lines projects are not expected
+                  in 2022.pdf
                 - 20220101-20241231_20220110_RO_Report related to Art9-1.pdf
-                - 20220101-20241231_20220128_DE_TenneT_GER_Report_art 9 1_TTG_2022-2024.pdf
-                - 20220101-20241231_20220131_DE_Amprion_Amprion Art 9 1 2022-2024.pdf
+                - 20220101-20241231_20220128_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2022-2024.pdf
+                - 20220101-20241231_20220131_DE_Amprion_Amprion Art 9 1 
+                  2022-2024.pdf
                 - 20220101-20241231_20220303_AL_Expansion Projects OST.pdf
-                - 20220101-20241231_20220425_DE_50HzT_Proposta template report 9_1_50Hertz_25042022.pdf
+                - 20220101-20241231_20220425_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_25042022.pdf
                 - 20220101-20241231_20220606_SI_9 1_ELES_2022-2024 update1.pdf
-                - 20220101-20241231_20220628_DE_50HzT_Proposta template report 9_1_50Hertz_28062022.pdf
-                - 20220101-20241231_20221208_DE_50HzT_Proposta template report 9_1_50Hertz_08122022.pdf
-                - 20220101-20241231_20240905_PL_Art 9 1 PSE transmission infrastructure
-                  development report 2022-2024.pdf
-                - 20220208-20241231_20220208_IT_Terna report 9 1_Dicembre 2021_08_02_2022.pdf
-                - 20220301-20250301_20220330_DK_Report 9 1 Energinet March 2022.pdf
-                - 20220422-20241231_20220422_IT_Terna report 9 1_Dicembre 2021_22_04_2022.pdf
-                - 20220524-20241231_20220524_IT_Terna report 9 1_Dicembre 2021_24_05_2022.pdf
-                - 20220805-20220930_20220808_DK_Report 9 1 Energinet August 2022.pdf
-                - 20221001-20221231_20221012_DK_Report 9 1 Energinet Oktober 2022.pdf
-                - 20221104-20241231_20221130_IT_Terna report 9 1_Dicembre 2021_30_11_2022.pdf
+                - 20220101-20241231_20220628_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_28062022.pdf
+                - 20220101-20241231_20221208_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_08122022.pdf
+                - 20220101-20241231_20240905_PL_Art 9 1 PSE transmission 
+                  infrastructure development report 2022-2024.pdf
+                - 20220208-20241231_20220208_IT_Terna report 9 1_Dicembre 
+                  2021_08_02_2022.pdf
+                - 20220301-20250301_20220330_DK_Report 9 1 Energinet March 
+                  2022.pdf
+                - 20220422-20241231_20220422_IT_Terna report 9 1_Dicembre 
+                  2021_22_04_2022.pdf
+                - 20220524-20241231_20220524_IT_Terna report 9 1_Dicembre 
+                  2021_24_05_2022.pdf
+                - 20220805-20220930_20220808_DK_Report 9 1 Energinet August 
+                  2022.pdf
+                - 20221001-20221231_20221012_DK_Report 9 1 Energinet Oktober 
+                  2022.pdf
+                - 20221104-20241231_20221130_IT_Terna report 9 1_Dicembre 
+                  2021_30_11_2022.pdf
                 - 20221125-20251231_20221125_NO_Report_9_1-2023_2025.pdf
-                - 20221215-20231215_20231215_ES_REE_2023_Report 9 1_For_ES-PT.pdf
-                - 20230101-20230331_20221216_DK_Report 9 1 Energinet December 2022.pdf
-                - 20230101-20230331_20230331_DK_Report 9 1 Energinet March 2023.pdf
+                - 20221215-20231215_20231215_ES_REE_2023_Report 9 
+                  1_For_ES-PT.pdf
+                - 20230101-20230331_20221216_DK_Report 9 1 Energinet December 
+                  2022.pdf
+                - 20230101-20230331_20230331_DK_Report 9 1 Energinet March 
+                  2023.pdf
                 - 20230101-20231231_20221123_AT_9 1_APG_2023.pdf
-                - 20230101-20241231_20221215_FR_RTE Art 9 Transmission Infrastructure
-                  2023-2025.pdf
+                - 20230101-20241231_20221215_FR_RTE Art 9 Transmission 
+                  Infrastructure 2023-2025.pdf
                 - 20230101-20251231_20221202_RS_TemplateArt9(1)_approved_Apr15-EMS-2023.pdf
-                - 20230101-20251231_20221213_BE_Elia transmission infrastructure development
-                  2023-2025_v221205_01.pdf
-                - 20230101-20251231_20221213_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
+                - 20230101-20251231_20221213_BE_Elia transmission infrastructure
+                  development 2023-2025_v221205_01.pdf
+                - 20230101-20251231_20221213_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2023-2025.pdf
+                - 20230101-20251231_20221215_IT_Terna report 9 1_Dicembre 
+                  2022_15_12_2022.pdf
+                - 20230101-20251231_20230106_DE_Amprion_Amprion Art 9 1 
                   2023-2025.pdf
-                - 20230101-20251231_20221215_IT_Terna report 9 1_Dicembre 2022_15_12_2022.pdf
-                - 20230101-20251231_20230106_DE_Amprion_Amprion Art 9 1 2023-2025.pdf
-                - 20230101-20251231_20230117_DE_50HzT_Proposta template report 9_1_50Hertz_17012023.pdf
-                - 20230101-20251231_20230123_DE_TenneT_GER_Report_art 9 1_TTG_2023-2025.pdf
-                - 20230101-20251231_20230401_DE_50HzT_Proposta template report 9_1_50Hertz_01042023.pdf
-                - 20230101-20251231_20230501_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2023_2025.pdf
-                - 20230101-20251231_20230523_DE_TenneT_GER_Report_art 9 1_TTG_2023-2025.pdf
-                - 20230101-20251231_20230622_DE_50HzT_Proposta template report 9_1_50Hertz_22062023.pdf
-                - 20230101-20251231_20230626_BE_Elia transmission infrastructure development
-                  2023-2025_v221205_02.pdf
-                - 20230101-20251231_20230913_BE_Elia transmission infrastructure development
-                  2023-2025_v221205_03.pdf
-                - 20230101-20251231_20230929_DE_50HzT_Proposta template report 9_1_50Hertz_29092023.pdf
-                - 20230101-20251231_20240905_PL_Art 9 1 PSE transmission infrastructure
-                  development report 2023-2025.pdf
-                - 20230209-20251231_20230209_LT_LITGRID transmission infrastructure
-                  development report 2023-2025.pdf
-                - 20230322-20251231_20230322_IT_Terna report 9 1_Dicembre 2022_22_03_2023.pdf
-                - 20230401-20230630_20231114_DK_Report 9 1 Energinet June 2023.pdf
-                - 20230701-20230930_20231114_DK_Report 9 1 Energinet September 2023.pdf
-                - 20230802-20251231_20230802_IT_Terna report 9 1_Dicembre 2022_02_08_2023.pdf
-                - 20231001-20231231_20240123_DK_Report 9 1 Energinet January 2024.pdf
+                - 20230101-20251231_20230117_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_17012023.pdf
+                - 20230101-20251231_20230123_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2023-2025.pdf
+                - 20230101-20251231_20230401_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01042023.pdf
+                - 20230101-20251231_20230501_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2023_2025.pdf
+                - 20230101-20251231_20230523_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2023-2025.pdf
+                - 20230101-20251231_20230622_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_22062023.pdf
+                - 20230101-20251231_20230626_BE_Elia transmission infrastructure
+                  development 2023-2025_v221205_02.pdf
+                - 20230101-20251231_20230913_BE_Elia transmission infrastructure
+                  development 2023-2025_v221205_03.pdf
+                - 20230101-20251231_20230929_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_29092023.pdf
+                - 20230101-20251231_20240905_PL_Art 9 1 PSE transmission 
+                  infrastructure development report 2023-2025.pdf
+                - 20230209-20251231_20230209_LT_LITGRID transmission 
+                  infrastructure development report 2023-2025.pdf
+                - 20230322-20251231_20230322_IT_Terna report 9 1_Dicembre 
+                  2022_22_03_2023.pdf
+                - 20230401-20230630_20231114_DK_Report 9 1 Energinet June 
+                  2023.pdf
+                - 20230701-20230930_20231114_DK_Report 9 1 Energinet September 
+                  2023.pdf
+                - 20230802-20251231_20230802_IT_Terna report 9 1_Dicembre 
+                  2022_02_08_2023.pdf
+                - 20231001-20231231_20240123_DK_Report 9 1 Energinet January 
+                  2024.pdf
                 - 20231214-20261231_20231214_NO_Report_9_1_2024-2026.pdf
-                - 20231215-20241215_20231215_ES_REE_2024_Report 9 1_For_ES-FR.pdf
-                - 20231215-20241215_20231215_ES_REE_2024_Report 9 1_For_ES-PT.pdf
-                - 20231215-20261231_20231215_IT_Terna report 9 1_Dicembre 2023_15_12_2023.pdf
+                - 20231215-20241215_20231215_ES_REE_2024_Report 9 
+                  1_For_ES-FR.pdf
+                - 20231215-20241215_20231215_ES_REE_2024_Report 9 
+                  1_For_ES-PT.pdf
+                - 20231215-20261231_20231215_IT_Terna report 9 1_Dicembre 
+                  2023_15_12_2023.pdf
                 - 20240101-20241231_20231115_AT_9 1_APG_2024.pdf
-                - 20240101-20261231_20231130_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2024-2026.pdf
-                - 20240101-20261231_20231201_DE_50HzT_Proposta template report 9_1_50Hertz_01122023.pdf
-                - 20240101-20261231_20231213_BE_Elia transmission infrastructure development
-                  2024-2026 v01.pdf
-                - 20240101-20261231_20231215_DE_TenneT_GER_Report_art 9 1_TTG_2024-2026.pdf
+                - 20240101-20261231_20231130_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2024-2026.pdf
+                - 20240101-20261231_20231201_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01122023.pdf
+                - 20240101-20261231_20231213_BE_Elia transmission infrastructure
+                  development 2024-2026 v01.pdf
+                - 20240101-20261231_20231215_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2024-2026.pdf
                 - 20240101-20261231_20231215_SE_Report_9_1_2024-2026.pdf
-                - 20240101-20261231_20231222_FR_RTE Art 9 Transmission Infrastructure
-                  2024-26 v1 0.pdf
-                - 20240101-20261231_20240101_BA_Report 9(1) Transmission infrastructure
-                  development_NOSBiH 2024_2026.pdf
-                - 20240101-20261231_20240312_BE_Elia transmission infrastructure development
-                  2024-2026 v02.pdf
-                - 20240101-20261231_20240328_DE_50HzT_Proposta template report 9_1_50Hertz_28032024.pdf
-                - 20240101-20261231_20240701_DE_50HzT_Proposta template report 9_1_50Hertz_01072024.pdf
-                - 20240101-20261231_20240905_PL_Art 9 1 PSE transmission infrastructure
-                  development report 2024-2026.pdf
-                - 20240101-20261231_20240930_DE_50HzT_Proposta template report 9_1_50Hertz_30092024.pdf
+                - 20240101-20261231_20231222_FR_RTE Art 9 Transmission 
+                  Infrastructure 2024-26 v1 0.pdf
+                - 20240101-20261231_20240101_BA_Report 9(1) Transmission 
+                  infrastructure development_NOSBiH 2024_2026.pdf
+                - 20240101-20261231_20240312_BE_Elia transmission infrastructure
+                  development 2024-2026 v02.pdf
+                - 20240101-20261231_20240328_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_28032024.pdf
+                - 20240101-20261231_20240701_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_01072024.pdf
+                - 20240101-20261231_20240905_PL_Art 9 1 PSE transmission 
+                  infrastructure development report 2024-2026.pdf
+                - 20240101-20261231_20240930_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_30092024.pdf
                 - 20240612-20261231_20240612_UA_IPS_Report_9_1_2024-2026.pdf
-                - 20241008-20260101_20241008_CZ_Art 9 1 CEPS transmission infrastructure
-                  development report 2024-2026.pdf
-                - 20241215-20251215_20250228_ES_REE_2025_Report 9 1_For_ES-FR.pdf
-                - 20241215-20251215_20250228_ES_REE_2025_Report 9 1_For_ES-PT.pdf
+                - 20241008-20260101_20241008_CZ_Art 9 1 CEPS transmission 
+                  infrastructure development report 2024-2026.pdf
+                - 20241215-20251215_20250228_ES_REE_2025_Report 9 
+                  1_For_ES-FR.pdf
+                - 20241215-20251215_20250228_ES_REE_2025_Report 9 
+                  1_For_ES-PT.pdf
                 - 20250101-20251231_20241128_AT_9 1_APG_2025.pdf
-                - 20250101-20271231_20241209_BE_Elia transmission infrastructure development
-                  2025-2027 v01.pdf
-                - 20250101-20271231_20241213_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2025-2027.pdf
-                - 20250101-20271231_20241213_IT_Terna report 9 1_Dicembre 2023_15_12_2024.pdf
+                - 20250101-20271231_20241209_BE_Elia transmission infrastructure
+                  development 2025-2027 v01.pdf
+                - 20250101-20271231_20241213_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2025-2027.pdf
+                - 20250101-20271231_20241213_IT_Terna report 9 1_Dicembre 
+                  2023_15_12_2024.pdf
                 - 20250101-20271231_20241213_NO_Report_TR_9 1 2025-2027.pdf
                 - 20250101-20271231_20241216_RS_TemplateArt9(1)_approved_Apr15-EMS-2024.pdf
-                - 20250101-20271231_20241231_DE_50HzT_Proposta template report 9_1_50Hertz_31122024.pdf
-                - 20250101-20271231_20250113_DE_TenneT_GER_Report_art 9 1_TTG_2025-2027.pdf
-                - 20250101-20271231_20250303_PL_Art 9 1 PSE transmission infrastructure
-                  development report 2025-2027.pdf
-                - 20250101-20271231_20250331_DE_50HzT_Proposta template report 9_1_50Hertz_31032025.pdf
-                - 20250101-20271231_20250630_DE_50HzT_Proposta template report 9_1_50Hertz_30062025.pdf
-                - 20250101-20271231_20250915_BE_Elia transmission infrastructure development
-                  2025-2027 v02.pdf
+                - 20250101-20271231_20241231_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_31122024.pdf
+                - 20250101-20271231_20250113_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2025-2027.pdf
+                - 20250101-20271231_20250303_PL_Art 9 1 PSE transmission 
+                  infrastructure development report 2025-2027.pdf
+                - 20250101-20271231_20250331_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_31032025.pdf
+                - 20250101-20271231_20250630_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_30062025.pdf
+                - 20250101-20271231_20250915_BE_Elia transmission infrastructure
+                  development 2025-2027 v02.pdf
                 - 20250101-20281231_20250218_SI_9 1_ELES_2025-2028.pdf
-                - 20251001-20301231_20251001_LT_LITGRID transmission infrastructure
-                  development report 2025 1 1.pdf
-                - 20251215-20261215_20260525_ES_REE_2026_Report 9 1_For_ES-FR.pdf
-                - 20251215-20261215_20260525_ES_REE_2026_Report 9 1_For_ES-PT.pdf
+                - 20251001-20301231_20251001_LT_LITGRID transmission 
+                  infrastructure development report 2025 1 1.pdf
+                - 20251215-20261215_20260525_ES_REE_2026_Report 9 
+                  1_For_ES-FR.pdf
+                - 20251215-20261215_20260525_ES_REE_2026_Report 9 
+                  1_For_ES-PT.pdf
                 - 20260101-20261231_20251104_AT_9 1_APG_2026.pdf
-                - 20260101-20261231_20251212_DK_Report 9 1 Energinet December 2025.pdf
-                - 20260101-20281231_20250929_DE_50HzT_Proposta template report 9_1_50Hertz_30092025.pdf
-                - 20260101-20281231_20251208_BE_Elia transmission infrastructure development
-                  2026-2028 v01.pdf
-                - 20260101-20281231_20251215_DE_TransnetBW_EU-VO-543-2013_Art 9_Report
-                  2026-2028.pdf
-                - 20260101-20281231_20251215_IT_Terna report 9 1_Dicembre 2025_15_12_2025.pdf
-                - 20260101-20281231_20251231_DE_50HzT_Proposta template report 9_1_50Hertz_31122025.pdf
-                - 20260101-20281231_20260116_DE_TenneT_GER_Report_art 9 1_TTG_2026-2028.pdf
-                - 20260101-20281231_20260302_PL_Art 9 1 PSE transmission infrastructure
-                  development report 2026-2028.pdf
-                - 20260101-20281231_20260326_BE_Elia transmission infrastructure development
-                  2026-2028 v02.pdf
-                - 20260101-20281231_20260330_DE_50HzT_Proposta template report 9_1_50Hertz_31032026.pdf
-                - 20260323-20270101_20260323_DK_Report 9 1 Energinet March 2026.pdf
+                - 20260101-20261231_20251212_DK_Report 9 1 Energinet December 
+                  2025.pdf
+                - 20260101-20281231_20250929_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_30092025.pdf
+                - 20260101-20281231_20251208_BE_Elia transmission infrastructure
+                  development 2026-2028 v01.pdf
+                - 20260101-20281231_20251215_DE_TransnetBW_EU-VO-543-2013_Art 
+                  9_Report 2026-2028.pdf
+                - 20260101-20281231_20251215_IT_Terna report 9 1_Dicembre 
+                  2025_15_12_2025.pdf
+                - 20260101-20281231_20251231_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_31122025.pdf
+                - 20260101-20281231_20260116_DE_TenneT_GER_Report_art 9 
+                  1_TTG_2026-2028.pdf
+                - 20260101-20281231_20260302_PL_Art 9 1 PSE transmission 
+                  infrastructure development report 2026-2028.pdf
+                - 20260101-20281231_20260326_BE_Elia transmission infrastructure
+                  development 2026-2028 v02.pdf
+                - 20260101-20281231_20260330_DE_50HzT_Proposta template report 
+                  9_1_50Hertz_31032026.pdf
+                - 20260323-20270101_20260323_DK_Report 9 1 Energinet March 
+                  2026.pdf
             - ExpansionAndDismantlingProjects_9.1_r3:
                 - 2014_ExpansionAndDismantlingProjects_9.1_r3.csv
                 - 2015_ExpansionAndDismantlingProjects_9.1_r3.csv
@@ -20206,25 +20475,28 @@ environments:
                 - 2025_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
                 - 2026_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
             - Algorithm_12.3.K_r3:
-                - 20181218-20220906_20201207_FCR_FCR overview of the procurement principles.pdf
+                - 20181218-20220906_20201207_FCR_FCR overview of the procurement
+                  principles.pdf
                 - 20191213-20201231_20191213_RR_CZ_RR_Algorithm_2019.pdf
                 - 20210101-20211231_20201217_RR_201020-TERRE_AOF_description.pdf
-                - 20210514-20220405_20210514_IN_20210512 IN_OPTIMISATION ALGORITHM
-                  Description.pdf
-                - 20220406-20240804_20220406_aFRR_20220406_PICASSO Public Algorithm
-                  description_v1 0.pdf
-                - 20220406-infinity_20220406_IN_20220406_IGCC Public Algorithm description_v2
-                  0.pdf
-                - 20220907-20301231_20220906_FCR_FCR overview of the procurement principles_V20220907.pdf
+                - 20210514-20220405_20210514_IN_20210512 IN_OPTIMISATION 
+                  ALGORITHM Description.pdf
+                - 20220406-20240804_20220406_aFRR_20220406_PICASSO Public 
+                  Algorithm description_v1 0.pdf
+                - 20220406-infinity_20220406_IN_20220406_IGCC Public Algorithm 
+                  description_v2 0.pdf
+                - 20220907-20301231_20220906_FCR_FCR overview of the procurement
+                  principles_V20220907.pdf
                 - 20221101-infinity_20221102_mFRR_221101_MARI_AOF_PublicDocumentation.pdf
                 - 20230301-infinity_20230301_RR_230301_TERRE_AOF_PublicDocumentation_v2
                   0.pdf
-                - 20240805-20250522_20240805_aFRR_20240805_PICASSO Public Algorithm
-                  description_v2 0.pdf
-                - 20250523-infinity_20250523_aFRR_PICASSO Public Algorithm description_v4
-                  0.pdf
+                - 20240805-20250522_20240805_aFRR_20240805_PICASSO Public 
+                  Algorithm description_v2 0.pdf
+                - 20250523-infinity_20250523_aFRR_PICASSO Public Algorithm 
+                  description_v4 0.pdf
             - ApprovedMethodologies_12.3.J_r3:
-                - 20240322-infinity_20240322_Nordic_Approved Methodologies-Nordic.pdf
+                - 20240322-infinity_20240322_Nordic_Approved 
+                  Methodologies-Nordic.pdf
             - CommonAnnualReport_12.3.L_r3:
                 - 20200101-20210101_20200916_COMMON_ANNUAL_REPORT_ENTSO-E_Balancing_Report_2020.pdf
                 - 20220101-20230101_20220630_COMMON_ANNUAL_REPORT_2022_ENTSO_E_Balancing_Report_2022.pdf
