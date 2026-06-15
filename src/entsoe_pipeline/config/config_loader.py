@@ -240,7 +240,7 @@ def get_custom_config() -> CustomConfig:
 
 @cache
 def get_landing_bucket_schema() -> list[str]:
-    """Loads and returns the cached list of folder paths from landing_bucket_schema.yml.
+    """Loads and returns the cached list of folder paths from entsoe_fms_folder_schema.yml.
 
     Returns:
         list[str]: Registered landing bucket directory paths.

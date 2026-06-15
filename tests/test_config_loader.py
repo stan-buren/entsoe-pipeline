@@ -113,7 +113,7 @@ def mock_api_limits(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     """Fixture to mock API limits dynamically for all config loader tests."""
     limits_dir = tmp_path / "limits_mock"
     limits_dir.mkdir(parents=True, exist_ok=True)
-    limits_file = limits_dir / "entoe_api_limits.yml"
+    limits_file = limits_dir / "entsoe_api_limits.yml"
 
     mock_limits = {
         "safetimits": {
@@ -588,7 +588,7 @@ def test_get_landing_bucket_schema_success(
             "prod/TP_export/Generation/ActualGenerationOutputPerGenerationUnit_16.1.A_r3",
         ],
     }
-    schema_file = tmp_path / "landing_bucket_schema.yml"
+    schema_file = tmp_path / "entsoe_fms_folder_schema.yml"
     with schema_file.open("w", encoding="utf-8") as f:
         yaml.safe_dump(mock_schema, f)
 
