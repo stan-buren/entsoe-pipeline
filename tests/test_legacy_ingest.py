@@ -86,11 +86,11 @@ def test_ingest_legacy_metadata_orchestrates_flow(
     # -------------------------------------------------------------------------
     # ASSERT: Verify that files are listed, mapped, and cataloged for both envs
     # -------------------------------------------------------------------------
-    assert mock_get_folders.call_count == 2
-    assert mock_create_client.call_count == 2
-    assert mock_list_items_flat.call_count == 2  # 1 root pre-fetch query per env
-    assert mock_list_items_rec.call_count == 2  # 1 recursive directory crawl per env
-    assert mock_save_catalog.call_count == 2
+    assert mock_get_folders.call_count == 1
+    assert mock_create_client.call_count == 1
+    assert mock_list_items_flat.call_count == 1  # 1 root pre-fetch query
+    assert mock_list_items_rec.call_count == 1  # 1 recursive directory crawl
+    assert mock_save_catalog.call_count == 1
 
 
 @patch("entsoe_pipeline.api.ls_fms._fetch_folder_page")

@@ -199,8 +199,36 @@ domains:
         data_quality_issues: Subject to high forecast uncertainty and variations
           in TSO methodologies.
         anomalies:
-          Methodological_Differences: TSOs may apply different criteria for 
-            estimating available capacity and peak load.
+          Methodological_Differences: |
+            TSOs may apply different criteria for estimating available capacity and peak load.
+
+    OperationalAgreementsOfLoadFrequencyControlBlocks_SOGL_184.3_r3:
+      title: "Operational Agreements of Load Frequency Control Blocks [184.3]"
+      oneliner: "Information and documents regarding the operational agreements for Load Frequency Control (LFC) blocks."
+      description: |
+        This data item publishes the operational agreements of Load Frequency Control (LFC) blocks. Rather than providing continuous numerical timeseries data, this section provides regulatory and operational transparency. It hosts or links to the official operational agreements established by Transmission System Operators (TSOs) operating within specific LFC blocks, detailing the rules, dimensioning of reserves, and coordinated actions required to maintain system frequency within the synchronous area.
+      compliance: |
+        The index `SO GL 184.3` refers to Article 184(3) of the System Operation Guideline (SO GL), which mandates the publication of the operational agreements established for each LFC block.
+      suffix: r3
+      physical_meaning: |
+        This item does not contain quantitative physical telemetry or financial timeseries (such as megawatt volumes or EUR/MWh prices). Instead, it represents the structural, legal, and procedural documents governing how TSOs within a specific Load Frequency Control Block coordinate their frequency control mechanisms and reserve capacity management.
+      technical_specification:
+        format_and_frequency_of_extracts: |
+          According to the official ENTSO-E Transparency Platform Help page, this specific data item is **not** available as a CSV extract in the File Management System (FMS) Library. Furthermore, it is **not** accessible via the RESTful API, nor does it have associated XML or XSD schemas. It is solely accessible via the web portal's knowledge base.
+        time_resolution: |
+          Not applicable. The content consists of static or semi-static regulatory and operational documents rather than continuous, granular timeseries data.
+        required_columns: |
+          Not applicable, as there are no flat files or CSV extracts provided for this data item.
+        parsing_key_feature: |
+          There are no structured data files to parse. Analysts and developers cannot use standard data extraction libraries (like `entsoe-py`) or standard HTTP GET/POST API requests to fetch quantitative data for this item.
+        parsing_technical_challenges: |
+          Because it entirely lacks REST API and FMS bulk download support, automated ETL (Extract, Transform, Load) pipelines cannot natively ingest this data. Any tracking of updates to the LFC block operational agreements would require custom web scraping of the ENTSO-E portal or manual monitoring of the relevant knowledge base links.
+        data_quality_issues: |
+          Data quality in this specific context relates purely to document management and version control—ensuring that the ENTSO-E platform provides working links to the most recently approved operational agreements between the respective TSOs.
+        anomalies:
+          No_Machine_Readable_Endpoints: |
+            Similar to the `ApprovedMethodologies_12.3.J_r3` domain, this data item is exclusively document-based and entirely lacks machine-readable endpoints. Data engineering pipelines designed to programmatically loop through all known data item suffixes to download timeseries data will fail or return null responses if they attempt to query this specific identifier via the API or the FMS service.
+
   Generation:
     ActualGenerationOutputPerGenerationUnit_16.1.A_r3:
       title: "Actual Generation Output per Generation Unit [16.1.A]"
@@ -1060,6 +1088,47 @@ domains:
           Despite the `.csv` extension, the files within the File Library are tab-delimited flat files and use UTF-8 encoding.
           An important exception to the standardized naming convention applies to this specific dataset: the data is further grouped by border.
           The filenames follow the mask: `YYYY_MM_DD_OutArea_InArea_OfferedTransferCapacitiesContinuousEvolution_11.1_r3.csv` (e.g., `2024_06_18_IT-CNORTH_IT-CSOUTH_OfferedTransferCapacitiesContinuousEvolution_11.1_r3.csv`).
+        time_resolution: |
+          Depending on the specific market rules, the time step (`ResolutionCode`) in the file may be:
+          * 15 minutes (`PT15M`)
+          * 30 minutes (`PT30M`)
+          * 60 minutes (`PT60M`).
+        required_columns: |
+          The file contains columns for `InstanceCode`, `DeliveryPeriodStart(UTC)`, `DeliveryPeriodEnd(UTC)`, `MTU(UTC)`, the time step `ResolutionCode`, the `ContractType` (Intraday),
+          the 16-digit EIC code of the outgoing zone `OutAreaCode`, `OutAreaDisplayName`, `OutAreaTypeCode` (BZN, CTA, BZA), `OutMapCode`,
+          the 16-digit EIC code of the incoming zone `InAreaCode`, `InAreaDisplayName`, `InAreaTypeCode` (BZN, CTA, BZA), `InMapCode`,
+          the capacity value `Capacity[MW]`, the exact time of the capacity change `EvolutionDateTime(UTC)`, and the record update time `UpdateTime(UTC)`.
+        parsing_key_feature: |
+          Unlike standard capacity files, this dataset relies heavily on the `EvolutionDateTime(UTC)` and `MTU(UTC)` columns. For a single Delivery Period or MTU, there will be multiple rows reflecting how the capacity evolved over the day.
+          Furthermore, geographic duplication exists: the `OutAreaTypeCode` and `InAreaTypeCode` columns contain three possible values (BZN for Bidding Zone, CTA for Control Area, and BZA for Bidding Zone Aggregation).
+        parsing_technical_challenges: |
+          When analyzing the data, prior filtering by `OutAreaTypeCode` and `InAreaTypeCode` (e.g., `WHERE OutAreaTypeCode = 'BZN' AND InAreaTypeCode = 'BZN'`) is mandatory to avoid duplicating values.
+          Data engineers must construct their ETL pipelines to handle the border-specific prefixes in the CSV file names, which deviates from the standard ENTSO-E monthly extract naming conventions.
+          To find the final available capacity for a specific MTU, analysts must group the data by `MTU(UTC)` and filter by the maximum (latest) `EvolutionDateTime(UTC)`.
+        data_quality_issues: |
+          Due to the high volume of capacity updates during continuous intraday trading, these daily files can be exceptionally large. Tracking the true capacity evolution requires careful sorting, as out-of-order updates or technical adjustments by TSOs can generate rapid successions of `EvolutionDateTime` stamps.
+        anomalies:
+          File_Naming_and_Volume: |
+            Because the data is generated daily and split by individual borders, automated scrapers must dynamically discover file names rather than relying on a static YYYY_MM prefix. Missing borders on specific days usually indicate that no intraday capacity changes occurred or that the interconnector was entirely unavailable for trading.
+
+
+    OfferedTransferCapacitiesContinuousEvolution_11.1_r3.1:
+      title: "Offered Transfer Capacities Continuous Evolution [11.1_r3.1]"
+      oneliner: "Daily data detailing the evolution of offered cross-zonal transfer
+        capacities for continuous intraday allocation under schema revision 3.1."
+      description: |
+        This dataset tracks the continuous evolution of offered cross-zonal transfer capacities for the intraday market timeframe, adhering to the updated 3.1 schema. Unlike static capacity datasets, it captures how the available transfer capacity between two geographical areas changes over time due to ongoing continuous intraday trading and capacity recalculations. It provides a highly granular view into the intraday market's liquidity and physical transmission boundaries.
+      compliance: |
+        The index `11.1` directly refers to the relevant article of EU Regulation No 543/2013 on the transparency of electricity markets, which obliges system operators (TSOs) to publish offered cross-zonal transfer capacities.
+      suffix: r3.1
+      physical_meaning: |
+        The dataset represents the available cross-zonal transfer capacity in megawatts (`Capacity[MW]`) for a specific Market Time Unit (`MTU(UTC)`) on a specific border, flowing from the outgoing area to the incoming area. Crucially, it records the exact moment these capacity values evolve or are updated (`EvolutionDateTime(UTC)`) during the continuous intraday trading phase.
+      technical_specification:
+        format_and_frequency_of_extracts: |
+          Data is provided as daily extracts.
+          Despite the `.csv` extension, the files within the File Library are tab-delimited flat files and use UTF-8 encoding.
+          An important exception to the standardized naming convention applies to this specific dataset: the data is further grouped by border.
+          The filenames follow the mask: `YYYY_MM_DD_OutArea_InArea_OfferedTransferCapacitiesContinuousEvolution_11.1_r3.1.csv`.
         time_resolution: |
           Depending on the specific market rules, the time step (`ResolutionCode`) in the file may be:
           * 15 minutes (`PT15M`)
