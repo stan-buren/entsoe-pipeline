@@ -15,9 +15,9 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 from unittest.mock import patch
 
-import pytest
 import yaml
 
 from entsoe_pipeline.fms_metadata.core.overview_tree import (
@@ -85,7 +85,7 @@ def test_expand_relative_paths_nested() -> None:
 
 @patch("entsoe_pipeline.fms_metadata.core.overview_tree.PHYSICAL_CATALOG_DIR")
 def test_build_env_tree_aggregates_local_catalogs(
-    mock_metadata_dir: Path,
+    mock_metadata_dir: Any,
     tmp_path: Path,
 ) -> None:
     """Verifies env tree correctly reads active and legacy catalogs from disk."""
@@ -182,8 +182,8 @@ def test_build_env_tree_aggregates_local_catalogs(
 @patch("entsoe_pipeline.fms_metadata.core.overview_tree.OVERVIEW_TREE_YML")
 @patch("entsoe_pipeline.fms_metadata.core.overview_tree.build_env_tree")
 def test_ingest_overview_tree_metadata_saves_to_yaml(
-    mock_build_env_tree: pytest.Mock,
-    mock_overview_tree_yml: Path,
+    mock_build_env_tree: Any,
+    mock_overview_tree_yml: Any,
     tmp_path: Path,
 ) -> None:
     """Verifies that orchestrator compiles and writes master tree."""

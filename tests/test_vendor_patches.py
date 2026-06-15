@@ -44,9 +44,9 @@ def test_configurable_client_initialization_flow(mocker) -> None:
     # ARRANGE: Set up custom endpoints and mock out Keycloak token fetching
     # -------------------------------------------------------------------------
     custom_base_url = "https://fms.custom-env.entsoe.eu/"
-    custom_token_url = "https://keycloak.custom-env.entsoe.eu/token"  # noqa: S105
+    custom_token_url = "https://keycloak.custom-env.entsoe.eu/token"
     email = "test-user@example.com"
-    password = "secret-password"  # noqa: S105
+    password = "secret-password"
 
     # We mock _update_token on the class level so that super().__init__ does not
     # make actual network calls during testing
@@ -95,9 +95,9 @@ def test_configurable_client_token_update_flow(mocker) -> None:
     # _update_token logic, routing its authentication HTTP POST straight to our mock.
     # -------------------------------------------------------------------------
     custom_base_url = "https://fms.custom-env.entsoe.eu/"
-    custom_token_url = "https://keycloak.custom-env.entsoe.eu/token"  # noqa: S105
+    custom_token_url = "https://keycloak.custom-env.entsoe.eu/token"
     email = "dev-user@entsoe.eu"
-    password = "super-secret-dev-pwd"  # noqa: S105
+    password = "super-secret-dev-pwd"
 
     # Prepare a fake JSON authentication payload mimicking Keycloak
     mock_response = MagicMock(spec=requests.Response)
@@ -139,5 +139,5 @@ def test_configurable_client_token_update_flow(mocker) -> None:
     )
     mock_response.raise_for_status.assert_called_once()
 
-    assert client.access_token == "mocked-jwt-access-token-xyz-123"  # noqa: S105
+    assert client.access_token == "mocked-jwt-access-token-xyz-123"
     assert isinstance(client.expire, pd.Timestamp)

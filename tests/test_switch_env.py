@@ -25,7 +25,7 @@ from pathlib import Path
 
 import pytest
 
-import entsoe_pipeline.config.switch_env as se
+import entsoe_pipeline.config.paths as paths
 
 from entsoe_pipeline.config.switch_env import main, switch_environment
 
@@ -59,7 +59,7 @@ def test_switch_environment_success(
     )
     config_file.write_text(initial_content, encoding="utf-8")
 
-    monkeypatch.setattr(se, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
 
     # -------------------------------------------------------------------------
     # ACT: Switch environment to PROD
@@ -85,7 +85,7 @@ def test_switch_environment_file_missing(
     temp_config_dir = tmp_path / "config"
     temp_config_dir.mkdir()
 
-    monkeypatch.setattr(se, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Expect FileNotFoundError when executing switch
@@ -154,7 +154,7 @@ def test_main_cli_file_missing_error(
     temp_config_dir.mkdir()
 
     monkeypatch.setattr(sys, "argv", ["switch_env.py", "PROD"])
-    monkeypatch.setattr(se, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Expect SystemExit(1) and error message on stderr
@@ -183,7 +183,7 @@ def test_main_cli_success(
     config_file.write_text("active_environment: IOP\n", encoding="utf-8")
 
     monkeypatch.setattr(sys, "argv", ["switch_env.py", "PROD"])
-    monkeypatch.setattr(se, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
 
     # -------------------------------------------------------------------------
     # ACT: Run main entry point

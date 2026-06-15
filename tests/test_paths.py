@@ -29,7 +29,7 @@ import pytest
 import entsoe_pipeline.config.paths as paths
 
 from entsoe_pipeline.config.config_loader import load_paths_config
-from entsoe_pipeline.config.paths import find_project_root
+from entsoe_pipeline.config.core import find_project_root
 
 # -----------------------------------------------------------------------------
 # Configuration Constants & Single Source of Truth
