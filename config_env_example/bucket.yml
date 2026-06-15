@@ -1,23 +1,32 @@
 buckets:
-  s3_bucket: your-files-backet-name
-  s3_table_bucket: your-table-backet-name
+  s3_landing_bucket: your-files-backet-name
+  s3_lakehouse_bucket: your-table-backet-name
 
 metadata:
-  s3_bucket:
+  s3_landing_bucket:
     description: |
       Specifies the standard S3 bucket name used for storing raw unstructured datasets
       (such as local or downloaded CSV files, cleaned raw copies, and temporary Parquet dumps).
-      Since standard S3 buckets accept arbitrary file structures, this is perfect for the Raw zone.
+      Since standard S3 buckets accept arbitrary file structures, this is perfect for the Landing zone.
     examples:
-      - "raw-zone"
-    default: "raw-zone"
+      - "landing-zone"
+    default: "landing-zone"
     type: "string"
-  s3_table_bucket:
+    data_engineering_meaning: |
+      This is our Data Lake (specifically the Landing/Staging zone).
+      It stores raw, unmodified files in their original formats (like CSV) as a single source of truth for history.
+      It scales cost-effectively but lacks transactional safety, schema enforcement, and high-performance SQL query optimizations, meaning it should only be used as an immutable archive.
+  s3_lakehouse_bucket:
     description: |
-      Specifies the specialized S3 Table Bucket name reserved strictly for Iceberg catalog operations.
+      Specifies the specialized S3 Lakehouse Bucket name reserved strictly for Iceberg catalog operations.
       In SeaweedFS, this bucket is mapped 1:1 with the Iceberg REST Catalog to store transactional tables.
       Direct unstructured filesystem-like S3 writes to this bucket will be rejected by the storage gateway.
     examples:
       - "lakehouse"
     default: "lakehouse"
     type: "string"
+    data_engineering_meaning: |-
+      This is our Data Lakehouse.
+      It combines the low-cost, scalable object storage of a Data Lake with the structure, ACID transactional guarantees, schema evolution, and SQL performance of a Data Warehouse.
+      It differs from a Data Lake because it uses table format metadata (Apache Iceberg REST Catalog) to manage commits, track history, and perform query pushdown, rather than relying on raw filesystem directory scans.
+

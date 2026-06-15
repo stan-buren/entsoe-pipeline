@@ -11,9 +11,9 @@ metadata:
       In cloud/production environments, Spark writes directly to remote cloud buckets over HTTPS,
       rendering local host volume mounts completely obsolete.
     examples:
-      - "/mnt/seaweed_data"                     # Standard Linux partition mount
-      - "/Users/username/data/seaweed"          # Typical macOS local folder
-      - "/run/desktop/mnt/host/c/seaweed_data"  # Windows WSL path mapping
-      - ".data/seaweed"                         # Project-relative workspace folder
+      - "/mnt/seaweed_data" # Standard Linux partition mount
+      - "/Users/username/data/seaweed" # Typical macOS local folder
+      - "/run/desktop/mnt/host/c/seaweed_data" # Windows WSL path mapping
+      - ".data/seaweed" # Project-relative workspace folder
     default: ".data/seaweed"
     type: "string"

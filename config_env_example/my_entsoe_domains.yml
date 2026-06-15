@@ -1,0 +1,94 @@
+# Mode of active domains configuration: Default, Custom, or Example
+active_mode: Default
+# Configuration file name (without .yml extension) located in config/domains/examples/ or config/domains/custom/
+# Required if active_mode is Example or Custom.
+config_name: ~
+
+metadata:
+  active_mode:
+    description: |
+      Specifies which domains selection template is active for the data ingestion pipelines.
+      This allows users to download only the files they are interested in, 
+      preventing unnecessary downloads and storage usage.
+
+      Available modes:
+      - Default: Downloads only the most popular active domains.
+        Reads: config/domains/default/my_entsoe_default.yml (falls back to building dynamically if empty).
+      - Custom: Downloads domains based on a user's custom checklist template.
+        Reads: config/domains/custom/{config_name}.yml.
+      - Example: Downloads domains based on a curated example configuration.
+        Reads: config/domains/examples/{config_name}.yml.
+    examples:
+      - "Default"
+      - "Custom"
+      - "Example"
+    default: "Default"
+    type: "string"
+  config_name:
+    description: |
+      Specifies the name of the configuration file to load (without the .yml extension).
+      This field is required when active_mode is set to 'Custom' or 'Example' to select the appropriate checklist.
+    examples:
+      - "entsoe_popular_domains"
+      - "entsoe_test_landing"
+    default: ""
+    type: "string"
+
+    data_engineering_meaning: |
+      We use this configuration to control ingestion scope.
+      - "Default" mode focuses on Load (91% interest),
+        Generation (85% interest),
+        and Transmission (60% interest) domains.
+      - "Custom" allows checking/unchecking domains.
+      - "CustomExtended" is for heavy customization (down to file/folder levels),
+        which is particularly useful for Legacy Publications.
+
+      Research background on popular domains:
+      1. Load — used by 91% of users
+      According to the ENTSO-E Transparency Platform user survey, 
+      understanding the consumption profile is the basis for any analysis.
+      According to the "ENTSO-E domains overview" file, this domain includes:
+        Actual Total Electricity Consumption
+          - ActualTotalLoad_6.1.A_r3.
+        Day-Ahead Load Forecasts
+          - DayAheadTotalLoadForecast_6.1.B_r3.
+        Long-Term Forecasts for the Week, Month, and Year Ahead
+          - TotalLoadForecast_6.1.C_D_E_r3,
+          - YearAheadForecastMargin_8.1_r3.
+
+      2. Generation — used by 85% of users
+      The second most important dataset, allowing for the analysis of the electricity generation structure.
+      It includes the following datasets:
+        Actual generation aggregated by fuel type, such as solar, wind, gas, coal, etc.
+          - AggregatedGenerationPerType_16.1.B_C_r3.
+        Actual generation broken down to specific power plants and units
+          - ActualGenerationOutputPerGenerationUnit_16.1.A_r3.
+        Generation forecasts for solar and wind power plants
+          - GenerationForecastsForWindAndSolar_14.1.D_r3.
+        Installed plant capacity
+          - InstalledGenerationCapacityAggregated_14.1.A_r3,
+          - InstalledGenerationCapacityPerProductionUnit_14.1.B_r3.
+        Filling rate of pumped storage plants and reservoirs
+          - AggregatedFillingRateOfWaterReservoirsAndHydroStoragePlants_16.1.D_r3.
+
+      3. Transmission — used by 60% of users
+      This domain is essential for understanding how electricity physically and commercially moves 
+      between different trading zones in Europe. 
+      It includes:
+        Physical flows between zones
+          - PhysicalFlows_12.1.G_r3.
+        Commercial schedules of supply
+          - CommercialSchedules_12.1.F_r3.
+        Offered and forecasted line capacity
+          - OfferedTransferCapacities,
+          - ForecastedTransferCapacities_11.1_r3.
+        Data on capacity utilization and auction results
+          - UseOfTransferCapacity_12.1.A_r3,
+          - ImplicitAllocationsNetPositions_12.1.E_r3.
+
+      Why are these domains so popular?
+      75% of users use this data for fundamental energy system modeling,
+      56% for in-depth statistical analysis, and 38% for econometric analysis.
+      Building any model (for example, forecasting electricity prices or assessing energy system stability)
+      requires fundamental parameters: how much energy the system needs (Load),
+      where it comes from (Generation), and whether the network can deliver it to the consumer (Transmission).

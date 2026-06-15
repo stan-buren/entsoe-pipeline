@@ -1,0 +1,27 @@
+# Single Source of Truth for popular ENTSO-E domains
+# Used by src/entsoe_pipeline/fms_metadata/ingestion/my_entsoe_domains/default.py
+# To use this template set active_mode to "Default" in config/my_entsoe_domains.yml
+
+selected_domains:
+  Load:
+    - ActualTotalLoad_6.1.A_r3
+    - DayAheadTotalLoadForecast_6.1.B_r3
+    - TotalLoadForecast_6.1.C_D_E_r3
+    - YearAheadForecastMargin_8.1_r3
+  Generation:
+    - AggregatedGenerationPerType_16.1.B_C_r3
+    - ActualGenerationOutputPerGenerationUnit_16.1.A_r3
+    - GenerationForecastsForWindAndSolar_14.1.D_r3
+    - InstalledGenerationCapacityAggregated_14.1.A_r3
+    - InstalledGenerationCapacityPerProductionUnit_14.1.B_r3
+    - AggregatedFillingRateOfWaterReservoirsAndHydroStoragePlants_16.1.D_r3
+  Transmission:
+    - PhysicalFlows_12.1.G_r3
+    - CommercialSchedules_12.1.F_r3
+    - OfferedTransferCapacitiesContinuousEvolution_11.1_r3
+    - OfferedTransferCapacitiesContinuous_11.1_r3
+    - OfferedTransferCapacitiesExplicit_11.1_r3
+    - OfferedTransferCapacitiesImplicit_11.1_r3
+    - ForecastedTransferCapacities_11.1_r3
+    - UseOfTransferCapacity_12.1.A_r3
+    - ImplicitAllocationsNetPositions_12.1.E_r3

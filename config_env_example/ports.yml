@@ -1,6 +1,11 @@
 ports:
   s3_compatible: 8333
   iceberg_catalog: 8181
+  master_http: 9333
+  master_grpc: 19333
+  volume_http: 8080
+  filer_http: 8888
+  filer_grpc: 18888
 
 metadata:
   s3_compatible:
@@ -12,9 +17,9 @@ metadata:
       secure HTTPS endpoints of cloud object stores such as AWS S3 or Google Cloud Storage,
       meaning local port mapping is entirely bypassed.
     examples:
-      - 8333  # Standard SeaweedFS S3 port
-      - 9000  # Default MinIO S3 port
-      - 8080  # Custom developer port override
+      - 8333 # Standard SeaweedFS S3 port
+      - 9000 # Default MinIO S3 port
+      - 8080 # Custom developer port override
     default: 8333
     type: "integer"
 
@@ -26,7 +31,67 @@ metadata:
       Spark connects to this catalog on every transaction to fetch the latest snapshots,
       ensuring ACID guarantees across concurrent read/write queries.
     examples:
-      - 8181  # Default standard REST catalog port
-      - 8081  # Custom catalog port override
+      - 8181 # Default standard REST catalog port
+      - 8081 # Custom catalog port override
     default: 8181
+    type: "integer"
+
+  master_http:
+    description: |
+      Port mapped to the SeaweedFS Master Server HTTP endpoint.
+      This server coordinates volume servers, manages volume assignments, and acts
+      as the primary administrative entrance for SeaweedFS cluster orchestration.
+      Developers can access its Web UI here to monitor status.
+    examples:
+      - 9333 # Standard SeaweedFS Master HTTP port
+      - 9334 # Secondary master port for HA setups
+    default: 9333
+    type: "integer"
+
+  master_grpc:
+    description: |
+      Port mapped to the SeaweedFS Master Server gRPC endpoint.
+      This high-throughput gRPC endpoint is used for inter-service communication
+      between the Master server, Volume servers, and Filer processes, ensuring
+      efficient metadata synchronization, health checks, and cluster consensus.
+    examples:
+      - 19333 # Standard SeaweedFS Master gRPC port
+      - 19334 # Secondary master gRPC port
+    default: 19333
+    type: "integer"
+
+  volume_http:
+    description: |
+      Port mapped to the SeaweedFS Volume Server HTTP endpoint.
+      The volume server handles the physical persistence and retrieval of raw data
+      blocks or chunks directly on the disk. Filer or client applications request read
+      and write operations from these servers using assigned block paths.
+    examples:
+      - 8080 # Standard SeaweedFS Volume HTTP port
+      - 8081 # Secondary volume server HTTP port
+    default: 8080
+    type: "integer"
+
+  filer_http:
+    description: |
+      Port mapped to the SeaweedFS Filer HTTP browser endpoint.
+      Filer provides a logical file system layer on top of raw storage, allowing files to
+      be organized inside hierarchical directories and accessed via a clean HTTP web
+      interface or standard RESTful CRUD requests.
+    examples:
+      - 8888 # Standard SeaweedFS Filer HTTP port
+      - 8889 # Secondary filer HTTP port
+    default: 8888
+    type: "integer"
+
+  filer_grpc:
+    description: |
+      Port mapped to the SeaweedFS Filer gRPC communication endpoint.
+      This port allows high-performance synchronization and metadata exchange between
+      the Filer server and client mount points, database index backends, or replication
+      queues to guarantee near-instantaneous directory indexing operations.
+    examples:
+      - 18888 # Standard SeaweedFS Filer gRPC port
+      - 18889 # Secondary filer gRPC port
+    default: 18888
     type: "integer"

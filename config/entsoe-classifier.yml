@@ -111,10 +111,10 @@ legacy_rules:
     release_name: "Release 3 Archives (R3)"
     decommission_status: "Active Schema Deprecations (In-use but Schema Changed)"
     description: >
-      Contains historical extracts of currently active data items that underwent
-      critical structural changes in their schema, resolution, or definitions.
-      New daily data continues to publish in 'TP_export' under active schemas,
-      while old-structure historical publications are frozen here.
+      Contains historical extracts of currently active data items that underwent critical
+      structural changes in their schema, resolution, or definitions. New daily data
+      continues to publish in 'TP_export' under active schemas, while old-structure
+      historical publications are frozen here.
     patterns:
       - _r3
 
@@ -122,9 +122,9 @@ legacy_rules:
     release_name: "Release 2 Archives (R2)"
     decommission_status: "Fully Decommissioned on 2025-12-11"
     description: >
-      Contains historical data for metrics that have been completely retired
-      and replaced by newer specifications with fundamentally different methodologies
-      (e.g., legacy single-file Redispatching replaced by separate Internal/CrossBorder files).
+      Contains historical data for metrics that have been completely retired and replaced
+      by newer specifications with fundamentally different methodologies (e.g., legacy
+      single-file Redispatching replaced by separate Internal/CrossBorder files).
     patterns:
       - _r2
 
