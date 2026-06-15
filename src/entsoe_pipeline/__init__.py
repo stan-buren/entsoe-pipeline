@@ -14,20 +14,28 @@
 
 """ENTSO-E Data Pipeline library."""
 
+import typing
+
 import entsoe_pipeline.config.paths as _paths
 
 from entsoe_pipeline.config.config_loader import (
     BucketsConfig,
     ClassifierConfig,
+    CustomConfig,
     EntsoeEnvConfig,
+    HostsConfig,
     PipelineConfig,
     PortsConfig,
     RateLimitsConfig,
     RegionConfig,
+    get_active_domains_config,
     get_buckets_config,
     get_classifier_config,
     get_config,
+    get_custom_config,
     get_env_config,
+    get_hosts_config,
+    get_landing_bucket_schema,
     get_limits_config,
     get_paths_config,
     get_ports_config,
@@ -51,20 +59,26 @@ __all__ = [
     "BucketsConfig",
     "ClassifierConfig",
     "ConfigurableEntsoeFileClient",
+    "CustomConfig",
     "EntsoeApiError",
     "EntsoeConfigurationError",
     "EntsoeConnectionError",
     "EntsoeDataValidationError",
     "EntsoeEnvConfig",
     "EntsoePipelineError",
+    "HostsConfig",
     "PipelineConfig",
     "PortsConfig",
     "RateLimitsConfig",
     "RegionConfig",
+    "get_active_domains_config",
     "get_buckets_config",
     "get_classifier_config",
     "get_config",
+    "get_custom_config",
     "get_env_config",
+    "get_hosts_config",
+    "get_landing_bucket_schema",
     "get_limits_config",
     "get_paths_config",
     "get_ports_config",
@@ -72,3 +86,10 @@ __all__ = [
     "setup_logging",
 ]
 __all__.extend(_paths.__all__)
+
+
+def __getattr__(name: str) -> typing.Any:
+    """Allow dynamic attributes for static type checkers."""
+    if name in __all__:
+        return globals().get(name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
