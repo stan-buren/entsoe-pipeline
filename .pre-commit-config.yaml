@@ -51,3 +51,11 @@ repos:
         language: system
         pass_filenames: false
         stages: [pre-push]
+
+      - id: yaml-format
+        name: Format YAML with ruamel.yaml
+        entry: uv run python tests/pre_commit/yaml_format.py
+        language: system
+        types: [yaml]
+        stages: [pre-commit]
+
