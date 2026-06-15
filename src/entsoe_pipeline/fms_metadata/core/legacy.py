@@ -153,9 +153,7 @@ def ingest_legacy_metadata(archive_name: str) -> None:
 
     save_yaml_catalog(output_path, payload)
 
-    stats = compile_env_stats(
-        env, all_env_file_details, api_counter[0]
-    )
+    stats = compile_env_stats(env, all_env_file_details, api_counter[0])
 
     # Print high-level comparative report
     logger.info("=" * 60)

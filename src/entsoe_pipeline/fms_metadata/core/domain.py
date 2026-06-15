@@ -104,9 +104,7 @@ def ingest_domain_metadata(domain_name: str) -> None:
                 raw_items = list_folder_raw_items(client, folder, api_counter)
                 files = [map_raw_fms_item(item) for item in raw_items]
         except Exception:
-            logger.exception(
-                "Error crawling folder %s on environment %s", folder, env
-            )
+            logger.exception("Error crawling folder %s on environment %s", folder, env)
             continue
 
         # Aggregate physical stats dynamically via Layer 3 aggregates compiler
@@ -123,9 +121,7 @@ def ingest_domain_metadata(domain_name: str) -> None:
     save_fms_catalog(output_path, api_counter[0], domain_metadata)
 
     # Compile environmental statistics for comparative summaries
-    stats = compile_env_stats(
-        env, all_env_file_details, api_counter[0]
-    )
+    stats = compile_env_stats(env, all_env_file_details, api_counter[0])
 
     # Print high-level comparative report
     logger.info("=" * 60)
