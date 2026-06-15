@@ -112,6 +112,13 @@ ignore = [
 
     # --- Project structure ---
     "N999",     # Allow non-PEP8 module names (generated dbt files, etc.)
+
+    # --- Stylistic and environment ignores ---
+    "E501",     # Line too long
+    "TRY300",   # Consider moving to else block in try/except
+    "TRY401",   # Redundant exception in logging.exception
+    "PERF403",  # Use dict comprehension instead of for-loop
+    "PLC0415",  # Import outside top level (useful for lazy imports / avoiding circular imports)
 ]
 
 # Allow unused variables when underscore-prefixed
@@ -131,8 +138,16 @@ task-tags = ["TODO", "FIXME", "XXX", "BUG", "HACK", "NOTE", "OPTIMIZE"]
 
 [lint.per-file-ignores]
 # Test files — relax strictness for test helpers and fixtures
-"tests/**/*.py"  = ["S101", "PLR2004", "D103", "D100", "ARG002", "TRY301", "PLR0913"]
-"**/test_*.py"   = ["S101", "PLR2004", "D103", "D100", "ARG002", "TRY301", "PLR0913"]
+"tests/**/*.py"  = [
+    "S101", "PLR2004", "D103", "D100", "ARG002", "TRY301", "PLR0913",
+    "E501", "PTH123", "PLC0415", "TRY401", "PERF403", "PLW2901",
+    "SIM102", "TRY300", "PERF401", "S105", "S110"
+]
+"**/test_*.py"   = [
+    "S101", "PLR2004", "D103", "D100", "ARG002", "TRY301", "PLR0913",
+    "E501", "PTH123", "PLC0415", "TRY401", "PERF403", "PLW2901",
+    "SIM102", "TRY300", "PERF401", "S105", "S110"
+]
 
 # Spark job entry points — complex configs are acceptable
 "jobs/**/*.py"   = ["PLR0915", "PLR0912", "PLR0913"]

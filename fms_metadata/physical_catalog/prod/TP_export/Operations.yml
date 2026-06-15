@@ -2,7 +2,8 @@ generated_at: '2026-05-29T10:05:56Z'
 total_api_requests: 14
 folders:
   ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3:
-    folder_path: /TP_export/ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3/
+    folder_path: 
+      /TP_export/ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3/
     item_count: 7
     sizes:
       original:
@@ -14,7 +15,8 @@ folders:
         bits: 86760
         mb: 0.0103
     files:
-      - name: 2020_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+      - name: 
+          2020_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
         file_id: 3a13562f-69e4-495b-aa20-6a25a6b1e140
         sizes:
           original:
@@ -27,7 +29,8 @@ folders:
             mb: 0.001
         last_updated: '2025-12-12T16:53:20.425Z'
         xxhash: c188e202766111a2c9aeef5568b55ae4
-      - name: 2021_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+      - name: 
+          2021_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
         file_id: eb62635c-4cd7-4126-9a0c-b42dad520d88
         sizes:
           original:
@@ -40,7 +43,8 @@ folders:
             mb: 0.001
         last_updated: '2025-12-12T16:53:20.853Z'
         xxhash: 7f5ebf2bb428d4c5e093c9bcded94f2f
-      - name: 2022_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+      - name: 
+          2022_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
         file_id: d549786e-6939-49aa-9e69-51bfc029ac90
         sizes:
           original:
@@ -53,7 +57,8 @@ folders:
             mb: 0.0009
         last_updated: '2025-12-12T16:53:21.057Z'
         xxhash: 664bb135a6b46536685797849a0e449f
-      - name: 2023_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+      - name: 
+          2023_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
         file_id: e5597b60-38cf-4c05-9e56-7607ff5d4b2a
         sizes:
           original:
@@ -66,7 +71,8 @@ folders:
             mb: 0.0012
         last_updated: '2025-12-12T16:53:21.270Z'
         xxhash: f66fe71e5363acb062f307fa26e88508
-      - name: 2024_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+      - name: 
+          2024_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
         file_id: b1b4e73c-4706-408c-881f-baf2cd6c1ba3
         sizes:
           original:
@@ -79,7 +85,8 @@ folders:
             mb: 0.0022
         last_updated: '2025-12-12T16:53:21.538Z'
         xxhash: a51e0faf496b8084c0e9e9a55381bf9d
-      - name: 2025_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+      - name: 
+          2025_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
         file_id: 40c1d12d-e63e-4f08-9624-b4c720226c61
         sizes:
           original:
@@ -92,7 +99,8 @@ folders:
             mb: 0.0023
         last_updated: '2026-04-16T13:16:32.239Z'
         xxhash: 0049bf025f4967dc2d540a2f2fec0c12
-      - name: 2026_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+      - name: 
+          2026_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
         file_id: 6e151693-fce4-4d91-a825-dde8d743235e
         sizes:
           original:
@@ -118,7 +126,8 @@ folders:
         bits: 88589840
         mb: 10.5607
     files:
-      - name: 20181218-20220906_20201207_FCR_FCR overview of the procurement principles.pdf
+      - name: 20181218-20220906_20201207_FCR_FCR overview of the procurement 
+          principles.pdf
         file_id: bd8a9f00-4ca3-452d-977a-256ea4d97ed8
         sizes:
           original:
@@ -157,7 +166,8 @@ folders:
             mb: 0.1032
         last_updated: '2026-05-13T09:24:20.676Z'
         xxhash: 95d9e68666f2c7e333c27f49df952341
-      - name: 20210514-20220405_20210514_IN_20210512 IN_OPTIMISATION ALGORITHM Description.pdf
+      - name: 20210514-20220405_20210514_IN_20210512 IN_OPTIMISATION ALGORITHM 
+          Description.pdf
         file_id: dfe7e03b-88fe-47f5-98c9-320f7b73ff3c
         sizes:
           original:
@@ -170,8 +180,8 @@ folders:
             mb: 0.1178
         last_updated: '2026-05-13T09:24:20.998Z'
         xxhash: d0f41d820e6c447ce8f91cfebb4b9946
-      - name: 20220406-20240804_20220406_aFRR_20220406_PICASSO Public Algorithm description_v1
-          0.pdf
+      - name: 20220406-20240804_20220406_aFRR_20220406_PICASSO Public Algorithm 
+          description_v1 0.pdf
         file_id: e1d8d6e3-cc68-48dc-9ea5-3be985b29976
         sizes:
           original:
@@ -184,8 +194,8 @@ folders:
             mb: 0.8893
         last_updated: '2026-05-13T09:24:21.511Z'
         xxhash: b1147e75f562cc5f6bb62753701ca828
-      - name: 20220406-infinity_20220406_IN_20220406_IGCC Public Algorithm description_v2
-          0.pdf
+      - name: 20220406-infinity_20220406_IN_20220406_IGCC Public Algorithm 
+          description_v2 0.pdf
         file_id: d3c9cd6a-5487-4175-8c19-744bbfb8dd07
         sizes:
           original:
@@ -198,7 +208,8 @@ folders:
             mb: 0.8853
         last_updated: '2026-05-13T09:24:22.049Z'
         xxhash: 0b5feb6c0e6efceebf661a6a2edcd3d3
-      - name: 20220907-20301231_20220906_FCR_FCR overview of the procurement principles_V20220907.pdf
+      - name: 20220907-20301231_20220906_FCR_FCR overview of the procurement 
+          principles_V20220907.pdf
         file_id: bf99bb06-fd30-4219-9136-584bca9ceb68
         sizes:
           original:
@@ -211,7 +222,8 @@ folders:
             mb: 0.703
         last_updated: '2026-05-13T09:24:22.509Z'
         xxhash: ee245df7da84f2f69b63cb1a6b65fb03
-      - name: 20221101-infinity_20221102_mFRR_221101_MARI_AOF_PublicDocumentation.pdf
+      - name: 
+          20221101-infinity_20221102_mFRR_221101_MARI_AOF_PublicDocumentation.pdf
         file_id: bad3b704-ba57-4c8a-b8d4-f8c9e87902c1
         sizes:
           original:
@@ -224,7 +236,8 @@ folders:
             mb: 2.8843
         last_updated: '2026-05-13T09:24:23.337Z'
         xxhash: f01364d512f0888cc586216d17770be5
-      - name: 20230301-infinity_20230301_RR_230301_TERRE_AOF_PublicDocumentation_v2
+      - name: 
+          20230301-infinity_20230301_RR_230301_TERRE_AOF_PublicDocumentation_v2 
           0.pdf
         file_id: c686527a-190d-4a40-bc86-db3ef2348bf3
         sizes:
@@ -238,8 +251,8 @@ folders:
             mb: 2.4848
         last_updated: '2026-05-13T09:24:24.056Z'
         xxhash: 81fec6e9ca03c9f4bed41da41a777b48
-      - name: 20240805-20250522_20240805_aFRR_20240805_PICASSO Public Algorithm description_v2
-          0.pdf
+      - name: 20240805-20250522_20240805_aFRR_20240805_PICASSO Public Algorithm 
+          description_v2 0.pdf
         file_id: 8a3a5c67-0e7d-44a6-b58d-8727087f0275
         sizes:
           original:
@@ -252,8 +265,8 @@ folders:
             mb: 0.9852
         last_updated: '2026-05-13T09:24:24.603Z'
         xxhash: 61a3f9eca014353f6a49ae8c3b369940
-      - name: 20250523-infinity_20250523_aFRR_PICASSO Public Algorithm description_v4
-          0.pdf
+      - name: 20250523-infinity_20250523_aFRR_PICASSO Public Algorithm 
+          description_v4 0.pdf
         file_id: 822ae1c7-04d0-4ba5-81d9-d330d59f7494
         sizes:
           original:
@@ -279,7 +292,8 @@ folders:
         bits: 3883072
         mb: 0.4629
     files:
-      - name: 20240322-infinity_20240322_Nordic_Approved Methodologies-Nordic.pdf
+      - name: 20240322-infinity_20240322_Nordic_Approved 
+          Methodologies-Nordic.pdf
         file_id: 736ca11c-1c62-4a47-abe2-448ad5c4f887
         sizes:
           original:
@@ -305,7 +319,8 @@ folders:
         bits: 194375600
         mb: 23.1714
     files:
-      - name: 20200101-20210101_20200916_COMMON_ANNUAL_REPORT_ENTSO-E_Balancing_Report_2020.pdf
+      - name: 
+          20200101-20210101_20200916_COMMON_ANNUAL_REPORT_ENTSO-E_Balancing_Report_2020.pdf
         file_id: ceb728bf-44a0-416e-89b1-70123790fba5
         sizes:
           original:
@@ -318,7 +333,8 @@ folders:
             mb: 2.05
         last_updated: '2026-05-13T13:17:18.583Z'
         xxhash: fe9a2a6202a2bc60aea3dd69b48dcfff
-      - name: 20220101-20230101_20220630_COMMON_ANNUAL_REPORT_2022_ENTSO_E_Balancing_Report_2022.pdf
+      - name: 
+          20220101-20230101_20220630_COMMON_ANNUAL_REPORT_2022_ENTSO_E_Balancing_Report_2022.pdf
         file_id: 441071a2-5c93-4549-bdca-c1795a5fe240
         sizes:
           original:
@@ -331,7 +347,8 @@ folders:
             mb: 13.5177
         last_updated: '2026-05-13T13:17:20.892Z'
         xxhash: 2523605f3e5336d0c517eeca0dce7320
-      - name: 20240101-20250101_20240624_COMMON_ANNUAL_REPORT_240628_ENTSO-E_Balancing_Report_2024.pdf
+      - name: 
+          20240101-20250101_20240624_COMMON_ANNUAL_REPORT_240628_ENTSO-E_Balancing_Report_2024.pdf
         file_id: 225cf216-2085-42ec-8a93-b9a8b1c2baa5
         sizes:
           original:
@@ -20703,7 +20720,8 @@ folders:
         last_updated: '2026-01-16T16:15:58.421Z'
         xxhash: 08638e9103a03d53f0ee51e7e0b13f0d
   FrequencyContainmentReserveAmountAndShares_SOGL_187.2_r3:
-    folder_path: /TP_export/FrequencyContainmentReserveAmountAndShares_SOGL_187.2_r3/
+    folder_path: 
+      /TP_export/FrequencyContainmentReserveAmountAndShares_SOGL_187.2_r3/
     item_count: 7
     sizes:
       original:
@@ -24551,7 +24569,8 @@ folders:
         last_updated: '2026-05-29T09:46:08.328Z'
         xxhash: 74bce42d29b5fe55090d724c03faba51
   ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3:
-    folder_path: /TP_export/ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3/
+    folder_path: 
+      /TP_export/ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3/
     item_count: 8
     sizes:
       original:

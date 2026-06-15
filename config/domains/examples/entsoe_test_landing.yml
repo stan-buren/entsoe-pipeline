@@ -1,0 +1,14 @@
+# Curated Example: Selection configuration for test landing sync
+# Used to sync only the Load, Generation, and Transmission domains.
+environment: IOP
+
+selected_domains:
+  - Load:
+      - ActualTotalLoad_6.1.A_r3:
+          - 2026_04_ActualTotalLoad_6.1.A_r3.csv
+  - Generation:
+      - ActualGenerationOutputPerGenerationUnit_16.1.A_r3:
+          - 2026_04_ActualGenerationOutputPerGenerationUnit_16.1.A_r3.csv
+  - Transmission:
+      - CommercialSchedulesNetPositions_12.1.F_r3:
+          - 2026_04_CommercialSchedulesNetPositions_12.1.F_r3.csv

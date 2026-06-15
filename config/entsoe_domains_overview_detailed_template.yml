@@ -1,0 +1,47 @@
+# ENTSO-E Detailed Domain Metadata Blueprint Schema
+# This schema defines the mandatory fields for each domain extract in the business context catalog.
+
+properties:
+  title:
+    type: "string"
+    required: true
+  oneliner:
+    type: "string"
+    required: true
+  description:
+    type: "string"
+    required: true
+  compliance:
+    type: "string"
+    required: true
+  suffix:
+    type: "string"
+    required: true
+  physical_meaning:
+    type: "string"
+    required: true
+  technical_specification:
+    type: "object"
+    required: true
+    properties:
+      format_and_frequency_of_extracts:
+        type: "string"
+        required: true
+      time_resolution:
+        type: "string"
+        required: true
+      required_columns:
+        type: "string"
+        required: true
+      parsing_key_feature:
+        type: "string"
+        required: true
+      parsing_technical_challenges:
+        type: "string"
+        required: true
+      data_quality_issues:
+        type: "string"
+        required: true
+      anomalies:
+        type: "object"
+        required: true

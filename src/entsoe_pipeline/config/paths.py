@@ -12,38 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 
-from pathlib import Path
+import typing
 
-
-def find_project_root() -> Path:
-    """Locates the project root directory deterministically.
-
-    This function resolves the project's root folder utilizing a three-tier
-    fallback strategy: environment variable prioritization, search for a
-    custom marker file, and a static parent lookup as a last resort.
-
-    Returns:
-        Path: The resolved absolute path to the project root directory.
-    """
-    # Tier 1: Production priority (Environment Variable).
-    # If executing inside Docker/Airflow, take the pre-configured root directly.
-    if env_root := os.getenv("PROJECT_ROOT"):
-        return Path(env_root)
-
-    # Tier 2: Repository marker lookup (.project_root).
-    # Resolves upwards from the location of this adapter to trace active directories.
-    current_file = Path(__file__).resolve()
-    for parent in current_file.parents:
-        if (parent / ".project_root").exists():
-            return parent
-
-    # Tier 3: Static fallback calculation.
-    # Since this module resides in 'src/entsoe/config/paths.py', its
-    # great-great-grandparent (parents[3]) is guaranteed to be the project root.
-    return current_file.parents[3]
-
+from entsoe_pipeline.config.core.project_root import find_project_root
 
 # Dynamically load all path constants using config_loader SSOT
 PROJECT_ROOT = find_project_root()
@@ -60,3 +32,10 @@ for _key, _rel_val in _paths_data.items():
 # Expose constants for package-wide utilization
 __all__ = ["PROJECT_ROOT"]
 __all__.extend(list(_paths_data.keys()))
+
+
+def __getattr__(name: str) -> typing.Any:
+    """Allow dynamic attributes for static type checkers."""
+    if name in __all__:
+        return globals().get(name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

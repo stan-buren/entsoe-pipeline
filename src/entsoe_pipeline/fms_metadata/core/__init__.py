@@ -22,16 +22,32 @@ from __future__ import annotations
 
 from entsoe_pipeline.fms_metadata.core.classifier import classify_folder
 from entsoe_pipeline.fms_metadata.core.domain import ingest_domain_metadata
+from entsoe_pipeline.fms_metadata.core.domain_builders import (
+    build_custom_domains_config,
+    build_default_domains_config,
+    build_domains_checklist,
+    build_extended_domains_config,
+)
 from entsoe_pipeline.fms_metadata.core.generation_data import get_generation_timestamp
 from entsoe_pipeline.fms_metadata.core.legacy import ingest_legacy_metadata
+from entsoe_pipeline.fms_metadata.core.machine_generated_warning import (
+    get_my_entsoe_domains_warning,
+    get_yaml_warning,
+)
 from entsoe_pipeline.fms_metadata.core.overview import ingest_overview_metadata
 from entsoe_pipeline.fms_metadata.core.overview_tree import (
     ingest_overview_tree_metadata,
 )
 
 __all__ = [
+    "build_custom_domains_config",
+    "build_default_domains_config",
+    "build_domains_checklist",
+    "build_extended_domains_config",
     "classify_folder",
     "get_generation_timestamp",
+    "get_my_entsoe_domains_warning",
+    "get_yaml_warning",
     "ingest_domain_metadata",
     "ingest_legacy_metadata",
     "ingest_overview_metadata",

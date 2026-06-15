@@ -1,0 +1,32 @@
+auth:
+  storage_path: "/path/to/notebooklm/profiles/default/storage_state.json"
+  auth_source: "file (/path/to/notebooklm/profiles/default/storage_state.json)"
+
+notebooks:
+  entsoe:
+    title: "ENTSO-E"
+    id: "your-notebook-uuid-here"
+    created: "YYYY-MM-DD"
+
+metadata:
+  auth:
+    description: |
+      Authentication credentials and settings for Google NotebookLM API integration.
+      This includes the path to the storage state file containing active session profiles
+      and cookies, as well as the authentication source identifier.
+    examples:
+      - storage_path: "/home/user/.notebooklm/profiles/default/storage_state.json"
+        auth_source: "file (/home/user/.notebooklm/profiles/default/storage_state.json)"
+    type: "object"
+
+  notebooks:
+    description: |
+      Registry of configured Google NotebookLM notebooks mapped by key.
+      For each notebook, this defines the project title, the unique UUID identifier
+      assigned by Google, and the creation date, enabling programmatic catalog access.
+    examples:
+      - entsoe:
+          title: "ENTSO-E"
+          id: "62e20fb1-788f-4adc-a266-28228f8df0e9"
+          created: "2026-06-04"
+    type: "object"

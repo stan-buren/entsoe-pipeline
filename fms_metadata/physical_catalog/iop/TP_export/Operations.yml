@@ -2,7 +2,8 @@ generated_at: '2026-05-29T10:05:53Z'
 total_api_requests: 15
 folders:
   ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3:
-    folder_path: /TP_export/ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3/
+    folder_path: 
+      /TP_export/ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3/
     item_count: 2
     sizes:
       original:
@@ -14,7 +15,8 @@ folders:
         bits: 19200
         mb: 0.0023
     files:
-      - name: 2023_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+      - name: 
+          2023_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
         file_id: 620c8d1a-a477-401a-a3b5-66103fcad4a4
         sizes:
           original:
@@ -27,7 +29,8 @@ folders:
             mb: 0.0012
         last_updated: '2025-11-10T10:21:55.730Z'
         xxhash: 9ea46e32f9c9ad80e56d8cfa4b6c633c
-      - name: 2024_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
+      - name: 
+          2024_ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3.csv
         file_id: 0ec05a40-190d-4ae9-9ab9-cdf6f2ed19d9
         sizes:
           original:
@@ -53,7 +56,8 @@ folders:
         bits: 23478984
         mb: 2.7989
     files:
-      - name: 20181218-20220906_20201207_FCR_FCR overview of the procurement principles.pdf
+      - name: 20181218-20220906_20201207_FCR_FCR overview of the procurement 
+          principles.pdf
         file_id: 20af8823-5cb8-4d85-8283-f83277d77116
         sizes:
           original:
@@ -92,7 +96,8 @@ folders:
             mb: 0.1032
         last_updated: '2026-05-13T13:41:22.458Z'
         xxhash: bc36b1f2500465249098a8c38ce5cae7
-      - name: 20210514-20220405_20210514_IN_20210512 IN_OPTIMISATION ALGORITHM Description.pdf
+      - name: 20210514-20220405_20210514_IN_20210512 IN_OPTIMISATION ALGORITHM 
+          Description.pdf
         file_id: 94d12a08-293c-41ab-9500-88a5cbbe769b
         sizes:
           original:
@@ -105,8 +110,8 @@ folders:
             mb: 0.1178
         last_updated: '2026-05-13T13:41:22.634Z'
         xxhash: 0f593779542bbb4a57140d6bd97cfec0
-      - name: 20220406-20240804_20220406_aFRR_20220406_PICASSO Public Algorithm description_v1
-          0.pdf
+      - name: 20220406-20240804_20220406_aFRR_20220406_PICASSO Public Algorithm 
+          description_v1 0.pdf
         file_id: 266ac763-d4f2-4f63-b3a4-e1b9ddebe29b
         sizes:
           original:
@@ -119,8 +124,8 @@ folders:
             mb: 0.8893
         last_updated: '2026-05-13T13:41:22.819Z'
         xxhash: 68045b14095e0e46a0bf6d2c9e7628ca
-      - name: 20250610-infinity_20250610_IN_TR 11 3 Ramping Restrictions Statnett
-          (2).pdf
+      - name: 20250610-infinity_20250610_IN_TR 11 3 Ramping Restrictions 
+          Statnett (2).pdf
         file_id: f58d574a-9d33-4b95-9fea-c6f93e85b182
         sizes:
           original:
@@ -133,8 +138,8 @@ folders:
             mb: 0.1809
         last_updated: '2026-05-13T13:41:23.085Z'
         xxhash: 280ad3d56d6d99e7d8970ee5e072c6b3
-      - name: 20250908-20250930_20250909_aFRR_PICASSO Public Algorithm description_v4
-          0.pdf
+      - name: 20250908-20250930_20250909_aFRR_PICASSO Public Algorithm 
+          description_v4 0.pdf
         file_id: def9cff9-9756-4e26-aeff-6ecb905a8447
         sizes:
           original:
@@ -160,7 +165,8 @@ folders:
         bits: 5609216
         mb: 0.6687
     files:
-      - name: 20240322-infinity_20240322_Nordic_Approved Methodologies-Nordic.pdf
+      - name: 20240322-infinity_20240322_Nordic_Approved 
+          Methodologies-Nordic.pdf
         file_id: c729a60f-c62c-4d3b-975b-4f3c8adb4b46
         sizes:
           original:
@@ -173,8 +179,8 @@ folders:
             mb: 0.4629
         last_updated: '2026-05-13T13:41:23.552Z'
         xxhash: de7f07a65c6f6f3278291bcd05f6fcd3
-      - name: 20250610-infinity_20250610_CWE_TR 11 3 Ramping Restrictions Statnett
-          (2).pdf
+      - name: 20250610-infinity_20250610_CWE_TR 11 3 Ramping Restrictions 
+          Statnett (2).pdf
         file_id: 6dc0ca5c-2161-4c1f-9f76-eea67db9610f
         sizes:
           original:
@@ -187,7 +193,8 @@ folders:
             mb: 0.1809
         last_updated: '2026-05-13T13:41:23.783Z'
         xxhash: 8e77379707aa3023a33cfd3446735776
-      - name: 20250915-infinity_20250930_Nordic_BALANCING_DOCUMENTS_APPROVEDMETHODOLOGIES_20250101_20260101.pdf
+      - name: 
+          20250915-infinity_20250930_Nordic_BALANCING_DOCUMENTS_APPROVEDMETHODOLOGIES_20250101_20260101.pdf
         file_id: 233545a7-0993-4f79-b45c-95f9912b5f4d
         sizes:
           original:
@@ -213,7 +220,8 @@ folders:
         bits: 195892960
         mb: 23.3523
     files:
-      - name: 20200101-20210101_20200916_COMMON_ANNUAL_REPORT_ENTSO-E_Balancing_Report_2020.pdf
+      - name: 
+          20200101-20210101_20200916_COMMON_ANNUAL_REPORT_ENTSO-E_Balancing_Report_2020.pdf
         file_id: b81a1b81-8c0d-4b61-bd3a-67419f51b48d
         sizes:
           original:
@@ -226,7 +234,8 @@ folders:
             mb: 2.05
         last_updated: '2026-05-13T13:41:24.167Z'
         xxhash: b449f94d4f111aab927866773d032e1a
-      - name: 20220101-20230101_20220630_COMMON_ANNUAL_REPORT_2022_ENTSO_E_Balancing_Report_2022.pdf
+      - name: 
+          20220101-20230101_20220630_COMMON_ANNUAL_REPORT_2022_ENTSO_E_Balancing_Report_2022.pdf
         file_id: 4fccf69d-da6e-4145-a511-c1484201d5df
         sizes:
           original:
@@ -239,7 +248,8 @@ folders:
             mb: 13.5177
         last_updated: '2026-05-13T13:41:24.876Z'
         xxhash: bee437e9898da85333b1f6719d9c0881
-      - name: 20240101-20250101_20240624_COMMON_ANNUAL_REPORT_240628_ENTSO-E_Balancing_Report_2024.pdf
+      - name: 
+          20240101-20250101_20240624_COMMON_ANNUAL_REPORT_240628_ENTSO-E_Balancing_Report_2024.pdf
         file_id: 2863d4a4-1f46-4eb6-a005-0a1807c9191a
         sizes:
           original:
@@ -252,8 +262,8 @@ folders:
             mb: 7.6037
         last_updated: '2026-05-13T13:41:26.586Z'
         xxhash: fddd147ae1ed3a01990953cb6cdf293e
-      - name: 20250101-20260101_20250610_COMMON_ANNUAL_REPORT_TR 11 3 Ramping Restrictions
-          Statnett.pdf
+      - name: 20250101-20260101_20250610_COMMON_ANNUAL_REPORT_TR 11 3 Ramping 
+          Restrictions Statnett.pdf
         file_id: d260d72c-cef2-4dfe-a150-9f13c3e49a70
         sizes:
           original:
@@ -774,7 +784,8 @@ folders:
         last_updated: '2026-04-02T05:07:43.288Z'
         xxhash: 6a60052fb1ff2f983fd32efc0d62ba19
   ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3:
-    folder_path: /TP_export/ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3/
+    folder_path: 
+      /TP_export/ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3/
     item_count: 1
     sizes:
       original:
@@ -786,7 +797,8 @@ folders:
         bits: 0
         mb: 0.0
     files:
-      - name: 2023_05_ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3
+      - name: 
+          2023_05_ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3
         file_id: ''
         sizes:
           original:
@@ -1944,7 +1956,8 @@ folders:
         last_updated: '2025-11-16T14:11:32.050Z'
         xxhash: 728a86e7567d595ac7598f100010f6aa
   ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3:
-    folder_path: /TP_export/ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3/
+    folder_path: 
+      /TP_export/ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3/
     item_count: 3
     sizes:
       original:

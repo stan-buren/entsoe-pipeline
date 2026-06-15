@@ -142,7 +142,7 @@ def main() -> None:
                                 f"imports): {rel_path}"
                             )
 
-            except (UnicodeDecodeError, FileNotFoundError):  # noqa: S110
+            except (UnicodeDecodeError, FileNotFoundError):
                 pass
 
     # -------------------------------------------------------------------------

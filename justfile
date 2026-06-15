@@ -1,17 +1,41 @@
+# =============================================================================
+# DYNAMIC CONFIGURATION EXTRACTION & INHERITANCE
+# =============================================================================
+# In Justfile, variable assignment using backticks (:= `command`) runs the command 
+# in a subshell at load time and stores its stdout as a variable.
+#
+# Here, we bootstrap our centralized Python config loader via `uv run` to parse
+# active YAML configuration files (which are our Single Source of Truth for configs).
+# This avoids hardcoding network ports, storage buckets, and AWS regions in multiple places.
 s3_compatible_port   := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().s3_compatible)"`
 iceberg_catalog_port := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().iceberg_catalog)"`
-s3_bucket            := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_bucket)"`
-s3_table_bucket      := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_table_bucket)"`
+master_http_port     := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().master_http)"`
+master_grpc_port     := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().master_grpc)"`
+volume_http_port     := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().volume_http)"`
+filer_http_port      := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().filer_http)"`
+filer_grpc_port      := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().filer_grpc)"`
+s3_landing_bucket    := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_landing_bucket)"`
+s3_lakehouse_bucket  := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_lakehouse_bucket)"`
 aws_region           := `uv run python -c "from entsoe_pipeline import get_region_config; print(get_region_config().aws_region)"`
 
 
-# Dynamically export variables so Docker Compose automatically inherits them
+# Export the parsed values as environment variables to the parent environment.
+# Because Docker Compose automatically inherits host environment variables,
+# this export ensures that any compose/docker command executed by Just recipes
+# will dynamically read the configured ports, buckets, and regions without
+# relying on hardcoded `.env` files in git.
 export S3_COMPATIBLE_PORT    := s3_compatible_port
 export ICEBERG_CATALOG_PORT  := iceberg_catalog_port
-export S3_BUCKET             := s3_bucket
-export S3_TABLE_BUCKET       := s3_table_bucket
+export MASTER_HTTP_PORT      := master_http_port
+export MASTER_GRPC_PORT      := master_grpc_port
+export VOLUME_HTTP_PORT      := volume_http_port
+export FILER_HTTP_PORT       := filer_http_port
+export FILER_GRPC_PORT       := filer_grpc_port
+export S3_LANDING_BUCKET     := s3_landing_bucket
+export S3_LAKEHOUSE_BUCKET   := s3_lakehouse_bucket
 export AWS_REGION            := aws_region
 export AWS_DEFAULT_REGION    := aws_region
+
 
 
 # =============================================================================
@@ -52,6 +76,11 @@ lakehouse-down:
     docker compose --env-file .env -f docker/docker-compose.yml down
     @echo "[JUST][INIT] Lakehouse services stopped"
 
+# Run the readiness checks to ensure local SeaweedFS is active and writable
+lakehouse-test:
+    @echo "[JUST][TEST] Checking if local Lakehouse storage is ready..."
+    uv run pytest tests/jobs/test_seaweedfs_ready.py -v --no-cov
+
 # Show logs from all running containers
 lakehouse-logs:
     docker compose --env-file .env -f docker/docker-compose.yml logs -f
@@ -79,8 +108,14 @@ ruff-check:
 # Run Ruff auto-formatting and auto-fixes
 ruff-fix:
     @echo "[JUST][LINT] Applying automatic fixes and formatting with Ruff..."
-    uv run ruff check --fix --unsafe-fixes
     uv run ruff format
+    uv run ruff check --fix --unsafe-fixes
+
+# Run ruamel.yaml via pre-commit to auto-format all YAML configuration files
+yamlfmt:
+    @echo "[JUST][LINT] Formatting YAML configuration files with ruamel.yaml..."
+    uv run pre-commit run yaml-format --all-files
+
 
 # Run static type checking using ty
 ty:
@@ -88,7 +123,7 @@ ty:
     uv run ty check src tests jobs
 
 # Run linting, type checking, and tests
-lint: ruff-check ty test
+lint: ruff-check ty yamlfmt
 
 # Run security checks
 security: trivy

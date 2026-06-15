@@ -46,9 +46,9 @@ def test_create_fms_client_defaults_to_active_config(
     mock_config = MagicMock()
     mock_config.environment_name = "IOP"
     mock_config.email = "default@example.com"
-    mock_config.password = "default_pwd"  # noqa: S105
+    mock_config.password = "default_pwd"
     mock_config.base_url = "https://fms.default.eu/"
-    mock_config.token_url = "https://keycloak.default.eu/token"  # noqa: S105
+    mock_config.token_url = "https://keycloak.default.eu/token"
     mock_get_env_config.return_value = mock_config
 
     mock_client_instance = MagicMock()

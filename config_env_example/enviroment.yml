@@ -22,8 +22,8 @@ metadata:
       Specifies the currently active ENTSO-E deployment platform environment key.
       The pipeline will fetch credentials and target URLs defined under this environment.
     examples:
-      - "IOP"   # Staging / Interoperability Platform for integration testing
-      - "PROD"  # Production Platform containing actual commercial and physical grid data
+      - "IOP" # Staging / Interoperability Platform for integration testing
+      - "PROD" # Production Platform containing actual commercial and physical grid data
     default: "PROD"
     type: "string"
   environments:

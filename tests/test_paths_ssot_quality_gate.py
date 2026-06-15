@@ -29,7 +29,12 @@ import pytest
 from entsoe_pipeline import SRC_DIR, TESTS_DIR
 
 # Locate the config package directory to exempt paths.py from checks
-EXEMPT_FILES = {"paths.py", "test_paths.py", "test_paths_ssot_quality_gate.py"}
+EXEMPT_FILES = {
+    "paths.py",
+    "project_root.py",
+    "test_paths.py",
+    "test_paths_ssot_quality_gate.py",
+}
 
 
 def find_all_source_modules() -> list[Path]:
@@ -101,12 +106,12 @@ def test_script_contains_no_raw_path_definitions(file_path: Path) -> None:
             "In-place os.path resolution relative to __file__. "
             "All repository path resolution must be centralized in paths.py."
         ),
-        r'Path\(\s*["\'](fms_metadata|\.data|config_env|config_env_example|tests|docs)["\']\s*\)': (  # noqa: E501
+        r'Path\(\s*["\'](fms_metadata|\.data|config_env|config_env_example|tests|docs)["\']\s*\)': (
             "Direct instantiation of a hardcoded path pointing to a repository folder. "
             "Please import the pre-defined path constant from paths.py instead."
         ),
         r'Path\(\s*["\'](?:\.env|\.project_root)["\']\s*\)': (
-            "Direct instantiation of a hardcoded path pointing to configuration/metadata files. "  # noqa: E501
+            "Direct instantiation of a hardcoded path pointing to configuration/metadata files. "
             "Please import the pre-defined path constant from paths.py instead."
         ),
         r'Path\(\s*["\']\.\./': (

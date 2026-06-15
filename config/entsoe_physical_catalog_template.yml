@@ -9,7 +9,7 @@ root_properties:
   generated_at:
     type: "string"
     required: true
-    format: "date-time"  # ISO 8601 UTC date-time string
+    format: "date-time" # ISO 8601 UTC date-time string
   total_api_requests:
     type: "integer"
     required: true
@@ -24,7 +24,7 @@ folder_schema:
   folder_path:
     type: "string"
     required: true
-    pattern: "^/.+/$"   # Standard absolute FMS path structure
+    pattern: "^/.+/$" # Standard absolute FMS path structure
   item_count:
     type: "integer"
     required: true
@@ -51,7 +51,7 @@ folder_schema:
             minimum: 0.0
       compressed:
         type: "object"
-        required: false  # Optional metric (e.g. absent in some frozen uncompressed archives)
+        required: false # Optional metric (e.g. absent in some frozen uncompressed archives)
         properties:
           bytes:
             type: "integer"
@@ -77,7 +77,7 @@ file_schema:
   file_id:
     type: "string"
     required: true
-    allow_empty: true    # Can be blank if cataloging missing/empty files
+    allow_empty: true # Can be blank if cataloging missing/empty files
   sizes:
     type: "object"
     required: true
@@ -100,7 +100,7 @@ file_schema:
             minimum: 0.0
       compressed:
         type: "object"
-        required: false  # Optional metric
+        required: false # Optional metric
         properties:
           bytes:
             type: "integer"
@@ -121,4 +121,4 @@ file_schema:
   xxhash:
     type: "string"
     required: true
-    pattern: "^[a-f0-9]{32}$"  # Standard 128-bit xxhash hex digest
+    pattern: "^[a-f0-9]{32}$" # Standard 128-bit xxhash hex digest

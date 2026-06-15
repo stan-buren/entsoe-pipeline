@@ -30,9 +30,12 @@ import entsoe_pipeline.config.paths as paths
 
 from entsoe_pipeline import (
     PortsConfig,
+    get_active_domains_config,
     get_buckets_config,
     get_config,
     get_env_config,
+    get_hosts_config,
+    get_landing_bucket_schema,
     get_limits_config,
     get_ports_config,
     get_region_config,
@@ -45,6 +48,7 @@ def _create_mock_configs(
     ports_data: dict | None = None,
     buckets_data: dict | None = None,
     region_data: dict | None = None,
+    hosts_data: dict | None = None,
 ) -> None:
     """Helper to populate an isolated config directory with test configurations."""
     # Write environment.yml
@@ -86,13 +90,22 @@ def _create_mock_configs(
     with region_file.open("w", encoding="utf-8") as f:
         yaml.safe_dump({"region": region_data if region_data is not None else {}}, f)
 
+    # Write hosts.yml
+    hosts_file = config_dir / "hosts.yml"
+    with hosts_file.open("w", encoding="utf-8") as f:
+        yaml.safe_dump({"hosts": hosts_data if hosts_data is not None else {}}, f)
+
 
 @pytest.fixture(autouse=True)
 def clear_config_caches() -> Iterator[None]:
     """Fixture to clear configuration caches before and after each test."""
     get_config.cache_clear()
+    get_landing_bucket_schema.cache_clear()
+    get_active_domains_config.cache_clear()
     yield
     get_config.cache_clear()
+    get_landing_bucket_schema.cache_clear()
+    get_active_domains_config.cache_clear()
 
 
 @pytest.fixture(autouse=True)
@@ -135,17 +148,35 @@ def test_ports_config_creation() -> None:
     # -------------------------------------------------------------------------
     s3_port = 9000
     catalog_port = 8000
+    m_http = 9333
+    m_grpc = 19333
+    v_http = 8080
+    f_http = 8888
+    f_grpc = 18888
 
     # -------------------------------------------------------------------------
     # ACT: Instantiate PortsConfig directly
     # -------------------------------------------------------------------------
-    config = PortsConfig(s3_compatible=s3_port, iceberg_catalog=catalog_port)
+    config = PortsConfig(
+        s3_compatible=s3_port,
+        iceberg_catalog=catalog_port,
+        master_http=m_http,
+        master_grpc=m_grpc,
+        volume_http=v_http,
+        filer_http=f_http,
+        filer_grpc=f_grpc,
+    )
 
     # -------------------------------------------------------------------------
     # ASSERT: Verify matching field values
     # -------------------------------------------------------------------------
     assert config.s3_compatible == s3_port
     assert config.iceberg_catalog == catalog_port
+    assert config.master_http == m_http
+    assert config.master_grpc == m_grpc
+    assert config.volume_http == v_http
+    assert config.filer_http == f_http
+    assert config.filer_grpc == f_grpc
 
 
 # =============================================================================
@@ -161,15 +192,28 @@ def test_get_config_success(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> 
     temp_config_dir = tmp_path / "config"
     temp_config_dir.mkdir()
 
-    custom_ports = {"s3_compatible": 9999, "iceberg_catalog": 7777}
-    custom_buckets = {"s3_bucket": "custom-raw", "s3_table_bucket": "custom-lake"}
+    custom_ports = {
+        "s3_compatible": 9999,
+        "iceberg_catalog": 7777,
+        "master_http": 9334,
+        "master_grpc": 19334,
+        "volume_http": 8081,
+        "filer_http": 8889,
+        "filer_grpc": 18889,
+    }
+    custom_buckets = {
+        "s3_landing_bucket": "custom-raw",
+        "s3_lakehouse_bucket": "custom-lake",
+    }
     custom_region = {"aws_region": "eu-west-1"}
+    custom_hosts = {"seaweedfs": "custom-sw", "iceberg_catalog": "custom-ic"}
 
     _create_mock_configs(
         temp_config_dir,
         ports_data=custom_ports,
         buckets_data=custom_buckets,
         region_data=custom_region,
+        hosts_data=custom_hosts,
     )
 
     monkeypatch.setenv("IOP_API_TOKEN", "mock-token")
@@ -196,16 +240,23 @@ def test_get_config_success(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> 
     assert config.limits.fms_api_requests_per_minute == 50
     assert config.limits.ban_duration_seconds == 300
 
-    assert config.env_config.token == "mock-token"  # noqa: S105
+    assert config.env_config.token == "mock-token"
     assert config.env_config.email == "mock-email"
-    assert config.env_config.password == "mock-pwd"  # noqa: S105
+    assert config.env_config.password == "mock-pwd"
     assert config.env_config.base_url == "https://fms.iop-env.entsoe.eu/"
 
     assert config.ports.s3_compatible == 9999
     assert config.ports.iceberg_catalog == 7777
-    assert config.buckets.s3_bucket == "custom-raw"
-    assert config.buckets.s3_table_bucket == "custom-lake"
+    assert config.ports.master_http == 9334
+    assert config.ports.master_grpc == 19334
+    assert config.ports.volume_http == 8081
+    assert config.ports.filer_http == 8889
+    assert config.ports.filer_grpc == 18889
+    assert config.buckets.s3_landing_bucket == "custom-raw"
+    assert config.buckets.s3_lakehouse_bucket == "custom-lake"
     assert config.region.aws_region == "eu-west-1"
+    assert config.hosts.seaweedfs == "custom-sw"
+    assert config.hosts.iceberg_catalog == "custom-ic"
 
 
 def test_get_config_caching_and_delegation_identity(
@@ -232,6 +283,7 @@ def test_get_config_caching_and_delegation_identity(
     buckets_ref = get_buckets_config()
     region_ref = get_region_config()
     ports_ref = get_ports_config()
+    hosts_ref = get_hosts_config()
     env_ref = get_env_config()
     limits_ref = get_limits_config()
 
@@ -245,6 +297,7 @@ def test_get_config_caching_and_delegation_identity(
     assert buckets_ref is config_1.buckets
     assert region_ref is config_1.region
     assert ports_ref is config_1.ports
+    assert hosts_ref is config_1.hosts
     assert env_ref is config_1.env_config
     assert limits_ref is config_1.limits
 
@@ -265,6 +318,7 @@ def test_get_config_sub_configs_fallback(
         ports_data={},
         buckets_data={},
         region_data={},
+        hosts_data={},
     )
 
     monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
@@ -280,9 +334,40 @@ def test_get_config_sub_configs_fallback(
     # -------------------------------------------------------------------------
     assert config.ports.s3_compatible == 8333
     assert config.ports.iceberg_catalog == 8181
-    assert config.buckets.s3_bucket == "raw-zone"
-    assert config.buckets.s3_table_bucket == "lakehouse"
+    assert config.ports.master_http == 9333
+    assert config.ports.master_grpc == 19333
+    assert config.ports.volume_http == 8080
+    assert config.ports.filer_http == 8888
+    assert config.ports.filer_grpc == 18888
+    assert config.buckets.s3_landing_bucket == "landing-zone"
+    assert config.buckets.s3_lakehouse_bucket == "lakehouse"
     assert config.region.aws_region == "us-east-1"
+    assert config.hosts.seaweedfs == "localhost"
+    assert config.hosts.iceberg_catalog == "localhost"
+
+
+def test_get_config_missing_hosts_file(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    """Verify get_config raises FileNotFoundError if hosts.yml is missing."""
+    # -------------------------------------------------------------------------
+    # ARRANGE: Write mocks, then delete hosts.yml
+    # -------------------------------------------------------------------------
+    temp_config_dir = tmp_path / "config"
+    temp_config_dir.mkdir()
+    _create_mock_configs(temp_config_dir)
+
+    (temp_config_dir / "hosts.yml").unlink()
+
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
+
+    # -------------------------------------------------------------------------
+    # ACT & ASSERT: Verify FileNotFoundError raises on missing hosts file
+    # -------------------------------------------------------------------------
+    with pytest.raises(FileNotFoundError):
+        get_config()
 
 
 def test_get_config_missing_ports_file(
@@ -456,3 +541,106 @@ def test_get_config_missing_required_urls(
     # -------------------------------------------------------------------------
     with pytest.raises(ValueError, match="must contain both 'base_url'"):
         get_config()
+
+
+def test_config_facade_integrity() -> None:
+    """Verify config_loader facade file contains no direct class definitions."""
+    # -------------------------------------------------------------------------
+    # ARRANGE: Locate and parse the config_loader facade file using AST
+    # -------------------------------------------------------------------------
+    import ast
+
+    from entsoe_pipeline.config import config_loader
+
+    facade_path = Path(config_loader.__file__)
+
+    # -------------------------------------------------------------------------
+    # ACT: Read and construct AST tree from config_loader.py
+    # -------------------------------------------------------------------------
+    with facade_path.open(encoding="utf-8") as f:
+        tree = ast.parse(f.read(), filename=str(facade_path))
+
+    class_defs = [
+        node.name for node in ast.walk(tree) if isinstance(node, ast.ClassDef)
+    ]
+
+    # -------------------------------------------------------------------------
+    # ASSERT: Ensure there are no direct class definitions inside the facade
+    # -------------------------------------------------------------------------
+    assert not class_defs, (
+        f"Facade {facade_path.name} must not contain any direct class definitions. "
+        f"Found class definitions: {class_defs}. These must reside in the core package."
+    )
+
+
+def test_get_landing_bucket_schema_success(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    """Verify get_landing_bucket_schema returns folder paths correctly."""
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
+    mock_schema = {
+        "schema_version": "1.0.0",
+        "folders": [
+            "iop/TP_export/Load/ActualTotalLoad_6.1.A_r3",
+            "prod/TP_export/Generation/ActualGenerationOutputPerGenerationUnit_16.1.A_r3",
+        ],
+    }
+    schema_file = tmp_path / "landing_bucket_schema.yml"
+    with schema_file.open("w", encoding="utf-8") as f:
+        yaml.safe_dump(mock_schema, f)
+
+    monkeypatch.setattr(paths, "LANDING_BUCKET_SCHEMA_YML", schema_file)
+
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
+    folders = get_landing_bucket_schema()
+
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
+    assert folders == [
+        "iop/TP_export/Load/ActualTotalLoad_6.1.A_r3",
+        "prod/TP_export/Generation/ActualGenerationOutputPerGenerationUnit_16.1.A_r3",
+    ]
+
+
+def test_get_active_domains_config_success(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    """Verify get_active_domains_config returns active domains data correctly."""
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
+    mock_domains = {
+        "active_mode": "Example",
+        "environments": {
+            "IOP": {
+                "root_directories": [
+                    {
+                        "name": "TP_export",
+                        "domains": {"Load": {"ActualTotalLoad_6.1.A_r3": True}},
+                    }
+                ]
+            }
+        },
+    }
+    domains_file = tmp_path / "my_entsoe_domains.yml"
+    with domains_file.open("w", encoding="utf-8") as f:
+        yaml.safe_dump(mock_domains, f)
+
+    monkeypatch.setattr(paths, "MY_ENTSOE_DOMAINS_YML", domains_file)
+
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
+    config = get_active_domains_config()
+
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
+    assert config == mock_domains

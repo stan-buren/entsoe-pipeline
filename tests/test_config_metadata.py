@@ -84,6 +84,20 @@ def test_config_files_contain_valid_metadata_spec(config_file: Path) -> None:
             active_params["environments"] = data["environments"]
         if "limits" in data and isinstance(data["limits"], dict):
             active_params.update(data["limits"])
+    elif config_file.stem == "notebooklm":
+        # NotebookLM layout defines parameters flatly on root for auth and notebooks
+        active_params = {}
+        if "auth" in data:
+            active_params["auth"] = data["auth"]
+        if "notebooks" in data:
+            active_params["notebooks"] = data["notebooks"]
+    elif config_file.stem == "my_entsoe_domains":
+        # my_entsoe_domains layout defines active_mode and config_name flatly on root
+        active_params = {}
+        if "active_mode" in data:
+            active_params["active_mode"] = data["active_mode"]
+        if "config_name" in data:
+            active_params["config_name"] = data["config_name"]
     else:
         # Standard configs define parameters inside a single primary block
         active_section_name = config_file.stem
