@@ -63,7 +63,6 @@ For analysts, data engineers, and traders, this platform is essential for unders
    ```
 
 5. **Other helpful files:**
-   - [fms_metadata/overview_tree.yml](fms_metadata/overview_tree.yml) - FMS folder structure.
    - [docs/reports/fms_metadata_report.md](docs/reports/fms_metadata_report.md) - Human-readable analytical summary of the ENTSO-E File Management System (FMS).
    - [config/entsoe_api_limits.yml](config/entsoe_api_limits.yml) - ENTSO-E API limits.
    - [config/entsoe_fms_folder_schema.yml](config/entsoe_fms_folder_schema.yml) - ENTSO-E FMS folder paths.
@@ -131,6 +130,28 @@ For analysts, data engineers, and traders, this platform is essential for unders
    - Lint rules: `ruff.toml`
    - Environment variables template: `.env.example`
    - Build definitions: `pyproject.toml`
+  
+### A special word about tests
+
+This repo was designed according to a simple rule: reject commits with less than 80% test coverage.
+
+Currently, there are **244 active tests** in the repository. **Total coverage: 82.51%**.
+Llinting rules (ruff, ruamel-yaml, ty), tests (pytest, mypy), and security ([tryvy](https://github.com/aquasecurity/trivy) scan both in pre-commit and CICD stages)
+
+   *Folder structure:*
+   ```bash
+   .
+   ├── jobs
+   │   └── ...
+   ├── pre_commit
+   │   └── ...
+   ├── test_api_client.py
+   ├── test_config_loader.py
+   ├── test_config_metadata.py
+   └── ...
+   ```
+
+<img width="830" height="242" alt="Screenshot 2026-06-15 at 10 58 11" src="https://github.com/user-attachments/assets/5b786a2b-75c6-4b36-8b3b-1262e0224e8e" />
 
 ### A special word about paths:
 > Please read [ADR-002-centralized-path-ssot-configuration.md](docs/adr/ADR-002-centralized-path-ssot-configuration.md).
