@@ -125,11 +125,10 @@ For analysts, data engineers, and traders, this platform is essential for unders
    ```
 
 5. **Explore other developer tools:**
-   - Test folder: `tests/`
-   - Pre-commit configuration: `.pre-commit-config.yaml`
-   - Lint rules: `ruff.toml`
-   - Environment variables template: `.env.example`
-   - Build definitions: `pyproject.toml`
+   - Pre-commit configuration: [.pre-commit-config.yaml](.pre-commit-config.yaml)
+   - Lint rules: [ruff.toml](ruff.toml)
+   - Environment variables template: [.env.example](.env.example)
+   - Build definitions: [pyproject.toml](pyproject.toml)
   
 ### A special word about tests
 
@@ -156,7 +155,7 @@ Llinting rules (ruff, ruamel-yaml, ty), tests (pytest, mypy), and security ([try
 ### A special word about paths:
 > Please read [ADR-002-centralized-path-ssot-configuration.md](docs/adr/ADR-002-centralized-path-ssot-configuration.md).
 
-In short, relative path mappings are declared in the single source of truth file: `config/paths.yml`. 
+In short, relative path mappings are declared in the single source of truth file: [config/paths.yml](config/paths.yml). 
 
 They are dynamically loaded at runtime, so you can import them as absolute `Path` objects directly from the library:
 
@@ -167,7 +166,7 @@ from entsoe_pipeline import PROJECT_ROOT, DATA_DIR, CONFIG_DIR
 ### A special word about config loading:
 > Please read [ADR-003-config-loader-public-interface-design.md](docs/adr/ADR-003-config-loader-public-interface-design.md).
 
-In short, all configuration settings (ports, hosts, rate limits, storage buckets) are managed through a centralized config loader. You can import typed config accessors directly from the library:
+In short, all configuration settings (ports, hosts, rate limits, storage buckets) are managed through a [centralized config loader](src/entsoe_pipeline/config/config_loader.py). You can import typed config accessors directly from the library:
 
 ```python
 from entsoe_pipeline import get_config, get_ports_config, get_hosts_config
@@ -182,7 +181,7 @@ Just a little bit before you jump-start your own developer journey on the ENTSO-
 You may want to do the following:
 
 1. **Create an account:** Get your own ENTSO-E Transparency Platform [account](https://transparency.entsoe.eu/), if you don't have one.
-2. **Add credentials:** Since this project does not support API authorization yet, you are requested only to fill out your account email and password in the `.env` file.
+2. **Add credentials:** Since this project does not support API authorization yet, you are requested only to fill out your account email and password in the [.env](.env.example) file.
    > **NOTE:** There are two types of ENTSO-E Transparency Platform accounts:
    > - [PROD](https://transparency.entsoe.eu/) - Production environment (regular use)
    > - [IOP](https://iop-transparency.entsoe.eu/) - Integration-of-Production environment (testing purposes)
@@ -190,11 +189,11 @@ You may want to do the following:
    > I strongly recommend using an **IOP** account for development and testing before pulling real data from PROD. Note that the IOP folder structure != PROD folder structure. More about that in:
    > - `fms_metadata/physical_catalog/iop/`
    > - `fms_metadata/physical_catalog/prod/`
-3. **Set up S3:** Fill out your S3-compatible storage credentials in the `.env` file.
-4. **Docker compose:** You may also want to check the `docker/docker-compose.yml` file to adapt it to your needs.
+3. **Set up S3:** Fill out your S3-compatible storage credentials in the [.env](.env.example) file.
+4. **Docker compose:** You may also want to check the [docker/docker-compose.yml](docker/docker-compose.yml) file to adapt it to your needs.
 5. **Config schemas:** To begin working with configuration files, run `just init-config` (more details in the [justfile](justfile)) and fill out the files. They have rich metadata and comments, so you won't get lost.
 6. **Local Storage (Optional):** Run `just lakehouse-up` and `just lakehouse-test` to set up your local SeaweedFS.
-7. **Clean up (Optional):** Delete the learning artifacts by running `just clean-stan-buren-learning-stuff` and `just remove-agents-folder`.
+7. **Clean up (Optional):** Delete my learning artifacts by running `just clean-stan-buren-learning-stuff` and `just remove-agents-folder`.
 
 ------
 
@@ -222,16 +221,15 @@ You may want to do the following:
    just prod-ingest-tp-legacy
    ```
 
-### API Request Summary
-
-| Direction (Folder) | Environment (IOP) | Environment (PROD) | Description / Specifics |
-| :--- | :---: | :---: | :--- |
-| **TP_export** | **85** | **83** | Active incremental domain exports. Requests are made selectively across active directories. |
-| **TP_Legacy_Publications** | **1228** | **1478** | Historical archives. Contains deeply nested folders for past years, requiring a recursive traversal of the directory tree. |
-| **Total by Environment** | **1313** | **1561** | **Total: 2874 API requests** |
+> **API Request Summary:**
+> 
+> | Direction (Folder) | Environment (IOP) | Environment (PROD) | Description / Specifics |
+> | :--- | :---: | :---: | :--- |
+> | **TP_export** | **85** | **83** | Active incremental domain exports. Requests are made selectively across active directories. |
+> | **TP_Legacy_Publications** | **1228** | **1478** | Historical archives. Contains deeply nested folders for past years, requiring a recursive traversal of the directory tree. |
+> | **Total by Environment** | **1313** | **1561** | **Total: 2874 API requests** |
 
 4. Run `just fms-folder-schema` to generate [fms_folder_schema.yml](config/entsoe_fms_folder_schema.yml).
-5. Run `just my-entsoe-domains` to generate [my_entsoe_domains.yml](config/domains/my_entsoe_domains_example.yml).
 
 ------
 
@@ -244,14 +242,25 @@ This will change the `active_environment` variable in [`enviroment.yml`](config_
 
 ------
 
-## Start ingestion
+## Run the FMS files Ingestion to your S3 storage.
 
-To start ingestion, run the ingestion job for the active environment:
+### Before you start FMS files Ingestion to your S3 compatible storage, do the folowing:
+
+1. Check [my_entsoe_domains.yml](config_env_example/my_entsoe_domains.yml) and fill out `active_mode` and `config_name` variables
+   (or you can simply pass this for now, pipeline will try to download [popular domains](config/domains/default/my_entsoe_default.yml) by default)
+2. Run `just my-entsoe-domains` to generate [config/domains/my_entsoe_domains.yml](config/domains/my_entsoe_domains_example.yml).
+
+### Start your Ingestion
+
+3. To start ingestion, run the ingestion job for the active environment:
+> NOTE: This will activate [ingest_my_entsoe_domains.py](jobs/staging/landing/ingest_my_entsoe_domains.py) job.
 ```bash
 just ingest-active-domains
 ```
 
-Alternatively, you can run the ingestion job for a specific environment directly:
+### Alternatively, you can run the ingestion job for a specific environment directly:
+
+> NOTE: This will ignore current [`enviroment.yml`](config_env_example/enviroment.yml) configuration.
 ```bash
 # Ingest active domains datasets to landing zone using IOP
 just iop-ingest-active-domains
