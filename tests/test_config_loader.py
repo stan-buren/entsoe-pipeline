@@ -30,15 +30,18 @@ import entsoe_pipeline.config.paths as paths
 
 from entsoe_pipeline import (
     PortsConfig,
+    UrlsConfig,
     get_active_domains_config,
     get_buckets_config,
     get_config,
     get_env_config,
     get_hosts_config,
+    get_lakehouse_config,
     get_landing_bucket_schema,
     get_limits_config,
     get_ports_config,
     get_region_config,
+    get_urls_config,
 )
 
 
@@ -49,6 +52,9 @@ def _create_mock_configs(
     buckets_data: dict | None = None,
     region_data: dict | None = None,
     hosts_data: dict | None = None,
+    urls_data: dict | None = None,
+    volumes_data: dict | None = None,
+    lakehouse_data: dict | None = None,
 ) -> None:
     """Helper to populate an isolated config directory with test configurations."""
     # Write environment.yml
@@ -94,6 +100,23 @@ def _create_mock_configs(
     hosts_file = config_dir / "hosts.yml"
     with hosts_file.open("w", encoding="utf-8") as f:
         yaml.safe_dump({"hosts": hosts_data if hosts_data is not None else {}}, f)
+
+    # Write urls.yml
+    urls_file = config_dir / "urls.yml"
+    with urls_file.open("w", encoding="utf-8") as f:
+        yaml.safe_dump({"urls": urls_data if urls_data is not None else {}}, f)
+
+    # Write volumes.yml
+    volumes_file = config_dir / "volumes.yml"
+    with volumes_file.open("w", encoding="utf-8") as f:
+        yaml.safe_dump({"volumes": volumes_data if volumes_data is not None else {}}, f)
+
+    # Write lakehouse.yml
+    lakehouse_file = config_dir / "lakehouse.yml"
+    with lakehouse_file.open("w", encoding="utf-8") as f:
+        yaml.safe_dump(
+            {"lakehouse": lakehouse_data if lakehouse_data is not None else {}}, f
+        )
 
 
 @pytest.fixture(autouse=True)
@@ -153,6 +176,8 @@ def test_ports_config_creation() -> None:
     v_http = 8080
     f_http = 8888
     f_grpc = 18888
+    k_web = 8082
+    k_api = 8083
 
     # -------------------------------------------------------------------------
     # ACT: Instantiate PortsConfig directly
@@ -165,6 +190,8 @@ def test_ports_config_creation() -> None:
         volume_http=v_http,
         filer_http=f_http,
         filer_grpc=f_grpc,
+        kestra_web=k_web,
+        kestra_api=k_api,
     )
 
     # -------------------------------------------------------------------------
@@ -177,10 +204,35 @@ def test_ports_config_creation() -> None:
     assert config.volume_http == v_http
     assert config.filer_http == f_http
     assert config.filer_grpc == f_grpc
+    assert config.kestra_web == k_web
+    assert config.kestra_api == k_api
 
 
 # =============================================================================
-# 2. UNIT TESTS: PIPELINE CONFIGURATION LOADER
+# 2. UNIT TESTS: URLS CONFIG CONSTRUCTOR
+# =============================================================================
+
+
+def test_urls_config_creation() -> None:
+    """Verify that UrlsConfig fields are correctly initialized via constructor."""
+    # -------------------------------------------------------------------------
+    # ARRANGE: Define target URL values
+    # -------------------------------------------------------------------------
+    k_url = "https://kestra.test.org/"
+
+    # -------------------------------------------------------------------------
+    # ACT: Instantiate UrlsConfig directly
+    # -------------------------------------------------------------------------
+    config = UrlsConfig(kestra=k_url)
+
+    # -------------------------------------------------------------------------
+    # ASSERT: Verify matching field values
+    # -------------------------------------------------------------------------
+    assert config.kestra == k_url
+
+
+# =============================================================================
+# 3. UNIT TESTS: PIPELINE CONFIGURATION LOADER
 # =============================================================================
 
 
@@ -200,6 +252,8 @@ def test_get_config_success(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> 
         "volume_http": 8081,
         "filer_http": 8889,
         "filer_grpc": 18889,
+        "kestra_web": 8084,
+        "kestra_api": 8085,
     }
     custom_buckets = {
         "s3_landing_bucket": "custom-raw",
@@ -207,6 +261,7 @@ def test_get_config_success(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> 
     }
     custom_region = {"aws_region": "eu-west-1"}
     custom_hosts = {"seaweedfs": "custom-sw", "iceberg_catalog": "custom-ic"}
+    custom_urls = {"kestra": "https://kestra.mock.ru"}
 
     _create_mock_configs(
         temp_config_dir,
@@ -214,6 +269,7 @@ def test_get_config_success(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> 
         buckets_data=custom_buckets,
         region_data=custom_region,
         hosts_data=custom_hosts,
+        urls_data=custom_urls,
     )
 
     monkeypatch.setenv("IOP_API_TOKEN", "mock-token")
@@ -252,11 +308,14 @@ def test_get_config_success(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> 
     assert config.ports.volume_http == 8081
     assert config.ports.filer_http == 8889
     assert config.ports.filer_grpc == 18889
+    assert config.ports.kestra_web == 8084
+    assert config.ports.kestra_api == 8085
     assert config.buckets.s3_landing_bucket == "custom-raw"
     assert config.buckets.s3_lakehouse_bucket == "custom-lake"
     assert config.region.aws_region == "eu-west-1"
     assert config.hosts.seaweedfs == "custom-sw"
     assert config.hosts.iceberg_catalog == "custom-ic"
+    assert config.urls.kestra == "https://kestra.mock.ru"
 
 
 def test_get_config_caching_and_delegation_identity(
@@ -284,8 +343,10 @@ def test_get_config_caching_and_delegation_identity(
     region_ref = get_region_config()
     ports_ref = get_ports_config()
     hosts_ref = get_hosts_config()
+    urls_ref = get_urls_config()
     env_ref = get_env_config()
     limits_ref = get_limits_config()
+    lakehouse_ref = get_lakehouse_config()
 
     # -------------------------------------------------------------------------
     # ASSERT: Verify caching identity and delegation references
@@ -298,8 +359,10 @@ def test_get_config_caching_and_delegation_identity(
     assert region_ref is config_1.region
     assert ports_ref is config_1.ports
     assert hosts_ref is config_1.hosts
+    assert urls_ref is config_1.urls
     assert env_ref is config_1.env_config
     assert limits_ref is config_1.limits
+    assert lakehouse_ref is config_1.lakehouse
 
 
 def test_get_config_sub_configs_fallback(
@@ -319,6 +382,7 @@ def test_get_config_sub_configs_fallback(
         buckets_data={},
         region_data={},
         hosts_data={},
+        urls_data={},
     )
 
     monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
@@ -339,11 +403,14 @@ def test_get_config_sub_configs_fallback(
     assert config.ports.volume_http == 8080
     assert config.ports.filer_http == 8888
     assert config.ports.filer_grpc == 18888
+    assert config.ports.kestra_web == 8082
+    assert config.ports.kestra_api == 8083
     assert config.buckets.s3_landing_bucket == "landing-zone"
     assert config.buckets.s3_lakehouse_bucket == "lakehouse"
     assert config.region.aws_region == "us-east-1"
     assert config.hosts.seaweedfs == "localhost"
     assert config.hosts.iceberg_catalog == "localhost"
+    assert config.urls.kestra == "http://localhost:8082/"
 
 
 def test_get_config_missing_hosts_file(
@@ -365,6 +432,30 @@ def test_get_config_missing_hosts_file(
 
     # -------------------------------------------------------------------------
     # ACT & ASSERT: Verify FileNotFoundError raises on missing hosts file
+    # -------------------------------------------------------------------------
+    with pytest.raises(FileNotFoundError):
+        get_config()
+
+
+def test_get_config_missing_urls_file(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    """Verify get_config raises FileNotFoundError if urls.yml is missing."""
+    # -------------------------------------------------------------------------
+    # ARRANGE: Write mocks, then delete urls.yml
+    # -------------------------------------------------------------------------
+    temp_config_dir = tmp_path / "config"
+    temp_config_dir.mkdir()
+    _create_mock_configs(temp_config_dir)
+
+    (temp_config_dir / "urls.yml").unlink()
+
+    monkeypatch.setattr(paths, "CONFIG_DIR", temp_config_dir)
+    monkeypatch.setattr(paths, "ENV_FILE", temp_config_dir / ".env")
+
+    # -------------------------------------------------------------------------
+    # ACT & ASSERT: Verify FileNotFoundError raises on missing urls file
     # -------------------------------------------------------------------------
     with pytest.raises(FileNotFoundError):
         get_config()

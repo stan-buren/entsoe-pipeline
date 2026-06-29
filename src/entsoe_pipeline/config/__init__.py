@@ -21,10 +21,12 @@ from entsoe_pipeline.config.config_loader import (
     PortsConfig,
     RateLimitsConfig,
     RegionConfig,
+    UrlsConfig,
     get_buckets_config,
     get_config,
     get_ports_config,
     get_region_config,
+    get_urls_config,
 )
 
 __all__ = [
@@ -34,8 +36,10 @@ __all__ = [
     "PortsConfig",
     "RateLimitsConfig",
     "RegionConfig",
+    "UrlsConfig",
     "get_buckets_config",
     "get_config",
     "get_ports_config",
     "get_region_config",
+    "get_urls_config",
 ]

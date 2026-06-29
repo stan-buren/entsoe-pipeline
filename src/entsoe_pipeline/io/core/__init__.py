@@ -16,15 +16,15 @@
 
 from entsoe_pipeline.io.core.config_parser import extract_active_folders
 from entsoe_pipeline.io.core.disk_safety import verify_free_disk_space
-from entsoe_pipeline.io.core.file_selector import select_most_recent_csv
+from entsoe_pipeline.io.core.file_selector import select_files_to_sync
 from entsoe_pipeline.io.core.fms_operations import (
     download_raw_zip_from_fms,
     extract_csv_bytes_from_zip,
 )
 from entsoe_pipeline.io.core.idempotency import (
     check_idempotency,
-    load_xxhash_registry,
-    save_xxhash_registry,
+    load_landing_registry,
+    save_landing_registry,
 )
 from entsoe_pipeline.io.core.path_resolver import resolve_target_mappings
 from entsoe_pipeline.io.core.s3_operations import (
@@ -37,11 +37,11 @@ __all__ = [
     "download_raw_zip_from_fms",
     "extract_active_folders",
     "extract_csv_bytes_from_zip",
-    "load_xxhash_registry",
+    "load_landing_registry",
     "resolve_target_mappings",
     "s3_object_exists",
-    "save_xxhash_registry",
-    "select_most_recent_csv",
+    "save_landing_registry",
+    "select_files_to_sync",
     "upload_local_file_to_s3",
     "verify_free_disk_space",
 ]

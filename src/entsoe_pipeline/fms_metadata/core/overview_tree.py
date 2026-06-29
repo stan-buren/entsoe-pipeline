@@ -25,8 +25,10 @@ from entsoe_pipeline import (
     PHYSICAL_CATALOG_DIR,
     get_classifier_config,
 )
-from entsoe_pipeline.fms_metadata.core.generation_data import get_generation_timestamp
 from entsoe_pipeline.fms_metadata.utils.serializer import save_yaml_catalog
+from entsoe_pipeline.logger.core.generated_at import (
+    get_generated_at_timestamp as get_generation_timestamp,
+)
 
 # Setup scoped logger strictly to our package namespace to prevent polluting root
 logger = logging.getLogger("entsoe_pipeline.fms_metadata.core.overview_tree")

@@ -14,9 +14,14 @@ master_grpc_port     := `uv run python -c "from entsoe_pipeline import get_ports
 volume_http_port     := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().volume_http)"`
 filer_http_port      := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().filer_http)"`
 filer_grpc_port      := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().filer_grpc)"`
+kestra_web_port      := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().kestra_web)"`
+kestra_api_port      := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().kestra_api)"`
 s3_landing_bucket    := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_landing_bucket)"`
 s3_lakehouse_bucket  := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_lakehouse_bucket)"`
 aws_region           := `uv run python -c "from entsoe_pipeline import get_region_config; print(get_region_config().aws_region)"`
+s3_compatible_volume := `uv run python -c "from entsoe_pipeline import get_volumes_config; print(get_volumes_config().s3_compatible)"`
+kestra_url           := `uv run python -c "from entsoe_pipeline import get_urls_config; print(get_urls_config().kestra)"`
+project_root         := `uv run python -c "from entsoe_pipeline.config.paths import PROJECT_ROOT; print(PROJECT_ROOT)"`
 
 
 # Export the parsed values as environment variables to the parent environment.
@@ -31,10 +36,16 @@ export MASTER_GRPC_PORT      := master_grpc_port
 export VOLUME_HTTP_PORT      := volume_http_port
 export FILER_HTTP_PORT       := filer_http_port
 export FILER_GRPC_PORT       := filer_grpc_port
+export KESTRA_WEB_PORT       := kestra_web_port
+export KESTRA_API_PORT       := kestra_api_port
 export S3_LANDING_BUCKET     := s3_landing_bucket
 export S3_LAKEHOUSE_BUCKET   := s3_lakehouse_bucket
 export AWS_REGION            := aws_region
 export AWS_DEFAULT_REGION    := aws_region
+export S3_COMPATIBLE_VOLUME  := s3_compatible_volume
+export KESTRA_URL            := kestra_url
+export PROJECT_ROOT          := project_root
+
 
 
 
@@ -62,32 +73,92 @@ init-config:
 # 2. LOCAL LAKEHOUSE INFRASTRUCTURE (Docker Compose)
 # =============================================================================
 
-# Start the local Lakehouse services in the background
+# Start only the local Lakehouse storage service (SeaweedFS)
 lakehouse-up:
-    @echo "[JUST][INIT] Launching Lakehouse services"
+    @echo "[JUST][INIT] Launching Lakehouse storage (SeaweedFS)..."
     @echo "[JUST][INIT] S3 compatible port: {{s3_compatible_port}}"
     @echo "[JUST][INIT] Iceberg Catalog port: {{iceberg_catalog_port}}"
-    docker compose --env-file .env -f docker/docker-compose.yml up -d
-    @echo "[JUST][INIT] Lakehouse services are up and running"
+    docker compose --env-file .env -f docker/docker-compose.yml up -d seaweedfs
+    @echo "[JUST][INIT] Lakehouse storage is up and running"
 
-# Stop and tear down all infrastructure containers
+# Stop only the local Lakehouse storage container
 lakehouse-down:
-    @echo "[JUST][INIT] Stopping Lakehouse services"
-    docker compose --env-file .env -f docker/docker-compose.yml down
-    @echo "[JUST][INIT] Lakehouse services stopped"
+    @echo "[JUST][INIT] Stopping Lakehouse storage..."
+    docker compose --env-file .env -f docker/docker-compose.yml stop seaweedfs
+    docker compose --env-file .env -f docker/docker-compose.yml rm -f seaweedfs
+    @echo "[JUST][INIT] Lakehouse storage stopped and container removed"
 
 # Run the readiness checks to ensure local SeaweedFS is active and writable
 lakehouse-test:
     @echo "[JUST][TEST] Checking if local Lakehouse storage is ready..."
     uv run pytest tests/jobs/test_seaweedfs_ready.py -v --no-cov
 
-# Show logs from all running containers
+# Show logs for the local Lakehouse storage
 lakehouse-logs:
+    docker compose --env-file .env -f docker/docker-compose.yml logs -f seaweedfs
+
+
+# =============================================================================
+# 3. KESTRA ORCHESTRATION INFRASTRUCTURE (Docker Compose)
+# =============================================================================
+
+# Start only Kestra and its metadata database in the background
+kestra-up:
+    @echo "[JUST][INIT] Launching Kestra orchestration..."
+    @echo "[JUST][INIT] Kestra Web UI port: {{kestra_web_port}}"
+    @echo "[JUST][INIT] Kestra API port: {{kestra_api_port}}"
+    docker compose --env-file .env -f docker/docker-compose.yml up -d kestra_postgres kestra
+    @echo "[JUST][INIT] Kestra orchestration services are up and running"
+
+# Stop and remove Kestra orchestration containers
+kestra-down:
+    @echo "[JUST][INIT] Stopping Kestra orchestration..."
+    docker compose --env-file .env -f docker/docker-compose.yml stop kestra_postgres kestra
+    docker compose --env-file .env -f docker/docker-compose.yml rm -f kestra_postgres kestra
+    @echo "[JUST][INIT] Kestra orchestration services stopped and containers removed"
+
+# Show logs for Kestra orchestration services
+kestra-logs:
+    docker compose --env-file .env -f docker/docker-compose.yml logs -f kestra_postgres kestra
+
+
+# =============================================================================
+# 4. GENERAL INFRASTRUCTURE MANAGEMENT (Docker Compose)
+# =============================================================================
+
+# Start all local infrastructure services (SeaweedFS + Kestra + Postgres)
+infra-up:
+    @echo "[JUST][INIT] Launching all infrastructure services..."
+    @echo "[JUST][INIT] S3 compatible port: {{s3_compatible_port}}"
+    @echo "[JUST][INIT] Iceberg Catalog port: {{iceberg_catalog_port}}"
+    @echo "[JUST][INIT] Kestra Web UI port: {{kestra_web_port}}"
+    @echo "[JUST][INIT] Kestra API port: {{kestra_api_port}}"
+    docker compose --env-file .env -f docker/docker-compose.yml up -d
+    @echo "[JUST][INIT] All infrastructure services are up and running"
+
+# Stop and tear down all local infrastructure containers
+infra-down:
+    @echo "[JUST][INIT] Tearing down all infrastructure services..."
+    docker compose --env-file .env -f docker/docker-compose.yml down
+    @echo "[JUST][INIT] All infrastructure services stopped"
+
+# Show logs for all running infrastructure containers
+infra-logs:
     docker compose --env-file .env -f docker/docker-compose.yml logs -f
 
 
 # =============================================================================
-# 3. PIPELINE TESTING & INTEGRATION
+# 5. DOCKER IMAGE MANAGEMENT
+# =============================================================================
+
+# Build the pipeline Docker image locally
+docker-build:
+    @echo "[JUST][DOCKER] Building pipeline Docker image..."
+    docker build --progress=plain -f docker/Dockerfile -t entsoe-pipeline:latest .
+
+
+# =============================================================================
+# 6. PIPELINE TESTING & INTEGRATION
 # =============================================================================
 
 # Run the test suite using pytest
@@ -133,7 +204,7 @@ all-checks: lint security test
 
 
 # =============================================================================
-# 4. FMS METADATA REFRESH
+# 7. FMS METADATA REFRESH
 # =============================================================================
 
 # Crawl remote ENTSO-E platforms (IOP & PROD) and regenerate overview.yml
@@ -160,7 +231,7 @@ my-entsoe-domains:
     uv run python src/entsoe_pipeline/fms_metadata/ingestion/my_entsoe_domains.py
 
 # =============================================================================
-# 5. PLATFORM ENVIRONMENT SWITCHERS
+# 8. PLATFORM ENVIRONMENT SWITCHERS
 # =============================================================================
 
 # Switch the active environment in environment config to Production (PROD)
@@ -177,7 +248,7 @@ alias iop  := use-iop
 alias dev  := use-iop
 
 # =============================================================================
-# 6. EXTERNAL TECHNICAL DOCUMENTATION SCAPERS
+# 9. EXTERNAL TECHNICAL DOCUMENTATION SCAPERS
 # =============================================================================
 
 # Compile the PySpark SQL API documentation pages into a single Markdown megadoc
@@ -197,7 +268,7 @@ seaweed-docs:
 
 
 # =============================================================================
-# 7. PHYSICAL METADATA CATALOG INGESTION
+# 10. PHYSICAL METADATA CATALOG INGESTION
 # =============================================================================
 
 # Ingest all active physical metadata catalogs under TP_export for the active environment (balancing, load, market, operations, transmission, outages, generation, etc.)
@@ -231,12 +302,15 @@ prod-ingest-tp-legacy: use-prod ingest-tp-legacy
 
 
 # =============================================================================
-# 8. DATA INGESTION JOBS (S3 landing zone syncing)
+# 11. DATA INGESTION JOBS (S3 landing zone syncing)
 # =============================================================================
 
 # Ingest active domains datasets to landing zone for the active environment
 ingest-active-domains:
     @echo "[JUST][INGEST] Starting active ENTSO-E domains ingestion job..."
+    @echo "[JUST][INGEST] Step 1/2: Running Ingestion Preparation Job..."
+    uv run python jobs/staging/landing/prepare_landing_ingestion.py
+    @echo "[JUST][INGEST] Step 2/2: Syncing active domains from FTP to S3 Landing Zone..."
     uv run python jobs/staging/landing/ingest_my_entsoe_domains.py
 
 # Run active domains ingestion job using IOP environment
@@ -247,7 +321,7 @@ prod-ingest-active-domains: use-prod ingest-active-domains
 
 
 # =============================================================================
-# 9. CLEAR DEVELOPER LEARNING STUFF
+# 12. CLEAR DEVELOPER LEARNING STUFF
 # =============================================================================
 
 clean-stan-buren-learning-stuff:
@@ -256,6 +330,17 @@ clean-stan-buren-learning-stuff:
     rm -rf notebooks/*
 
 remove-agents-folder:
-    @echo "[JUST][CLEAN] Removing notebooks folder..."
+    @echo "[JUST][CLEAN] Removing agents instructions folder..."
     rm -rf .agents/*
+
+
+# =============================================================================
+# 13. ICEBERG SCHEMAS REGISTRY GENERATION
+# =============================================================================
+
+# Infer schemas from landing zone samples and generate the Iceberg schemas registry JSON
+generate-schemas:
+    @echo "[JUST][SCHEMAS] Inferring schemas and generating registry..."
+    uv run python jobs/staging/lakehouse/generate_iceberg_schemas.py
+
     

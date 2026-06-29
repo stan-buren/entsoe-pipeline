@@ -39,10 +39,13 @@ from dotenv import load_dotenv
 
 from entsoe_pipeline.config.core.buckets import BucketsConfig
 from entsoe_pipeline.config.core.hosts import HostsConfig
+from entsoe_pipeline.config.core.lakehouse import LakehouseConfig
 from entsoe_pipeline.config.core.limits import RateLimitsConfig
 from entsoe_pipeline.config.core.ports import PortsConfig
 from entsoe_pipeline.config.core.region import RegionConfig
-from entsoe_pipeline.config.core.warning import CustomConfig
+from entsoe_pipeline.config.core.urls import UrlsConfig
+from entsoe_pipeline.config.core.volumes import VolumesConfig
+from entsoe_pipeline.logger.core.warning import CustomConfig
 
 
 @dataclass(frozen=True)
@@ -78,6 +81,7 @@ class PipelineConfig:
         region (RegionConfig): AWS region configuration.
         ports (PortsConfig): Networking ports configuration.
         hosts (HostsConfig): Networking hosts configuration.
+        volumes (VolumesConfig): Storage volumes configuration.
     """
 
     active_environment: str
@@ -87,7 +91,10 @@ class PipelineConfig:
     region: RegionConfig
     ports: PortsConfig
     hosts: HostsConfig
+    volumes: VolumesConfig
+    urls: UrlsConfig
     custom: CustomConfig
+    lakehouse: LakehouseConfig
 
     @classmethod
     def _from_yaml(cls) -> PipelineConfig:
@@ -194,7 +201,10 @@ class PipelineConfig:
         region = RegionConfig._from_yaml()
         ports = PortsConfig._from_yaml()
         hosts = HostsConfig._from_yaml()
+        volumes = VolumesConfig._from_yaml()
+        urls = UrlsConfig._from_yaml()
         custom = CustomConfig._from_yaml()
+        lakehouse = LakehouseConfig._from_yaml()
 
         return cls(
             active_environment=active_env,
@@ -204,5 +214,8 @@ class PipelineConfig:
             region=region,
             ports=ports,
             hosts=hosts,
+            volumes=volumes,
+            urls=urls,
             custom=custom,
+            lakehouse=lakehouse,
         )

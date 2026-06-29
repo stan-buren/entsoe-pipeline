@@ -21,3 +21,58 @@ services:
 
     volumes:
       - ${S3_COMPATIBLE_VOLUME:-/mnt/seaweed_data}:/data
+
+  kestra_postgres:
+    image: postgres:18 # LTS
+    container_name: kestra_postgres
+    restart: unless-stopped
+
+    volumes:
+      - kestra_postgres_data:/var/lib/postgresql
+
+    environment:
+      POSTGRES_DB: kestra
+      POSTGRES_USER: kestra
+      POSTGRES_PASSWORD: ${KESTRA_DB_PASSWORD}
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
+  kestra:
+    image: kestra/kestra:v1.3 # LTS
+    container_name: kestra
+    restart: unless-stopped
+    pull_policy: always
+    # TODO [ISSUE]: Run Kestra container as non-root user (UID 1000) once Docker socket permissions are configured.
+    user: "root"
+    command: server standalone --config /app/confs/kestra.yml
+
+    ports:
+      - "${KESTRA_WEB_PORT:-8082}:8080"
+      - "${KESTRA_API_PORT:-8083}:8081"
+
+    volumes:
+      - kestra_data:/app/storage
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/kestra-wd:/tmp/kestra-wd
+      - ./kestra.yml:/app/confs/kestra.yml:ro
+
+    environment:
+      - KESTRA_DB_PASSWORD
+      - KESTRA_USER
+      - KESTRA_PASS
+      - KESTRA_URL=${KESTRA_URL:-http://localhost:8082/}
+      - PROJECT_ROOT
+
+    depends_on:
+      kestra_postgres:
+        condition: service_healthy
+
+volumes:
+  kestra_postgres_data:
+    driver: local
+  kestra_data:
+    driver: local

@@ -22,7 +22,7 @@ from __future__ import annotations
 
 import logging
 
-from entsoe_pipeline import PHYSICAL_CATALOG_DIR, get_config
+from entsoe_pipeline import PHYSICAL_CATALOG_DIR, resolve_active_environment
 from entsoe_pipeline.api import create_fms_client, list_folder_raw_items
 from entsoe_pipeline.fms_metadata.utils.overview_parser import get_domain_folders
 from entsoe_pipeline.fms_metadata.utils.serializer import save_fms_catalog
@@ -36,18 +36,20 @@ from entsoe_pipeline.fms_metadata.utils.transformer import (
 logger = logging.getLogger("entsoe_pipeline.fms_metadata.core.domain")
 
 
-def ingest_domain_metadata(domain_name: str) -> None:
+def ingest_domain_metadata(domain_name: str, env: str | None = None) -> None:
     """Orchestrates metadata gathering for any specified FMS domain in the active environment.
 
     Args:
         domain_name: The target ENTSO-E data domain (e.g. 'Load', 'Market').
+        env: Optional environment name. If None, resolves dynamically.
     """
     logger.info(
         "=== STARTING %s METADATA EXPLORATION ===",
         domain_name.upper(),
     )
 
-    env = get_config().active_environment
+    if env is None:
+        env = resolve_active_environment()
 
     logger.info("-" * 60)
     logger.info("PROCESSING ENVIRONMENT: %s", env)

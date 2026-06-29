@@ -22,7 +22,6 @@ providing cached singleton accessors.
 from __future__ import annotations
 
 from functools import cache
-from pathlib import Path
 from typing import Any
 
 import yaml
@@ -33,27 +32,15 @@ from entsoe_pipeline.config.core import (
     CustomConfig,
     EntsoeEnvConfig,
     HostsConfig,
+    LakehouseConfig,
     PipelineConfig,
     PortsConfig,
     RateLimitsConfig,
     RegionConfig,
+    UrlsConfig,
+    VolumesConfig,
 )
-
-
-def load_paths_config(project_root: Path) -> dict[str, str]:
-    """Loads and parses the centralized paths configuration from paths.yml.
-
-    Args:
-        project_root: The project root directory.
-
-    Returns:
-        dict[str, str]: Mapped relative path configurations.
-    """
-    paths_file = project_root / "config" / "paths.yml"
-    if not paths_file.exists():
-        raise FileNotFoundError(f"Paths configuration file not found at: {paths_file}")
-    with paths_file.open(encoding="utf-8") as f:
-        return yaml.safe_load(f) or {}
+from entsoe_pipeline.config.paths import PROJECT_ROOT, load_paths_config
 
 
 @cache
@@ -94,9 +81,15 @@ def get_config() -> PipelineConfig:
                 - volume_http (int): TCP port for the SeaweedFS Volume Server HTTP API.
                 - filer_http (int): TCP port for the SeaweedFS Filer HTTP interface.
                 - filer_grpc (int): TCP port for the SeaweedFS Filer gRPC service.
+                - kestra_web (int): TCP port for the Kestra Web UI administration dashboard.
+                - kestra_api (int): TCP port for the Kestra API backend services.
             - hosts (HostsConfig): Infrastructure hosts configuration:
                 - seaweedfs (str): IP address or domain name of the SeaweedFS server.
                 - iceberg_catalog (str): IP address or domain name of the Iceberg REST Catalog.
+            - volumes (VolumesConfig): Storage volumes configuration:
+                - s3_compatible (str): Physical directory path on the host for local storage.
+            - urls (UrlsConfig): Infrastructure URLs configuration:
+                - kestra (str): The external/public web URL of the Kestra platform.
     """
     return PipelineConfig._from_yaml()
 
@@ -146,8 +139,38 @@ def get_ports_config() -> PortsConfig:
             - volume_http (int): TCP port for the SeaweedFS Volume Server HTTP API.
             - filer_http (int): TCP port for the SeaweedFS Filer HTTP interface.
             - filer_grpc (int): TCP port for the SeaweedFS Filer gRPC service.
+            - kestra_web (int): TCP port for the Kestra Web UI administration dashboard.
+            - kestra_api (int): TCP port for the Kestra API backend services.
     """
     return get_config().ports
+
+
+def get_volumes_config() -> VolumesConfig:
+    """Loads and returns the cached VolumesConfig singleton.
+
+    For example:
+        volumes = get_volumes_config()
+        s3_volume = volumes.s3_compatible
+
+    Returns:
+        VolumesConfig: The active infrastructure storage volumes config, containing:
+            - s3_compatible (str): Physical directory path on the host for local storage.
+    """
+    return get_config().volumes
+
+
+def get_urls_config() -> UrlsConfig:
+    """Loads and returns the cached UrlsConfig singleton.
+
+    For example:
+        urls = get_urls_config()
+        kestra_url = urls.kestra
+
+    Returns:
+        UrlsConfig: The active infrastructure URLs config, containing:
+            - kestra (str): The external/public web URL of the Kestra platform.
+    """
+    return get_config().urls
 
 
 def get_hosts_config() -> HostsConfig:
@@ -224,8 +247,6 @@ def get_paths_config() -> dict[str, str]:
     Returns:
         dict[str, str]: Mapped relative path configurations from paths.yml.
     """
-    from entsoe_pipeline.config.paths import PROJECT_ROOT
-
     return load_paths_config(PROJECT_ROOT)
 
 
@@ -236,6 +257,15 @@ def get_custom_config() -> CustomConfig:
         CustomConfig: The active custom active mode configuration.
     """
     return get_config().custom
+
+
+def get_lakehouse_config() -> LakehouseConfig:
+    """Loads and returns the cached LakehouseConfig singleton.
+
+    Returns:
+        LakehouseConfig: The active Lakehouse configuration.
+    """
+    return get_config().lakehouse
 
 
 @cache

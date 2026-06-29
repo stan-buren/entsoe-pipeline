@@ -29,23 +29,22 @@ from entsoe_pipeline.fms_metadata.core import ingest_legacy_metadata
 logger = logging.getLogger("entsoe_pipeline.fms_metadata.legacy_ingest")
 
 
-def ingest_all_legacy_metadata() -> None:
+def ingest_all_legacy_metadata(env: str | None = None) -> None:
     """Orchestrates metadata gathering for all three historical legacy releases."""
     logger.info("Initializing metadata gathering for FMS Legacy Archives...")
 
     logger.info("Gathering Release 3 Archives (R3) metadata...")
-    ingest_legacy_metadata("R3_Archives")
+    ingest_legacy_metadata("R3_Archives", env)
 
     logger.info("Gathering Release 2 Archives (R2) metadata...")
-    ingest_legacy_metadata("R2_Archives")
+    ingest_legacy_metadata("R2_Archives", env)
 
     logger.info("Gathering Release 1 Archives (R1 CSV/XML) metadata...")
-    ingest_legacy_metadata("R1_Archives_CSV_XML")
+    ingest_legacy_metadata("R1_Archives_CSV_XML", env)
 
     logger.info("=== LEGACY METADATA INGESTION SUCCESSFULLY COMPLETED ===")
 
 
 if __name__ == "__main__":
-    # Setup console logging
-    setup_logging(level=logging.INFO, use_json=False)
+    setup_logging()
     ingest_all_legacy_metadata()

@@ -26,10 +26,7 @@ from entsoe_pipeline import (
     OVERVIEW_YML,
     get_custom_config,
 )
-from entsoe_pipeline.fms_metadata.core import (
-    build_domains_checklist,
-    get_my_entsoe_domains_warning,
-)
+from entsoe_pipeline.fms_metadata.core import build_domains_checklist
 
 
 def generate_my_entsoe_domains() -> None:
@@ -113,15 +110,14 @@ def generate_my_entsoe_domains() -> None:
     # 5. Build dynamic active domains checklist
     transformed = build_domains_checklist(template_data, overview_data)
 
-    # 6. Prepend warning header and write out final checklist to target path
-    warning_comment = get_my_entsoe_domains_warning(
-        "src/entsoe_pipeline/fms_metadata/ingestion/my_entsoe_domains.py"
-    )
+    # 6. Save final checklist to target path using YAML observability facade
+    from entsoe_pipeline.logger.yml_observability import save_yaml_with_observability
 
-    MY_ENTSOE_DOMAINS_YML.parent.mkdir(parents=True, exist_ok=True)
-    with MY_ENTSOE_DOMAINS_YML.open("w", encoding="utf-8") as f:
-        f.write(warning_comment)
-        yaml.dump(transformed, f, default_flow_style=False, sort_keys=False)
+    save_yaml_with_observability(
+        MY_ENTSOE_DOMAINS_YML,
+        transformed,
+        is_my_entsoe_domains=True,
+    )
 
 
 if __name__ == "__main__":

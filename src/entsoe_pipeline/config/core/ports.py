@@ -33,6 +33,8 @@ class PortsConfig:
         volume_http (int): Port for the SeaweedFS Volume Server HTTP API.
         filer_http (int): Port for the SeaweedFS Filer HTTP browser interface.
         filer_grpc (int): Port for the SeaweedFS Filer gRPC metadata service.
+        kestra_web (int): Port for the Kestra Web UI administration dashboard.
+        kestra_api (int): Port for the Kestra API backend services.
     """
 
     s3_compatible: int
@@ -42,6 +44,8 @@ class PortsConfig:
     volume_http: int
     filer_http: int
     filer_grpc: int
+    kestra_web: int
+    kestra_api: int
 
     @classmethod
     def _from_yaml(cls) -> PortsConfig:
@@ -71,4 +75,6 @@ class PortsConfig:
             volume_http=int(ports_data.get("volume_http", 8080)),
             filer_http=int(ports_data.get("filer_http", 8888)),
             filer_grpc=int(ports_data.get("filer_grpc", 18888)),
+            kestra_web=int(ports_data.get("kestra_web", 8082)),
+            kestra_api=int(ports_data.get("kestra_api", 8083)),
         )

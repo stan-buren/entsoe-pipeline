@@ -1,0 +1,43 @@
+lakehouse:
+  purge_raw_after_transform: false
+  write_properties:
+    compression_codec: "zstd"
+    compression_level: 3
+
+
+metadata:
+  purge_raw_after_transform:
+    description: |
+      Flag to determine whether raw CSV/unstructured files in the landing zone should be deleted
+      immediately after they are successfully processed and transformed into the Lakehouse (Iceberg tables).
+      This helps conserve local disk space or cloud storage costs, functioning as an ephemeral landing zone,
+      but means raw archives are not persisted.
+    examples:
+      - true
+      - false
+    default: true
+    type: "integer"
+    data_engineering_meaning: |
+      Implements an ephemeral landing zone model. In traditional data warehousing (ELT),
+      raw files are stored permanently as WORM (Write Once Read Many) archives.
+      However, for this pipeline, if disk space is critical and the source system (ENTSO-E)
+      already acts as a permanent historical archive, we can purge raw files after
+      they are committed to the transaction-safe Iceberg layer.
+  write_properties:
+    description: |
+      Dictionary mapping of S3 Lakehouse and Iceberg table write configurations.
+      Controls how files are compressed, formatted, and optimized when they are
+      committed and appended to the Apache Iceberg Silver layer.
+    type: "object"
+    examples:
+      - compression_codec: "zstd"
+        compression_level: 3
+    default:
+      compression_codec: "zstd"
+      compression_level: 3
+    data_engineering_meaning: |
+      ZSTD is the modern industry standard for columnar formats (Parquet). It provides
+      compression rates similar to Gzip but is significantly faster during read/write operations.
+      Level 3 is the recommended baseline. In the future, we propose an adaptive compaction tiering
+      system (described in docs/proposals/0001-adaptive-iceberg-compression-tiering.md) to dynamically
+      adjust these parameters for cold storage.

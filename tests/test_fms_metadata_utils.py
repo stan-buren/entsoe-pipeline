@@ -295,9 +295,9 @@ def test_compile_env_stats_summarizes_environment() -> None:
 # =============================================================================
 
 
-@patch("entsoe_pipeline.fms_metadata.utils.serializer.yaml.dump")
+@patch("entsoe_pipeline.fms_metadata.utils.serializer.save_yaml_with_observability")
 def test_save_yaml_catalog_opens_and_dumps(
-    mock_yaml_dump: MagicMock, tmp_path: Path
+    mock_save_observability: MagicMock, tmp_path: Path
 ) -> None:
     """Verifies save_yaml_catalog writes YAML blocks to filesystem target."""
     # -------------------------------------------------------------------------
@@ -312,17 +312,16 @@ def test_save_yaml_catalog_opens_and_dumps(
     save_yaml_catalog(target, payload)
 
     # -------------------------------------------------------------------------
-    # ASSERT: Verify the physical file is created and serialization runs
+    # ASSERT: Verify save_yaml_with_observability is called
     # -------------------------------------------------------------------------
-    assert target.exists()
-    assert mock_yaml_dump.call_count == 1
+    mock_save_observability.assert_called_once_with(target, payload)
 
 
 @patch("entsoe_pipeline.fms_metadata.utils.serializer.save_yaml_catalog")
 def test_save_fms_catalog_adds_timestamps(
     mock_save_yaml: MagicMock, tmp_path: Path
 ) -> None:
-    """Verifies save_fms_catalog appends generation watermarks."""
+    """Verifies save_fms_catalog delegates correctly to save_yaml_catalog."""
     # -------------------------------------------------------------------------
     # ARRANGE: Configure temporary target catalog path
     # -------------------------------------------------------------------------
@@ -334,10 +333,9 @@ def test_save_fms_catalog_adds_timestamps(
     save_fms_catalog(target, api_requests_count=10, folders_metadata={})
 
     # -------------------------------------------------------------------------
-    # ASSERT: Verify generated timestamp and catalog details are saved
+    # ASSERT: Verify catalog details are saved to save_yaml_catalog
     # -------------------------------------------------------------------------
     mock_save_yaml.assert_called_once()
     saved_payload = mock_save_yaml.call_args[0][1]
-    assert "generated_at" in saved_payload
     assert saved_payload["total_api_requests"] == 10
     assert saved_payload["folders"] == {}

@@ -26,7 +26,10 @@ from entsoe_pipeline.logger.exceptions import (
     EntsoeDataValidationError,
     EntsoePipelineError,
 )
+from entsoe_pipeline.logger.json_observability import save_json_with_observability
 from entsoe_pipeline.logger.logger_config import setup_logging
+from entsoe_pipeline.logger.runs_logger import RunsLogger
+from entsoe_pipeline.logger.yml_observability import save_yaml_with_observability
 
 __all__ = [
     "EntsoeApiError",
@@ -34,5 +37,8 @@ __all__ = [
     "EntsoeConnectionError",
     "EntsoeDataValidationError",
     "EntsoePipelineError",
+    "RunsLogger",
+    "save_json_with_observability",
+    "save_yaml_with_observability",
     "setup_logging",
 ]

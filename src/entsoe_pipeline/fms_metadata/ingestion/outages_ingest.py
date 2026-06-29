@@ -29,16 +29,15 @@ from entsoe_pipeline.fms_metadata.core import ingest_domain_metadata
 logger = logging.getLogger("entsoe_pipeline.fms_metadata.outages_ingest")
 
 
-def ingest_outages_metadata() -> None:
+def ingest_outages_metadata(env: str | None = None) -> None:
     """Orchestrates metadata gathering for Outages domain.
 
     Crawls folders across both IOP and PROD environments.
     """
     logger.info("Initializing metadata gathering for Outages domain folders...")
-    ingest_domain_metadata("Outages")
+    ingest_domain_metadata("Outages", env)
 
 
 if __name__ == "__main__":
-    # Setup human-readable console logging on CLI execution
-    setup_logging(level=logging.INFO, use_json=False)
+    setup_logging()
     ingest_outages_metadata()

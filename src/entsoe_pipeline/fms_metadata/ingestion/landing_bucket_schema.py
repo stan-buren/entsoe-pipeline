@@ -25,7 +25,7 @@ import logging
 
 from typing import Any
 
-from ruamel.yaml import YAML
+import yaml
 
 from entsoe_pipeline import (
     LANDING_BUCKET_SCHEMA_YML,
@@ -98,11 +98,6 @@ def build_landing_bucket_schema() -> None:
     """
     logger.info("=== STARTING LANDING BUCKET SCHEMA GENERATION ===")
 
-    yaml = YAML()
-    yaml.width = 80
-    yaml.indent(mapping=2, sequence=4, offset=2)
-    yaml.preserve_quotes = True
-
     # Check if overview tree is available
     if not OVERVIEW_TREE_YML.exists():
         raise FileNotFoundError(
@@ -111,7 +106,7 @@ def build_landing_bucket_schema() -> None:
 
     logger.info("Reading overview tree catalog from: %s", OVERVIEW_TREE_YML)
     with OVERVIEW_TREE_YML.open(encoding="utf-8") as f:
-        tree_data = yaml.load(f) or {}
+        tree_data = yaml.safe_load(f) or {}
 
     # Extract target directories
     folders = extract_folders_from_tree(tree_data)
@@ -128,8 +123,9 @@ def build_landing_bucket_schema() -> None:
         "Persisting landing bucket directory schema to: %s",
         LANDING_BUCKET_SCHEMA_YML,
     )
-    with LANDING_BUCKET_SCHEMA_YML.open("w", encoding="utf-8") as f:
-        yaml.dump(schema_payload, f)
+    from entsoe_pipeline.logger import save_yaml_with_observability
+
+    save_yaml_with_observability(LANDING_BUCKET_SCHEMA_YML, schema_payload)
 
     logger.info("=== LANDING BUCKET SCHEMA GENERATION COMPLETED ===")
 

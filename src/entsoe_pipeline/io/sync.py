@@ -18,23 +18,24 @@ from __future__ import annotations
 
 import logging
 
+from datetime import UTC, datetime
 from typing import Any
 
 from entsoe_pipeline import (
+    LANDING_REGISTRY_JSON,
     MANUAL_DATA_DIR,
-    XXHASH_REGISTRY_JSON,
     get_active_domains_config,
     get_config,
     get_landing_bucket_schema,
+    save_json_with_observability,
 )
 from entsoe_pipeline.api.xxhash import calculate_idempotency_hash
 from entsoe_pipeline.io.core import (
     check_idempotency,
     extract_active_folders,
-    load_xxhash_registry,
+    load_landing_registry,
     resolve_target_mappings,
-    save_xxhash_registry,
-    select_most_recent_csv,
+    select_files_to_sync,
     verify_free_disk_space,
 )
 from entsoe_pipeline.io.fms import download_fms_file, get_fms_client
@@ -44,7 +45,7 @@ from entsoe_pipeline.lakehouse.core.s3_tree_builder import get_s3_client
 logger = logging.getLogger("entsoe_pipeline.io.sync")
 
 
-def sync_active_domains(env_name: str) -> dict[str, Any]:
+def sync_active_domains(env_name: str, run_id: str) -> dict[str, Any]:
     """Synchronizes active datasets from the remote ENTSO-E FMS to S3 storage.
 
     For each active folder:
@@ -56,11 +57,14 @@ def sync_active_domains(env_name: str) -> dict[str, Any]:
 
     Args:
         env_name: The target environment ('IOP' or 'PROD').
+        run_id: The unique operational tracking ID of this execution.
 
     Returns:
         dict[str, Any]: Metrics of the sync run.
     """
-    logger.info("=== STARTING SYNC RUN FOR ENVIRONMENT: %s ===", env_name)
+    logger.info(
+        "=== STARTING SYNC RUN FOR ENVIRONMENT: %s (Run ID: %s) ===", env_name, run_id
+    )
 
     # 1. Parse active folders from checklist
     domains_config = get_active_domains_config()
@@ -85,84 +89,102 @@ def sync_active_domains(env_name: str) -> dict[str, Any]:
     config = get_config()
     bucket_name = config.buckets.s3_landing_bucket
 
-    xxhash_registry = load_xxhash_registry(XXHASH_REGISTRY_JSON)
+    xxhash_registry = load_landing_registry(LANDING_REGISTRY_JSON)
     metrics = {"processed": 0, "downloaded": 0, "skipped": 0, "errors": 0}
 
     for mapping in target_mappings:
         try:
-            # 3. Select the single most recent file
-            file_meta = select_most_recent_csv(fms_client, mapping)
-            if not file_meta:
-                metrics["skipped"] += 1
-                continue
+            # 3. Select all files matching configuration checklist
+            files_to_sync = select_files_to_sync(fms_client, mapping)
+            for file_meta in files_to_sync:
+                filename = file_meta["name"]
+                size_bytes = file_meta.get("originalSize", 0)
+                last_updated = file_meta.get("lastUpdatedTimestamp", "")
+                remote_folder = file_meta["remote_folder"]
+                schema_path = mapping["schema_path"]
+                top_level = mapping["top_level_folder"]
 
-            filename = file_meta["name"]
-            size_bytes = file_meta.get("originalSize", 0)
-            last_updated = file_meta.get("lastUpdatedTimestamp", "")
-            remote_folder = file_meta["remote_folder"]
-            schema_path = mapping["schema_path"]
-            top_level = mapping["top_level_folder"]
+                # Skip empty files without fileId
+                file_id = file_meta.get("fileId", "")
+                if not file_id:
+                    logger.warning(
+                        "Selected file '%s' has no fileId (empty). Skipping ingestion.",
+                        filename,
+                    )
+                    metrics["skipped"] += 1
+                    continue
 
-            logger.info(
-                "Selected most recent CSV file: %s (size: %d bytes, updated: %s)",
-                filename,
-                size_bytes,
-                last_updated,
-            )
-
-            # 4. Check local disk space safety margin
-            verify_free_disk_space(MANUAL_DATA_DIR, size_bytes)
-
-            # 5. Check xxHash idempotency
-            expected_hash = calculate_idempotency_hash(
-                filename, size_bytes, last_updated
-            )
-            s3_key = f"{schema_path.strip('/')}/{filename}"
-
-            is_already_synced = check_idempotency(
-                s3_key=s3_key,
-                expected_hash=expected_hash,
-                registry=xxhash_registry,
-                bucket_name=bucket_name,
-                s3_client=s3_client,
-            )
-
-            if is_already_synced:
                 logger.info(
-                    "File '%s' with hash %s already synced. Skipping.",
-                    s3_key,
-                    expected_hash,
+                    "Selected CSV file: %s (size: %d bytes, updated: %s, fileId: %s)",
+                    filename,
+                    size_bytes,
+                    last_updated,
+                    file_id,
                 )
-                metrics["skipped"] += 1
-                continue
 
-            # 6. Execute file transfer (download from FMS, upload to S3)
-            logger.info("Transferring file '%s' from FMS to S3...", filename)
-            csv_data = download_fms_file(
-                client=fms_client,
-                top_level_folder=top_level,
-                folder_path=remote_folder,
-                filename=filename,
-            )
+                # 4. Check local disk space safety margin
+                verify_free_disk_space(MANUAL_DATA_DIR, size_bytes)
 
-            # Write temporarily to local path before uploading
-            local_tmp_path = MANUAL_DATA_DIR / f"tmp_{filename}"
-            local_tmp_path.parent.mkdir(parents=True, exist_ok=True)
-            local_tmp_path.write_bytes(csv_data)
+                # 5. Check xxHash idempotency
+                expected_hash = calculate_idempotency_hash(
+                    filename, size_bytes, last_updated
+                )
+                s3_key = f"{schema_path.strip('/')}/{filename}"
 
-            # Upload to S3
-            upload_file_to_s3(local_path=local_tmp_path, s3_key=s3_key)
+                is_already_synced = check_idempotency(
+                    s3_key=s3_key,
+                    expected_hash=expected_hash,
+                    registry=xxhash_registry,
+                    bucket_name=bucket_name,
+                    s3_client=s3_client,
+                )
 
-            # Cleanup temp file
-            if local_tmp_path.exists():
-                local_tmp_path.unlink()
+                if is_already_synced:
+                    logger.info(
+                        "File '%s' with hash %s already synced. Skipping.",
+                        s3_key,
+                        expected_hash,
+                    )
+                    metrics["skipped"] += 1
+                    continue
 
-            # Record in registry and persist
-            xxhash_registry[s3_key] = expected_hash
-            save_xxhash_registry(xxhash_registry, XXHASH_REGISTRY_JSON)
+                # 6. Execute file transfer (download from FMS, upload to S3)
+                logger.info("Transferring file '%s' from FMS to S3...", filename)
+                csv_data = download_fms_file(
+                    client=fms_client,
+                    top_level_folder=top_level,
+                    folder_path=remote_folder,
+                    filename=filename,
+                )
 
-            metrics["downloaded"] += 1
-            metrics["processed"] += 1
+                # Write temporarily to local path before uploading
+                local_tmp_path = MANUAL_DATA_DIR / f"tmp_{filename}"
+                local_tmp_path.parent.mkdir(parents=True, exist_ok=True)
+                local_tmp_path.write_bytes(csv_data)
+
+                # Upload to S3
+                upload_file_to_s3(local_path=local_tmp_path, s3_key=s3_key)
+
+                # Cleanup temp file
+                if local_tmp_path.exists():
+                    local_tmp_path.unlink()
+
+                # Record in registry and persist
+                xxhash_registry[s3_key] = {
+                    "file_name": filename,
+                    "file_id": file_id,
+                    "file_size_bytes": size_bytes,
+                    "last_updated_timestamp": last_updated,
+                    "xxhash": expected_hash,
+                    "downloaded_at": datetime.now(UTC).isoformat() + "Z",
+                    "run_id": run_id,
+                }
+                save_json_with_observability(
+                    LANDING_REGISTRY_JSON, xxhash_registry, sort_keys=False
+                )
+
+                metrics["downloaded"] += 1
+                metrics["processed"] += 1
 
         except Exception as e:
             logger.exception(

@@ -251,7 +251,6 @@ dev = [
     { name = "pytest-mock" },
     { name = "pytest-xdist" },
     { name = "ruamel-yaml" },
-    { name = "ruamel-yaml-clibz" },
     { name = "ruff" },
     { name = "ty" },
 ]
@@ -284,7 +283,6 @@ dev = [
     { name = "pytest-mock", specifier = ">=3.15.1" },
     { name = "pytest-xdist", specifier = ">=3.8.0" },
     { name = "ruamel-yaml", specifier = ">=0.19.1" },
-    { name = "ruamel-yaml-clibz", specifier = ">=0.3.7" },
     { name = "ruff", specifier = ">=0.15.12" },
     { name = "ty", specifier = ">=0.0.35" },
 ]
@@ -1006,12 +1004,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/c7/3b/ebda527b56beb90cb
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b8/0c/51f6841f1d84f404f92463fc2b1ba0da357ca1e3db6b7fbda26956c3b82a/ruamel_yaml-0.19.1-py3-none-any.whl", hash = "sha256:27592957fedf6e0b62f281e96effd28043345e0e66001f97683aa9a40c667c93", size = 118102, upload-time = "2026-01-02T16:50:29.201Z" },
 ]
-
-[[package]]
-name = "ruamel-yaml-clibz"
-version = "0.3.7"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/cb/73/2a9857a017f8ee260c683d8155634f0e3ca57964da2c3055b02822d582cd/ruamel_yaml_clibz-0.3.7.tar.gz", hash = "sha256:2be85214793cfc787eb12380fa3226e10cd7727b24551c3067c173d66c9bedd9", size = 231233, upload-time = "2026-01-02T14:52:41.734Z" }
 
 [[package]]
 name = "ruff"

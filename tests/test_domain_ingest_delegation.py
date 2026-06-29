@@ -120,7 +120,7 @@ def test_domain_orchestrators_delegate_to_core(
         # -------------------------------------------------------------------------
         # ASSERT: Verify it delegates cleanly to the core with the correct domain
         # -------------------------------------------------------------------------
-        mock_ingest_core.assert_called_once_with(domain_name)
+        mock_ingest_core.assert_called_once_with(domain_name, None)
 
 
 @patch(

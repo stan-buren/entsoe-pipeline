@@ -1,0 +1,23 @@
+name: "Create Issues from Target TODOs"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  todo-to-issue:
+    runs-on: ubuntu-24.04
+    permissions:
+      issues: write
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Todo to Issue
+        uses: alstr/todo-to-issue-action@v5
+        with:
+          CLOSE_ISSUES: true
+          AUTO_ASSIGN: true
+          IDENTIFIERS: '[{"name": "TODO [ISSUE]", "labels": ["todo-debt"]}]'

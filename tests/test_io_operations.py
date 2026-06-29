@@ -30,7 +30,7 @@ import pytest
 
 from botocore.exceptions import ClientError
 
-from entsoe_pipeline.io.core.file_selector import select_most_recent_csv
+from entsoe_pipeline.io.core.file_selector import select_files_to_sync
 from entsoe_pipeline.io.core.fms_operations import (
     download_raw_zip_from_fms,
     extract_csv_bytes_from_zip,
@@ -46,8 +46,8 @@ from entsoe_pipeline.logger.exceptions import EntsoeApiError, EntsoeConnectionEr
 # =============================================================================
 
 
-def test_select_most_recent_csv_empty() -> None:
-    """Verifies None is returned if no CSV files exist in listed items."""
+def test_select_files_to_sync_empty() -> None:
+    """Verifies empty list is returned if no CSV files exist in listed items."""
     client = MagicMock()
     mapping = {
         "top_level_folder": "TP_export",
@@ -58,11 +58,11 @@ def test_select_most_recent_csv_empty() -> None:
     with patch(
         "entsoe_pipeline.io.core.file_selector.list_folder_raw_items", return_value=[]
     ):
-        res = select_most_recent_csv(client, mapping)
-        assert res is None
+        res = select_files_to_sync(client, mapping)
+        assert res == []
 
 
-def test_select_most_recent_csv_with_filter() -> None:
+def test_select_files_to_sync_with_filter() -> None:
     """Verifies correct selection when a specific list of files is configured."""
     client = MagicMock()
     mapping = {
@@ -79,14 +79,14 @@ def test_select_most_recent_csv_with_filter() -> None:
         "entsoe_pipeline.io.core.file_selector.list_folder_raw_items",
         return_value=files,
     ):
-        res = select_most_recent_csv(client, mapping)
-        assert res is not None
-        assert res["name"] == "file1.csv"
-        assert res["remote_folder"] == "ActualTotalLoad"
+        res = select_files_to_sync(client, mapping)
+        assert len(res) == 1
+        assert res[0]["name"] == "file1.csv"
+        assert res[0]["remote_folder"] == "ActualTotalLoad"
 
 
-def test_select_most_recent_csv_with_filter_no_match() -> None:
-    """Verifies None is returned if files do not match configured filenames."""
+def test_select_files_to_sync_with_filter_no_match() -> None:
+    """Verifies empty list is returned if files do not match configured filenames."""
     client = MagicMock()
     mapping = {
         "top_level_folder": "TP_export",
@@ -101,11 +101,11 @@ def test_select_most_recent_csv_with_filter_no_match() -> None:
         "entsoe_pipeline.io.core.file_selector.list_folder_raw_items",
         return_value=files,
     ):
-        res = select_most_recent_csv(client, mapping)
-        assert res is None
+        res = select_files_to_sync(client, mapping)
+        assert res == []
 
 
-def test_select_most_recent_csv_exception() -> None:
+def test_select_files_to_sync_exception() -> None:
     """Verifies list exceptions are successfully propagated."""
     client = MagicMock()
     mapping = {
@@ -121,7 +121,7 @@ def test_select_most_recent_csv_exception() -> None:
         ),
         pytest.raises(ValueError, match="test err"),
     ):
-        select_most_recent_csv(client, mapping)
+        select_files_to_sync(client, mapping)
 
 
 # =============================================================================

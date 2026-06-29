@@ -72,7 +72,7 @@ def ensure_bucket_exists(client: Any, bucket_name: str) -> None:
     logger = logging.getLogger("entsoe_pipeline")
     try:
         client.head_bucket(Bucket=bucket_name)
-        logger.info("S3 bucket %s already exists.", bucket_name)
+        logger.debug("S3 bucket %s already exists.", bucket_name)
     except ClientError as e:
         error_code = e.response.get("Error", {}).get("Code")
         if error_code in ("404", "NoSuchBucket"):

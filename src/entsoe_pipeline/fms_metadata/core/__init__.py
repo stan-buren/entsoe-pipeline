@@ -28,15 +28,17 @@ from entsoe_pipeline.fms_metadata.core.domain_builders import (
     build_domains_checklist,
     build_extended_domains_config,
 )
-from entsoe_pipeline.fms_metadata.core.generation_data import get_generation_timestamp
 from entsoe_pipeline.fms_metadata.core.legacy import ingest_legacy_metadata
-from entsoe_pipeline.fms_metadata.core.machine_generated_warning import (
-    get_my_entsoe_domains_warning,
-    get_yaml_warning,
-)
 from entsoe_pipeline.fms_metadata.core.overview import ingest_overview_metadata
 from entsoe_pipeline.fms_metadata.core.overview_tree import (
     ingest_overview_tree_metadata,
+)
+from entsoe_pipeline.logger.core.generated_at import (
+    get_generated_at_timestamp as get_generation_timestamp,
+)
+from entsoe_pipeline.logger.core.warning import (
+    get_my_entsoe_domains_warning,
+    get_yaml_warning,
 )
 
 __all__ = [

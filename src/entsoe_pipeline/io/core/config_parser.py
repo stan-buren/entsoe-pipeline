@@ -36,9 +36,10 @@ def extract_active_folders(
         dict[str, Any]: Dictionary mapping active folder names to their values.
     """
     environments = config_data.get("environments", {})
-    env_data = environments.get(env_name.upper())
-    if not env_data:
+    env_key = next((k for k in environments if k.upper() == env_name.upper()), None)
+    if not env_key:
         return {}
+    env_data = environments[env_key]
 
     active_folders: dict[str, Any] = {}
     root_dirs = env_data.get("root_directories", [])

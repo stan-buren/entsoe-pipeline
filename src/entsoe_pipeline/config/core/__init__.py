@@ -22,13 +22,16 @@ from entsoe_pipeline.config.core.classifier import (
     LegacyRule,
 )
 from entsoe_pipeline.config.core.hosts import HostsConfig
+from entsoe_pipeline.config.core.lakehouse import LakehouseConfig
 from entsoe_pipeline.config.core.limits import RateLimitsConfig
 from entsoe_pipeline.config.core.pipeline import EntsoeEnvConfig, PipelineConfig
 from entsoe_pipeline.config.core.ports import PortsConfig
 from entsoe_pipeline.config.core.project_root import find_project_root
 from entsoe_pipeline.config.core.region import RegionConfig
 from entsoe_pipeline.config.core.switch import switch_environment
-from entsoe_pipeline.config.core.warning import CustomConfig
+from entsoe_pipeline.config.core.urls import UrlsConfig
+from entsoe_pipeline.config.core.volumes import VolumesConfig
+from entsoe_pipeline.logger.core.warning import CustomConfig
 
 __all__ = [
     "BucketsConfig",
@@ -38,11 +41,14 @@ __all__ = [
     "EntsoeEnvConfig",
     "ExclusionRule",
     "HostsConfig",
+    "LakehouseConfig",
     "LegacyRule",
     "PipelineConfig",
     "PortsConfig",
     "RateLimitsConfig",
     "RegionConfig",
+    "UrlsConfig",
+    "VolumesConfig",
     "find_project_root",
     "switch_environment",
 ]

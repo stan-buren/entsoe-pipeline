@@ -204,7 +204,8 @@ domains:
 
     OperationalAgreementsOfLoadFrequencyControlBlocks_SOGL_184.3_r3:
       title: "Operational Agreements of Load Frequency Control Blocks [184.3]"
-      oneliner: "Information and documents regarding the operational agreements for Load Frequency Control (LFC) blocks."
+      oneliner: "Information and documents regarding the operational agreements for
+        Load Frequency Control (LFC) blocks."
       description: |
         This data item publishes the operational agreements of Load Frequency Control (LFC) blocks. Rather than providing continuous numerical timeseries data, this section provides regulatory and operational transparency. It hosts or links to the official operational agreements established by Transmission System Operators (TSOs) operating within specific LFC blocks, detailing the rules, dimensioning of reserves, and coordinated actions required to maintain system frequency within the synchronous area.
       compliance: |

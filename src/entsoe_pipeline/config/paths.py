@@ -15,13 +15,32 @@
 
 import typing
 
+from pathlib import Path
+
+import yaml
+
 from entsoe_pipeline.config.core.project_root import find_project_root
 
 # Dynamically load all path constants using config_loader SSOT
 PROJECT_ROOT = find_project_root()
 PATHS_YML = PROJECT_ROOT / "config" / "paths.yml"
 
-from entsoe_pipeline.config.config_loader import load_paths_config  # noqa: E402
+
+def load_paths_config(project_root: Path) -> dict[str, str]:
+    """Loads and parses the centralized paths configuration from paths.yml.
+
+    Args:
+        project_root: The project root directory.
+
+    Returns:
+        dict[str, str]: Mapped relative path configurations.
+    """
+    paths_file = project_root / "config" / "paths.yml"
+    if not paths_file.exists():
+        raise FileNotFoundError(f"Paths configuration file not found at: {paths_file}")
+    with paths_file.open(encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
+
 
 _paths_data = load_paths_config(PROJECT_ROOT)
 
