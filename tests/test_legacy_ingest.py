@@ -43,9 +43,9 @@ def test_ingest_all_legacy_metadata_delegates_to_core(
     # ASSERT: Verify it delegates cleanly for R1, R2, and R3 archives
     # -------------------------------------------------------------------------
     assert mock_ingest_core.call_count == 3
-    mock_ingest_core.assert_any_call("R3_Archives")
-    mock_ingest_core.assert_any_call("R2_Archives")
-    mock_ingest_core.assert_any_call("R1_Archives_CSV_XML")
+    mock_ingest_core.assert_any_call("R3_Archives", None)
+    mock_ingest_core.assert_any_call("R2_Archives", None)
+    mock_ingest_core.assert_any_call("R1_Archives_CSV_XML", None)
 
 
 @patch("entsoe_pipeline.fms_metadata.core.legacy.save_yaml_catalog")

@@ -1,0 +1,35 @@
+# Version control
+.git
+.gitignore
+.github
+
+# Virtual environments and package manager caches
+.venv
+.uv_cache
+.pytest_cache
+.ruff_cache
+.ipynb_checkpoints
+
+# Project bytecode cache (recursively)
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Large raw data directories
+.data/
+data/
+
+# Local environment secrets (NEVER bake secrets into Docker images!)
+.env
+.env.*
+
+# Local notebooks and docs (not needed in runtime image)
+docs/
+notebooks/
+
+# Test suites and coverage results
+.coverage
+htmlcov/
+.htmlcov/
+tests/

@@ -12,15 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from __future__ import annotations
+"""ENTSO-E Data Ingestion Preflight Verification Package Facade."""
 
-from datetime import UTC, datetime
+from entsoe_pipeline.preflight.landing import (
+    run_ingest_landing_preflight,
+    run_prepare_landing_preflight,
+)
 
-
-def get_generation_timestamp() -> str:
-    """Generates the standardized ISO 8601 UTC execution timestamp.
-
-    Returns:
-        str: Standard ISO timestamp string (e.g., '2026-05-29T12:00:00Z').
-    """
-    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+__all__ = [
+    "run_ingest_landing_preflight",
+    "run_prepare_landing_preflight",
+]

@@ -26,11 +26,14 @@ from entsoe_pipeline.vendor_patches.entsoe_py import ConfigurableEntsoeFileClien
 logger = logging.getLogger("entsoe_pipeline.io.core.file_selector")
 
 
-def select_most_recent_csv(
+def select_files_to_sync(
     client: ConfigurableEntsoeFileClient,
     mapping: dict[str, Any],
-) -> dict[str, Any] | None:
-    """Lists files in the FMS directory and selects the most recent CSV.
+) -> list[dict[str, Any]]:
+    """Lists files in the FMS directory and selects files to sync based on configuration value.
+
+    If mapping["val"] is a list of filenames, selects only those filenames.
+    Otherwise (e.g. if mapping["val"] is True), selects all CSV files in the folder.
 
     Args:
         client: The authenticated client.
@@ -38,8 +41,7 @@ def select_most_recent_csv(
           remote_folder_path, and val.
 
     Returns:
-        dict[str, Any] | None: Metadata of the selected file, containing an extra
-          'remote_folder' key indicating the resolved FMS folder name, or None.
+        list[dict[str, Any]]: List of file metadata dicts to sync, or empty list.
     """
     top_level = mapping["top_level_folder"]
     remote_folder_path = mapping["remote_folder_path"]
@@ -63,9 +65,9 @@ def select_most_recent_csv(
         logger.info(
             "No CSV files found in FMS folder '/%s/%s/'", top_level, remote_folder
         )
-        return None
+        return []
 
-    # Filter by configured list if val is a list of filenames
+    # If configuration is a specific list of filenames, filter by it
     if isinstance(val, list) and len(val) > 0:
         csv_files = [f for f in csv_files if f.get("name") in val]
         if not csv_files:
@@ -75,14 +77,10 @@ def select_most_recent_csv(
                 top_level,
                 remote_folder,
             )
-            return None
+            return []
 
-    # Sort: primary key lastUpdatedTimestamp (desc), secondary key name (desc)
-    csv_files.sort(
-        key=lambda x: (x.get("lastUpdatedTimestamp", "") or "", x.get("name", "")),
-        reverse=True,
-    )
+    # Inject remote_folder to each file metadata dict
+    for f in csv_files:
+        f["remote_folder"] = remote_folder
 
-    selected = csv_files[0]
-    selected["remote_folder"] = remote_folder
-    return selected
+    return csv_files

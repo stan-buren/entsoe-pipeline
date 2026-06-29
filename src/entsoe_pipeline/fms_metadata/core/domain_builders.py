@@ -246,31 +246,36 @@ def build_domains_checklist(
     target_env = template_data.get("environment")
 
     if "popular_domains" in template_data:
-        return build_default_domains_config(
+        transformed = build_default_domains_config(
             overview_data,
             template_data["popular_domains"],
             target_environment=target_env,
         )
-
-    if "selected_domains" in template_data:
-        return build_custom_domains_config(
+    elif "selected_domains" in template_data:
+        transformed = build_custom_domains_config(
             overview_data,
             template_data["selected_domains"],
             target_environment=target_env,
         )
-
-    if "enabled_domains" in template_data or "enabled_legacy_folders" in template_data:
+    elif (
+        "enabled_domains" in template_data or "enabled_legacy_folders" in template_data
+    ):
         enabled_domains = template_data.get("enabled_domains", [])
         enabled_legacy_folders = template_data.get("enabled_legacy_folders", [])
-        return build_extended_domains_config(
+        transformed = build_extended_domains_config(
             overview_data,
             enabled_domains,
             enabled_legacy_folders,
             target_environment=target_env,
         )
+    else:
+        raise ValueError(
+            "Invalid checklist template configuration format. "
+            "Must define one of: 'environments', 'popular_domains', "
+            "'selected_domains', 'enabled_domains', or 'enabled_legacy_folders'."
+        )
 
-    raise ValueError(
-        "Invalid checklist template configuration format. "
-        "Must define one of: 'environments', 'popular_domains', "
-        "'selected_domains', 'enabled_domains', or 'enabled_legacy_folders'."
-    )
+    if target_env:
+        transformed["environment"] = target_env
+
+    return transformed

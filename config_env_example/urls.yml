@@ -1,0 +1,16 @@
+urls:
+  kestra: "http://localhost:8082/"
+
+metadata:
+  kestra:
+    description: |
+      The external/public web URL of the Kestra orchestration platform.
+      This URL is used by Kestra internally to generate absolute links to flows,
+      executions, and logs (for example, in email or webhook alerts sent to developers).
+      For local development, it typically points to the local loopback address and the
+      kestra_web port.
+    examples:
+      - "http://localhost:8082/"
+      - "https://kestra.mycompany.com/"
+    default: "http://localhost:8082/"
+    type: "string"

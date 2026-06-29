@@ -1,6 +1,7 @@
 # Single Source of Truth for popular ENTSO-E domains
 # Used by src/entsoe_pipeline/fms_metadata/ingestion/my_entsoe_domains/default.py
 # To use this template set active_mode to "Default" in config/my_entsoe_domains.yml
+environment: PROD
 
 selected_domains:
   Load:

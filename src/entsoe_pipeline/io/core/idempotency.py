@@ -26,14 +26,14 @@ from entsoe_pipeline.io.core.s3_operations import s3_object_exists
 logger = logging.getLogger("entsoe_pipeline.io.core.idempotency")
 
 
-def load_xxhash_registry(registry_path: Path) -> dict[str, str]:
-    """Loads the xxHash idempotency registry from the local disk.
+def load_landing_registry(registry_path: Path) -> dict[str, dict[str, str | int]]:
+    """Loads the landing registry from the local disk.
 
     Args:
         registry_path: Path to the JSON registry file.
 
     Returns:
-        dict[str, str]: Dictionary mapping S3 keys to xxHash hex digests.
+        dict[str, dict[str, str | int]]: Dictionary mapping S3 keys to metadata dicts.
     """
     if not registry_path.exists():
         return {}
@@ -41,12 +41,14 @@ def load_xxhash_registry(registry_path: Path) -> dict[str, str]:
         with registry_path.open("r", encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
-        logger.warning("Failed to load xxhash registry: %s. Starting fresh.", e)
+        logger.warning("Failed to load landing registry: %s. Starting fresh.", e)
         return {}
 
 
-def save_xxhash_registry(registry: dict[str, str], registry_path: Path) -> None:
-    """Saves the xxHash idempotency registry back to the local disk.
+def save_landing_registry(
+    registry: dict[str, dict[str, str | int]], registry_path: Path
+) -> None:
+    """Saves the landing registry back to the local disk.
 
     Args:
         registry: The active registry dictionary.
@@ -57,13 +59,13 @@ def save_xxhash_registry(registry: dict[str, str], registry_path: Path) -> None:
         with registry_path.open("w", encoding="utf-8") as f:
             json.dump(registry, f, indent=2)
     except Exception as e:
-        logger.exception("Failed to save xxhash registry at %s: %s", registry_path, e)
+        logger.exception("Failed to save landing registry at %s: %s", registry_path, e)
 
 
 def check_idempotency(
     s3_key: str,
     expected_hash: str,
-    registry: dict[str, str],
+    registry: dict[str, dict[str, str | int]],
     bucket_name: str,
     s3_client,
 ) -> bool:
@@ -72,15 +74,16 @@ def check_idempotency(
     Args:
         s3_key: Target object key in S3.
         expected_hash: Expected xxHash hex digest of the file metadata.
-        registry: The loaded xxHash registry.
+        registry: The loaded registry.
         bucket_name: Destination S3 bucket name.
         s3_client: The S3 client.
 
     Returns:
         bool: True if the file has already been synced, False otherwise.
     """
+    file_meta = registry.get(s3_key, {})
     return bool(
-        registry.get(s3_key) == expected_hash
+        file_meta.get("xxhash") == expected_hash
         and s3_object_exists(
             s3_key=s3_key, bucket_name=bucket_name, s3_client=s3_client
         )

@@ -17,11 +17,13 @@
 import logging
 import sys
 
-from entsoe_pipeline import get_config, setup_logging
-from entsoe_pipeline.io.sync import sync_active_domains
-from entsoe_pipeline.lakehouse.generate_tree_for_my_entsoe_domains import (
-    generate_tree_for_my_entsoe_domains,
+from entsoe_pipeline import (
+    RunsLogger,
+    resolve_active_environment,
+    setup_logging,
 )
+from entsoe_pipeline.io.sync import sync_active_domains
+from entsoe_pipeline.preflight import run_ingest_landing_preflight
 
 logger = logging.getLogger("entsoe_pipeline.jobs.ingest_my_entsoe_domains")
 
@@ -33,30 +35,28 @@ def main() -> None:
     logger.info("=== STARTING ENTSO-E ACTIVE DOMAINS INGESTION JOB ===")
 
     try:
-        # 1. Automatically initialize active S3 directories
-        logger.info("Initializing active S3 folder structures...")
-        generate_tree_for_my_entsoe_domains()
-
-        # 2. Run pre-flight readiness checks
-        logger.info("Running pre-flight readiness checks...")
-        import pytest
-
-        exit_code = pytest.main(["-v", "tests/jobs", "--no-cov"])
-        if exit_code != 0:
-            logger.error(
-                "Pre-flight readiness checks failed with exit code %s.", exit_code
-            )
-            sys.exit(1)
-        logger.info("Pre-flight checks passed successfully.")
+        # 1. Execute ingestion preflight (initialize S3 paths and run readiness checks)
+        run_ingest_landing_preflight()
 
         # 3. Run remote file synchronization
-        config = get_config()
-        active_env = config.active_environment
+        active_env = resolve_active_environment()
         logger.info("Active environment selected: %s", active_env)
 
-        metrics = sync_active_domains(active_env)
+        with RunsLogger(
+            job_name="ingest_my_entsoe_domains", environment=active_env
+        ) as tracker:
+            metrics = sync_active_domains(active_env, run_id=tracker.run_id)
+            tracker.update_metrics(
+                processed=metrics["processed"],
+                downloaded=metrics["downloaded"],
+                skipped=metrics["skipped"],
+            )
 
         logger.info("Sync metrics: %s", metrics)
+        print(
+            f'::{{"outputs": {{"processed": {tracker.processed}, '
+            f'"downloaded": {tracker.downloaded}, "skipped": {tracker.skipped}}}}}::'
+        )
         logger.info("=== INGESTION JOB COMPLETED SUCCESSFULLY ===")
     except Exception as e:
         logger.exception("Ingestion job failed with a fatal error: %s", e)

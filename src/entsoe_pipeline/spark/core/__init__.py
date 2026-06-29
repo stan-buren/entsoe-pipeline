@@ -12,3 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+"""ENTSO-E Spark Core initialization module."""
+
+from __future__ import annotations
+
+from entsoe_pipeline.spark.core.iseberg_schema_generator import (
+    run_schema_generation,
+)
+
+__all__ = [
+    "run_schema_generation",
+]

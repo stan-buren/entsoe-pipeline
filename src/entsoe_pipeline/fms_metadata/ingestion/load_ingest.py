@@ -29,13 +29,12 @@ from entsoe_pipeline.fms_metadata.core import ingest_domain_metadata
 logger = logging.getLogger("entsoe_pipeline.fms_metadata.load_ingest")
 
 
-def ingest_load_metadata() -> None:
+def ingest_load_metadata(env: str | None = None) -> None:
     """Orchestrates metadata gathering for Load domain folders across IOP and PROD."""
     logger.info("Initializing metadata gathering for Load domain folders...")
-    ingest_domain_metadata("Load")
+    ingest_domain_metadata("Load", env)
 
 
 if __name__ == "__main__":
-    # Setup human-readable console logging on CLI execution
-    setup_logging(level=logging.INFO, use_json=False)
+    setup_logging()
     ingest_load_metadata()

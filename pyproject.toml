@@ -28,7 +28,6 @@ dev = [
     "pytest-mock>=3.15.1",
     "pytest-xdist>=3.8.0",
     "ruamel-yaml>=0.19.1",
-    "ruamel-yaml-clibz>=0.3.7", # Not used now. Delete after testing ruamel.yaml
     "ruff>=0.15.12",
     "ty>=0.0.35",
 ]

@@ -1,0 +1,46 @@
+# ENTSO-E Landing Registry Schema Definition
+# This configuration serves as the Single Source of Truth (SSOT) for the structure 
+# of our machine-readable landing_registry.json. We use this to avoid hardcoding 
+# registry field names in python scripts.
+
+schema_version: "1.0.0"
+
+registry_fields:
+  s3_key:
+    type: "string"
+    required: true
+    description: "The target destination key in the S3 landing bucket, acting as the
+      primary index key."
+  file_name:
+    type: "string"
+    required: true
+    description: "The original filename of the dataset on the remote ENTSO-E FMS server."
+  file_id:
+    type: "string"
+    required: true
+    description: "The unique UUID identifier of the file on the remote ENTSO-E FMS
+      server."
+  file_size_bytes:
+    type: "integer"
+    required: true
+    description: "The physical size of the dataset in bytes."
+  last_updated_timestamp:
+    type: "string"
+    required: true
+    description: "The remote server modification timestamp (ISO-8601 UTC) used for
+      freshness evaluation."
+  xxhash:
+    type: "string"
+    required: true
+    description: "The 128-bit xxHash signature computed from filename, size, and timestamp
+      for idempotency check."
+  downloaded_at:
+    type: "string"
+    required: true
+    description: "The ISO-8601 UTC timestamp capturing when the file was fetched and
+      uploaded to S3."
+  run_id:
+    type: "string"
+    required: true
+    description: "The UUID run session ID of the pipeline execution that downloaded
+      this file."

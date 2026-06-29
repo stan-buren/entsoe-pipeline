@@ -22,13 +22,16 @@ from __future__ import annotations
 
 import logging
 
-from entsoe_pipeline import PHYSICAL_CATALOG_DIR, get_classifier_config, get_config
+from entsoe_pipeline import (
+    PHYSICAL_CATALOG_DIR,
+    get_classifier_config,
+    resolve_active_environment,
+)
 from entsoe_pipeline.api import (
     create_fms_client,
     list_folder_raw_items,
     list_folder_raw_items_recursive,
 )
-from entsoe_pipeline.fms_metadata.core.generation_data import get_generation_timestamp
 from entsoe_pipeline.fms_metadata.utils.overview_parser import (
     get_legacy_archive_folders,
 )
@@ -38,15 +41,19 @@ from entsoe_pipeline.fms_metadata.utils.transformer import (
     compile_folder_metadata,
     map_raw_fms_item,
 )
+from entsoe_pipeline.logger.core.generated_at import (
+    get_generated_at_timestamp as get_generation_timestamp,
+)
 
 logger = logging.getLogger("entsoe_pipeline.fms_metadata.core.legacy")
 
 
-def ingest_legacy_metadata(archive_name: str) -> None:
+def ingest_legacy_metadata(archive_name: str, env: str | None = None) -> None:
     """Orchestrates FMS metadata gathering for a specified historical archive in the active environment.
 
     Args:
         archive_name: The legacy archive key (e.g. 'R3_Archives', 'R2_Archives').
+        env: Optional environment name. If None, resolves dynamically.
     """
     logger.info(
         "=== STARTING HISTORICAL %s METADATA EXPLORATION ===",
@@ -64,7 +71,8 @@ def ingest_legacy_metadata(archive_name: str) -> None:
         )
         return
 
-    env = get_config().active_environment
+    if env is None:
+        env = resolve_active_environment()
 
     logger.info("-" * 60)
     logger.info("PROCESSING LEGACY ENVIRONMENT: %s", env)

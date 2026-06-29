@@ -6,6 +6,8 @@ ports:
   volume_http: 8080
   filer_http: 8888
   filer_grpc: 18888
+  kestra_web: 8082
+  kestra_api: 8083
 
 metadata:
   s3_compatible:
@@ -17,9 +19,9 @@ metadata:
       secure HTTPS endpoints of cloud object stores such as AWS S3 or Google Cloud Storage,
       meaning local port mapping is entirely bypassed.
     examples:
-      - 8333 # Standard SeaweedFS S3 port
-      - 9000 # Default MinIO S3 port
-      - 8080 # Custom developer port override
+      - 8333  # Standard SeaweedFS S3 port
+      - 9000  # Default MinIO S3 port
+      - 8080  # Custom developer port override
     default: 8333
     type: "integer"
 
@@ -31,8 +33,8 @@ metadata:
       Spark connects to this catalog on every transaction to fetch the latest snapshots,
       ensuring ACID guarantees across concurrent read/write queries.
     examples:
-      - 8181 # Default standard REST catalog port
-      - 8081 # Custom catalog port override
+      - 8181  # Default standard REST catalog port
+      - 8081  # Custom catalog port override
     default: 8181
     type: "integer"
 
@@ -43,8 +45,8 @@ metadata:
       as the primary administrative entrance for SeaweedFS cluster orchestration.
       Developers can access its Web UI here to monitor status.
     examples:
-      - 9333 # Standard SeaweedFS Master HTTP port
-      - 9334 # Secondary master port for HA setups
+      - 9333  # Standard SeaweedFS Master HTTP port
+      - 9334  # Secondary master port for HA setups
     default: 9333
     type: "integer"
 
@@ -55,8 +57,8 @@ metadata:
       between the Master server, Volume servers, and Filer processes, ensuring
       efficient metadata synchronization, health checks, and cluster consensus.
     examples:
-      - 19333 # Standard SeaweedFS Master gRPC port
-      - 19334 # Secondary master gRPC port
+      - 19333  # Standard SeaweedFS Master gRPC port
+      - 19334  # Secondary master gRPC port
     default: 19333
     type: "integer"
 
@@ -67,8 +69,8 @@ metadata:
       blocks or chunks directly on the disk. Filer or client applications request read
       and write operations from these servers using assigned block paths.
     examples:
-      - 8080 # Standard SeaweedFS Volume HTTP port
-      - 8081 # Secondary volume server HTTP port
+      - 8080  # Standard SeaweedFS Volume HTTP port
+      - 8081  # Secondary volume server HTTP port
     default: 8080
     type: "integer"
 
@@ -79,8 +81,8 @@ metadata:
       be organized inside hierarchical directories and accessed via a clean HTTP web
       interface or standard RESTful CRUD requests.
     examples:
-      - 8888 # Standard SeaweedFS Filer HTTP port
-      - 8889 # Secondary filer HTTP port
+      - 8888  # Standard SeaweedFS Filer HTTP port
+      - 8889  # Secondary filer HTTP port
     default: 8888
     type: "integer"
 
@@ -91,7 +93,25 @@ metadata:
       the Filer server and client mount points, database index backends, or replication
       queues to guarantee near-instantaneous directory indexing operations.
     examples:
-      - 18888 # Standard SeaweedFS Filer gRPC port
-      - 18889 # Secondary filer gRPC port
+      - 18888  # Standard SeaweedFS Filer gRPC port
+      - 18889  # Secondary filer gRPC port
     default: 18888
+    type: "integer"
+
+  kestra_web:
+    description: |
+      Port mapped to the Kestra Web UI administration dashboard. Developers use this interface to monitor pipeline runs, edit flows, configure variables, and check execution logs during local development.
+    examples:
+      - 8082
+      - 8084
+    default: 8082
+    type: "integer"
+
+  kestra_api:
+    description: |
+      Port mapped to the Kestra API backend services. This endpoint handles programmatic queries, CLI execution requests, and communication between Kestra backend runners and custom clients.
+    examples:
+      - 8083
+      - 8085
+    default: 8083
     type: "integer"

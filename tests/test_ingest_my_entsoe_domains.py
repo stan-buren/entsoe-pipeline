@@ -58,7 +58,7 @@ def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) 
     with mock_config_file.open("w", encoding="utf-8") as f:
         yaml.dump(mock_domains_config, f)
 
-    mock_registry_file = tmp_path / "xxhash_registry.json"
+    mock_registry_file = tmp_path / "landing_registry.json"
     if mock_registry_file.exists():
         mock_registry_file.unlink()
 
@@ -71,12 +71,13 @@ def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) 
         lambda: ["iop/TP_export/Load/ActualTotalLoad_6.1.A_r3"],
     )
     monkeypatch.setattr(
-        "entsoe_pipeline.io.sync.XXHASH_REGISTRY_JSON",
+        "entsoe_pipeline.io.sync.LANDING_REGISTRY_JSON",
         mock_registry_file,
     )
 
     mock_selected_file = {
         "name": "2026_04_ActualTotalLoad_6.1.A_r3.csv",
+        "fileId": "mock-uuid-1234",
         "originalSize": 1024,
         "lastUpdatedTimestamp": "2026-04-15T12:00:00Z",
         "remote_folder": "ActualTotalLoad_6.1.A_r3",
@@ -91,8 +92,8 @@ def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) 
     mock_s3_client.head_object.side_effect = Exception("Not Found")
 
     monkeypatch.setattr(
-        "entsoe_pipeline.io.sync.select_most_recent_csv",
-        lambda *_a, **_kw: mock_selected_file,
+        "entsoe_pipeline.io.sync.select_files_to_sync",
+        lambda *_a, **_kw: [mock_selected_file],
     )
     monkeypatch.setattr(
         "entsoe_pipeline.io.sync.download_fms_file",
@@ -118,7 +119,7 @@ def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) 
     # -------------------------------------------------------------------------
     # 2. Act
     # -------------------------------------------------------------------------
-    metrics = sync_active_domains("IOP")
+    metrics = sync_active_domains("IOP", run_id="test-run-id-999")
 
     # -------------------------------------------------------------------------
     # 3. Assert
@@ -146,5 +147,15 @@ def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) 
     assert mock_registry_file.exists()
     with mock_registry_file.open("r", encoding="utf-8") as f:
         registry = json.load(f)
-    assert len(registry) == 1
-    assert expected_s3_key in registry
+    data_keys = {k for k in registry if not k.startswith("_")}
+    assert len(data_keys) == 1
+    assert expected_s3_key in data_keys
+
+    file_meta = registry[expected_s3_key]
+    assert file_meta["file_name"] == "2026_04_ActualTotalLoad_6.1.A_r3.csv"
+    assert file_meta["file_id"] == "mock-uuid-1234"
+    assert file_meta["file_size_bytes"] == 1024
+    assert file_meta["last_updated_timestamp"] == "2026-04-15T12:00:00Z"
+    assert "xxhash" in file_meta
+    assert "downloaded_at" in file_meta
+    assert file_meta["run_id"] == "test-run-id-999"

@@ -36,8 +36,7 @@ def ingest_fms_metadata() -> None:
 
 
 if __name__ == "__main__":
-    # Configure logging for the pipeline environment prior to execution
-    setup_logging(level=logging.INFO, use_json=False)
+    setup_logging()
     try:
         ingest_fms_metadata()
     except Exception:

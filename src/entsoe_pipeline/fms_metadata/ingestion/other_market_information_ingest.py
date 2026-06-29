@@ -32,7 +32,7 @@ logger = logging.getLogger(
 )
 
 
-def ingest_other_market_information_metadata() -> None:
+def ingest_other_market_information_metadata(env: str | None = None) -> None:
     """Orchestrates metadata gathering for OtherMarketInformation domain.
 
     Crawls folders across both IOP and PROD environments.
@@ -40,10 +40,9 @@ def ingest_other_market_information_metadata() -> None:
     logger.info(
         "Initializing metadata gathering for OtherMarketInformation domain folders..."
     )
-    ingest_domain_metadata("OtherMarketInformation")
+    ingest_domain_metadata("OtherMarketInformation", env)
 
 
 if __name__ == "__main__":
-    # Setup human-readable console logging on CLI execution
-    setup_logging(level=logging.INFO, use_json=False)
+    setup_logging()
     ingest_other_market_information_metadata()

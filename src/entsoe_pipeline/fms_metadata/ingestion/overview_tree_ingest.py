@@ -30,8 +30,7 @@ def ingest_fms_overview_tree() -> None:
 
 
 if __name__ == "__main__":
-    # Setup human-readable console logging on CLI execution
-    setup_logging(level=logging.INFO, use_json=False)
+    setup_logging()
     try:
         ingest_fms_overview_tree()
     except Exception:
