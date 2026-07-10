@@ -1,0 +1,188 @@
+id: refresh_fms_metadata
+namespace: entsoe.pipeline
+
+description: "ENTSO-E Data Pipeline: Global FMS Metadata Catalog Refresh"
+
+inputs:
+  - id: test
+    type: BOOLEAN
+    defaults: true
+    description: "Run in test mode (only light domains: Load, Generation, OtherMarketInformation)"
+
+variables:
+  docker_image: entsoe-pipeline:latest
+
+# Docker runner defaults — applied to every io.kestra.plugin.scripts.shell.Commands task in this flow.
+pluginDefaults:
+  - type: io.kestra.plugin.scripts.shell.Commands
+    values:
+      containerImage: "{{ vars.docker_image }}"
+      taskRunner:
+        type: io.kestra.plugin.scripts.runner.docker.Docker
+        networkMode: host
+        user: "1000:1000"
+        volumes:
+          - "{{ envs.project_root }}:/app"
+        pullPolicy: NEVER
+      env:
+        KESTRA_EXECUTION_ID: "{{ execution.id }}"
+      logToFile: true
+      logLevel: INFO
+
+tasks:
+  - id: prepare
+    type: io.kestra.plugin.scripts.shell.Commands
+    description: "Phase 1: Preflight checks + fetch top-level folders (overview.yml)"
+    commands:
+      - cd /app
+      - python jobs/refresh_fms_metadata.py --phase prepare {% if inputs.test 
+        %}--test{% endif %}
+
+  - id: crawl_environments
+    type: io.kestra.plugin.core.flow.Parallel
+    description: "Phase 2: Crawl IOP and PROD concurrently (each in its own Kestra
+      task)"
+    tasks:
+      - id: crawl_iop
+        type: io.kestra.plugin.core.flow.Sequential
+        description: "Crawl IOP domains sequentially to prevent rate limit spikes"
+        tasks:
+          - id: crawl_iop_load
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env IOP 
+                --domain Load {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_iop_generation
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env IOP 
+                --domain Generation {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_iop_transmission
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env IOP 
+                --domain Transmission {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_iop_market
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env IOP 
+                --domain Market {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_iop_balancing
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env IOP 
+                --domain Balancing {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_iop_outages
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env IOP 
+                --domain Outages {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_iop_operations
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env IOP 
+                --domain Operations {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_iop_othermarketinformation
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env IOP 
+                --domain OtherMarketInformation {% if inputs.test %}--test{% 
+                endif %}
+
+          - id: crawl_iop_legacy
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env IOP 
+                --domain Legacy {% if inputs.test %}--test{% endif %}
+
+      - id: crawl_prod
+        type: io.kestra.plugin.core.flow.Sequential
+        description: "Crawl PROD domains sequentially to prevent rate limit spikes"
+        tasks:
+          - id: crawl_prod_load
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env PROD 
+                --domain Load {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_prod_generation
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env PROD 
+                --domain Generation {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_prod_transmission
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env PROD 
+                --domain Transmission {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_prod_market
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env PROD 
+                --domain Market {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_prod_balancing
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env PROD 
+                --domain Balancing {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_prod_outages
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env PROD 
+                --domain Outages {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_prod_operations
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env PROD 
+                --domain Operations {% if inputs.test %}--test{% endif %}
+
+          - id: crawl_prod_othermarketinformation
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env PROD 
+                --domain OtherMarketInformation {% if inputs.test %}--test{% 
+                endif %}
+
+          - id: crawl_prod_legacy
+            type: io.kestra.plugin.scripts.shell.Commands
+            commands:
+              - cd /app
+              - python jobs/refresh_fms_metadata.py --phase crawl --env PROD 
+                --domain Legacy {% if inputs.test %}--test{% endif %}
+
+  - id: finalize
+    type: io.kestra.plugin.scripts.shell.Commands
+    description: "Phase 3: Rebuild global catalog sizes reports"
+    commands:
+      - cd /app
+      - python jobs/refresh_fms_metadata.py --phase finalize {% if inputs.test 
+        %}--test{% endif %}

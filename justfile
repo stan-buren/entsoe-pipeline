@@ -16,12 +16,14 @@ filer_http_port      := `uv run python -c "from entsoe_pipeline import get_ports
 filer_grpc_port      := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().filer_grpc)"`
 kestra_web_port      := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().kestra_web)"`
 kestra_api_port      := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().kestra_api)"`
+database_port        := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().database)"`
 s3_landing_bucket    := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_landing_bucket)"`
 s3_lakehouse_bucket  := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_lakehouse_bucket)"`
 aws_region           := `uv run python -c "from entsoe_pipeline import get_region_config; print(get_region_config().aws_region)"`
 s3_compatible_volume := `uv run python -c "from entsoe_pipeline import get_volumes_config; print(get_volumes_config().s3_compatible)"`
 kestra_url           := `uv run python -c "from entsoe_pipeline import get_urls_config; print(get_urls_config().kestra)"`
 project_root         := `uv run python -c "from entsoe_pipeline.config.paths import PROJECT_ROOT; print(PROJECT_ROOT)"`
+active_environment   := `uv run python -c "from entsoe_pipeline import get_env_config; print(get_env_config().environment_name)"`
 
 
 # Export the parsed values as environment variables to the parent environment.
@@ -38,6 +40,7 @@ export FILER_HTTP_PORT       := filer_http_port
 export FILER_GRPC_PORT       := filer_grpc_port
 export KESTRA_WEB_PORT       := kestra_web_port
 export KESTRA_API_PORT       := kestra_api_port
+export DATABASE_PORT         := database_port
 export S3_LANDING_BUCKET     := s3_landing_bucket
 export S3_LAKEHOUSE_BUCKET   := s3_lakehouse_bucket
 export AWS_REGION            := aws_region
@@ -45,6 +48,7 @@ export AWS_DEFAULT_REGION    := aws_region
 export S3_COMPATIBLE_VOLUME  := s3_compatible_volume
 export KESTRA_URL            := kestra_url
 export PROJECT_ROOT          := project_root
+export ACTIVE_ENVIRONMENT    := active_environment
 
 
 
@@ -97,9 +101,38 @@ lakehouse-test:
 lakehouse-logs:
     docker compose --env-file .env -f docker/docker-compose.yml logs -f seaweedfs
 
+# Initialize required S3 buckets in SeaweedFS (run once after lakehouse-up)
+lakehouse-init-buckets:
+    @echo "[JUST][LAKEHOUSE] Initializing required S3 buckets in SeaweedFS..."
+    uv run python src/entsoe_pipeline/lakehouse/create_buckets.py
+    @echo "[JUST][LAKEHOUSE] S3 bucket initialization complete"
+
 
 # =============================================================================
-# 3. KESTRA ORCHESTRATION INFRASTRUCTURE (Docker Compose)
+# 3. METADATA DATABASE INFRASTRUCTURE (Docker Compose)
+# =============================================================================
+
+# Start only the local FMS metadata database service
+database-up:
+    @echo "[JUST][INIT] Launching ENTSO-E Metadata database..."
+    @echo "[JUST][INIT] Database port: {{database_port}}"
+    docker compose --env-file .env -f docker/docker-compose.yml up -d entsoe_postgres
+    @echo "[JUST][INIT] Metadata database is up and running"
+
+# Stop only the local FMS metadata database container
+database-down:
+    @echo "[JUST][INIT] Stopping ENTSO-E Metadata database..."
+    docker compose --env-file .env -f docker/docker-compose.yml stop entsoe_postgres
+    docker compose --env-file .env -f docker/docker-compose.yml rm -f entsoe_postgres
+    @echo "[JUST][INIT] Metadata database stopped and container removed"
+
+# Show logs for the local FMS metadata database
+database-logs:
+    docker compose --env-file .env -f docker/docker-compose.yml logs -f entsoe_postgres
+
+
+# =============================================================================
+# 4. KESTRA ORCHESTRATION INFRASTRUCTURE (Docker Compose)
 # =============================================================================
 
 # Start only Kestra and its metadata database in the background
@@ -123,7 +156,7 @@ kestra-logs:
 
 
 # =============================================================================
-# 4. GENERAL INFRASTRUCTURE MANAGEMENT (Docker Compose)
+# 5. GENERAL INFRASTRUCTURE MANAGEMENT (Docker Compose)
 # =============================================================================
 
 # Start all local infrastructure services (SeaweedFS + Kestra + Postgres)
@@ -133,6 +166,7 @@ infra-up:
     @echo "[JUST][INIT] Iceberg Catalog port: {{iceberg_catalog_port}}"
     @echo "[JUST][INIT] Kestra Web UI port: {{kestra_web_port}}"
     @echo "[JUST][INIT] Kestra API port: {{kestra_api_port}}"
+    @echo "[JUST][INIT] Database port: {{database_port}}"
     docker compose --env-file .env -f docker/docker-compose.yml up -d
     @echo "[JUST][INIT] All infrastructure services are up and running"
 
@@ -148,7 +182,7 @@ infra-logs:
 
 
 # =============================================================================
-# 5. DOCKER IMAGE MANAGEMENT
+# 6. DOCKER IMAGE MANAGEMENT
 # =============================================================================
 
 # Build the pipeline Docker image locally
@@ -158,7 +192,7 @@ docker-build:
 
 
 # =============================================================================
-# 6. PIPELINE TESTING & INTEGRATION
+# 7. PIPELINE TESTING & INTEGRATION
 # =============================================================================
 
 # Run the test suite using pytest
@@ -204,7 +238,7 @@ all-checks: lint security test
 
 
 # =============================================================================
-# 7. FMS METADATA REFRESH
+# 8. FMS METADATA REFRESH
 # =============================================================================
 
 # Crawl remote ENTSO-E platforms (IOP & PROD) and regenerate overview.yml
@@ -212,17 +246,9 @@ fms-overview:
     @echo "[JUST][METADATA] Crawling remote FMS directory structures and regenerating overview.yml..."
     uv run python src/entsoe_pipeline/fms_metadata/ingestion/overview_ingest.py
 
-# Compile the local FMS overview tree structure overview_tree.yml from physical catalog
-fms-tree:
-    @echo "[JUST][METADATA] Compiling FMS folder structure and regenerating overview_tree.yml..."
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/overview_tree_ingest.py
-
-# Ingest all active domains and historical archives to fully populate physical_catalog/
-fms-physical-catalog: ingest-tp-export ingest-tp-legacy
-
-# Build the landing bucket schema contract config/entsoe_fms_folder_schema.yml
+# Build the landing bucket schema contract in database
 fms-folder-schema:
-    @echo "[JUST][METADATA] Building landing bucket schema contract and regenerating entsoe_fms_folder_schema.yml..."
+    @echo "[JUST][METADATA] Building landing bucket schema contract in database table landing_folders_schema..."
     uv run python src/entsoe_pipeline/fms_metadata/ingestion/landing_bucket_schema.py
 
 # Generate the active domains configuration checklist config/domains/my_entsoe_domains.yml
@@ -231,7 +257,7 @@ my-entsoe-domains:
     uv run python src/entsoe_pipeline/fms_metadata/ingestion/my_entsoe_domains.py
 
 # =============================================================================
-# 8. PLATFORM ENVIRONMENT SWITCHERS
+# 9. PLATFORM ENVIRONMENT SWITCHERS
 # =============================================================================
 
 # Switch the active environment in environment config to Production (PROD)
@@ -248,7 +274,7 @@ alias iop  := use-iop
 alias dev  := use-iop
 
 # =============================================================================
-# 9. EXTERNAL TECHNICAL DOCUMENTATION SCAPERS
+# 10. EXTERNAL TECHNICAL DOCUMENTATION SCAPERS
 # =============================================================================
 
 # Compile the PySpark SQL API documentation pages into a single Markdown megadoc
@@ -268,60 +294,70 @@ seaweed-docs:
 
 
 # =============================================================================
-# 10. PHYSICAL METADATA CATALOG INGESTION
+# 11. PHYSICAL METADATA CATALOG INGESTION
 # =============================================================================
+# Depreciated - changed to PostgeSQL.
+# # Ingest all active physical metadata catalogs under TP_export for the active environment (balancing, load, market, operations, transmission, outages, generation, etc.)
+# ingest-tp-export:
+#     @echo "[JUST][METADATA] Ingesting all active domains under TP_export..."
+#     uv run python src/entsoe_pipeline/fms_metadata/ingestion/balancing_ingest.py
+#     uv run python src/entsoe_pipeline/fms_metadata/ingestion/generation_ingest.py
+#     uv run python src/entsoe_pipeline/fms_metadata/ingestion/load_ingest.py
+#     uv run python src/entsoe_pipeline/fms_metadata/ingestion/market_ingest.py
+#     uv run python src/entsoe_pipeline/fms_metadata/ingestion/operations_ingest.py
+#     uv run python src/entsoe_pipeline/fms_metadata/ingestion/other_market_information_ingest.py
+#     uv run python src/entsoe_pipeline/fms_metadata/ingestion/outages_ingest.py
+#     uv run python src/entsoe_pipeline/fms_metadata/ingestion/transmission_ingest.py
 
-# Ingest all active physical metadata catalogs under TP_export for the active environment (balancing, load, market, operations, transmission, outages, generation, etc.)
-ingest-tp-export:
-    @echo "[JUST][METADATA] Ingesting all active domains under TP_export..."
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/balancing_ingest.py
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/generation_ingest.py
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/load_ingest.py
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/market_ingest.py
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/operations_ingest.py
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/other_market_information_ingest.py
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/outages_ingest.py
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/transmission_ingest.py
+# # Ingest all historical publications archives under TP_Legacy_Publications for the active environment
+# ingest-tp-legacy:
+#     @echo "[JUST][METADATA] Ingesting all historical legacy archives..."
+#     uv run python src/entsoe_pipeline/fms_metadata/ingestion/legacy_ingest.py
 
-# Ingest all historical publications archives under TP_Legacy_Publications for the active environment
-ingest-tp-legacy:
-    @echo "[JUST][METADATA] Ingesting all historical legacy archives..."
-    uv run python src/entsoe_pipeline/fms_metadata/ingestion/legacy_ingest.py
+# # Ingest active domains under TP_export using IOP environment
+# iop-ingest-tp-export: use-iop ingest-tp-export
 
-# Ingest active domains under TP_export using IOP environment
-iop-ingest-tp-export: use-iop ingest-tp-export
+# # Ingest historical archives under TP_Legacy_Publications using IOP environment
+# iop-ingest-tp-legacy: use-iop ingest-tp-legacy
 
-# Ingest historical archives under TP_Legacy_Publications using IOP environment
-iop-ingest-tp-legacy: use-iop ingest-tp-legacy
+# # Ingest active domains under TP_export using PROD environment
+# prod-ingest-tp-export: use-prod ingest-tp-export
 
-# Ingest active domains under TP_export using PROD environment
-prod-ingest-tp-export: use-prod ingest-tp-export
-
-# Ingest historical archives under TP_Legacy_Publications using PROD environment
-prod-ingest-tp-legacy: use-prod ingest-tp-legacy
+# # Ingest historical archives under TP_Legacy_Publications using PROD environment
+# prod-ingest-tp-legacy: use-prod ingest-tp-legacy
 
 
 # =============================================================================
-# 11. DATA INGESTION JOBS (S3 landing zone syncing)
+# 12. DATA INGESTION JOBS (S3 landing zone syncing)
 # =============================================================================
 
 # Ingest active domains datasets to landing zone for the active environment
 ingest-active-domains:
     @echo "[JUST][INGEST] Starting active ENTSO-E domains ingestion job..."
     @echo "[JUST][INGEST] Step 1/2: Running Ingestion Preparation Job..."
-    uv run python jobs/staging/landing/prepare_landing_ingestion.py
+    uv run python jobs/landing/prepare_landing_ingestion.py
     @echo "[JUST][INGEST] Step 2/2: Syncing active domains from FTP to S3 Landing Zone..."
-    uv run python jobs/staging/landing/ingest_my_entsoe_domains.py
+    uv run python jobs/landing/ingest_my_entsoe_domains.py
 
-# Run active domains ingestion job using IOP environment
-iop-ingest-active-domains: use-iop ingest-active-domains
+# Refresh global FMS metadata catalog incrementally (or fully via flags="--full-scan")
+refresh-fms-metadata flags="":
+    @echo "[JUST][REFRESH] Starting global FMS metadata refresh job..."
+    @echo "[JUST][REFRESH] Step 1/3: Preparing metadata..."
+    uv run python jobs/refresh_fms_metadata.py --phase prepare {{ flags }}
+    @echo "[JUST][REFRESH] Step 2/3: Crawling active environment ({{active_environment}})..."
+    uv run python jobs/refresh_fms_metadata.py --phase crawl --env {{active_environment}} {{ flags }}
+    @echo "[JUST][REFRESH] Step 3/3: Finalizing catalog..."
+    uv run python jobs/refresh_fms_metadata.py --phase finalize {{ flags }}
 
-# Run active domains ingestion job using PROD environment
-prod-ingest-active-domains: use-prod ingest-active-domains
+# Ingest raw files from landing zone S3 bucket into Apache Iceberg staging tables
+ingest-landing-to-lakehouse:
+    @echo "[JUST][LAKEHOUSE] Starting landing zone to Iceberg lakehouse ingestion job..."
+    uv run python jobs/staging/ingest_landing_csv_to_lakehouse.py
+
 
 
 # =============================================================================
-# 12. CLEAR DEVELOPER LEARNING STUFF
+# 13. CLEAR DEVELOPER LEARNING STUFF
 # =============================================================================
 
 clean-stan-buren-learning-stuff:
@@ -335,12 +371,12 @@ remove-agents-folder:
 
 
 # =============================================================================
-# 13. ICEBERG SCHEMAS REGISTRY GENERATION
+# 14. ICEBERG SCHEMAS REGISTRY GENERATION
 # =============================================================================
 
 # Infer schemas from landing zone samples and generate the Iceberg schemas registry JSON
 generate-schemas:
     @echo "[JUST][SCHEMAS] Inferring schemas and generating registry..."
-    uv run python jobs/staging/lakehouse/generate_iceberg_schemas.py
+    uv run python src/entsoe_pipeline/lakehouse/iseberg_schemas_registry_generator.py
 
     

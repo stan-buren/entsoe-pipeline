@@ -20,6 +20,7 @@ import logging
 
 from typing import Any
 
+from entsoe_pipeline import get_fms_extensions
 from entsoe_pipeline.api.ls_fms import list_folder_raw_items
 from entsoe_pipeline.vendor_patches.entsoe_py import ConfigurableEntsoeFileClient
 
@@ -50,17 +51,26 @@ def select_files_to_sync(
 
     remote_folder = active_folder if top_level == "TP_export" else remote_folder_path
 
+    # Check if remote_folder is actually a root-level file rather than a directory
+    allowed_exts = tuple(get_fms_extensions())
+    is_root_file = remote_folder.endswith(allowed_exts)
+    list_folder = "" if is_root_file else remote_folder
+
     try:
         fms_files = list_folder_raw_items(
             client=client,
-            folder_name=remote_folder,
+            folder_name=list_folder,
             root_dir=top_level,
         )
     except Exception as e:
-        logger.exception("Failed to list FMS directory '%s': %s", remote_folder, e)
+        logger.exception("Failed to list FMS directory '%s': %s", list_folder, e)
         raise
 
-    csv_files = [f for f in fms_files if f.get("name", "").endswith(".csv")]
+    if is_root_file:
+        csv_files = [f for f in fms_files if f.get("name") == remote_folder]
+    else:
+        csv_files = [f for f in fms_files if f.get("name", "").endswith(".csv")]
+
     if not csv_files:
         logger.info(
             "No CSV files found in FMS folder '/%s/%s/'", top_level, remote_folder
@@ -68,7 +78,7 @@ def select_files_to_sync(
         return []
 
     # If configuration is a specific list of filenames, filter by it
-    if isinstance(val, list) and len(val) > 0:
+    if not is_root_file and isinstance(val, list) and len(val) > 0:
         csv_files = [f for f in csv_files if f.get("name") in val]
         if not csv_files:
             logger.info(
@@ -81,6 +91,6 @@ def select_files_to_sync(
 
     # Inject remote_folder to each file metadata dict
     for f in csv_files:
-        f["remote_folder"] = remote_folder
+        f["remote_folder"] = list_folder
 
     return csv_files

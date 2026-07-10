@@ -12,82 +12,126 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Unit tests for the landing bucket schema generator and configuration.
+"""Unit tests for the landing bucket schema generator and database registry."""
 
-This suite ensures the correctness of the compiled landing bucket directory contract
-and validates that the generated schema matches the FMS tree structure catalog.
-"""
+from __future__ import annotations
+
+from pathlib import Path
 
 import pytest
 
-from ruamel.yaml import YAML
+from sqlalchemy import create_engine, select
 
-from entsoe_pipeline import (
-    LANDING_BUCKET_SCHEMA_YML,
-    OVERVIEW_TREE_YML,
-)
+from entsoe_pipeline.db import build_metadata, init_db
 from entsoe_pipeline.fms_metadata.ingestion.landing_bucket_schema import (
-    extract_folders_from_tree,
+    build_landing_bucket_schema,
 )
 
 
+@pytest.fixture(name="db_env")
+def fixture_db_env(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> str:
+    """Fixture to configure and return a temporary SQLite database URL.
+
+    Args:
+        tmp_path: Pytest temporary directory path.
+        monkeypatch: Pytest monkeypatch utility.
+
+    Returns:
+        str: SQLite connection URL pointing to the temporary file.
+    """
+    db_file = tmp_path / "test_metadata.db"
+    url = f"sqlite:///{db_file}"
+    monkeypatch.setenv("DATABASE_URL", url)
+    return url
+
+
 @pytest.mark.unit
-def test_landing_bucket_schema_exists() -> None:
-    """Verify that the generated landing bucket schema file exists."""
-    # -------------------------------------------------------------------------
-    # ARRANGE: Resolve path to schema yml file
-    # -------------------------------------------------------------------------
-    schema_path = LANDING_BUCKET_SCHEMA_YML
+def test_build_landing_bucket_schema_persists_to_db(db_env: str) -> None:
+    """Verify that build_landing_bucket_schema reads from fms_folders and saves to DB.
 
-    # -------------------------------------------------------------------------
-    # ACT & ASSERT: Assert schema file existence on disk
-    # -------------------------------------------------------------------------
-    assert schema_path.exists(), (
-        f"Landing bucket schema does not exist at: {schema_path}. "
-        f"Please run landing_bucket_schema_builder.py first."
-    )
-
-
-@pytest.mark.unit
-def test_landing_bucket_schema_structure_parity() -> None:
-    """Verify that the compiled schema matches the overview tree structure.
-
-    Extracts all folders directly from overview_tree.yml and asserts that they
-    match the list declared in config/entsoe_fms_folder_schema.yml exactly.
+    Args:
+        db_env: Configured temporary database URL.
     """
     # -------------------------------------------------------------------------
-    # ARRANGE: Load both overview tree and schema catalogs
+    # ARRANGE: Initialize schema and populate fms_folders table
     # -------------------------------------------------------------------------
-    yaml = YAML(typ="safe")
+    init_db()
 
-    assert OVERVIEW_TREE_YML.exists(), (
-        f"Required overview tree file not found: {OVERVIEW_TREE_YML}"
+    engine = create_engine(db_env)
+    db_metadata = build_metadata()
+    fms_folders = db_metadata.tables["fms_folders"]
+    landing_folders_schema = db_metadata.tables["landing_folders_schema"]
+
+    from datetime import datetime
+
+    with engine.begin() as conn:
+        conn.execute(
+            fms_folders.insert(),
+            [
+                {
+                    "environment": "IOP",
+                    "domain": "Load",
+                    "folder_path": "/TP_export/ActualTotalLoad_6.1.A_r3/",
+                    "crawled_at": datetime(2026, 7, 1, 10, 0, 0),
+                    "item_count": 0,
+                    "original_bytes": 0,
+                    "compressed_bytes": 0,
+                },
+                {
+                    "environment": "IOP",
+                    "domain": "Balancing",
+                    "folder_path": "/TP_Legacy_Publications/FlowBasedCapacityAllocationArchives_11.1.B_r3/",
+                    "crawled_at": datetime(2026, 7, 1, 10, 0, 0),
+                    "item_count": 0,
+                    "original_bytes": 0,
+                    "compressed_bytes": 0,
+                },
+                {
+                    "environment": "IOP",
+                    "domain": "Load",
+                    "folder_path": "/shortpath",
+                    "crawled_at": datetime(2026, 7, 1, 10, 0, 0),
+                    "item_count": 0,
+                    "original_bytes": 0,
+                    "compressed_bytes": 0,
+                },
+            ],
+        )
+
+    # -------------------------------------------------------------------------
+    # ACT: Run schema compiler
+    # -------------------------------------------------------------------------
+    build_landing_bucket_schema()
+
+    # -------------------------------------------------------------------------
+    # ASSERT: Verify database landing_folders_schema has correct entries
+    # -------------------------------------------------------------------------
+    with engine.connect() as conn:
+        stmt = select(
+            landing_folders_schema.c.s3_folder_path,
+            landing_folders_schema.c.environment,
+            landing_folders_schema.c.domain,
+            landing_folders_schema.c.folder_name,
+        ).order_by(landing_folders_schema.c.s3_folder_path)
+        results = conn.execute(stmt).fetchall()
+
+    assert len(results) == 2
+    assert results[0] == (
+        "iop/TP_Legacy_Publications/Balancing/FlowBasedCapacityAllocationArchives_11.1.B_r3",
+        "iop",
+        "Balancing",
+        "FlowBasedCapacityAllocationArchives_11.1.B_r3",
     )
-    assert LANDING_BUCKET_SCHEMA_YML.exists(), (
-        f"Schema file not found: {LANDING_BUCKET_SCHEMA_YML}"
+    assert results[1] == (
+        "iop/TP_export/Load/ActualTotalLoad_6.1.A_r3",
+        "iop",
+        "Load",
+        "ActualTotalLoad_6.1.A_r3",
     )
 
-    with OVERVIEW_TREE_YML.open(encoding="utf-8") as f:
-        tree_data = yaml.load(f) or {}
 
-    with LANDING_BUCKET_SCHEMA_YML.open(encoding="utf-8") as f:
-        schema_data = yaml.load(f) or {}
-
-    # -------------------------------------------------------------------------
-    # ACT: Extract expected and actual folder lists
-    # -------------------------------------------------------------------------
-    expected_folders = extract_folders_from_tree(tree_data)
-    actual_folders = schema_data.get("folders", [])
-
-    # -------------------------------------------------------------------------
-    # ASSERT: Assert parity, versions, and properties
-    # -------------------------------------------------------------------------
-    assert schema_data.get("schema_version") == "1.0.0"
-    assert isinstance(actual_folders, list)
-    assert len(actual_folders) > 0
-
-    # Every expected prefix must be in the actual schema, and vice versa
-    assert set(actual_folders) == set(expected_folders), (
-        "Folders list in entsoe_fms_folder_schema.yml does not match overview_tree.yml. "
-        "Please run landing_bucket_schema_builder.py to update it."
-    )
+@pytest.mark.unit
+def test_build_landing_bucket_schema_empty_db(db_env: str) -> None:
+    """Verify build_landing_bucket_schema logs warning and returns when fms_folders is empty."""
+    init_db()
+    build_landing_bucket_schema()

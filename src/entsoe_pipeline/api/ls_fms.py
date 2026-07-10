@@ -70,6 +70,7 @@ def _fetch_folder_page(
     """
     logger.debug("Requesting folder page %d for path '%s'...", page_index, path)
 
+    client.ensure_token_valid()
     base_url = client.BASEURL or ""
     response = client.session.post(
         base_url + "listFolder",

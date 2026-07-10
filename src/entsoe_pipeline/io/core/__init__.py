@@ -23,8 +23,7 @@ from entsoe_pipeline.io.core.fms_operations import (
 )
 from entsoe_pipeline.io.core.idempotency import (
     check_idempotency,
-    load_landing_registry,
-    save_landing_registry,
+    register_downloaded_file,
 )
 from entsoe_pipeline.io.core.path_resolver import resolve_target_mappings
 from entsoe_pipeline.io.core.s3_operations import (
@@ -37,10 +36,9 @@ __all__ = [
     "download_raw_zip_from_fms",
     "extract_active_folders",
     "extract_csv_bytes_from_zip",
-    "load_landing_registry",
+    "register_downloaded_file",
     "resolve_target_mappings",
     "s3_object_exists",
-    "save_landing_registry",
     "select_files_to_sync",
     "upload_local_file_to_s3",
     "verify_free_disk_space",

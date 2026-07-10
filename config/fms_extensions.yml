@@ -1,0 +1,73 @@
+allowed_extensions:
+  - ".csv"
+  - ".zip"
+  - ".xml"
+  - ".xlsx"
+  - ".xls"
+
+metadata:
+  .csv:
+    description: |
+      Tab-Separated Values (TSV) files labeled as .csv by ENTSO-E.
+      This is the absolute dominant format for modern continuous data exchange (ENTSO-E R3 release).
+
+      Technical Ingestion Details:
+      - Despite the .csv extension, fields are strictly separated by a tab character (\t).
+      - Encoded strictly in UTF-8 format.
+      - Represents approximately 90% of active datasets in the TP_export folder.
+      - Includes continuous timeseries data (e.g., Load, Generation) as well as critical system tracking logs (e.g., Export_log_r3.csv and Export_oce_log_r3.csv) which are required for delta-load ETL triggers.
+    type: "string"
+    data_engineering_meaning: |
+      Parsed directly using standard Spark/Pandas CSV readers with sep='\t'. 
+      Warning: Unstructured free-text columns (like in OtherMarketInformation_r3) or optional empty columns may require robust schema enforcement during ingestion.
+
+  .zip:
+    description: |
+      Compressed ZIP archives containing raw XML data documents or highly granular CSVs.
+      Used for daily/monthly publications of extremely heavy, complex, or hierarchical datasets that cannot be easily flattened.
+
+      Technical Ingestion Details:
+      - Used for archiving high-volume market message exchanges that retain their hierarchical CIM (Common Information Model) structure.
+      - Typically wraps hundreds or thousands of individual XML messages (e.g., complex multi-part balancing bids, or flow-based parameters).
+    examples:
+      - "BalancingEnergyBidsArchives_12.3.B_C_r3"
+      - "FlowBasedCapacityAllocationArchives_11.1.B_r3"
+      - "ChangesToBidAvailabilityArchives_IFs_mFRR9.9_aFRR9.6_9.8_r3"
+    type: "string"
+    data_engineering_meaning: |
+      Requires a dynamic decompression task (in-memory unzipping) within the ETL DAG to extract and iteratively parse nested XML/CSV streams without overloading local disk I/O.
+
+  .xml:
+    description: |
+      Structured XML documents complying with ENTSO-E XSD schema models based on the IEC 62325 (CIM for Market) standard.
+
+      Technical Ingestion Details:
+      - Native format for the ENTSO-E RESTful API, but within the bulk File Library (FMS), it is primarily encountered when crawling older legacy publications (pre-2015, R1/R2 releases) in the TP_Legacy_Publications directory.
+    examples:
+      - "TotalLoadXml_r1"
+      - "OutagesXml_r1"
+      - "CrossBorderPhysicalFlowsXml_r1"
+    type: "string"
+    data_engineering_meaning: |
+      Requires tree-based XML parsers (such as lxml, xml.etree.ElementTree, or Databricks spark-xml) that can handle complex namespaces and map hierarchical CIM elements to relational tables.
+
+  .xlsx:
+    description: |
+      Office Open XML spreadsheet files (.xlsx) used for reference data, reports, and manual mappings.
+
+      Technical Ingestion Details:
+      - Encountered in legacy publications (e.g., BalanceManagementXlsx_r1).
+      - Heavily used for official ENTSO-E structural metadata, such as xsd_versions_and_changes.xlsx, and fundamental system modeling inputs (e.g., Bidding Zone Review (BZR) or TYNDP Input Data and Assumptions Overview).
+    type: "string"
+    data_engineering_meaning: |
+      Requires Pandas with the openpyxl engine. Often requires specific `sheet_name` or `skiprows` parameters, as these files are frequently formatted for human readability rather than strict tabular ingestion.
+
+  .xls:
+    description: |
+      Legacy Microsoft Excel binary spreadsheet files.
+
+      Technical Ingestion Details:
+      - Historical mapping tables, legacy dictionaries, and old documentation sheets.
+    type: "string"
+    data_engineering_meaning: |
+      Requires Pandas with the xlrd library to read the legacy binary format. Should be treated strictly as cold-archive reference data.

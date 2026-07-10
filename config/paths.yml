@@ -16,9 +16,21 @@ ENV_FILE: ".env"
 # =============================================================================
 PATHS_YML: "config/paths.yml"
 API_LIMITS_YML: "config/entsoe_api_limits.yml"
-CLASSIFIER_YML: "config/entsoe-classifier.yml"
+CLASSIFIER_YML: "config/entsoe_domains_classifier.yml"
+LEGACY_CLASSIFIER_YML: "config/entsoe_legacy_classifier.yml"
 SCHEMA_OVERRIDES_YML: "config/schema_overrides.yml"
-LANDING_BUCKET_SCHEMA_YML: "config/entsoe_fms_folder_schema.yml"
+LAKEHOUSE_PARQUET_CODEC_YML: "config/lakehouse_parquet_codec.yml"
+FMS_EXTENSIONS_YML: "config/fms_extensions.yml"
+DB_SCHEMA_YML: "config/entsoe_metadata_db_schema.yml"
+FMS_CRAWLER_YML: "config/fms_crawler.yml"
+ENTSOE_FMS_SCHEMAS_YML: "config/entsoe_fms_schemas.yml"
+
+# =============================================================================
+# 2A. PYTHON RUNNERS AND SCRIPTS
+# =============================================================================
+INIT_DB_SCHEMA_PY: "src/entsoe_pipeline/db/init_entsoe_metadata_db_schema.py"
+OVERVIEW_INGEST_PY: "src/entsoe_pipeline/fms_metadata/ingestion/overview_ingest.py"
+REFRESH_FMS_METADATA_PY: "jobs/refresh_fms_metadata.py"
 
 # =============================================================================
 # 3. ENVIRONMENT-SPECIFIC CONFIGURATIONS
@@ -37,12 +49,18 @@ FMS_INGESTION_DIR: "src/entsoe_pipeline/fms_metadata/ingestion"
 FMS_UTILS_DIR: "src/entsoe_pipeline/fms_metadata/utils"
 
 OVERVIEW_YML: "fms_metadata/overview.yml"
-OVERVIEW_TREE_YML: "fms_metadata/overview_tree.yml"
 EXPORT_LOG_YML: "fms_metadata/export_log.yml"
 PHYSICAL_CATALOG_DIR: "fms_metadata/physical_catalog"
-PHYSICAL_CATALOG_TEMPLATE_YML: "config/entsoe_physical_catalog_template.yml"
 BUSINESS_CONTEXT_CATALOG_YML: "fms_metadata/business_context_catalog/entsoe_domains_overview_detailed.yml"
 BUSINESS_CONTEXT_TEMPLATE_YML: "config/entsoe_domains_overview_detailed_template.yml"
+SIZES_DIR: "fms_metadata/sizes"
+
+# =============================================================================
+# 4A. ACTIVE FMS METADATA CATALOGS (PRODUCTION RUNTIME)
+# =============================================================================
+ACTIVE_FMS_METADATA_DIR: ".data/fms_metadata"
+ACTIVE_PHYSICAL_CATALOG_DIR: ".data/fms_metadata/physical_catalog"
+ACTIVE_SIZES_DIR: ".data/fms_metadata/sizes"
 
 # =============================================================================
 # 5. DOMAINS INGESTION SCHEMAS & DICTIONARIES
@@ -59,7 +77,6 @@ MY_ENTSOE_DOMAINS_EXAMPLES_DIR: "config/domains/examples"
 # 6. S3 LANDING & SILVER LAKEHOUSE REGISTRIES
 # =============================================================================
 LANDING_REGISTRY_YML: "config/landing_registry.yml"
-LANDING_REGISTRY_JSON: ".data/landing_registry.json"
 ISEBERG_SCHEMAS_REGISTRY_JSON: ".data/iseberg_schemas_registry.json"
 MY_ENTSOE_DOMAINS_YML: ".data/my_entsoe_domains.yml"
 

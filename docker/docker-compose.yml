@@ -16,6 +16,7 @@ services:
     environment:
       - S3_LANDING_BUCKET=${S3_LANDING_BUCKET}
       - S3_LAKEHOUSE_BUCKET=${S3_LAKEHOUSE_BUCKET}
+      - S3_TABLE_BUCKET=${S3_LAKEHOUSE_BUCKET}
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
 
@@ -66,13 +67,38 @@ services:
       - KESTRA_PASS
       - KESTRA_URL=${KESTRA_URL:-http://localhost:8082/}
       - PROJECT_ROOT
+      - ENV_PROJECT_ROOT=${PROJECT_ROOT}
 
     depends_on:
       kestra_postgres:
         condition: service_healthy
 
+  entsoe_postgres:
+    image: postgres:18
+    container_name: entsoe_postgres
+    restart: unless-stopped
+
+    ports:
+      - "${DATABASE_PORT:-5432}:5432"
+
+    volumes:
+      - entsoe_postgres_data:/var/lib/postgresql
+
+    environment:
+      POSTGRES_DB: entsoe_metadata
+      POSTGRES_USER: entsoe
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-password}
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 volumes:
   kestra_postgres_data:
     driver: local
   kestra_data:
+    driver: local
+  entsoe_postgres_data:
     driver: local

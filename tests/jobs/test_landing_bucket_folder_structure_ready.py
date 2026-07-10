@@ -22,9 +22,9 @@ import yaml
 from botocore.exceptions import ClientError
 
 from entsoe_pipeline import (
-    LANDING_BUCKET_SCHEMA_YML,
     MY_ENTSOE_DOMAINS_YML,
     get_config,
+    get_landing_bucket_schema,
 )
 from entsoe_pipeline.lakehouse.core.s3_tree_builder import get_s3_client
 
@@ -70,14 +70,7 @@ def test_landing_bucket_folder_structure_ready() -> None:
         pytest.skip("No active folders selected.")
 
     # Load schema folders
-    if not LANDING_BUCKET_SCHEMA_YML.exists():
-        pytest.fail(
-            f"Landing bucket schema registry not found at: {LANDING_BUCKET_SCHEMA_YML}"
-        )
-
-    with LANDING_BUCKET_SCHEMA_YML.open(encoding="utf-8") as f:
-        schema_data = yaml.safe_load(f) or {}
-    schema_folders = schema_data.get("folders", [])
+    schema_folders = get_landing_bucket_schema()
 
     # Filter schema paths matching active folders
     target_folders = []

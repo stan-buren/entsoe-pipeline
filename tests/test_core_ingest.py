@@ -14,53 +14,108 @@
 
 """Unit Tests for FMS Core Ingestion Orchestration Engine.
 
-Verifies the central metadata gathering and catalog serialization flows
-for active FMS domains using the 3A pattern.
+Verifies the central metadata gathering and database persistence flows for
+active FMS domains using temporary SQLite database.
 """
 
 from __future__ import annotations
 
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-from entsoe_pipeline.fms_metadata.core.domain import ingest_domain_metadata
+import pytest
+
+from sqlalchemy import create_engine, select
+
+from entsoe_pipeline.db import build_metadata, init_db
+from entsoe_pipeline.fms_metadata.core.domain_metadata_crawler import (
+    ingest_domain_metadata,
+)
 
 
-@patch("entsoe_pipeline.fms_metadata.core.domain.save_fms_catalog")
-@patch("entsoe_pipeline.fms_metadata.core.domain.list_folder_raw_items")
-@patch("entsoe_pipeline.fms_metadata.core.domain.create_fms_client")
-@patch("entsoe_pipeline.fms_metadata.core.domain.get_domain_folders")
+@pytest.fixture(name="db_env")
+def fixture_db_env(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> str:
+    """Fixture to configure and return a temporary SQLite database URL.
+
+    Args:
+        tmp_path: Pytest temporary directory path.
+        monkeypatch: Pytest monkeypatch utility.
+
+    Returns:
+        str: SQLite connection URL pointing to the temporary file.
+    """
+    db_file = tmp_path / "test_metadata.db"
+    url = f"sqlite:///{db_file}"
+    monkeypatch.setenv("DATABASE_URL", url)
+    return url
+
+
+@patch(
+    "entsoe_pipeline.fms_metadata.core.domain_metadata_crawler.crawl_metadata_folder"
+)
+@patch(
+    "entsoe_pipeline.fms_metadata.core.domain_metadata_crawler.fetch_root_files_mapping"
+)
+@patch("entsoe_pipeline.fms_metadata.core.domain_metadata_crawler.create_fms_client")
+@patch("entsoe_pipeline.fms_metadata.core.domain_metadata_crawler.get_domain_folders")
 def test_ingest_domain_metadata_orchestrates_flow(
     mock_get_folders: MagicMock,
     mock_create_client: MagicMock,
-    mock_list_items: MagicMock,
-    mock_save_catalog: MagicMock,
+    mock_fetch_mapping: MagicMock,
+    mock_crawl_folder: MagicMock,
+    db_env: str,
 ) -> None:
-    """Verifies that ingest_domain_metadata orchestrates FMS ingestion from IOP/PROD."""
+    """Verifies that ingest_domain_metadata orchestrates FMS ingestion and DB storage.
+
+    Args:
+        mock_get_folders: Mock domain folders resolver.
+        mock_create_client: Mock client creator.
+        mock_fetch_mapping: Mock recursive root files mapping resolver.
+        mock_crawl_folder: Mock folder files crawler.
+        db_env: Configured temporary database URL.
+    """
     # -------------------------------------------------------------------------
     # ARRANGE: Mock CLI folder resolve and raw API JSON endpoints
     # -------------------------------------------------------------------------
+    init_db()
+    engine = create_engine(db_env)
+    metadata = build_metadata()
+    fms_folders = metadata.tables["fms_folders"]
+
     mock_get_folders.return_value = ["ActualTotalLoad_r3"]
     mock_client = MagicMock()
     mock_create_client.return_value = mock_client
-    mock_list_items.return_value = [
+    mock_fetch_mapping.return_value = {}
+    mock_crawl_folder.return_value = [
         {
             "name": "2026_05_Load.csv",
-            "fileId": "uuid-1",
-            "size": 100,
-            "originalSize": 200,
-            "lastUpdatedTimestamp": "2026-05-28T12:00:00Z",
+            "file_id": "uuid-1",
+            "sizes": {
+                "compressed": {"bytes": 100, "mb": 0.0001},
+                "original": {"bytes": 200, "mb": 0.0002},
+            },
+            "last_updated": "2026-05-28T12:00:00Z",
+            "xxhash": "some-hash",
         }
     ]
 
     # -------------------------------------------------------------------------
-    # ACT: Trigger the core multi-environment metadata pipeline for a domain
+    # ACT: Trigger the core metadata pipeline for a domain
     # -------------------------------------------------------------------------
-    ingest_domain_metadata("Load")
+    ingest_domain_metadata("Load", env="iop")
 
     # -------------------------------------------------------------------------
-    # ASSERT: Verify environments are crawled and catalogs are serialized
+    # ASSERT: Verify environments are crawled and catalogs are serialized to DB
     # -------------------------------------------------------------------------
     assert mock_get_folders.call_count == 1
     assert mock_create_client.call_count == 1
-    assert mock_list_items.call_count == 2
-    assert mock_save_catalog.call_count == 1
+    assert mock_fetch_mapping.call_count == 1
+    assert mock_crawl_folder.call_count == 1
+
+    with engine.connect() as conn:
+        f_row = conn.execute(
+            select(fms_folders.c.item_count, fms_folders.c.original_bytes)
+        ).fetchone()
+        assert f_row is not None
+        assert f_row[0] == 1
+        assert f_row[1] == 200

@@ -16,8 +16,18 @@
 
 from __future__ import annotations
 
+from entsoe_pipeline.lakehouse.core.get_domain_business_keys import (
+    get_domain_business_keys,
+)
+from entsoe_pipeline.lakehouse.core.merge_to_iseberg import (
+    merge_dataframe_into_table,
+)
 from entsoe_pipeline.lakehouse.core.s3_tree_builder import (
     create_directories_with_prefix,
 )
 
-__all__ = ["create_directories_with_prefix"]
+__all__ = [
+    "create_directories_with_prefix",
+    "get_domain_business_keys",
+    "merge_dataframe_into_table",
+]

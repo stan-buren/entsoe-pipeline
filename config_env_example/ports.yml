@@ -8,6 +8,7 @@ ports:
   filer_grpc: 18888
   kestra_web: 8082
   kestra_api: 8083
+  database: 5432
 
 metadata:
   s3_compatible:
@@ -114,4 +115,13 @@ metadata:
       - 8083
       - 8085
     default: 8083
+    type: "integer"
+
+  database:
+    description: |
+      Port mapped to the PostgreSQL database for FMS catalog metadata storage. Used by Python crawling jobs to save file/folder state and by BI tools/UI dashboards to query metadata.
+    examples:
+      - 5432
+      - 5433
+    default: 5432
     type: "integer"

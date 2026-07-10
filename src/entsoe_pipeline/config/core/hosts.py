@@ -28,10 +28,12 @@ class HostsConfig:
     Attributes:
         seaweedfs (str): IP address or domain name of the SeaweedFS storage server.
         iceberg_catalog (str): IP address or domain name of the Iceberg REST Catalog.
+        database (str): IP address or domain name of the PostgreSQL metadata database server.
     """
 
     seaweedfs: str
     iceberg_catalog: str
+    database: str
 
     @classmethod
     def _from_yaml(cls) -> HostsConfig:
@@ -56,4 +58,5 @@ class HostsConfig:
         return cls(
             seaweedfs=str(hosts_data.get("seaweedfs", "localhost")),
             iceberg_catalog=str(hosts_data.get("iceberg_catalog", "localhost")),
+            database=str(hosts_data.get("database", "localhost")),
         )

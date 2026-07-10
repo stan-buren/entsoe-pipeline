@@ -193,6 +193,9 @@ class PipelineConfig:
             fms_api_requests_per_minute=int(
                 safetimits.get("fms_api_requests_per_minute", 95)
             ),
+            fms_min_request_interval_seconds=float(
+                safetimits.get("fms_min_request_interval_seconds", 0.637)
+            ),
             ban_duration_seconds=int(api_overrun.get("duration_seconds", 600)),
         )
 

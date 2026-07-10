@@ -20,16 +20,15 @@ and YAML serialization logic using the 3A (Arrange, Act, Assert) pattern.
 
 from __future__ import annotations
 
-from unittest.mock import MagicMock, mock_open, patch
+from unittest.mock import MagicMock, patch
 
 import pytest
-import yaml
 
 from entsoe_pipeline.fms_metadata.core import (
     classify_folder,
     ingest_overview_metadata,
 )
-from entsoe_pipeline.fms_metadata.core.overview import (
+from entsoe_pipeline.fms_metadata.core.ftp_map_collector import (
     fetch_environment_metadata,
 )
 
@@ -53,9 +52,9 @@ from entsoe_pipeline.fms_metadata.core.overview import (
         ("ImbalancePrices_17.1.G_r3", "Balancing"),
         ("EnergyPrices_12.1.D_r3", "Market"),
         ("AuctionRevenue_12.1.A_r3", "Market"),
-        ("Algorithm_12.3.K_r3", "Operations"),
-        ("ApprovedMethodologies_12.3.J_r3", "Operations"),
-        ("RedispatchingCrossBorder_13.1.A_r3.1", "Operations"),
+        ("Algorithm_12.3.K_r3", "Balancing"),
+        ("ApprovedMethodologies_12.3.J_r3", "Balancing"),
+        ("RedispatchingCrossBorder_13.1.A_r3.1", "Transmission"),
         ("Export_log_r3.csv", "OtherMarketInformation"),
         ("UnexpectedFolder_r3", "OtherMarketInformation"),
     ),
@@ -86,8 +85,8 @@ def test_classify_folder_returns_correct_domain(
 # =============================================================================
 
 
-@patch("entsoe_pipeline.fms_metadata.core.overview.ls_fms")
-@patch("entsoe_pipeline.fms_metadata.core.overview.create_fms_client")
+@patch("entsoe_pipeline.fms_metadata.core.ftp_map_collector.ls_fms")
+@patch("entsoe_pipeline.fms_metadata.core.ftp_map_collector.create_fms_client")
 def test_fetch_environment_metadata_crawls_and_groups_folders(
     mock_create_client: MagicMock,
     mock_ls_fms: MagicMock,
@@ -147,22 +146,21 @@ def test_fetch_environment_metadata_crawls_and_groups_folders(
 # =============================================================================
 
 
-@patch("entsoe_pipeline.fms_metadata.core.overview.OVERVIEW_YML")
-@patch("entsoe_pipeline.fms_metadata.core.overview.fetch_environment_metadata")
+@patch("entsoe_pipeline.fms_metadata.core.ftp_map_collector.OVERVIEW_YML")
+@patch("entsoe_pipeline.fms_metadata.core.ftp_map_collector.save_yaml_catalog")
+@patch("entsoe_pipeline.fms_metadata.core.ftp_map_collector.fetch_environment_metadata")
 def test_ingest_overview_metadata_persists_to_yaml(
     mock_fetch_metadata: MagicMock,
+    mock_save_yaml: MagicMock,
     mock_overview_yml: MagicMock,
 ) -> None:
-    """Verifies that orchestration crawls IOP/PROD and dumps to YAML."""
+    """Verifies that orchestration crawls IOP/PROD and dumps to YAML with drift checks."""
     # -------------------------------------------------------------------------
     # ARRANGE
     # -------------------------------------------------------------------------
     dummy_iop = {"description": "IOP description", "root_directories": []}
     dummy_prod = {"description": "Prod description", "root_directories": []}
     mock_fetch_metadata.side_effect = [dummy_iop, dummy_prod]
-
-    m_open = mock_open()
-    mock_overview_yml.open = m_open
 
     # -------------------------------------------------------------------------
     # ACT
@@ -177,14 +175,26 @@ def test_ingest_overview_metadata_persists_to_yaml(
     mock_fetch_metadata.assert_any_call("IOP")
     mock_fetch_metadata.assert_any_call("PROD")
 
-    # Verify that the SSOT YAML file was opened for writing
-    mock_overview_yml.open.assert_called_once_with("w", encoding="utf-8")
+    # Verify three calls to save_yaml_catalog: overview, undocumented, and unseen
+    assert mock_save_yaml.call_count == 3
 
-    # Retrieve the string written to the file stream
-    written_data = "".join(call[0][0] for call in m_open().write.call_args_list)
+    # First call is overview.yml
+    overview_call = mock_save_yaml.call_args_list[0]
+    assert overview_call[0][0] == mock_overview_yml
+    assert overview_call[0][1]["environments"]["IOP"] == dummy_iop
+    assert overview_call[0][1]["environments"]["Prod"] == dummy_prod
 
-    # Assert serialized content is a valid YAML representation
-    parsed_yaml = yaml.safe_load(written_data)
-    assert "environments" in parsed_yaml
-    assert parsed_yaml["environments"]["IOP"] == dummy_iop
-    assert parsed_yaml["environments"]["Prod"] == dummy_prod
+
+@patch("entsoe_pipeline.fms_metadata.core.ingest_overview_metadata")
+def test_overview_ingest_main(mock_ingest: MagicMock) -> None:
+    """Verify overview_ingest CLI execution.
+
+    Args:
+        mock_ingest: Mock overview ingest orchestrator.
+    """
+    import runpy
+
+    from entsoe_pipeline import OVERVIEW_INGEST_PY
+
+    runpy.run_path(str(OVERVIEW_INGEST_PY), run_name="__main__")
+    mock_ingest.assert_called_once()

@@ -1,0 +1,24 @@
+# ENTSO-E FMS Metadata Crawler Behavior Configuration
+#
+# Governs the incremental (resume-capable) scanning strategy for the
+# refresh_fms_metadata job. The crawler checks whether a folder was
+# already scanned recently and skips it if the data is still considered
+# fresh, dramatically reducing FMS API load during development iterations
+# and automatic retries after partial failures.
+#
+# Freshness is evaluated per-folder using the `crawled_at` timestamp stored
+# in the `fms_folders` PostgreSQL table. A folder is considered stale when
+# its `crawled_at` value is older than `freshness.max_age_days` (or when
+# the column is NULL, meaning the folder has never been scanned).
+
+freshness:
+  max_age_days: 30
+
+metadata:
+  freshness:
+    description: |
+      Maximum age (in days) of a folder's last successful scan timestamp
+      before it is considered stale and re-scanned on the next run.
+      A folder is skipped if its `crawled_at` value in `fms_folders` table
+      is newer than this threshold. Set to 0 to always re-scan every folder.
+    type: "object"

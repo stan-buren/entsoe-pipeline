@@ -23,6 +23,8 @@ import uuid
 from datetime import UTC, datetime
 from types import TracebackType
 
+from entsoe_pipeline.logger.api_observability import fms_api_counter
+
 logger = logging.getLogger("entsoe_pipeline.logger.runs_logger")
 
 
@@ -104,6 +106,22 @@ class RunsTrackerCore:
                 self.downloaded,
                 self.skipped,
             )
+
+        # Log and reset FMS API request stats if any requests were made
+        stats = fms_api_counter.get_stats()
+        total_requests = sum(stats.values())
+        if total_requests > 0:
+            logger.info(
+                "FMS API Request Statistics: {"
+                "IOP Export: %d, IOP Legacy: %d, "
+                "Prod Export: %d, Prod Legacy: %d"
+                "}",
+                stats["iop_export"],
+                stats["iop_legacy"],
+                stats["prod_export"],
+                stats["prod_legacy"],
+            )
+            fms_api_counter.reset()
 
         # Always return False so exceptions are propagated up
         return False

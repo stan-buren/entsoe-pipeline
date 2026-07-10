@@ -1,0 +1,338 @@
+generated_at: "2026-06-30T14:47:26Z"
+zendesk_updated_at: "2026-06-01T15:23:33Z"
+url: 
+  https://transparencyplatform.zendesk.com/hc/en-us/articles/17260622859412-Transparency-Platform-Help-page
+zendesk_api: 
+  https://transparencyplatform.zendesk.com/api/v2/help_center/en-us/articles/17260622859412.json
+
+domains:
+  # ===========================================================================
+  # 1. LOAD DOMAIN
+  # ===========================================================================
+  Load:
+    ActualTotalLoad_6.1.A:
+      name: "Actual Total Load [6.1.A]"
+      fms_name: ActualTotalLoad_6.1.A_r3
+    DayAheadTotalLoadForecast_6.1.B:
+      name: "Day-Ahead Total Load Forecast [6.1.B]"
+      fms_name: DayAheadTotalLoadForecast_6.1.B_r3
+    TotalLoadForecast_6.1.C_D_E:
+      name: "Total Load Forecast [6.1.C&D&E]"
+      fms_name: TotalLoadForecast_6.1.C_D_E_r3
+    YearAheadForecastMargin_8.1:
+      name: "Year-Ahead Forecast Margin [8.1]"
+      fms_name: YearAheadForecastMargin_8.1_r3
+
+  # ===========================================================================
+  # 2. GENERATION DOMAIN
+  # ===========================================================================
+  Generation:
+    ActualGenerationOutputPerGenerationUnit_16.1.A:
+      name: "Actual Generation Output per Generation Unit [16.1.A]"
+      fms_name: ActualGenerationOutputPerGenerationUnit_16.1.A_r3
+    AggregatedGenerationPerType_16.1.B_C:
+      name: "Aggregated Generation per Type [16.1.B&C]"
+      fms_name: AggregatedGenerationPerType_16.1.B_C_r3
+    GenerationForecastsForWindAndSolar_14.1.D:
+      name: "Generation Forecasts for Wind and Solar [14.1.D]"
+      fms_name: GenerationForecastsForWindAndSolar_14.1.D_r3
+    DayAheadAggregatedGeneration_14.1.C:
+      name: "Day-Ahead Aggregated Generation [14.1.C]"
+      fms_name: DayAheadAggregatedGeneration_14.1.C_r3
+    AggregatedFillingRateOfWaterReservoirsAndHydroStoragePlants_16.1.D:
+      name: "Aggregate Filling Rate of Water Reservoirs and Hydro Storage Plants [16.1.D]"
+      fms_name: 
+        AggregatedFillingRateOfWaterReservoirsAndHydroStoragePlants_16.1.D_r3
+    InstalledGenerationCapacityAggregated_14.1.A:
+      name: "Installed Generation Capacity Aggregated [14.1.A]"
+      fms_name: InstalledGenerationCapacityAggregated_14.1.A_r3
+    InstalledGenerationCapacityPerProductionUnit_14.1.B:
+      name: "Installed generation capacity per unit [14.1.B]"
+      fms_name: InstalledGenerationCapacityPerProductionUnit_14.1.B_r3
+    ProductionAndGenerationUnits:
+      name: "Production and Generation Units (Master data)"
+      fms_name: ProductionAndGenerationUnits_r3
+    TransmissionAssets:
+      name: "Transmission Assets (Master data)"
+      fms_name: TransmissionAssets_r3
+
+  # ===========================================================================
+  # 3. TRANSMISSION DOMAIN
+  # ===========================================================================
+  Transmission:
+    PhysicalFlows_12.1.G:
+      name: "Physical Flows [12.1.G]"
+      fms_name: PhysicalFlows_12.1.G_r3
+    CrossBorderCapacityForDCLinksRampingRestrictions_11.3:
+      name: "Cross-border Capacity for DC Links [11.3] (Ramping Restrictions)"
+      fms_name: CrossBorderCapacityForDCLinksRampingRestrictions_11.3_r3
+    ExpansionAndDismantlingProjectsReport_9.1:
+      name: "Expansion and Dismantling Projects [9.1] (Report)"
+      fms_name: ExpansionAndDismantlingProjectsReport_9.1_r3
+    YearlyReportAboutCritialNetworkElementsLimitingOfferedCapacities_11.4:
+      name: "Yearly Report About Critical Network Elements Limiting Offered Capacities
+        [11.4]"
+      fms_name: 
+        YearlyReportAboutCritialNetworkElementsLimitingOfferedCapacities_11.4_r3
+    ForecastedTransferCapacities_11.1:
+      name: "Forecasted Transfer Capacities [11.1]"
+      fms_name: ForecastedTransferCapacities_11.1_r3
+    CommercialSchedules_12.1.F:
+      name: "Commercial Schedules [12.1.F]"
+      fms_name: CommercialSchedules_12.1.F_r3
+    CommercialSchedulesNetPositions_12.1.F:
+      name: "Commercial Schedules - Net Positions [12.1.F]"
+      fms_name: CommercialSchedulesNetPositions_12.1.F_r3
+    CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3:
+      name: "Cross-border Capacity for DC Links [11.3] (Intraday Transfer Limits)"
+      fms_name: CrossBorderCapacityForDcLinksIntradayTransferLimits_11.3_r3
+    CostsOfCongestionManagement_13.1.C:
+      name: "Costs of Congestion Management [13.1.C]"
+      fms_name: CostsOfCongestionManagement_13.1.C_r3
+    RedispatchingInternal_13.1.A:
+      name: "Redispatching Internal [13.1.A]"
+      fms_name: RedispatchingInternal_13.1.A_r3
+    RedispatchingCrossBorder_13.1.A:
+      name: "Redispatching Cross Border [13.1.A]"
+      fms_name: RedispatchingCrossBorder_13.1.A_r3
+    ExpansionAndDismantlingProjects_9.1:
+      name: "Expansion and Dismantling Projects [9.1]"
+      fms_name: ExpansionAndDismantlingProjects_9.1_r3
+    Countertrading_13.1.B:
+      name: "Countertrading [13.1.B]"
+      fms_name: Countertrading_13.1.B_r3
+
+  # ===========================================================================
+  # 4. MARKET DOMAIN
+  # ===========================================================================
+  Market:
+    FlowBasedAllocationsCongestionIncome_12.1.E:
+      name: "Flow-based Allocations – Congestion Income [12.1.E]"
+      fms_name: FlowBasedAllocationsCongestionIncome_12.1.E_r3
+    ImplicitAllocationsCongestionIncome_12.1.E:
+      name: "Implicit Allocations - Congestion Income [12.1.E]"
+      fms_name: ImplicitAllocationsCongestionIncome_12.1.E_r3
+    TotalCapacityNominated_12.1.B:
+      name: "Total Capacity Nominated [12.1.B]"
+      fms_name: TotalCapacityNominated_12.1.B_r3
+    OfferedTransferCapacitiesImplicit_11.1:
+      name: "Offered Transfer Capacities Implicit [11.1]"
+      fms_name: OfferedTransferCapacitiesImplicit_11.1_r3
+    TransferCapacitiesAllocatedWithThirdCountries_12.1.H:
+      name: "Transfer Capacities Allocated with Third Countries [12.1.H]"
+      fms_name: TransferCapacitiesAllocatedWithThirdCountries_12.1.H_r3
+    TotalCapacityAlreadyAllocated_12.1.C:
+      name: "Total Capacity Already Allocated [12.1.C]"
+      fms_name: TotalCapacityAlreadyAllocated_12.1.C_r3
+    OfferedTransferCapacitiesExplicit_11.1:
+      name: "Offered Transfer Capacities Explicit [11.1]"
+      fms_name: OfferedTransferCapacitiesExplicit_11.1_r3
+    UseOfTransferCapacity_12.1.A:
+      name: "Use of the Transfer Capacity [12.1.A]"
+      fms_name: UseOfTransferCapacity_12.1.A_r3
+    AuctionRevenue_12.1.A:
+      name: "Auction Revenue [12.1.A]"
+      fms_name: AuctionRevenue_12.1.A_r3
+    ImplicitAllocationsNetPositions_12.1.E:
+      name: "Implicit Allocations - Net Positions [12.1.E]"
+      fms_name: ImplicitAllocationsNetPositions_12.1.E_r3
+    FlowBasedCapacityAllocation_11.1.B:
+      name: "Flow-based Allocations [11.1.B]"
+      fms_name: FlowBasedCapacityAllocation_11.1.B_r3
+    PowerTransferDistributionFactors_11.1.B:
+      name: "Power Transfer Distribution Factors [11.1.B]"
+      fms_name: PowerTransferDistributionFactors_11.1.B_r3
+    OfferedTransferCapacitiesContinuous_11.1:
+      name: "Continuous Allocations [11.1]"
+      fms_name: OfferedTransferCapacitiesContinuous_11.1_r3
+  # ===========================================================================
+  # 🚀 Discovering a monster - OfferedTransferCapacitiesContinuousEvolution_11.1
+  # The most shocking discovery of the day. I had thought the entire ENTSO-E platform amounted to a modest ~300 GB. 
+  # That was the figure shown in an old report from May 28th. 
+  # But that old report performed only a shallow scan—covering just the top-level folders without recursing into the `daily/TSO` subdirectories.
+  # 
+  # A new, deep recursive scan (the one that ran in tmux) revealed the reality:
+  # 
+  # PROD Transmission = 9.3 TB. Not gigabytes. Terabytes.
+  # 
+  # Specifically:
+  # 
+  # OfferedTransferCapacitiesContinuousEvolution_11.1_r3:
+  # Files: 203,549
+  # Original: 9,706,461 MB = 9.25 TB
+  # Compressed: 191,125 MB = 186.6 GB
+  # Structure: every day of every month × ~40 TSOs
+  # Each file: a tiny CSV (~262 bytes)
+  # This is just one data item. 
+  # It accounts for 96.5% of all ENTSOE-FMS PROD
+  # 205 043 diles only for this domain.
+  # 
+  # The overall PROD picture:
+  # 
+  # 218,000 files
+  # 9.4 TB original volume (I thought it was 300 GB—I was off by a factor of 30)
+  # 195 GB compressed
+  # 25,488 API requests (with 20,374 of those—80%—going to Transmission alone)
+  # ===========================================================================
+    OfferedTransferCapacitiesContinuousEvolution_11.1:
+      name: "Continuous Allocations - OC Evolution"
+      fms_name: OfferedTransferCapacitiesContinuousEvolution_11.1_r3
+    EnergyPrices_12.1.D:
+      name: "Energy Prices [12.1.D]"
+      fms_name: EnergyPrices_12.1.D_r3
+
+  # ===========================================================================
+  # 5. BALANCING DOMAIN
+  # ===========================================================================
+  Balancing:
+    TermsAndConditions_12.3.G:
+      name: "Terms and Conditions [12.3.G]"
+      fms_name: TermsAndConditions_12.3.G_r3
+    InformationOnConversionIntoStandardProducts_12.3.D:
+      name: "Information on conversion into standard products [GL EB 12.3.D]"
+      fms_name: InformationOnConversionIntoStandardProducts_12.3.D_r3
+    ApprovedMethodologies_12.3.J:
+      name: "Approved methodologies [GL EB 12.3.J]"
+      fms_name: ApprovedMethodologies_12.3.J_r3
+    Algorithm_12.3.K:
+      name: "Algorithm [GL EB 12.3.K]"
+      fms_name: Algorithm_12.3.K_r3
+    CommonAnnualReport_12.3.L:
+      name: "Common annual report [GL EB 12.3.L]"
+      fms_name: CommonAnnualReport_12.3.L_r3
+    PricesOfActivatedBalancingEnergy_17.1.F:
+      name: "Prices of Activated Balancing Energy & aFRR CBMPs [TR 17.1.F, IF aFRR
+        3.16]"
+      fms_name: PricesOfActivatedBalancingEnergy_17.1.F_r3
+    BalancingEnergyBids_12.3.B_C:
+      name: "Balancing Energy Bids [GL EB 12.3.B&C]"
+      fms_name: BalancingEnergyBids_12.3.B_C_r3
+    BalancingEnergyBidsArchives_12.3.B_C:
+      name: "Balancing Energy Bids Archives [GL EB 12.3.B&C]"
+      fms_name: BalancingEnergyBidsArchives_12.3.B_C_r3
+    ChangesToBidAvailability_IFs_mFRR9.9_aFRR9.6_9.8:
+      name: "Changes to Bid Availability [IFs mFRR 9.9, aFRR 9.6&9.8]"
+      fms_name: ChangesToBidAvailability_IFs_mFRR9.9_aFRR9.6_9.8_r3
+    ChangesToBidAvailabilityArchives_IFs_mFRR9.9_aFRR9.6_9.8:
+      name: "Changes to Bid Availability Archives [IFs mFRR 9.9, aFRR 9.6&9.8]"
+      fms_name: ChangesToBidAvailabilityArchives_IFs_mFRR9.9_aFRR9.6_9.8_r3
+    AggregatedBalancingEnergyBids_12.3.E:
+      name: "Aggregated balancing energy bids [GL EB 12.3.E]"
+      fms_name: AggregatedBalancingEnergyBids_12.3.E_r3
+    NettedAndExchangedVolumes_IFs_IN3.10_mFRR3.17:
+      name: "Netted and Exchanged Volumes [IFs IN 3.10, mFRR 3.17, aFRR 3.16]"
+      fms_name: NettedAndExchangedVolumes_IFs_IN3.10_mFRR3.17_r3
+    NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17:
+      name: "Netted and Exchanged Volumes per border [IFs IN 3.10, mFRR 3.17, aFRR
+        3.16]"
+      fms_name: NettedAndExchangedVolumesPerBorder_IFs_IN3.10_mFRR3.17_r3
+    ElasticDemands_IFs_mFRR3.4_aFRR3.4:
+      name: "Elastic Demands [IF mFRR 3.4]"
+      fms_name: ElasticDemands_IFs_mFRR3.4_aFRR3.4_r3
+    AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C:
+      name: "Amount and Prices Paid of Balancing Reserves Under Contract [17.1.B&C]"
+      fms_name: AmountAndPricesPaidOfBalancingReservesUnderContract_17.1.B_C_r3
+    ProcuredBalancingCapacity_12.3.F:
+      name: "Procured balancing capacity [GL EB 12.3.F]"
+      fms_name: ProcuredBalancingCapacity_12.3.F_r3
+    FrequencyContainmentReserveAmountAndShares_SOGL_187.2:
+      name: "FCR Total Capacity & Shares of FCR Capacity [SO GL 187.2]"
+      fms_name: FrequencyContainmentReserveAmountAndShares_SOGL_187.2_r3
+    ExchangedReserveCapacity_SOGL_190.3:
+      name: "Exchanged reserve Capacity [SO GL 190.3]"
+      fms_name: ExchangedReserveCapacity_SOGL_190.3_r3
+    ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3:
+      name: "Actual Capacities and Outlook on FRR and RR [SO GL 188.3, 188.4, 189.2,
+        189.3]"
+      fms_name: 
+        ActualCapacitiesAndOutlookOnFrequencyRestorationReserveAndReplacementReserve_SOGL_188.3_188.4_189.2_189.3_r3
+    FinancialExpensesAndIncomeForBalancing_17.1.I:
+      name: "Financial Expenses and Income for Balancing [17.1.I]"
+      fms_name: FinancialExpensesAndIncomeForBalancing_17.1.I_r3
+    CrossZonalBalancingCapacity_12.3.H_12.3.I:
+      name: "Cross-zonal Balancing Capacity [12.3.H&I]"
+      fms_name: CrossZonalBalancingCapacity_12.3.H_12.3.I_r3
+    PermanentAllocationLimitations_IFs_4.5:
+      name: "Permanent Allocation Limitations to Cross-border Capacity on HVDC Lines
+        [IFs 4.5]"
+      fms_name: PermanentAllocationLimitations_IFs_4.5_r3
+    BalancingBorderCapacityLimitations_IFs_4.3_4.4:
+      name: "Balancing Border Capacity Limitations [IFs 4.3&4.4]"
+      fms_name: BalancingBorderCapacityLimitations_IFs_4.3_4.4_r3
+    ImbalancePrices_17.1.G:
+      name: "Imbalance Prices [17.1.G]"
+      fms_name: ImbalancePrices_17.1.G_r3
+    TotalImbalanceVolumes_17.1.H:
+      name: "Total Imbalance Volumes [17.1.H]"
+      fms_name: TotalImbalanceVolumes_17.1.H_r3
+    CurrentBalancingState_12.3.A:
+      name: "Current balancing state [GL EB 12.3.A]"
+      fms_name: CurrentBalancingState_12.3.A_r3
+    ImbalanceNetting_186.2:
+      name: "Imbalance Netting [186.2]"
+      fms_name: ImbalanceNetting_186.2_r3
+    CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16:
+      name: "Cross Border Marginal Price for aFRR [IF aFRR 3.16]"
+      fms_name: CrossBorderMarginalPriceForAfrrCs_IF_aFRR3.16_r3
+    NettedAndExchangedVolumesAfrr_IFs_aFRR3.16:
+      name: "Netted and Exchanged Volumes aFRR [IF aFRR 3.16]"
+      fms_name: NettedAndExchangedVolumesAfrr_IFs_aFRR3.16_r3
+    ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16:
+      name: "Exchanged Volumes and Prices Provided by Activation Optimisation Function
+        [IFs aFRR 3.16]"
+      fms_name: 
+        ExchangedVolumesAndPricesProvidedByActivationOptimisationFunction_IFs_aFRR3.16_r3
+
+  # ===========================================================================
+  # 6. OUTAGES DOMAIN
+  # ===========================================================================
+  Outages:
+    UnavailabilityOfProductionAndGenerationUnits_15.1.A_B_C_D:
+      name: "Unavailability of Production and Generation Units [15.1.A&B&C&D]"
+      fms_name: UnavailabilityOfProductionAndGenerationUnits_15.1.A_B_C_D_r3
+    UnavailabilityOfConsumptionUnits_7.1.A_B:
+      name: "Unavailability of Consumption Units [7.1.A&B]"
+      fms_name: UnavailabilityOfConsumptionUnits_7.1.A_B_r3
+    UnavailabilityInTheTransmissionGrid_10.1.A_B:
+      name: "Unavailability in the Transmission Grid – NTC [10.1.A&B]"
+      fms_name: UnavailabilityInTheTransmissionGrid_10.1.A_B_r3
+    UnavailabilityInTheTransmissionGridAffectedAreas_10.1.A_B:
+      name: "Unavailability in the Transmission Grid – Available Capacity [10.1.A&B]"
+      fms_name: UnavailabilityInTheTransmissionGridAffectedAreas_10.1.A_B_r3
+    UnavailabilityInTheTransmissionGridAffectedAssets_10.1.A_B:
+      name: "Unavailability in the Transmission Grid – Net Position Impact [10.1.A&B]"
+      fms_name: UnavailabilityInTheTransmissionGridAffectedAssets_10.1.A_B_r3
+    UnavailabilityOfOffshoreGrid_10.1.C:
+      name: "Unavailability of Off-shore Grid [10.1.C]"
+      fms_name: UnavailabilityOfOffshoreGrid_10.1.C_r3
+    Fallbacks_IF_IN7.2_mFRR3.11_aFRR3.10:
+      name: "Fall-backs [IFs IN 7.2, mFRR 3.11, aFRR 3.10]"
+      fms_name: Fallbacks_IF_IN7.2_mFRR3.11_aFRR3.10_r3
+
+  # ===========================================================================
+  # 7. OPERATIONS DOMAIN
+  # ===========================================================================
+  Operations:
+    OperationalAgreementsOfSynchronousAreas_SOGL_184.2:
+      name: "Agreements of Synchronous Areas [184.2]"
+      fms_name: OperationalAgreementsOfSynchronousAreas_SOGL_184.2_r3
+    OperationalAgreementsOfLoadFrequencyControlBlocks_SOGL_184.3:
+      name: "Operational Agreements of Load Frequency Control Blocks [184.3]"
+      fms_name: OperationalAgreementsOfLoadFrequencyControlBlocks_SOGL_184.3_r3
+    ResultsOfTheCriteriaApplicationProcess_SOGL_185.4:
+      name: "Results of the Criteria Application Process [SO GL 185.4]"
+      fms_name: ResultsOfTheCriteriaApplicationProcess_SOGL_185.4_r3
+
+  # ===========================================================================
+  # 8. OTHER MARKET INFORMATION (OMI) DOMAIN
+  # ===========================================================================
+  OtherMarketInformation:
+    OtherMarketInformation:
+      name: "Other Market Information [OMI]"
+      fms_name: OtherMarketInformation_r3
+    Export_log:
+      name: "Export log"
+      fms_name: Export_log_r3.csv
+    Export_oce_log:
+      name: "Export oce log"
+      fms_name: Export_oce_log_r3.csv

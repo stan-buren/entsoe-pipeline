@@ -16,13 +16,19 @@
 
 from entsoe_pipeline.config.core.buckets import BucketsConfig
 from entsoe_pipeline.config.core.classifier import (
-    ClassificationRule,
     ClassifierConfig,
-    ExclusionRule,
     LegacyRule,
+)
+from entsoe_pipeline.config.core.entsoe_fms_schemas import (
+    EntsoeFmsSchemasConfig,
+    FmsColumnSchema,
+    FmsPublicationSchema,
 )
 from entsoe_pipeline.config.core.hosts import HostsConfig
 from entsoe_pipeline.config.core.lakehouse import LakehouseConfig
+from entsoe_pipeline.config.core.lakehouse_parquet_codec import (
+    LakehouseParquetCodecConfig,
+)
 from entsoe_pipeline.config.core.limits import RateLimitsConfig
 from entsoe_pipeline.config.core.pipeline import EntsoeEnvConfig, PipelineConfig
 from entsoe_pipeline.config.core.ports import PortsConfig
@@ -35,13 +41,15 @@ from entsoe_pipeline.logger.core.warning import CustomConfig
 
 __all__ = [
     "BucketsConfig",
-    "ClassificationRule",
     "ClassifierConfig",
     "CustomConfig",
     "EntsoeEnvConfig",
-    "ExclusionRule",
+    "EntsoeFmsSchemasConfig",
+    "FmsColumnSchema",
+    "FmsPublicationSchema",
     "HostsConfig",
     "LakehouseConfig",
+    "LakehouseParquetCodecConfig",
     "LegacyRule",
     "PipelineConfig",
     "PortsConfig",

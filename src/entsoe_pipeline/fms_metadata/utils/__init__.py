@@ -20,6 +20,7 @@ transformation.
 
 from __future__ import annotations
 
+from entsoe_pipeline.fms_metadata.utils.crawler import crawl_metadata_folder
 from entsoe_pipeline.fms_metadata.utils.overview_parser import (
     get_domain_folders,
     parse_months_range,
@@ -37,6 +38,7 @@ from entsoe_pipeline.fms_metadata.utils.transformer import (
 __all__ = [
     "compile_env_stats",
     "compile_folder_metadata",
+    "crawl_metadata_folder",
     "get_domain_folders",
     "map_raw_fms_item",
     "parse_months_range",

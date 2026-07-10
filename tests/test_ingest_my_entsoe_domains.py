@@ -12,21 +12,42 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Unit and integration tests for the ENTSO-E dynamic ingestion job."""
+"""Unit and integration tests for the ENTSO-E database-driven dynamic ingestion job."""
 
 from __future__ import annotations
 
-import json
-
+from pathlib import Path
 from unittest.mock import ANY, MagicMock
 
 import pytest
 import yaml
 
+from sqlalchemy import create_engine, select
+
+from entsoe_pipeline.db import build_metadata, init_db
 from entsoe_pipeline.io.sync import sync_active_domains
 
 
-def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) -> None:
+@pytest.fixture(name="db_env")
+def fixture_db_env(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> str:
+    """Fixture to configure and return a temporary SQLite database URL.
+
+    Args:
+        tmp_path: Pytest temporary directory path.
+        monkeypatch: Pytest monkeypatch utility.
+
+    Returns:
+        str: SQLite connection URL pointing to the temporary file.
+    """
+    db_file = tmp_path / "test_metadata.db"
+    url = f"sqlite:///{db_file}"
+    monkeypatch.setenv("DATABASE_URL", url)
+    return url
+
+
+def test_sync_active_domains_success(
+    db_env: str, monkeypatch: pytest.MonkeyPatch, tmp_path
+) -> None:
     """Tests the sync loop of active domains, verifying it processes active files.
 
     Follows 3A - Arrange, Act, Assert.
@@ -34,6 +55,8 @@ def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) 
     # -------------------------------------------------------------------------
     # 1. Arrange
     # -------------------------------------------------------------------------
+    init_db()
+
     mock_domains_config = {
         "environments": {
             "IOP": {
@@ -58,10 +81,6 @@ def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) 
     with mock_config_file.open("w", encoding="utf-8") as f:
         yaml.dump(mock_domains_config, f)
 
-    mock_registry_file = tmp_path / "landing_registry.json"
-    if mock_registry_file.exists():
-        mock_registry_file.unlink()
-
     monkeypatch.setattr(
         "entsoe_pipeline.io.sync.get_active_domains_config",
         lambda: mock_domains_config,
@@ -69,10 +88,6 @@ def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) 
     monkeypatch.setattr(
         "entsoe_pipeline.io.sync.get_landing_bucket_schema",
         lambda: ["iop/TP_export/Load/ActualTotalLoad_6.1.A_r3"],
-    )
-    monkeypatch.setattr(
-        "entsoe_pipeline.io.sync.LANDING_REGISTRY_JSON",
-        mock_registry_file,
     )
 
     mock_selected_file = {
@@ -144,18 +159,30 @@ def test_sync_active_domains_success(monkeypatch: pytest.MonkeyPatch, tmp_path) 
     )
     assert called_kwargs["s3_key"] == expected_s3_key
 
-    assert mock_registry_file.exists()
-    with mock_registry_file.open("r", encoding="utf-8") as f:
-        registry = json.load(f)
-    data_keys = {k for k in registry if not k.startswith("_")}
-    assert len(data_keys) == 1
-    assert expected_s3_key in data_keys
+    # Query the landing files registry in the test database
+    engine = create_engine(db_env)
+    db_metadata = build_metadata()
+    landing_files_registry = db_metadata.tables["landing_files_registry"]
 
-    file_meta = registry[expected_s3_key]
-    assert file_meta["file_name"] == "2026_04_ActualTotalLoad_6.1.A_r3.csv"
-    assert file_meta["file_id"] == "mock-uuid-1234"
-    assert file_meta["file_size_bytes"] == 1024
-    assert file_meta["last_updated_timestamp"] == "2026-04-15T12:00:00Z"
-    assert "xxhash" in file_meta
-    assert "downloaded_at" in file_meta
-    assert file_meta["run_id"] == "test-run-id-999"
+    with engine.connect() as conn:
+        stmt = select(
+            landing_files_registry.c.s3_key,
+            landing_files_registry.c.file_name,
+            landing_files_registry.c.file_id,
+            landing_files_registry.c.file_size_bytes,
+            landing_files_registry.c.last_updated_timestamp,
+            landing_files_registry.c.xxhash,
+            landing_files_registry.c.run_id,
+        )
+        results = conn.execute(stmt).fetchall()
+
+    assert len(results) == 1
+    row = results[0]
+    assert row[0] == expected_s3_key
+    assert row[1] == "2026_04_ActualTotalLoad_6.1.A_r3.csv"
+    assert row[2] == "mock-uuid-1234"
+    assert row[3] == 1024
+    # DateTime parsing verification: SQLite stores datetimes as strings or timestamps
+    assert str(row[4]).startswith("2026-04-15")
+    assert row[5] is not None
+    assert row[6] == "test-run-id-999"

@@ -1,0 +1,234 @@
+# ENTSO-E Physical Metadata Database Schema Contract
+# This file is the Single Source of Truth (SSOT) for the PostgreSQL catalog.
+# Application models and migrations are built and validated against this contract.
+
+schema_version: "1.0.0"
+
+tables:
+  fms_folders:
+    description: |
+      Represents directory structures discovered on remote FMS FTP endpoints.
+      Stores physical stats aggregates (file counts, total sizes) to allow fast tree lookups.
+    columns:
+      id:
+        type: "integer"
+        primary_key: true
+        autoincrement: true
+        nullable: false
+      environment:
+        type: "string"
+        index: true
+        nullable: false
+        description: "Target platform environment: 'iop' or 'prod'"
+      domain:
+        type: "string"
+        index: true
+        nullable: false
+        description: "FMS Data Domain name (e.g. Load, Transmission, Balancing)"
+      folder_path:
+        type: "string"
+        index: true
+        nullable: false
+        description: "Relative directory path (e.g. TP_export/Load/ActualTotalLoad_6.1.A_r3)"
+      parent_id:
+        type: "integer"
+        foreign_key: "fms_folders.id"
+        nullable: true
+        description: "Self-referencing foreign key pointing to the parent folder"
+      item_count:
+        type: "integer"
+        default: 0
+        nullable: false
+        description: "Total number of active files residing in this folder and its
+          subfolders"
+      original_bytes:
+        type: "bigint"
+        default: 0
+        nullable: false
+        description: "Aggregated uncompressed size of all active files under this
+          directory path"
+      compressed_bytes:
+        type: "bigint"
+        default: 0
+        nullable: false
+        description: "Aggregated compressed size of all active files under this directory
+          path"
+      crawled_at:
+        type: "datetime"
+        nullable: true
+        description: "UTC timestamp of the last successful folder scan. NULL means
+          never scanned."
+    constraints:
+      uq_env_folder_path:
+        type: "unique"
+        columns:
+          - "environment"
+          - "folder_path"
+
+  fms_files:
+    description: |
+      Represents individual datasets (files) residing under specific FMS folders.
+      Stores exact sizes, watermarks, and change metadata.
+    columns:
+      file_id:
+        type: "string"
+        primary_key: true
+        nullable: false
+        description: "Unique file UUID assigned by the ENTSO-E platform"
+      folder_id:
+        type: "integer"
+        foreign_key: "fms_folders.id"
+        index: true
+        nullable: false
+        description: "Foreign key linking the file to its parent directory in fms_folders"
+      name:
+        type: "string"
+        index: true
+        nullable: false
+        description: "Exact physical filename string"
+      original_bytes:
+        type: "bigint"
+        nullable: false
+        description: "Uncompressed size of the file in bytes"
+      compressed_bytes:
+        type: "bigint"
+        nullable: false
+        description: "Compressed size of the file in bytes"
+      last_updated:
+        type: "string"
+        nullable: false
+        description: "ISO-8601 string of the last modification time on FMS"
+      xxhash:
+        type: "string"
+        nullable: false
+        description: "xxh3_128 watermark signature used for change detection and idempotency"
+
+  landing_files_registry:
+    description: |
+      Registry of all successfully downloaded files currently residing in the S3 landing zone bucket.
+      Acts as the dynamic idempotency catalog to prevent duplicate downloads.
+    columns:
+      s3_key:
+        type: "string"
+        primary_key: true
+        nullable: false
+        description: "Unique S3 object key (e.g. iop/TP_export/Load/ActualTotalLoad_6.1.A_r3/2026_04.csv)"
+      file_name:
+        type: "string"
+        nullable: false
+        description: "Standard name of the physical file"
+      file_id:
+        type: "string"
+        nullable: false
+        description: "Source file UUID from ENTSO-E"
+      file_size_bytes:
+        type: "bigint"
+        nullable: false
+        description: "Uncompressed size of the file in bytes"
+      last_updated_timestamp:
+        type: "datetime"
+        nullable: false
+        description: "Last modified timestamp of the file on FMS"
+      xxhash:
+        type: "string"
+        index: true
+        nullable: false
+        description: "xxh3_128 watermark digest for change detection"
+      downloaded_at:
+        type: "datetime"
+        nullable: false
+        description: "UTC timestamp when the file was downloaded"
+      run_id:
+        type: "string"
+        nullable: false
+        description: "The execution run identifier"
+
+  landing_folders_schema:
+    description: |
+      Registry of valid landing bucket folder paths (prefixes) that are expected in S3.
+    columns:
+      s3_folder_path:
+        type: "string"
+        primary_key: true
+        nullable: false
+        description: "Standard S3 folder path prefix (e.g. iop/TP_export/Load/ActualTotalLoad_6.1.A_r3)"
+      environment:
+        type: "string"
+        index: true
+        nullable: false
+        description: "Target platform environment: 'iop' or 'prod'"
+      domain:
+        type: "string"
+        nullable: false
+        description: "FMS Data Domain name"
+      folder_name:
+        type: "string"
+        nullable: false
+        description: "Standard FMS folder name"
+
+  lakehouse_ingestion_registry:
+    description: |
+      Append-only audit log tracking the status of files processed from the landing zone
+      and successfully (or unsuccessfully) integrated into the Iceberg Lakehouse.
+    data_engineering_meaning: |
+      Implements an append-only audit trail and metadata state ledger for Silver/Staging ETL.
+      Decouples the landing zone from downstream ingestion state, preventing the single-responsibility violation
+      of mutating raw landing logs. It facilitates reliable file-level Change Data Capture (CDC) and idempotent
+      reprocessing by separating physical storage state from consumer processing state.
+    columns:
+      id:
+        type: "integer"
+        primary_key: true
+        autoincrement: true
+        nullable: false
+        description: "Unique auto-incrementing ID for the log entry"
+        data_engineering_meaning: "Provides a monotonic surrogate key to track occurrences
+          and order of attempts over time."
+      s3_key:
+        type: "string"
+        index: true
+        nullable: false
+        description: "Reference S3 object key that was processed (foreign key conceptually)"
+        data_engineering_meaning: "Identifies the unique physical source blob location
+          inside the landing-zone S3 bucket."
+      xxhash:
+        type: "string"
+        nullable: false
+        description: "Hash signature of the file at the time of processing"
+        data_engineering_meaning: "The digital fingerprint of the file contents. Used
+          in anti-join comparisons to detect updates to existing files without changing
+          s3 keys."
+      iceberg_table:
+        type: "string"
+        nullable: false
+        description: "Name of the target Iceberg table"
+        data_engineering_meaning: "Target destination table in the lakehouse catalog
+          where this file's records were committed."
+      ingested_at:
+        type: "datetime"
+        nullable: false
+        description: "Timestamp when the ingestion attempt was executed"
+        data_engineering_meaning: "Execution wall-clock time. Essential for lineage
+          windowing queries and filtering by the latest record."
+      status:
+        type: "string"
+        index: true
+        nullable: false
+        description: "Processing status: 'SUCCESS' or 'FAILED'"
+        data_engineering_meaning: "Processing outcome. FAILED entries act as a metadata
+          Dead Letter Queue (DLQ), allowing other healthy files to load incrementally."
+      error_message:
+        type: "string"
+        nullable: true
+        description: "Detailed error message or stack trace if the ingestion failed"
+        data_engineering_meaning: "Stores parser exceptions or database error logs
+          to offer forensic debugging details directly from SQL."
+      run_id:
+        type: "string"
+        nullable: false
+        description: "Unique execution run identifier"
+        data_engineering_meaning: "Links database audit logs to centralized task orchestrator
+          execution histories."
+
+
+

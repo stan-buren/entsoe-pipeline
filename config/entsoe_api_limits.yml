@@ -1,14 +1,15 @@
 safetimits:
   api_requests_per_minute: 390
   fms_api_requests_per_minute: 95
-
-api_overrun_limits_ban:
-  duration_seconds: 600
-  duration_minutes: 10
+  fms_min_request_interval_seconds: 0.637
 
 limits:
   api_requests_per_minute: 400
   fms_api_requests_per_minute: 100
+
+api_overrun_limits_ban:
+  duration_seconds: 600
+  duration_minutes: 10
 
 metadata:
   safetimits:

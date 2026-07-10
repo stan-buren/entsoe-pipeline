@@ -26,9 +26,13 @@ class RateLimitsConfig:
     Attributes:
         standard_api_requests_per_minute (int): Max XML/REST API calls in a rolling 60s.
         fms_api_requests_per_minute (int): Max FMS API actions in a rolling 60s.
+        fms_min_request_interval_seconds (float): Minimum gap between consecutive FMS
+            requests enforced by the leaky-bucket throttler. Derived from
+            60s / fms_api_requests_per_minute, plus a small jitter buffer.
         ban_duration_seconds (int): Penalty freeze timeout on limit violation.
     """
 
     standard_api_requests_per_minute: int
     fms_api_requests_per_minute: int
+    fms_min_request_interval_seconds: float
     ban_duration_seconds: int

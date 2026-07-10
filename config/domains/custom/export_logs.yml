@@ -1,0 +1,9 @@
+# Custom Selection Configuration: Ingest FMS Export Logs only
+# Used to sync only the manifest log files (Export_log_r3.csv and Export_oce_log_r3.csv) to Landing bucket.
+
+selected_domains:
+  - OtherMarketInformation:
+      - Export_log_r3.csv:
+          - Export_log_r3.csv
+      - Export_oce_log_r3.csv:
+          - Export_oce_log_r3.csv

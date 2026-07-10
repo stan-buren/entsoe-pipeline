@@ -12,79 +12,131 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Low-level xxHash idempotency and sync registry operations."""
+"""Low-level database-driven idempotency and landing zone registry operations."""
 
 from __future__ import annotations
 
-import json
 import logging
 
-from pathlib import Path
+from datetime import UTC, datetime
 
+from sqlalchemy import create_engine, select
+
+from entsoe_pipeline.db import build_metadata, get_db_url
 from entsoe_pipeline.io.core.s3_operations import s3_object_exists
 
 logger = logging.getLogger("entsoe_pipeline.io.core.idempotency")
 
 
-def load_landing_registry(registry_path: Path) -> dict[str, dict[str, str | int]]:
-    """Loads the landing registry from the local disk.
+def parse_iso_datetime(dt_str: str) -> datetime:
+    """Parses an ISO-8601 string to a timezone-aware datetime object.
 
     Args:
-        registry_path: Path to the JSON registry file.
+        dt_str: ISO-8601 timestamp string (e.g. '2026-06-30T15:35:24.304Z').
 
     Returns:
-        dict[str, dict[str, str | int]]: Dictionary mapping S3 keys to metadata dicts.
+        datetime: The parsed datetime object.
     """
-    if not registry_path.exists():
-        return {}
+    cleaned = dt_str.replace("Z", "+00:00")
     try:
-        with registry_path.open("r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        logger.warning("Failed to load landing registry: %s. Starting fresh.", e)
-        return {}
-
-
-def save_landing_registry(
-    registry: dict[str, dict[str, str | int]], registry_path: Path
-) -> None:
-    """Saves the landing registry back to the local disk.
-
-    Args:
-        registry: The active registry dictionary.
-        registry_path: Path to save the JSON registry file.
-    """
-    try:
-        registry_path.parent.mkdir(parents=True, exist_ok=True)
-        with registry_path.open("w", encoding="utf-8") as f:
-            json.dump(registry, f, indent=2)
-    except Exception as e:
-        logger.exception("Failed to save landing registry at %s: %s", registry_path, e)
+        return datetime.fromisoformat(cleaned)
+    except ValueError:
+        # Fallback for simpler datetime formats
+        return datetime.strptime(cleaned, "%Y-%m-%d %H:%M:%S")
 
 
 def check_idempotency(
     s3_key: str,
     expected_hash: str,
-    registry: dict[str, dict[str, str | int]],
     bucket_name: str,
     s3_client,
 ) -> bool:
-    """Verifies if the file has already been synced using the registry and S3.
+    """Verifies if the file has already been synced using the database registry and S3.
 
     Args:
         s3_key: Target object key in S3.
         expected_hash: Expected xxHash hex digest of the file metadata.
-        registry: The loaded registry.
         bucket_name: Destination S3 bucket name.
         s3_client: The S3 client.
 
     Returns:
         bool: True if the file has already been synced, False otherwise.
     """
-    file_meta = registry.get(s3_key, {})
+    engine = create_engine(get_db_url())
+    db_metadata = build_metadata()
+    landing_files_registry = db_metadata.tables["landing_files_registry"]
+
+    with engine.connect() as conn:
+        stmt = select(landing_files_registry.c.xxhash).where(
+            landing_files_registry.c.s3_key == s3_key
+        )
+        row = conn.execute(stmt).fetchone()
+
+    if not row:
+        return False
+
+    db_hash = row[0]
     return bool(
-        file_meta.get("xxhash") == expected_hash
+        db_hash == expected_hash
         and s3_object_exists(
             s3_key=s3_key, bucket_name=bucket_name, s3_client=s3_client
         )
     )
+
+
+def register_downloaded_file(
+    s3_key: str,
+    file_name: str,
+    file_id: str,
+    file_size_bytes: int,
+    last_updated_timestamp: str,
+    xxhash: str,
+    run_id: str,
+) -> None:
+    """Saves the metadata of a successfully downloaded file to the database.
+
+    Args:
+        s3_key: Destination key in S3.
+        file_name: Exact name of the physical file.
+        file_id: Source file UUID.
+        file_size_bytes: Uncompressed file size.
+        last_updated_timestamp: ISO-8601 updated watermark string.
+        xxhash: calculated xxHash check value.
+        run_id: Active execution task identifier.
+    """
+    engine = create_engine(get_db_url())
+    db_metadata = build_metadata()
+    landing_files_registry = db_metadata.tables["landing_files_registry"]
+
+    last_updated_dt = parse_iso_datetime(last_updated_timestamp)
+
+    # Convert timezone to UTC if needed
+    if last_updated_dt.tzinfo is None:
+        last_updated_dt = last_updated_dt.replace(tzinfo=UTC)
+
+    with engine.begin() as conn:
+        # Check if record already exists to perform upsert
+        stmt = select(landing_files_registry.c.s3_key).where(
+            landing_files_registry.c.s3_key == s3_key
+        )
+        exists = conn.execute(stmt).fetchone()
+
+        values = {
+            "s3_key": s3_key,
+            "file_name": file_name,
+            "file_id": file_id,
+            "file_size_bytes": file_size_bytes,
+            "last_updated_timestamp": last_updated_dt,
+            "xxhash": xxhash,
+            "downloaded_at": datetime.now(UTC),
+            "run_id": run_id,
+        }
+
+        if exists:
+            conn.execute(
+                landing_files_registry.update()
+                .where(landing_files_registry.c.s3_key == s3_key)
+                .values(**values)
+            )
+        else:
+            conn.execute(landing_files_registry.insert().values(**values))
