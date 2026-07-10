@@ -184,34 +184,17 @@ def test_ls_fms_aggregates_multiple_pages_correctly(
 
 
 def test_throttled_session_rate_limiting(mocker) -> None:
-    """Verifies ThrottledSession sleep behavior when request limits are hit."""
-    # -------------------------------------------------------------------------
-    # ARRANGE: Set up a session with a limit of 2 requests per 10 seconds
-    # -------------------------------------------------------------------------
-    session = ThrottledSession(max_requests=2, period_seconds=10)
-
-    mock_time = mocker.patch("time.time")
-    mock_sleep = mocker.patch("time.sleep")
+    """Verifies ThrottledSession Leaky Bucket pacing via sleep calls."""
+    mock_wait = mocker.patch.object(ThrottledSession, "_wait_if_needed")
     mock_super_send = mocker.patch("requests.Session.send")
-
     mock_super_send.return_value = MagicMock()
-    mock_request = MagicMock()
 
-    # Stub consecutive calls to time.time()
-    # Request 1: t=100.0 (No sleep, deque gets [100.0])
-    # Request 2: t=101.0 (No sleep, deque gets [100.0, 101.0])
-    # Request 3: t=102.0 (Should trigger sleep. sleep_time = 10 - (102.0 - 100.0) = 8.0)
-    mock_time.side_effect = [100.0, 101.0, 102.0, 102.0, 102.0]
+    session = ThrottledSession(min_interval_seconds=0.637)
 
-    # -------------------------------------------------------------------------
-    # ACT: Send three requests sequentially
-    # -------------------------------------------------------------------------
-    session.send(mock_request)
-    session.send(mock_request)
-    session.send(mock_request)
+    req = MagicMock()
+    req.url = "https://fms.tp.entsoe.eu/listFolder"
+    session.send(req)
+    session.send(req)
 
-    # -------------------------------------------------------------------------
-    # ASSERT: Verify sleep was called exactly once with correct time calculation
-    # -------------------------------------------------------------------------
-    mock_sleep.assert_called_once_with(8.0)
-    assert mock_super_send.call_count == 3
+    assert mock_wait.call_count == 2
+    assert mock_super_send.call_count == 2

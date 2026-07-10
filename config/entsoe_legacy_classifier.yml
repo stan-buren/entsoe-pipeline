@@ -1,0 +1,212 @@
+generated_at: "2026-06-30T15:07:30Z"
+zendesk_updated_at: "2026-06-01T15:23:33Z"
+url: 
+  https://transparencyplatform.zendesk.com/hc/en-us/articles/41986091964305-Archives-for-legacy-Transparency-Platform-publications
+zendesk_api: 
+  https://transparencyplatform.zendesk.com/api/v2/help_center/en-us/articles/41986091964305.json
+
+archives:
+  # ===========================================================================
+  # 1. RELEASE 3 ARCHIVES
+  # ===========================================================================
+  R3_Archives:
+    release_name: "Release 3 Archives (R3)"
+    decommission_status: "Active Schema Deprecations (In-use but Schema Changed)"
+    description: >
+      Contains historical extracts of currently active data items that underwent critical
+      structural changes in their schema, resolution, or definitions.
+    publications:
+      FinancialExpensesAndIncomeForBalancing_17.1.I_r2:
+        name: "Financial Expenses and Income for Balancing [17.1.I]"
+        fms_name: FinancialExpensesAndIncomeForBalancing_17.1.I_r2
+      FlowBasedCapacityAllocationArchives_11.1.B_r3:
+        name: "Flow Based Allocations [11.1.B]"
+        fms_name: FlowBasedCapacityAllocationArchives_11.1.B_r3
+      ImbalancePricesArchives_17.1.G_r3:
+        name: "Imbalance Prices [17.1.G]"
+        fms_name: ImbalancePricesArchives_17.1.G_r3
+      TotalCapacityNominatedArchives_12.1.B_r3:
+        name: "Total Capacity Nominated [12.1.B]"
+        fms_name: TotalCapacityNominatedArchives_12.1.B_r3
+
+  # ===========================================================================
+  # 2. RELEASE 2 ARCHIVES
+  # ===========================================================================
+  R2_Archives:
+    release_name: "Release 2 Archives (R2)"
+    decommission_status: "Fully Decommissioned on 2025-12-11"
+    description: >
+      Contains historical data for metrics that have been completely retired and replaced
+      by newer specifications with fundamentally different methodologies.
+    publications:
+      AcceptedAggregatedOffers_17.1.D_r2:
+        name: "Accepted Aggregated Offers [17.1.D]"
+        fms_name: AcceptedAggregatedOffers_17.1.D_r2
+      ActivatedBalancingEnergy_17.1.E_r2:
+        name: "Activated Balancing Energy [17.1.E]"
+        fms_name: ActivatedBalancingEnergy_17.1.E_r2
+      CrossBorderBalancingEnergyActivated_17.1.J_r2:
+        name: "Cross-border Balancing - Energy Activated [17.1.J]"
+        fms_name: CrossBorderBalancingEnergyActivated_17.1.J_r2
+      CrossBorderBalancingVolumesOfExchangedBidsAndOffers_17.1.J_r2:
+        name: "Cross-border Balancing - Volumes of Exchanged Bids and Offers [17.1.J]"
+        fms_name: CrossBorderBalancingVolumesOfExchangedBidsAndOffers_17.1.J_r2
+      CrossBorderBalancingPrices_17.1.J_r2:
+        name: "Cross-border Balancing - Prices [17.1.J]"
+        fms_name: CrossBorderBalancingPrices_17.1.J_r2
+      ExchangedReserveCapacity_SOGL_190.3_r2:
+        name: "Exchanged reserve Capacity [SO GL 190.3] Legacy"
+        fms_name: ExchangedReserveCapacity_SOGL_190.3_r2
+      FcrTotalCapacity_187.2_r2:
+        name: "FCR total capacity [SO GL 187.2] Legacy"
+        fms_name: FcrTotalCapacity_187.2_r2
+      FrequencyRestorationReserveCapacityForecast_SOGL_188.3_r2:
+        name: "FRR capacity forecast [SO GL 188.3] Legacy"
+        fms_name: FrequencyRestorationReserveCapacityForecast_SOGL_188.3_r2
+      FrrActualCapacity_188.4_r2:
+        name: "FRR actual capacity [SO GL 188.4] Legacy"
+        fms_name: FrrActualCapacity_188.4_r2
+      Redispatching_13.1.A_r2:
+        name: "Redispatching [13.1.A] (legacy)"
+        fms_name: Redispatching_13.1.A_r2
+      ReplacementReserveCapacityForecast_SOGL_189.2_r2:
+        name: "RR capacity forecast [SO GL 189.2] Legacy"
+        fms_name: ReplacementReserveCapacityForecast_SOGL_189.2_r2
+      RrActualCapacity_189.3_r2:
+        name: "RR actual capacity [SO GL 189.3] Legacy"
+        fms_name: RrActualCapacity_189.3_r2
+      RulesOnBalancing_17.1.A_r2:
+        name: "Rules on Balancing [17.1.A]"
+        fms_name: RulesOnBalancing_17.1.A_r2
+      SharesOfFcrCapacity_187.2_r2:
+        name: "Shares of FCR capacity [SO GL 187.2] Legacy"
+        fms_name: SharesOfFcrCapacity_187.2_r2
+      SharingOfFrequencyContainmentReserve_SOGL_190.2_r2:
+        name: "Sharing of FCR [190.2] Legacy"
+        fms_name: SharingOfFrequencyContainmentReserve_SOGL_190.2_r2
+      TransferCapacitiesAllocatedWithThirdCountriesDailyImplicit_12.1.H_r2:
+        name: "Transfer Capacities Allocated with Third Countries [12.1.H] (implicit)"
+        fms_name: 
+          TransferCapacitiesAllocatedWithThirdCountriesDailyImplicit_12.1.H_r2
+      ValuesOfFrequencyQualityEvaluations_SOGL_185.2_r2:
+        name: "Values of frequency quality evaluation [185.2] Legacy"
+        fms_name: ValuesOfFrequencyQualityEvaluations_SOGL_185.2_r2
+
+  # ===========================================================================
+  # 3. RELEASE 1 ARCHIVES
+  # ===========================================================================
+  R1_Archives_CSV_XML:
+    release_name: "Release 1 Archives (R1)"
+    decommission_status: "Fully Decommissioned and Frozen on 2015-01-05"
+    description: >
+      The oldest historical data from the first generation of the ENTSO-E platform.
+      All data items are strictly frozen and duplicate-published in both CSV and XML.
+    publications:
+      BalanceManagementCsv_r1:
+        name: "Balance Management CSV [R1]"
+        fms_name: BalanceManagementCsv_r1
+      BalanceManagementXml_r1:
+        name: "Balance Management XML [R1]"
+        fms_name: BalanceManagementXml_r1
+      CrossBorderCommercialSchedulesCsv_r1:
+        name: "Cross-Border Commercial Schedules CSV [R1]"
+        fms_name: CrossBorderCommercialSchedulesCsv_r1
+      CrossBorderCommercialSchedulesXml_r1:
+        name: "Cross-Border Commercial Schedules XML [R1]"
+        fms_name: CrossBorderCommercialSchedulesXml_r1
+      CrossBorderPhysicalFlowsCsv_r1:
+        name: "Cross-Border Physical Flows CSV [R1]"
+        fms_name: CrossBorderPhysicalFlowsCsv_r1
+      CrossBorderPhysicalFlowsXml_r1:
+        name: "Cross-Border Physical Flows XML [R1]"
+        fms_name: CrossBorderPhysicalFlowsXml_r1
+      DailyExplicitAuctionCsv_r1:
+        name: "Daily Explicit Auction CSV [R1]"
+        fms_name: DailyExplicitAuctionCsv_r1
+      DailyExplicitAuctionXml_r1:
+        name: "Daily Explicit Auction XML [R1]"
+        fms_name: DailyExplicitAuctionXml_r1
+      DailyImplicitAuctionCsv_r1:
+        name: "Daily Implicit Auction CSV [R1]"
+        fms_name: DailyImplicitAuctionCsv_r1
+      DailyImplicitAuctionXml_r1:
+        name: "Daily Implicit Auction XML [R1]"
+        fms_name: DailyImplicitAuctionXml_r1
+      DayAheadNetTransferCapacitiesCsv_r1:
+        name: "Day-Ahead Net Transfer Capacities CSV [R1]"
+        fms_name: DayAheadNetTransferCapacitiesCsv_r1
+      DayAheadNetTransferCapacitiesXml_r1:
+        name: "Day-Ahead Net Transfer Capacities XML [R1]"
+        fms_name: DayAheadNetTransferCapacitiesXml_r1
+      MonthAheadNetTransferCapacitiesCsv_r1:
+        name: "Month-Ahead Net Transfer Capacities CSV [R1]"
+        fms_name: MonthAheadNetTransferCapacitiesCsv_r1
+      MonthAheadNetTransferCapacitiesXml_r1:
+        name: "Month-Ahead Net Transfer Capacities XML [R1]"
+        fms_name: MonthAheadNetTransferCapacitiesXml_r1
+      MonthlyExplicitAuctionCsv_r1:
+        name: "Monthly Explicit Auction CSV [R1]"
+        fms_name: MonthlyExplicitAuctionCsv_r1
+      MonthlyExplicitAuctionXml_r1:
+        name: "Monthly Explicit Auction XML [R1]"
+        fms_name: MonthlyExplicitAuctionXml_r1
+      OutagesCsv_r1:
+        name: "Outages CSV [R1]"
+        fms_name: OutagesCsv_r1
+      OutagesXml_r1:
+        name: "Outages XML [R1]"
+        fms_name: OutagesXml_r1
+      PlannedScheduleEvolutionCsv_r1:
+        name: "Planned Schedule Evolution CSV [R1]"
+        fms_name: PlannedScheduleEvolutionCsv_r1
+      PlannedScheduleEvolutionXml_r1:
+        name: "Planned Schedule Evolution XML [R1]"
+        fms_name: PlannedScheduleEvolutionXml_r1
+      QuarterlyExplicitAuctionCsv_r1:
+        name: "Quarterly Explicit Auction CSV [R1]"
+        fms_name: QuarterlyExplicitAuctionCsv_r1
+      QuarterlyExplicitAuctionXml_r1:
+        name: "Quarterly Explicit Auction XML [R1]"
+        fms_name: QuarterlyExplicitAuctionXml_r1
+      SemestrialExplicitAuctionCsv_r1:
+        name: "Semestrial Explicit Auction CSV [R1]"
+        fms_name: SemestrialExplicitAuctionCsv_r1
+      SemestrialExplicitAuctionXml_r1:
+        name: "Semestrial Explicit Auction XML [R1]"
+        fms_name: SemestrialExplicitAuctionXml_r1
+      SystemVerticalLoadCsv_r1:
+        name: "System Vertical Load CSV [R1]"
+        fms_name: SystemVerticalLoadCsv_r1
+      SystemVerticalLoadXml_r1:
+        name: "System Vertical Load XML [R1]"
+        fms_name: SystemVerticalLoadXml_r1
+      TotalLoadCsv_r1:
+        name: "Total Load CSV [R1]"
+        fms_name: TotalLoadCsv_r1
+      TotalLoadXml_r1:
+        name: "Total Load XML [R1]"
+        fms_name: TotalLoadXml_r1
+      WeekAheadNetTransferCapacitiesCsv_r1:
+        name: "Week-Ahead Net Transfer Capacities CSV [R1]"
+        fms_name: WeekAheadNetTransferCapacitiesCsv_r1
+      WeekAheadNetTransferCapacitiesXml_r1:
+        name: "Week-Ahead Net Transfer Capacities XML [R1]"
+        fms_name: WeekAheadNetTransferCapacitiesXml_r1
+      WeekendExplicitAuctionCsv_r1:
+        name: "Weekend Explicit Auction CSV [R1]"
+        fms_name: WeekendExplicitAuctionCsv_r1
+      WeekendExplicitAuctionXml_r1:
+        name: "Weekend Explicit Auction XML [R1]"
+        fms_name: WeekendExplicitAuctionXml_r1
+      YearAheadNetTransferCapacitiesCsv_r1:
+        name: "Year-Ahead Net Transfer Capacities CSV [R1]"
+        fms_name: YearAheadNetTransferCapacitiesCsv_r1
+      YearAheadNetTransferCapacitiesXml_r1:
+        name: "Year-Ahead Net Transfer Capacities XML [R1]"
+        fms_name: YearAheadNetTransferCapacitiesXml_r1
+      YearlyExplicitAuctionCsv_r1:
+        name: "Yearly Explicit Auction CSV [R1]"
+        fms_name: YearlyExplicitAuctionCsv_r1
+      YearlyExplicitAuctionXml_r1:
+        name: "Yearly Explicit Auction XML [R1]"
+        fms_name: YearlyExplicitAuctionXml_r1

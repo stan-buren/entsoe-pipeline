@@ -34,34 +34,6 @@ import yaml
 
 
 @dataclass(frozen=True)
-class ExclusionRule:
-    """Immutable sub-rule to dynamically redirect folder domains on overlaps.
-
-    Attributes:
-        patterns (list[str]): Key phrases in lowercase that trigger redirect.
-        redirect_to (str): Target domain to redirect, if matched.
-    """
-
-    patterns: list[str]
-    redirect_to: str
-
-
-@dataclass(frozen=True)
-class ClassificationRule:
-    """Immutable classification rule mapping patterns to analytical domains.
-
-    Attributes:
-        domain (str): Target data domain (e.g., 'Load', 'Transmission').
-        patterns (list[str]): Lowercase keywords to inspect in folder name.
-        exclusions (list[ExclusionRule]): Exclusions redirecting domain context.
-    """
-
-    domain: str
-    patterns: list[str]
-    exclusions: list[ExclusionRule]
-
-
-@dataclass(frozen=True)
 class LegacyRule:
     """Immutable classification rule mapping legacy archive specifications.
 
@@ -81,93 +53,95 @@ class LegacyRule:
 
 
 @dataclass(frozen=True)
+class ClassifierItem:
+    """Immutable data item schema representing a specific publications folder configuration."""
+
+    name: str
+    fms_name: str
+
+
+@dataclass(frozen=True)
 class ClassifierConfig:
     """Master configuration class representing folder classification rules.
 
     Attributes:
         domain_order (list[str]): Standardized order list of the data domains.
         fallback_domain (str): Fallback domain identifier on no patterns matched.
-        rules (list[ClassificationRule]): Pattern matching and exclusion rules.
+        domains (dict[str, dict[str, ClassifierItem]]): Structured mapping of domains to folders.
         legacy_rules (list[LegacyRule]): Rules defining legacy archives.
     """
 
     domain_order: list[str]
     fallback_domain: str
-    rules: list[ClassificationRule]
+    domains: dict[str, dict[str, ClassifierItem]]
     legacy_rules: list[LegacyRule]
 
     @classmethod
     def _from_yaml(cls) -> ClassifierConfig:
-        """Loads and parses the classifier configuration from entsoe-classifier.yml.
+        """Loads and parses the classifier configurations.
 
         Returns:
             ClassifierConfig: The loaded classifier configuration.
 
         Raises:
-            FileNotFoundError: If the entsoe-classifier.yml is not present.
+            FileNotFoundError: If the configuration files are not present.
         """
-        from entsoe_pipeline.config.paths import CLASSIFIER_YML
+        from entsoe_pipeline.config.paths import CLASSIFIER_YML, LEGACY_CLASSIFIER_YML
 
-        config_file = CLASSIFIER_YML
-        if not config_file.exists():
+        if not CLASSIFIER_YML.exists():
             raise FileNotFoundError(
-                f"Classifier configuration file not found at: {config_file}"
+                f"Classifier configuration file not found at: {CLASSIFIER_YML}"
+            )
+        if not LEGACY_CLASSIFIER_YML.exists():
+            raise FileNotFoundError(
+                f"Legacy classifier configuration file not found at: {LEGACY_CLASSIFIER_YML}"
             )
 
-        with config_file.open(encoding="utf-8") as f:
-            data = yaml.safe_load(f) or {}
+        with CLASSIFIER_YML.open(encoding="utf-8") as f:
+            domains_data = yaml.safe_load(f) or {}
 
-        domain_order = list(data.get("domain_order", []))
-        fallback_domain = str(data.get("fallback_domain", "OtherMarketInformation"))
-        raw_rules = data.get("rules", [])
+        with LEGACY_CLASSIFIER_YML.open(encoding="utf-8") as f:
+            legacy_data = yaml.safe_load(f) or {}
 
-        rules = []
-        for r in raw_rules:
-            domain = str(r.get("domain", ""))
-            patterns = [str(pat) for pat in r.get("patterns", [])]
-            raw_exclusions = r.get("exclusions", [])
-
-            exclusions = []
-            for exc in raw_exclusions:
-                exc_patterns = [str(pat) for pat in exc.get("patterns", [])]
-                redirect_to = str(exc.get("redirect_to", ""))
-                if redirect_to:
-                    exclusions.append(
-                        ExclusionRule(patterns=exc_patterns, redirect_to=redirect_to)
-                    )
-
-            if domain:
-                rules.append(
-                    ClassificationRule(
-                        domain=domain,
-                        patterns=patterns,
-                        exclusions=exclusions,
-                    )
+        raw_domains = domains_data.get("domains", {})
+        domains = {}
+        for domain, items in raw_domains.items():
+            domains[domain] = {}
+            for key, val in items.items():
+                domains[domain][key] = ClassifierItem(
+                    name=str(val.get("name", "")),
+                    fms_name=str(val.get("fms_name", "")),
                 )
 
-        raw_legacy_rules = data.get("legacy_rules", [])
+        domain_order = list(domains.keys())
+        fallback_domain = "OtherMarketInformation"
+
+        raw_archives = legacy_data.get("archives", {})
         legacy_rules = []
-        for lr in raw_legacy_rules:
-            archive = str(lr.get("archive", ""))
-            release_name = str(lr.get("release_name", ""))
-            decommission_status = str(lr.get("decommission_status", ""))
-            description = str(lr.get("description", ""))
-            patterns = [str(pat) for pat in lr.get("patterns", [])]
+        for archive_name, archive_info in raw_archives.items():
+            release_name = str(archive_info.get("release_name", ""))
+            decommission_status = str(archive_info.get("decommission_status", ""))
+            description = str(archive_info.get("description", ""))
+            raw_pubs = archive_info.get("publications", {})
+            patterns = [
+                str(pub.get("fms_name", ""))
+                for pub in raw_pubs.values()
+                if pub.get("fms_name")
+            ]
 
-            if archive:
-                legacy_rules.append(
-                    LegacyRule(
-                        archive=archive,
-                        release_name=release_name,
-                        decommission_status=decommission_status,
-                        description=description,
-                        patterns=patterns,
-                    )
+            legacy_rules.append(
+                LegacyRule(
+                    archive=archive_name,
+                    release_name=release_name,
+                    decommission_status=decommission_status,
+                    description=description,
+                    patterns=patterns,
                 )
+            )
 
         return cls(
             domain_order=domain_order,
             fallback_domain=fallback_domain,
-            rules=rules,
+            domains=domains,
             legacy_rules=legacy_rules,
         )

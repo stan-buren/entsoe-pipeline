@@ -288,3 +288,86 @@ def test_unrecognized_config_errors(
     finally:
         if custom_file.exists():
             custom_file.unlink()
+
+
+@pytest.mark.unit
+def test_generate_my_entsoe_domains_invalid_mode_and_missing_name(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Verify generate_my_entsoe_domains raises ValueError on invalid mode or missing config name."""
+    # 1. Invalid mode
+    mock_config = CustomConfig(active_mode="InvalidMode")
+    monkeypatch.setattr(
+        "entsoe_pipeline.fms_metadata.ingestion.my_entsoe_domains.get_custom_config",
+        lambda: mock_config,
+    )
+    with pytest.raises(ValueError, match="Unrecognized active_mode"):
+        generate_my_entsoe_domains()
+
+    # 2. Custom mode but missing config name
+    mock_config2 = CustomConfig(active_mode="Custom", config_name="")
+    monkeypatch.setattr(
+        "entsoe_pipeline.fms_metadata.ingestion.my_entsoe_domains.get_custom_config",
+        lambda: mock_config2,
+    )
+    with pytest.raises(ValueError, match="config_name must be defined"):
+        generate_my_entsoe_domains()
+
+    # 3. Example mode but missing config name
+    mock_config3 = CustomConfig(active_mode="Example", config_name="")
+    monkeypatch.setattr(
+        "entsoe_pipeline.fms_metadata.ingestion.my_entsoe_domains.get_custom_config",
+        lambda: mock_config3,
+    )
+    with pytest.raises(ValueError, match="config_name must be defined"):
+        generate_my_entsoe_domains()
+
+
+@pytest.mark.unit
+def test_generate_my_entsoe_domains_custom_file_not_found(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Verify generate_my_entsoe_domains raises FileNotFoundError when a Custom template is missing."""
+    mock_config = CustomConfig(active_mode="Custom", config_name="nonexistent_config")
+    monkeypatch.setattr(
+        "entsoe_pipeline.fms_metadata.ingestion.my_entsoe_domains.get_custom_config",
+        lambda: mock_config,
+    )
+    with pytest.raises(
+        FileNotFoundError, match="Active domains template config not found"
+    ):
+        generate_my_entsoe_domains()
+
+
+@pytest.mark.unit
+def test_generate_my_entsoe_domains_default_fallback(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    """Verify generate_my_entsoe_domains falls back to popular domains when default template is missing or empty."""
+    mock_config = CustomConfig(active_mode="Default")
+    monkeypatch.setattr(
+        "entsoe_pipeline.fms_metadata.ingestion.my_entsoe_domains.get_custom_config",
+        lambda: mock_config,
+    )
+
+    # Mock default template path to a nonexistent file
+    monkeypatch.setattr(
+        "entsoe_pipeline.fms_metadata.ingestion.my_entsoe_domains.MY_ENTSOE_DOMAINS_DEFAULT_TEMPLATE_YML",
+        tmp_path / "nonexistent_default.yml",
+    )
+
+    # Mock popular domains path with mock content
+    mock_popular = tmp_path / "entsoe_popular_domains.yml"
+    mock_popular.write_text(
+        "selected_domains:\n  Load:\n    - ActualTotalLoad_6.1.A_r3\n", encoding="utf-8"
+    )
+    monkeypatch.setattr(
+        "entsoe_pipeline.fms_metadata.ingestion.my_entsoe_domains.MY_ENTSOE_DOMAINS_EXAMPLES_DIR",
+        tmp_path,
+    )
+
+    # Act
+    generate_my_entsoe_domains()
+
+    # Assert fallback template was loaded and output was generated
+    assert MY_ENTSOE_DOMAINS_YML.exists()

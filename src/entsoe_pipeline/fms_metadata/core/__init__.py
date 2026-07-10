@@ -20,19 +20,22 @@ global overview manifest discovery, and deep metadata cataloging.
 
 from __future__ import annotations
 
-from entsoe_pipeline.fms_metadata.core.classifier import classify_folder
-from entsoe_pipeline.fms_metadata.core.domain import ingest_domain_metadata
-from entsoe_pipeline.fms_metadata.core.domain_builders import (
+from entsoe_pipeline.fms_metadata.core.domain_classifier import classify_folder
+from entsoe_pipeline.fms_metadata.core.domain_metadata_crawler import (
+    ingest_domain_metadata,
+)
+from entsoe_pipeline.fms_metadata.core.ftp_map_collector import ingest_overview_metadata
+from entsoe_pipeline.fms_metadata.core.job_config_builder import (
     build_custom_domains_config,
     build_default_domains_config,
     build_domains_checklist,
     build_extended_domains_config,
 )
-from entsoe_pipeline.fms_metadata.core.legacy import ingest_legacy_metadata
-from entsoe_pipeline.fms_metadata.core.overview import ingest_overview_metadata
-from entsoe_pipeline.fms_metadata.core.overview_tree import (
-    ingest_overview_tree_metadata,
+from entsoe_pipeline.fms_metadata.core.legacy_metadata_crawler import (
+    ingest_all_legacy_metadata,
+    ingest_legacy_metadata,
 )
+from entsoe_pipeline.fms_metadata.core.sizes import compile_sizes_report
 from entsoe_pipeline.logger.core.generated_at import (
     get_generated_at_timestamp as get_generation_timestamp,
 )
@@ -47,11 +50,12 @@ __all__ = [
     "build_domains_checklist",
     "build_extended_domains_config",
     "classify_folder",
+    "compile_sizes_report",
     "get_generation_timestamp",
     "get_my_entsoe_domains_warning",
     "get_yaml_warning",
+    "ingest_all_legacy_metadata",
     "ingest_domain_metadata",
     "ingest_legacy_metadata",
     "ingest_overview_metadata",
-    "ingest_overview_tree_metadata",
 ]

@@ -54,6 +54,7 @@ def test_runs_logger_initialization_from_env(monkeypatch: pytest.MonkeyPatch) ->
 
 def test_runs_logger_successful_metrics(caplog) -> None:
     """Verify metrics accumulator updates successfully and logs on enter/exit."""
+    logging.getLogger("entsoe_pipeline").propagate = True
     caplog.set_level(logging.INFO, logger="entsoe_pipeline")
 
     with RunsLogger(job_name="test_metrics", environment="IOP") as tracker:
@@ -73,6 +74,7 @@ def test_runs_logger_successful_metrics(caplog) -> None:
 
 def test_runs_logger_exception_propagation(caplog) -> None:
     """Verify that RunsLogger logs exceptions on failure and propagates them."""
+    logging.getLogger("entsoe_pipeline").propagate = True
     caplog.set_level(logging.ERROR, logger="entsoe_pipeline")
 
     class TestError(Exception):

@@ -27,12 +27,13 @@ import os
 from typing import Any
 
 import boto3
-import yaml
 
 from botocore.exceptions import ClientError
 
-from entsoe_pipeline.config.config_loader import get_config
-from entsoe_pipeline.config.paths import LANDING_BUCKET_SCHEMA_YML
+from entsoe_pipeline.config.config_loader import (
+    get_config,
+    get_landing_bucket_schema,
+)
 from entsoe_pipeline.logger.exceptions import EntsoeConnectionError
 
 
@@ -108,15 +109,7 @@ def create_directories_with_prefix(prefix: str) -> None:
     """
     logger = logging.getLogger("entsoe_pipeline")
 
-    if not LANDING_BUCKET_SCHEMA_YML.exists():
-        raise FileNotFoundError(
-            f"Landing bucket schema file not found at: {LANDING_BUCKET_SCHEMA_YML}"
-        )
-
-    with LANDING_BUCKET_SCHEMA_YML.open(encoding="utf-8") as f:
-        schema_data = yaml.safe_load(f) or {}
-
-    folders = schema_data.get("folders", [])
+    folders = get_landing_bucket_schema()
     filtered_folders = [f for f in folders if f.startswith(prefix)]
 
     if not filtered_folders:

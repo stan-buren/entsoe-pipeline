@@ -19,7 +19,11 @@ from __future__ import annotations
 from entsoe_pipeline.spark.core.iseberg_schema_generator import (
     run_schema_generation,
 )
+from entsoe_pipeline.spark.core.load_raw_csv import (
+    load_raw_csv_with_schema,
+)
 
 __all__ = [
+    "load_raw_csv_with_schema",
     "run_schema_generation",
 ]

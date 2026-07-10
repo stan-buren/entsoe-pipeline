@@ -4,40 +4,38 @@ namespace: entsoe.pipeline
 description: "ENTSO-E Data Pipeline: Metadata Preparation & Landing Zone Sync"
 
 variables:
-  project_root: "{{ envs.project_root }}"
   docker_image: entsoe-pipeline:latest
+
+# Docker runner defaults — applied to every io.kestra.plugin.scripts.shell.Commands task in this flow.
+pluginDefaults:
+  - type: io.kestra.plugin.scripts.shell.Commands
+    values:
+      containerImage: "{{ vars.docker_image }}"
+      taskRunner:
+        type: io.kestra.plugin.scripts.runner.docker.Docker
+        networkMode: host
+        user: "1000:1000"
+        volumes:
+          - "{{ envs.project_root }}:/app"
+        pullPolicy: NEVER
+      env:
+        KESTRA_EXECUTION_ID: "{{ execution.id }}"
+      logToFile: true
+      logLevel: INFO
 
 tasks:
   - id: prepare_ingestion
     type: io.kestra.plugin.scripts.shell.Commands
     description: "Phase 1: Discover overview metadata, compile directory tree, and
       generate configurations"
-    containerImage: "{{ vars.docker_image }}"
-    taskRunner:
-      type: io.kestra.plugin.scripts.runner.docker.Docker
-      networkMode: host
-      volumes:
-        - "{{ vars.project_root }}:/app"
-      pullPolicy: NEVER
-    env:
-      KESTRA_EXECUTION_ID: "{{ execution.id }}"
     commands:
       - cd /app
-      - python jobs/staging/landing/prepare_landing_ingestion.py
+      - python jobs/landing/prepare_landing_ingestion.py
 
   - id: ingest_domains
     type: io.kestra.plugin.scripts.shell.Commands
     description: "Phase 2: Ingest active datasets from remote FMS endpoints and sync
       to SeaweedFS S3 landing zone"
-    containerImage: "{{ vars.docker_image }}"
-    taskRunner:
-      type: io.kestra.plugin.scripts.runner.docker.Docker
-      networkMode: host
-      volumes:
-        - "{{ vars.project_root }}:/app"
-      pullPolicy: NEVER
-    env:
-      KESTRA_EXECUTION_ID: "{{ execution.id }}"
     commands:
       - cd /app
       - python jobs/staging/landing/ingest_my_entsoe_domains.py

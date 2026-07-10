@@ -22,13 +22,11 @@ import sys
 from botocore.exceptions import ClientError
 
 from entsoe_pipeline import get_config, resolve_active_environment
-from entsoe_pipeline.lakehouse.core.s3_tree_builder import (
-    ensure_bucket_exists,
-    get_s3_client,
-)
+from entsoe_pipeline.lakehouse.core.s3_tree_builder import get_s3_client
 from entsoe_pipeline.lakehouse.generate_tree_for_my_entsoe_domains import (
     generate_tree_for_my_entsoe_domains,
 )
+from entsoe_pipeline.preflight.core.check_db import verify_db_readiness
 from entsoe_pipeline.preflight.core.check_fms import verify_fms_readiness
 from entsoe_pipeline.preflight.core.check_s3 import verify_s3_readiness
 
@@ -39,7 +37,7 @@ def run_prepare_landing_preflight() -> None:
     """Orchestrates preflight checks for the metadata preparation stage.
 
     Validates that we can authenticate against both IOP and PROD Keycloak
-    endpoints before starting the crawler process.
+    endpoints, and verifies that the database is ready and DDL matches the contract.
     """
     logger.info("Running pre-flight checks for metadata preparation stage...")
 
@@ -63,6 +61,16 @@ def run_prepare_landing_preflight() -> None:
         )
         sys.exit(1)
 
+    # 3. Verify Database readiness and DDL contract match.
+    try:
+        verify_db_readiness()
+    except Exception as e:
+        logger.exception(
+            "Pre-flight check failed: Database schema validation failed. Error: %s",
+            e,
+        )
+        sys.exit(1)
+
     logger.info("Metadata preparation pre-flight checks passed successfully.")
 
 
@@ -80,23 +88,37 @@ def run_ingest_landing_preflight() -> None:
 
     # 2. Verify S3 storage connectivity and permissions.
     config = get_config()
-    bucket_name = config.buckets.s3_landing_bucket
+    landing_bucket = config.buckets.s3_landing_bucket
+    lakehouse_bucket = config.buckets.s3_lakehouse_bucket
     client = get_s3_client()
 
     try:
-        ensure_bucket_exists(client, bucket_name)
+        client.head_bucket(Bucket=landing_bucket)
     except ClientError as e:
         logger.exception(
-            "Pre-flight check failed: Landing bucket is not accessible. Error: %s",
+            "Pre-flight check failed: Landing bucket '%s' does not exist. "
+            "Run 'just lakehouse-init-buckets' to create all required buckets. Error: %s",
+            landing_bucket,
             e,
         )
         sys.exit(1)
 
     try:
-        verify_s3_readiness(client, bucket_name)
+        client.head_bucket(Bucket=lakehouse_bucket)
+    except ClientError as e:
+        logger.exception(
+            "Pre-flight check failed: Lakehouse bucket '%s' does not exist. "
+            "Run 'just lakehouse-init-buckets' to create all required buckets. Error: %s",
+            lakehouse_bucket,
+            e,
+        )
+        sys.exit(1)
+
+    try:
+        verify_s3_readiness(client, landing_bucket)
     except Exception as e:
         logger.exception(
-            "Pre-flight check failed: SeaweedFS read/write check failed. Error: %s",
+            "Pre-flight check failed: SeaweedFS read/write check failed on landing bucket. Error: %s",
             e,
         )
         sys.exit(1)
@@ -109,6 +131,16 @@ def run_ingest_landing_preflight() -> None:
         logger.exception(
             "Pre-flight check failed: FMS %s authentication failed. Error: %s",
             active_env,
+            e,
+        )
+        sys.exit(1)
+
+    # 4. Verify Database readiness and DDL contract match.
+    try:
+        verify_db_readiness()
+    except Exception as e:
+        logger.exception(
+            "Pre-flight check failed: Database schema validation failed. Error: %s",
             e,
         )
         sys.exit(1)

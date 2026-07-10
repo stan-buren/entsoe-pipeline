@@ -28,6 +28,15 @@ import yaml
 
 import entsoe_pipeline.config.paths as paths
 
+
+@pytest.fixture(name="db_env")
+def fixture_db_env(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> str:
+    db_file = tmp_path / "test_metadata.db"
+    url = f"sqlite:///{db_file}"
+    monkeypatch.setenv("DATABASE_URL", url)
+    return url
+
+
 from entsoe_pipeline import (
     PortsConfig,
     UrlsConfig,
@@ -35,6 +44,7 @@ from entsoe_pipeline import (
     get_buckets_config,
     get_config,
     get_env_config,
+    get_fms_extensions,
     get_hosts_config,
     get_lakehouse_config,
     get_landing_bucket_schema,
@@ -178,6 +188,7 @@ def test_ports_config_creation() -> None:
     f_grpc = 18888
     k_web = 8082
     k_api = 8083
+    db_port = 5432
 
     # -------------------------------------------------------------------------
     # ACT: Instantiate PortsConfig directly
@@ -192,6 +203,7 @@ def test_ports_config_creation() -> None:
         filer_grpc=f_grpc,
         kestra_web=k_web,
         kestra_api=k_api,
+        database=db_port,
     )
 
     # -------------------------------------------------------------------------
@@ -206,6 +218,7 @@ def test_ports_config_creation() -> None:
     assert config.filer_grpc == f_grpc
     assert config.kestra_web == k_web
     assert config.kestra_api == k_api
+    assert config.database == db_port
 
 
 # =============================================================================
@@ -665,25 +678,40 @@ def test_config_facade_integrity() -> None:
 
 
 def test_get_landing_bucket_schema_success(
-    monkeypatch: pytest.MonkeyPatch,
-    tmp_path: Path,
+    db_env: str,
 ) -> None:
     """Verify get_landing_bucket_schema returns folder paths correctly."""
     # -------------------------------------------------------------------------
     # ARRANGE
     # -------------------------------------------------------------------------
-    mock_schema = {
-        "schema_version": "1.0.0",
-        "folders": [
-            "iop/TP_export/Load/ActualTotalLoad_6.1.A_r3",
-            "prod/TP_export/Generation/ActualGenerationOutputPerGenerationUnit_16.1.A_r3",
-        ],
-    }
-    schema_file = tmp_path / "entsoe_fms_folder_schema.yml"
-    with schema_file.open("w", encoding="utf-8") as f:
-        yaml.safe_dump(mock_schema, f)
+    from sqlalchemy import create_engine
 
-    monkeypatch.setattr(paths, "LANDING_BUCKET_SCHEMA_YML", schema_file)
+    from entsoe_pipeline.db import build_metadata, init_db
+
+    init_db()
+
+    engine = create_engine(db_env)
+    db_metadata = build_metadata()
+    landing_folders_schema = db_metadata.tables["landing_folders_schema"]
+
+    with engine.begin() as conn:
+        conn.execute(
+            landing_folders_schema.insert(),
+            [
+                {
+                    "s3_folder_path": "iop/TP_export/Load/ActualTotalLoad_6.1.A_r3",
+                    "environment": "iop",
+                    "domain": "Load",
+                    "folder_name": "ActualTotalLoad_6.1.A_r3",
+                },
+                {
+                    "s3_folder_path": "prod/TP_export/Generation/ActualGenerationOutputPerGenerationUnit_16.1.A_r3",
+                    "environment": "prod",
+                    "domain": "Generation",
+                    "folder_name": "ActualGenerationOutputPerGenerationUnit_16.1.A_r3",
+                },
+            ],
+        )
 
     # -------------------------------------------------------------------------
     # ACT
@@ -735,3 +763,35 @@ def test_get_active_domains_config_success(
     # ASSERT
     # -------------------------------------------------------------------------
     assert config == mock_domains
+
+
+def test_get_fms_extensions_success(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    """Verify get_fms_extensions loads the file formats config correctly."""
+    # -------------------------------------------------------------------------
+    # ARRANGE
+    # -------------------------------------------------------------------------
+    mock_data = {
+        "allowed_extensions": [".csv", ".zip"],
+        "metadata": {
+            ".csv": {"description": "CSV"},
+            ".zip": {"description": "ZIP"},
+        },
+    }
+    extensions_file = tmp_path / "fms_extensions.yml"
+    with extensions_file.open("w", encoding="utf-8") as f:
+        yaml.safe_dump(mock_data, f)
+
+    monkeypatch.setattr(paths, "FMS_EXTENSIONS_YML", extensions_file)
+
+    # -------------------------------------------------------------------------
+    # ACT
+    # -------------------------------------------------------------------------
+    extensions = get_fms_extensions()
+
+    # -------------------------------------------------------------------------
+    # ASSERT
+    # -------------------------------------------------------------------------
+    assert extensions == [".csv", ".zip"]

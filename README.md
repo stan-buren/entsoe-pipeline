@@ -253,7 +253,7 @@ This will change the `active_environment` variable in [`enviroment.yml`](config_
 ### Start your Ingestion
 
 3. To start ingestion, run the ingestion job for the active environment:
-> NOTE: This will activate [ingest_my_entsoe_domains.py](jobs/staging/landing/ingest_my_entsoe_domains.py) job.
+> NOTE: This will activate [ingest_my_entsoe_domains.py](jobs/landing/ingest_my_entsoe_domains.py) job.
 ```bash
 just ingest-active-domains
 ```

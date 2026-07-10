@@ -38,7 +38,16 @@ from pyspark.sql.types import (
     _parse_datatype_string,
 )
 
+from entsoe_pipeline import get_fms_schemas_config
+from entsoe_pipeline.logger import EntsoeConfigurationError
+from entsoe_pipeline.spark.entsoe_fms_schemas_mapping import build_spark_schema_from_fms
+
 logger = logging.getLogger("entsoe_pipeline.spark.core.iseberg_schema_generator")
+
+TECHNICAL_ENDPOINTS = {
+    "Export_log_r3.csv",
+    "Export_oce_log_r3.csv",
+}
 
 
 def to_snake_case(name: str) -> str:
@@ -86,32 +95,30 @@ def parse_type_string(type_str: str) -> DataType:
 def run_schema_generation(
     spark: Any,
     landing_bucket: str,
-    landing_registry_path: Path,
+    s3_keys: list[str],
     schemas_registry_path: Path,
     overrides_path: Path | None = None,
 ) -> dict[str, Any]:
-    """Infers schemas from S3 and writes them as JSON values to the registry.
+    """Infers schemas from configuration templates and S3, then saves them to registry.
+
+    For registered endpoints, builds schema from entsoe_fms_schemas.yml.
+    For technical files, falls back to Spark's auto-inference.
 
     Args:
         spark: The active Spark session.
         landing_bucket: The name of the S3 landing bucket.
-        landing_registry_path: Path to the landing registry JSON file.
+        s3_keys: The list of S3 CSV keys to use for fallback schema inference.
         schemas_registry_path: Path to the target schemas registry JSON file.
         overrides_path: Path to the schema_overrides.yml configuration file.
     """
-    # 1. Parse landing registry and select one sample file per domain and endpoint
-    if not landing_registry_path.exists():
-        logger.warning(
-            "Landing registry not found at: %s. Cannot infer schemas.",
-            landing_registry_path,
-        )
-        return {}
+    # 1. Load FMS schemas configurations
+    logger.info("Loading FMS schemas specifications...")
+    fms_schemas_config = get_fms_schemas_config()
+    fms_publications = fms_schemas_config.publications
 
-    with landing_registry_path.open(encoding="utf-8") as f:
-        landing_registry = json.load(f)
-
+    # Map of domain to endpoints found in registry S3 keys
     samples_to_process: dict[str, dict[str, str]] = {}  # {domain: {endpoint: s3_key}}
-    for s3_key in landing_registry:
+    for s3_key in s3_keys:
         parts = s3_key.split("/")
         if len(parts) < 4 or not s3_key.endswith(".csv"):
             continue
@@ -154,95 +161,113 @@ def run_schema_generation(
     for domain, endpoints in samples_to_process.items():
         logger.info("Processing domain: %s", domain)
         for endpoint, s3_key in endpoints.items():
-            s3_path = f"s3a://{landing_bucket}/{s3_key}"
-            logger.info(
-                "  Inferring schema for endpoint '%s' using sample: %s",
-                endpoint,
-                s3_key,
-            )
-
-            try:
-                # Read CSV using Spark with header and inferSchema enabled
-                # We limit the read to 100 rows to make it fast
-                sample_df = (
-                    spark.read.option("header", "true")
-                    .option("delimiter", "\t")
-                    .option("inferSchema", "true")
-                    .csv(s3_path)
-                    .limit(100)
+            if endpoint in TECHNICAL_ENDPOINTS:
+                # Technical logs fallback to Spark auto-inference
+                s3_path = f"s3a://{landing_bucket}/{s3_key}"
+                logger.info(
+                    "  Inferring schema for technical endpoint '%s' using sample: %s",
+                    endpoint,
+                    s3_key,
                 )
 
-                # Sanitize column names to snake_case in the StructType schema and inject lineage/type overrides
-                cleaned_fields = []
-                for field in sample_df.schema.fields:
-                    clean_name = to_snake_case(field.name)
+                try:
+                    # Read CSV using Spark with header and inferSchema enabled
+                    sample_df = (
+                        spark.read.option("header", "true")
+                        .option("delimiter", "\t")
+                        .option("inferSchema", "true")
+                        .csv(s3_path)
+                        .limit(100)
+                    )
 
-                    # 1. Start with inferred type
-                    field_type = field.dataType
+                    # Sanitize column names and inject overrides
+                    cleaned_fields = []
+                    for field in sample_df.schema.fields:
+                        clean_name = to_snake_case(field.name)
+                        field_type = field.dataType
 
-                    # 2. Check global pattern overrides (prefix/suffix/exact match)
-                    for pattern, override_type_str in global_overrides.items():
-                        match = False
-                        if pattern.startswith("*") and pattern.endswith("*"):
-                            match = pattern[1:-1] in clean_name
-                        elif pattern.startswith("*"):
-                            match = clean_name.endswith(pattern[1:])
-                        elif pattern.endswith("*"):
-                            match = clean_name.startswith(pattern[:-1])
-                        else:
-                            match = clean_name == pattern
+                        # Check global overrides
+                        for pattern, override_type_str in global_overrides.items():
+                            match = False
+                            if pattern.startswith("*") and pattern.endswith("*"):
+                                match = pattern[1:-1] in clean_name
+                            elif pattern.startswith("*"):
+                                match = clean_name.endswith(pattern[1:])
+                            elif pattern.endswith("*"):
+                                match = clean_name.startswith(pattern[:-1])
+                            else:
+                                match = clean_name == pattern
 
-                        if match:
+                            if match:
+                                try:
+                                    field_type = parse_type_string(override_type_str)
+                                except Exception as e:
+                                    logger.warning(
+                                        "Could not parse global override type '%s' for pattern '%s': %s",
+                                        override_type_str,
+                                        pattern,
+                                        e,
+                                    )
+                                break
+
+                        # Check endpoint overrides
+                        if (
+                            endpoint in endpoint_overrides
+                            and clean_name in endpoint_overrides[endpoint]
+                        ):
+                            override_type_str = endpoint_overrides[endpoint][clean_name]
                             try:
                                 field_type = parse_type_string(override_type_str)
                             except Exception as e:
                                 logger.warning(
-                                    "Could not parse global override type '%s' for pattern '%s': %s",
+                                    "Could not parse endpoint override type '%s' for %s.%s: %s",
                                     override_type_str,
-                                    pattern,
+                                    endpoint,
+                                    clean_name,
                                     e,
                                 )
-                            break
 
-                    # 3. Check endpoint-specific overrides (highest priority)
-                    if (
-                        endpoint in endpoint_overrides
-                        and clean_name in endpoint_overrides[endpoint]
-                    ):
-                        override_type_str = endpoint_overrides[endpoint][clean_name]
-                        try:
-                            field_type = parse_type_string(override_type_str)
-                        except Exception as e:
-                            logger.warning(
-                                "Could not parse endpoint override type '%s' for %s.%s: %s",
-                                override_type_str,
-                                endpoint,
-                                clean_name,
-                                e,
+                        meta = dict(field.metadata) if field.metadata else {}
+                        meta["source_csv_column"] = field.name
+                        cleaned_fields.append(
+                            StructField(
+                                name=clean_name,
+                                dataType=field_type,
+                                nullable=field.nullable,
+                                metadata=meta,
                             )
-
-                    # Copy existing metadata or initialize a new dict
-                    meta = dict(field.metadata) if field.metadata else {}
-                    meta["source_csv_column"] = field.name
-                    cleaned_fields.append(
-                        StructField(
-                            name=clean_name,
-                            dataType=field_type,
-                            nullable=field.nullable,
-                            metadata=meta,
                         )
+                    cleaned_schema = StructType(cleaned_fields)
+                    registry[endpoint] = cleaned_schema.jsonValue()
+                    logger.info(
+                        "  Successfully registered schema for technical endpoint '%s'.",
+                        endpoint,
                     )
-                cleaned_schema = StructType(cleaned_fields)
 
-                # Serialize schema to PySpark jsonValue dictionary representation
-                registry[endpoint] = cleaned_schema.jsonValue()
+                except Exception as e:
+                    logger.exception(
+                        "  Failed to infer schema for technical endpoint %s: %s",
+                        endpoint,
+                        e,
+                    )
+            else:
+                # Data publication - must exist in config schemas SSOT
                 logger.info(
-                    "  Successfully registered schema for endpoint '%s'.", endpoint
+                    "  Building schema for endpoint '%s' using entsoe_fms_schemas.yml config",
+                    endpoint,
                 )
+                if endpoint not in fms_publications:
+                    raise EntsoeConfigurationError(
+                        f"Endpoint '{endpoint}' was not found in entsoe_fms_schemas.yml. "
+                        f"Please add it to the schema registry configurations."
+                    )
 
-            except Exception as e:
-                logger.exception(
-                    "  Failed to infer schema for endpoint %s: %s", endpoint, e
+                pub_schema = fms_publications[endpoint]
+                spark_schema = build_spark_schema_from_fms(pub_schema)
+                registry[endpoint] = spark_schema.jsonValue()
+                logger.info(
+                    "  Successfully registered schema for publication '%s' from configuration.",
+                    endpoint,
                 )
 
     return registry

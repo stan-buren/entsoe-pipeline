@@ -96,8 +96,8 @@ def test_get_legacy_archive_folders_returns_folders(tmp_path: Path) -> None:
                     {
                         "name": "TP_Legacy_Publications",
                         "folders": [
-                            "AcceptedAggregatedOffers_r2",
-                            "FlowBasedCapacityAllocationArchives_r3",
+                            "AcceptedAggregatedOffers_17.1.D_r2",
+                            "FlowBasedCapacityAllocationArchives_11.1.B_r3",
                             "BalanceManagementCsv_R1",
                             "RandomFolder_without_suffix",
                         ],
@@ -124,8 +124,8 @@ def test_get_legacy_archive_folders_returns_folders(tmp_path: Path) -> None:
         # -------------------------------------------------------------------------
         # ASSERT: Verify correct release-level matches and fallbacks
         # -------------------------------------------------------------------------
-        assert r3_folders == ["FlowBasedCapacityAllocationArchives_r3"]
-        assert r2_folders == ["AcceptedAggregatedOffers_r2"]
+        assert r3_folders == ["FlowBasedCapacityAllocationArchives_11.1.B_r3"]
+        assert r2_folders == ["AcceptedAggregatedOffers_17.1.D_r2"]
         assert r1_folders == ["BalanceManagementCsv_R1", "RandomFolder_without_suffix"]
 
 

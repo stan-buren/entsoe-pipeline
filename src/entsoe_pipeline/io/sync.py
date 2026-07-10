@@ -18,22 +18,19 @@ from __future__ import annotations
 
 import logging
 
-from datetime import UTC, datetime
 from typing import Any
 
 from entsoe_pipeline import (
-    LANDING_REGISTRY_JSON,
     MANUAL_DATA_DIR,
     get_active_domains_config,
     get_config,
     get_landing_bucket_schema,
-    save_json_with_observability,
 )
 from entsoe_pipeline.api.xxhash import calculate_idempotency_hash
 from entsoe_pipeline.io.core import (
     check_idempotency,
     extract_active_folders,
-    load_landing_registry,
+    register_downloaded_file,
     resolve_target_mappings,
     select_files_to_sync,
     verify_free_disk_space,
@@ -89,7 +86,6 @@ def sync_active_domains(env_name: str, run_id: str) -> dict[str, Any]:
     config = get_config()
     bucket_name = config.buckets.s3_landing_bucket
 
-    xxhash_registry = load_landing_registry(LANDING_REGISTRY_JSON)
     metrics = {"processed": 0, "downloaded": 0, "skipped": 0, "errors": 0}
 
     for mapping in target_mappings:
@@ -134,7 +130,6 @@ def sync_active_domains(env_name: str, run_id: str) -> dict[str, Any]:
                 is_already_synced = check_idempotency(
                     s3_key=s3_key,
                     expected_hash=expected_hash,
-                    registry=xxhash_registry,
                     bucket_name=bucket_name,
                     s3_client=s3_client,
                 )
@@ -169,18 +164,15 @@ def sync_active_domains(env_name: str, run_id: str) -> dict[str, Any]:
                 if local_tmp_path.exists():
                     local_tmp_path.unlink()
 
-                # Record in registry and persist
-                xxhash_registry[s3_key] = {
-                    "file_name": filename,
-                    "file_id": file_id,
-                    "file_size_bytes": size_bytes,
-                    "last_updated_timestamp": last_updated,
-                    "xxhash": expected_hash,
-                    "downloaded_at": datetime.now(UTC).isoformat() + "Z",
-                    "run_id": run_id,
-                }
-                save_json_with_observability(
-                    LANDING_REGISTRY_JSON, xxhash_registry, sort_keys=False
+                # Record in registry and persist to database
+                register_downloaded_file(
+                    s3_key=s3_key,
+                    file_name=filename,
+                    file_id=file_id,
+                    file_size_bytes=size_bytes,
+                    last_updated_timestamp=last_updated,
+                    xxhash=expected_hash,
+                    run_id=run_id,
                 )
 
                 metrics["downloaded"] += 1

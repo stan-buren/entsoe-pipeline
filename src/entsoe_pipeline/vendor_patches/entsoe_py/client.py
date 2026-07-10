@@ -93,3 +93,11 @@ class ConfigurableEntsoeFileClient(EntsoeFileClient):
             seconds=data["expires_in"]
         )
         self.access_token = data["access_token"]
+
+    def ensure_token_valid(self) -> None:
+        """Proactively checks if the OAuth2 token is expired or close to expiring, and updates it if so."""
+        now = pd.Timestamp.now(tz="Europe/Amsterdam")
+        if getattr(self, "expire", None) is None or now >= self.expire - pd.Timedelta(
+            seconds=30
+        ):
+            self._update_token()

@@ -60,6 +60,7 @@ def download_raw_zip_from_fms(
         "topLevelFolder": top_level_folder,
     }
 
+    client.ensure_token_valid()
     headers = {
         "Authorization": f"Bearer {client.access_token}",
         "Content-Type": "application/json",

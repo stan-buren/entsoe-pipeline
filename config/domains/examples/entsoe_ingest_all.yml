@@ -1,2 +1,76 @@
-null
-...
+# Configuration checklist to ingest ALL active domains and ALL legacy archives
+environment: PROD
+
+enabled_domains:
+  - Load
+  - Generation
+  - Transmission
+  - Balancing
+  - Market
+  - Operations
+  - Outages
+  - OtherMarketInformation
+
+enabled_legacy_folders:
+  # Release 3 Archives (R3)
+  - FinancialExpensesAndIncomeForBalancing_17.1.I_r2
+  - FlowBasedCapacityAllocationArchives_11.1.B_r3
+  - ImbalancePricesArchives_17.1.G_r3
+  - TotalCapacityNominatedArchives_12.1.B_r3
+
+  # Release 2 Archives (R2)
+  - AcceptedAggregatedOffers_17.1.D_r2
+  - ActivatedBalancingEnergy_17.1.E_r2
+  - CrossBorderBalancingEnergyActivated_17.1.J_r2
+  - CrossBorderBalancingVolumesOfExchangedBidsAndOffers_17.1.J_r2
+  - CrossBorderBalancingPrices_17.1.J_r2
+  - ExchangedReserveCapacity_SOGL_190.3_r2
+  - FcrTotalCapacity_187.2_r2
+  - FrequencyRestorationReserveCapacityForecast_SOGL_188.3_r2
+  - FrrActualCapacity_188.4_r2
+  - Redispatching_13.1.A_r2
+  - ReplacementReserveCapacityForecast_SOGL_189.2_r2
+  - RrActualCapacity_189.3_r2
+  - RulesOnBalancing_17.1.A_r2
+  - SharesOfFcrCapacity_187.2_r2
+  - SharingOfFrequencyContainmentReserve_SOGL_190.2_r2
+  - TransferCapacitiesAllocatedWithThirdCountriesDailyImplicit_12.1.H_r2
+  - ValuesOfFrequencyQualityEvaluations_SOGL_185.2_r2
+
+  # Release 1 Archives (R1 CSV/XML)
+  - BalanceManagementCsv_r1
+  - BalanceManagementXml_r1
+  - CrossBorderCommercialSchedulesCsv_r1
+  - CrossBorderCommercialSchedulesXml_r1
+  - CrossBorderPhysicalFlowsCsv_r1
+  - CrossBorderPhysicalFlowsXml_r1
+  - DailyExplicitAuctionCsv_r1
+  - DailyExplicitAuctionXml_r1
+  - DailyImplicitAuctionCsv_r1
+  - DailyImplicitAuctionXml_r1
+  - DayAheadNetTransferCapacitiesCsv_r1
+  - DayAheadNetTransferCapacitiesXml_r1
+  - MonthAheadNetTransferCapacitiesCsv_r1
+  - MonthAheadNetTransferCapacitiesXml_r1
+  - MonthlyExplicitAuctionCsv_r1
+  - MonthlyExplicitAuctionXml_r1
+  - OutagesCsv_r1
+  - OutagesXml_r1
+  - PlannedScheduleEvolutionCsv_r1
+  - PlannedScheduleEvolutionXml_r1
+  - QuarterlyExplicitAuctionCsv_r1
+  - QuarterlyExplicitAuctionXml_r1
+  - SemestrialExplicitAuctionCsv_r1
+  - SemestrialExplicitAuctionXml_r1
+  - SystemVerticalLoadCsv_r1
+  - SystemVerticalLoadXml_r1
+  - TotalLoadCsv_r1
+  - TotalLoadXml_r1
+  - WeekAheadNetTransferCapacitiesCsv_r1
+  - WeekAheadNetTransferCapacitiesXml_r1
+  - WeekendExplicitAuctionCsv_r1
+  - WeekendExplicitAuctionXml_r1
+  - YearAheadNetTransferCapacitiesCsv_r1
+  - YearAheadNetTransferCapacitiesXml_r1
+  - YearlyExplicitAuctionCsv_r1
+  - YearlyExplicitAuctionXml_r1

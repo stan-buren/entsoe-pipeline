@@ -22,16 +22,13 @@ from typing import Any
 
 import yaml
 
-from entsoe_pipeline import (
-    LANDING_BUCKET_SCHEMA_YML,
-    MY_ENTSOE_DOMAINS_YML,
-    get_config,
-    setup_logging,
-)
+from entsoe_pipeline.config.config_loader import get_config, get_landing_bucket_schema
+from entsoe_pipeline.config.paths import MY_ENTSOE_DOMAINS_YML
 from entsoe_pipeline.lakehouse.core.s3_tree_builder import (
     ensure_bucket_exists,
     get_s3_client,
 )
+from entsoe_pipeline.logger import setup_logging
 
 logger = logging.getLogger("entsoe_pipeline.lakehouse")
 
@@ -75,14 +72,7 @@ def generate_tree_for_my_entsoe_domains() -> None:
     active_folders = get_active_folders(config_data)
     logger.info("Detected %d active folders across environments.", len(active_folders))
 
-    if not LANDING_BUCKET_SCHEMA_YML.exists():
-        raise FileNotFoundError(
-            f"Landing bucket schema contract not found at: {LANDING_BUCKET_SCHEMA_YML}"
-        )
-
-    with LANDING_BUCKET_SCHEMA_YML.open(encoding="utf-8") as f:
-        schema_data = yaml.safe_load(f) or {}
-    schema_folders = schema_data.get("folders", [])
+    schema_folders = get_landing_bucket_schema()
 
     # Filter schema paths matching active folders for each environment
     target_folders = []

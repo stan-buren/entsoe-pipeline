@@ -12,121 +12,82 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Module to build the landing bucket schema contract from overview_tree.yml.
+"""Module to build the landing bucket schema contract from the database fms_folders table.
 
-This script parses the compiled FMS directory layout tree and generates
-a declarative catalog of expected directory paths in the landing zone
-bucket for both Integration/Test (iop) and Production (prod) environments.
+This script parses the compiled FMS directory layout from the PostgreSQL catalog and
+populates the expected directory paths registry in the 'landing_folders_schema' table
+for both Integration/Test (iop) and Production (prod) environments.
 """
 
 from __future__ import annotations
 
 import logging
 
-from typing import Any
+from sqlalchemy import create_engine, select
 
-import yaml
-
-from entsoe_pipeline import (
-    LANDING_BUCKET_SCHEMA_YML,
-    OVERVIEW_TREE_YML,
-)
+from entsoe_pipeline.db import build_metadata, get_db_url
 
 logger = logging.getLogger(
     "entsoe_pipeline.fms_metadata.ingestion.landing_bucket_schema"
 )
 
 
-def extract_folders_from_tree(tree_data: dict[str, Any]) -> list[str]:
-    """Extracts all target directory prefixes from the overview tree structure.
-
-    Args:
-        tree_data: Parsed representation of overview_tree.yml.
-
-    Returns:
-        A sorted list of unique directory prefixes (e.g.
-        'iop/TP_export/Load/ActualTotalLoad_6.1.A_r3').
-    """
-    folders = []
-
-    environments = tree_data.get("environments", {})
-    for env_key, env_data in environments.items():
-        # Map environment name to standardized lowercase directory prefix
-        env_lowercase = env_key.lower()
-        root_dirs = env_data.get("root_directories", [])
-
-        for rdir in root_dirs:
-            rdir_name = rdir.get("name")
-
-            if rdir_name == "TP_export":
-                domains = rdir.get("domains", {})
-                for domain_name, items in domains.items():
-                    for item in items:
-                        if isinstance(item, dict):
-                            for extract_name in item:
-                                path = (
-                                    f"{env_lowercase}/{rdir_name}/"
-                                    f"{domain_name}/{extract_name}"
-                                )
-                                folders.append(path)
-            elif rdir_name == "TP_Legacy_Publications":
-                archives = rdir.get("archives", {})
-
-                # Traverse legacy archive trees recursively to locate directories
-                def recurse_legacy(node: Any, current_path: list[str]) -> None:
-                    if isinstance(node, list):
-                        # Node is list of files; current path represents the folder
-                        folders.append("/".join(current_path))
-                    elif isinstance(node, dict):
-                        for key, val in node.items():
-                            recurse_legacy(val, [*current_path, key])
-
-                for archive_name, archive_node in archives.items():
-                    recurse_legacy(
-                        archive_node,
-                        [env_lowercase, rdir_name, archive_name],
-                    )
-
-    return sorted(set(folders))
-
-
 def build_landing_bucket_schema() -> None:
-    """Builds and saves the landing bucket directory schema configuration file.
+    """Builds and saves the landing bucket directory schema contract to database.
 
-    Loads the FMS catalog tree from OVERVIEW_TREE_YML, extracts all directory
-    prefixes, and saves the schema to LANDING_BUCKET_SCHEMA_YML.
+    Reads the folder pathways registered in the database table 'fms_folders',
+    formats them into S3 directory prefixes, and saves them to the
+    'landing_folders_schema' table.
     """
     logger.info("=== STARTING LANDING BUCKET SCHEMA GENERATION ===")
 
-    # Check if overview tree is available
-    if not OVERVIEW_TREE_YML.exists():
-        raise FileNotFoundError(
-            f"Required overview tree file does not exist: {OVERVIEW_TREE_YML}"
+    engine = create_engine(get_db_url())
+    db_metadata = build_metadata()
+    fms_folders = db_metadata.tables["fms_folders"]
+    landing_folders_schema = db_metadata.tables["landing_folders_schema"]
+
+    with engine.connect() as conn:
+        stmt = select(
+            fms_folders.c.environment,
+            fms_folders.c.domain,
+            fms_folders.c.folder_path,
         )
+        rows = conn.execute(stmt).fetchall()
 
-    logger.info("Reading overview tree catalog from: %s", OVERVIEW_TREE_YML)
-    with OVERVIEW_TREE_YML.open(encoding="utf-8") as f:
-        tree_data = yaml.safe_load(f) or {}
+    folders_to_insert = []
+    for env, domain, folder_path in rows:
+        parts = folder_path.strip("/").split("/")
+        if len(parts) >= 2:
+            root_dir = parts[0]
+            folder_name = parts[1]
+            s3_path = f"{env.lower()}/{root_dir}/{domain}/{folder_name}"
+            folders_to_insert.append(
+                {
+                    "s3_folder_path": s3_path,
+                    "environment": env.lower(),
+                    "domain": domain,
+                    "folder_name": folder_name,
+                }
+            )
 
-    # Extract target directories
-    folders = extract_folders_from_tree(tree_data)
-    logger.info("Extracted %d directory prefixes from tree.", len(folders))
+    if not folders_to_insert:
+        logger.warning(
+            "No folders found in database table 'fms_folders' to build landing schema."
+        )
+        return
 
-    # Construct schema catalog payload
-    schema_payload = {
-        "schema_version": "1.0.0",
-        "folders": folders,
-    }
+    # Deduplicate by s3_folder_path just in case
+    unique_folders = {x["s3_folder_path"]: x for x in folders_to_insert}
 
-    # Persist the configuration contract
+    with engine.begin() as conn:
+        # Clear out previous records to avoid orphans, then insert fresh schemas
+        conn.execute(landing_folders_schema.delete())
+        conn.execute(landing_folders_schema.insert(), list(unique_folders.values()))
+
     logger.info(
-        "Persisting landing bucket directory schema to: %s",
-        LANDING_BUCKET_SCHEMA_YML,
+        "Successfully persisted %d folder schemas to database.",
+        len(unique_folders),
     )
-    from entsoe_pipeline.logger import save_yaml_with_observability
-
-    save_yaml_with_observability(LANDING_BUCKET_SCHEMA_YML, schema_payload)
-
     logger.info("=== LANDING BUCKET SCHEMA GENERATION COMPLETED ===")
 
 

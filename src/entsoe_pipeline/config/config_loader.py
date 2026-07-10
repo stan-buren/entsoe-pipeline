@@ -31,8 +31,12 @@ from entsoe_pipeline.config.core import (
     ClassifierConfig,
     CustomConfig,
     EntsoeEnvConfig,
+    EntsoeFmsSchemasConfig,
+    FmsColumnSchema,  # noqa: F401 — re-exported via __init__.py
+    FmsPublicationSchema,  # noqa: F401 — re-exported via __init__.py
     HostsConfig,
     LakehouseConfig,
+    LakehouseParquetCodecConfig,
     PipelineConfig,
     PortsConfig,
     RateLimitsConfig,
@@ -232,10 +236,8 @@ def get_classifier_config() -> ClassifierConfig:
         ClassifierConfig: The loaded classifier configuration, containing:
             - domain_order (list[str]): Categorization domains array.
             - fallback_domain (str): Default fallback classification bucket.
-            - rules (list[ClassificationRule]): Crawl rules and exclusions:
-                - domain (str): Target domain to evaluate.
-                - patterns (list[str]): Match keywords list.
-                - exclusions (list[ExclusionRule]): Conflict redirects checklist.
+            - domains (dict[str, dict[str, ClassifierItem]]): Map of domains and items.
+            - legacy_rules (list[LegacyRule]): Rules defining legacy archives.
     """
     return ClassifierConfig._from_yaml()
 
@@ -270,21 +272,23 @@ def get_lakehouse_config() -> LakehouseConfig:
 
 @cache
 def get_landing_bucket_schema() -> list[str]:
-    """Loads and returns the cached list of folder paths from entsoe_fms_folder_schema.yml.
+    """Loads and returns the list of folder paths from the landing_folders_schema database table.
 
     Returns:
         list[str]: Registered landing bucket directory paths.
     """
-    from entsoe_pipeline.config.paths import LANDING_BUCKET_SCHEMA_YML
+    from sqlalchemy import create_engine, select
 
-    if not LANDING_BUCKET_SCHEMA_YML.exists():
-        raise FileNotFoundError(
-            f"Landing bucket schema registry not found at: {LANDING_BUCKET_SCHEMA_YML}"
-        )
+    from entsoe_pipeline.db import build_metadata, get_db_url
 
-    with LANDING_BUCKET_SCHEMA_YML.open(encoding="utf-8") as f:
-        schema_data = yaml.safe_load(f) or {}
-    return schema_data.get("folders", [])
+    engine = create_engine(get_db_url())
+    db_metadata = build_metadata()
+    landing_folders_schema = db_metadata.tables["landing_folders_schema"]
+
+    with engine.connect() as conn:
+        stmt = select(landing_folders_schema.c.s3_folder_path)
+        rows = conn.execute(stmt).fetchall()
+    return [row[0] for row in rows]
 
 
 @cache
@@ -304,3 +308,78 @@ def get_active_domains_config() -> dict[str, Any]:
 
     with MY_ENTSOE_DOMAINS_YML.open(encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
+
+
+@cache
+def get_fms_extensions() -> list[str]:
+    """Loads and returns the cached list of supported FMS file extensions.
+
+    Returns:
+        list[str]: Supported FMS file extensions.
+    """
+    from entsoe_pipeline.config.paths import FMS_EXTENSIONS_YML
+
+    if not FMS_EXTENSIONS_YML.exists():
+        raise FileNotFoundError(
+            f"FMS file extensions configuration not found at: {FMS_EXTENSIONS_YML}"
+        )
+
+    with FMS_EXTENSIONS_YML.open(encoding="utf-8") as f:
+        data = yaml.safe_load(f) or {}
+    return [str(ext) for ext in data.get("allowed_extensions", [])]
+
+
+@cache
+def get_db_schema_config() -> dict[str, Any]:
+    """Loads and returns the database schema configuration from DB_SCHEMA_YML.
+
+    Returns:
+        dict[str, Any]: Database schema configuration.
+    """
+    from entsoe_pipeline.config.paths import DB_SCHEMA_YML
+
+    if not DB_SCHEMA_YML.exists():
+        raise FileNotFoundError(
+            f"Database schema configuration not found at: {DB_SCHEMA_YML}"
+        )
+
+    with DB_SCHEMA_YML.open(encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
+
+
+@cache
+def get_crawler_config() -> dict[str, Any]:
+    """Loads and returns the FMS crawler strategy configuration from FMS_CRAWLER_YML.
+
+    Returns:
+        dict[str, Any]: Crawler configuration including freshness thresholds.
+    """
+    from entsoe_pipeline.config.paths import FMS_CRAWLER_YML
+
+    if not FMS_CRAWLER_YML.exists():
+        raise FileNotFoundError(
+            f"FMS crawler configuration not found at: {FMS_CRAWLER_YML}"
+        )
+
+    with FMS_CRAWLER_YML.open(encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
+
+
+@cache
+def get_fms_schemas_config() -> EntsoeFmsSchemasConfig:
+    """Loads and returns the cached EntsoeFmsSchemasConfig singleton.
+
+    Returns:
+        EntsoeFmsSchemasConfig: Configured schema specifications.
+    """
+    return EntsoeFmsSchemasConfig._from_yaml()
+
+
+@cache
+def get_lakehouse_parquet_codec_config() -> LakehouseParquetCodecConfig:
+    """Loads and returns the cached LakehouseParquetCodecConfig singleton.
+
+    Returns:
+        LakehouseParquetCodecConfig: The Parquet writes and compaction settings.
+    """
+    return LakehouseParquetCodecConfig._from_yaml()

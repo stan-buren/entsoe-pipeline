@@ -21,9 +21,13 @@ import yaml
 from dotenv import load_dotenv
 
 from entsoe_pipeline.api.client_side_throttler import ThrottledSession
-from entsoe_pipeline.config.config_loader import get_env_config
+from entsoe_pipeline.config.config_loader import get_config, get_env_config
 from entsoe_pipeline.config.paths import CONFIG_DIR, ENV_FILE
 from entsoe_pipeline.vendor_patches.entsoe_py import ConfigurableEntsoeFileClient
+
+# Read the Leaky Bucket interval from the config SSOT (entsoe_api_limits.yml).
+# This avoids hardcoding rate-limit values anywhere in executable code.
+_FMS_INTERVAL: float = get_config().limits.fms_min_request_interval_seconds
 
 # Reusable internal global session state to ensure that even if client factories
 # are invoked multiple times, all FMS calls share the same local rate limiter queue
@@ -32,8 +36,8 @@ from entsoe_pipeline.vendor_patches.entsoe_py import ConfigurableEntsoeFileClien
 # environments to prevent cross-environment throttling interference,
 # allowing full concurrent capacity.
 _FMS_THROTTLED_SESSIONS: dict[str, ThrottledSession] = {
-    "IOP": ThrottledSession(max_requests=95, period_seconds=60),
-    "PROD": ThrottledSession(max_requests=95, period_seconds=60),
+    "IOP": ThrottledSession(min_interval_seconds=_FMS_INTERVAL),
+    "PROD": ThrottledSession(min_interval_seconds=_FMS_INTERVAL),
 }
 
 
@@ -49,8 +53,7 @@ def _get_throttled_session(env_name: str) -> ThrottledSession:
     key = env_name.upper()
     if key not in _FMS_THROTTLED_SESSIONS:
         _FMS_THROTTLED_SESSIONS[key] = ThrottledSession(
-            max_requests=95,
-            period_seconds=60,
+            min_interval_seconds=_FMS_INTERVAL,
         )
     return _FMS_THROTTLED_SESSIONS[key]
 
@@ -87,6 +90,9 @@ def create_fms_client(env_name: str | None = None) -> ConfigurableEntsoeFileClie
             token_url=active_config.token_url,
             session=_get_throttled_session(env_key),
         )
+
+    if env_name is not None:
+        env_name = env_name.upper()
 
     # 2. Otherwise, load the config file manually to switch environments dynamically
     env_file = ENV_FILE

@@ -43,6 +43,7 @@ ALLOWED_MID_FILE_IMPORTS: dict[str, set[str]] = {
     # Circular config dependency exceptions
     "buckets.py": {"entsoe_pipeline.config.paths"},
     "classifier.py": {"entsoe_pipeline.config.paths"},
+    "domain_classifier.py": {"entsoe_pipeline.config.paths"},
     "hosts.py": {"entsoe_pipeline.config.paths"},
     "lakehouse.py": {"entsoe_pipeline.config.paths"},
     "pipeline.py": {"entsoe_pipeline.config.paths"},
@@ -52,12 +53,17 @@ ALLOWED_MID_FILE_IMPORTS: dict[str, set[str]] = {
     "urls.py": {"entsoe_pipeline.config.paths"},
     "volumes.py": {"entsoe_pipeline.config.paths"},
     "warning.py": {"entsoe_pipeline.config.paths"},
-    "config_loader.py": {"entsoe_pipeline.config.paths"},
+    "config_loader.py": {
+        "entsoe_pipeline.config.paths",
+        "sqlalchemy",
+        "entsoe_pipeline.db",
+    },
     "env_resolver.py": {
         "entsoe_pipeline.config.paths",
         "entsoe_pipeline.config.config_loader",
     },
     # Orchestrators and generator exceptions
+    "ftp_map_collector.py": {"entsoe_pipeline.config.paths"},
     "landing_bucket_schema.py": {"entsoe_pipeline.logger"},
     "my_entsoe_domains.py": {"entsoe_pipeline.logger.yml_observability"},
 }

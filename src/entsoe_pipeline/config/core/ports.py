@@ -35,6 +35,7 @@ class PortsConfig:
         filer_grpc (int): Port for the SeaweedFS Filer gRPC metadata service.
         kestra_web (int): Port for the Kestra Web UI administration dashboard.
         kestra_api (int): Port for the Kestra API backend services.
+        database (int): Port for the PostgreSQL database metadata storage.
     """
 
     s3_compatible: int
@@ -46,6 +47,7 @@ class PortsConfig:
     filer_grpc: int
     kestra_web: int
     kestra_api: int
+    database: int
 
     @classmethod
     def _from_yaml(cls) -> PortsConfig:
@@ -77,4 +79,5 @@ class PortsConfig:
             filer_grpc=int(ports_data.get("filer_grpc", 18888)),
             kestra_web=int(ports_data.get("kestra_web", 8082)),
             kestra_api=int(ports_data.get("kestra_api", 8083)),
+            database=int(ports_data.get("database", 5432)),
         )
