@@ -1,0 +1,110 @@
+# ENTSO-E Pipeline Infrastructure Playbook
+#
+# Manages the Spark cluster (start, stop, restart, deploy).
+#
+# Usage:
+#   ansible-playbook -i inventory.yml playbook.yml                  # deploy + start (default)
+#   ansible-playbook -i inventory.yml playbook.yml --tags stop      # stop cluster
+#   ansible-playbook -i inventory.yml playbook.yml --tags restart   # restart cluster
+#   ansible-playbook -i inventory.yml playbook.yml --check          # dry-run
+
+  - name: Deploy and start Spark cluster
+    hosts: compute
+    vars:
+      _cfg: "{{ lookup('pipe', 'cd ' + playbook_dir + '/../.. && uv run python ' +
+        playbook_dir + '/scripts/export_config.py 2>/dev/null') | from_json }}"
+    tags: [start, deploy]
+    tasks:
+      - name: Ensure SPARK_HOME exists
+        ansible.builtin.stat:
+          path: /opt/spark
+        register: spark_home
+        tags: always
+
+      - name: Fail if Spark not installed
+        ansible.builtin.fail:
+          msg: "/opt/spark not found. Install Apache Spark 4.x first."
+        when: not spark_home.stat.exists
+        tags: always
+
+      - name: Deploy spark-defaults.conf
+        ansible.builtin.template:
+          src: templates/spark-defaults.conf.j2
+          dest: /opt/spark/conf/spark-defaults.conf
+          owner: "{{ ansible_user }}"
+          mode: "0644"
+        notify: restart spark-connect
+
+      - name: Deploy spark-connect.service
+        ansible.builtin.template:
+          src: templates/spark-connect.service.j2
+          dest: /etc/systemd/system/spark-connect.service
+          owner: root
+          mode: "0644"
+        notify: restart spark-connect
+        become: yes
+
+      - name: Start spark-connect
+        ansible.builtin.systemd:
+          name: spark-connect
+          daemon_reload: yes
+          enabled: yes
+          state: started
+        become: yes
+
+    handlers:
+      - name: restart spark-connect
+        ansible.builtin.systemd:
+          name: spark-connect
+          state: restarted
+          daemon_reload: yes
+        become: yes
+
+  - name: Stop Spark cluster
+    hosts: compute
+    tags: [never, stop]
+    tasks:
+      - name: Stop spark-connect
+        ansible.builtin.systemd:
+          name: spark-connect
+          state: stopped
+        become: yes
+        ignore_errors: yes
+
+      - name: Stop spark-master
+        ansible.builtin.systemd:
+          name: spark-master
+          state: stopped
+        become: yes
+        ignore_errors: yes
+
+  - name: Restart Spark cluster
+    hosts: compute
+    tags: [never, restart]
+    tasks:
+      - name: Stop spark-connect
+        ansible.builtin.systemd:
+          name: spark-connect
+          state: stopped
+        become: yes
+        ignore_errors: yes
+
+      - name: Stop spark-master
+        ansible.builtin.systemd:
+          name: spark-master
+          state: stopped
+        become: yes
+        ignore_errors: yes
+
+      - name: Start spark-master
+        ansible.builtin.systemd:
+          name: spark-master
+          state: started
+        become: yes
+
+      - name: Start spark-connect
+        ansible.builtin.systemd:
+          name: spark-connect
+          daemon_reload: yes
+          state: started
+        become: yes

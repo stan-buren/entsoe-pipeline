@@ -52,17 +52,22 @@ def add_csv_to_iceberg_table(
         total_raw_size_bytes: Size of uncompressed raw CSV source files.
 
     Returns:
-        str: Fully qualified target Iceberg table name (e.g. 'lakehouse.db.table_name').
+        str: Fully qualified target Iceberg table name (e.g. 'lakehouse.{namespace}.table_name').
 
     Raises:
         ValueError: If schema specifications for the given contract are missing.
     """
-    # 1. Ensure target Iceberg table exists in catalog using the current DataFrame schema
-    table_name = ensure_iceberg_table_exists(spark, fms_name, df.schema)
-
-    # 2. Retrieve schema configurations to resolve keys
+    # 1. Retrieve schema configurations to resolve keys
     schemas_cfg = get_fms_schemas_config()
     publication_schema = schemas_cfg.publications.get(fms_name)
+
+    # Resolve composite primary keys (needed for identifier-fields in table DDL)
+    keys: list[str] = []
+    if publication_schema and publication_schema.columns:
+        keys = get_domain_business_keys(publication_schema)
+
+    # 2. Ensure target Iceberg table exists with identifier-fields for MERGE safety
+    table_name = ensure_iceberg_table_exists(spark, fms_name, df.schema, keys)
 
     # 3. Calculate partition size optimization (target target_parquet_size_bytes)
     parquet_config = get_lakehouse_parquet_codec_config()
@@ -80,12 +85,7 @@ def add_csv_to_iceberg_table(
     )
     df_optimized = df.coalesce(num_files)
 
-    # 4. Resolve composite primary keys using low-level core heuristics
-    keys = []
-    if publication_schema and publication_schema.columns:
-        keys = get_domain_business_keys(publication_schema)
-
-    # 5. Execute write operation: MERGE if keys exist, otherwise APPEND fallback
+    # 4. Execute write operation: MERGE if keys exist, otherwise APPEND fallback
     if not keys:
         logger.warning(
             "Schema Incomplete / Legacy (ADR-010): No business primary keys resolved for '%s'. "

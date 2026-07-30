@@ -27,11 +27,17 @@ class BucketsConfig:
 
     Attributes:
         s3_landing_bucket (str): The name of the S3 bucket for landing raw files.
-        s3_lakehouse_bucket (str): The name of the S3 bucket for Iceberg warehouse tables.
+        s3_lakehouse_bucket (str): The name of the S3 bucket for Iceberg warehouse
+            operations (regular object bucket backing the REST Catalog).
+        s3_table_bucket (str): The name of the S3 Table Bucket registered in
+            SeaweedFS for the Iceberg warehouse. An S3 Table Bucket is a
+            specialized bucket type that enforces Iceberg file layouts and is
+            distinct from a regular S3 object bucket.
     """
 
     s3_landing_bucket: str
     s3_lakehouse_bucket: str
+    s3_table_bucket: str
 
     @classmethod
     def _from_yaml(cls) -> BucketsConfig:
@@ -54,4 +60,5 @@ class BucketsConfig:
             s3_lakehouse_bucket=str(
                 bucket_data.get("s3_lakehouse_bucket", "lakehouse")
             ),
+            s3_table_bucket=str(bucket_data.get("s3_table_bucket", "lakehouse-tables")),
         )

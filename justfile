@@ -19,6 +19,7 @@ kestra_api_port      := `uv run python -c "from entsoe_pipeline import get_ports
 database_port        := `uv run python -c "from entsoe_pipeline import get_ports_config; print(get_ports_config().database)"`
 s3_landing_bucket    := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_landing_bucket)"`
 s3_lakehouse_bucket  := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_lakehouse_bucket)"`
+s3_table_bucket      := `uv run python -c "from entsoe_pipeline import get_buckets_config; print(get_buckets_config().s3_table_bucket)"`
 aws_region           := `uv run python -c "from entsoe_pipeline import get_region_config; print(get_region_config().aws_region)"`
 s3_compatible_volume := `uv run python -c "from entsoe_pipeline import get_volumes_config; print(get_volumes_config().s3_compatible)"`
 kestra_url           := `uv run python -c "from entsoe_pipeline import get_urls_config; print(get_urls_config().kestra)"`
@@ -43,6 +44,7 @@ export KESTRA_API_PORT       := kestra_api_port
 export DATABASE_PORT         := database_port
 export S3_LANDING_BUCKET     := s3_landing_bucket
 export S3_LAKEHOUSE_BUCKET   := s3_lakehouse_bucket
+export S3_TABLE_BUCKET       := s3_table_bucket
 export AWS_REGION            := aws_region
 export AWS_DEFAULT_REGION    := aws_region
 export S3_COMPATIBLE_VOLUME  := s3_compatible_volume
@@ -101,11 +103,11 @@ lakehouse-test:
 lakehouse-logs:
     docker compose --env-file .env -f docker/docker-compose.yml logs -f seaweedfs
 
-# Initialize required S3 buckets in SeaweedFS (run once after lakehouse-up)
+# Create S3 Table Bucket, regular S3 buckets, and Iceberg namespace
 lakehouse-init-buckets:
-    @echo "[JUST][LAKEHOUSE] Initializing required S3 buckets in SeaweedFS..."
+    @echo "[JUST][LAKEHOUSE] Initializing S3 buckets and Iceberg catalog..."
     uv run python src/entsoe_pipeline/lakehouse/create_buckets.py
-    @echo "[JUST][LAKEHOUSE] S3 bucket initialization complete"
+    @echo "[JUST][LAKEHOUSE] Lakehouse initialization complete."
 
 
 # =============================================================================
@@ -379,4 +381,20 @@ generate-schemas:
     @echo "[JUST][SCHEMAS] Inferring schemas and generating registry..."
     uv run python src/entsoe_pipeline/lakehouse/iseberg_schemas_registry_generator.py
 
-    
+
+# =============================================================================
+# 15. SPARK CLUSTER MANAGEMENT (Ansible)
+# =============================================================================
+
+# Deploy configs and start the Spark cluster
+cluster-start:
+    ansible-playbook -i infra/ansible/inventory.local.yml infra/ansible/playbook.yml
+
+# Stop the Spark cluster (workers will disconnect automatically)
+cluster-stop:
+    ansible-playbook -i infra/ansible/inventory.local.yml infra/ansible/playbook.yml --tags stop
+
+# Restart the Spark cluster
+cluster-restart:
+    ansible-playbook -i infra/ansible/inventory.local.yml infra/ansible/playbook.yml --tags restart
+

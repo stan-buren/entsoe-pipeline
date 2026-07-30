@@ -21,6 +21,7 @@ from entsoe_pipeline import (
     get_hosts_config,
     get_ports_config,
     get_region_config,
+    get_spark_config,
 )
 
 
@@ -41,6 +42,7 @@ def build_spark_session(app_name: str = "ENTSOE_Lakehouse") -> SparkSession:
     # Load dynamic configurations for hosts and ports
     hosts = get_hosts_config()
     ports = get_ports_config()
+    table_bucket = get_buckets_config().s3_table_bucket
     s3_endpoint = f"http://{hosts.seaweedfs}:{ports.s3_compatible}"
     catalog_uri = f"http://{hosts.iceberg_catalog}:{ports.iceberg_catalog}"
 
@@ -52,25 +54,18 @@ def build_spark_session(app_name: str = "ENTSOE_Lakehouse") -> SparkSession:
     aws_access_key = os.environ.get("AWS_ACCESS_KEY_ID")
     aws_secret_key = os.environ.get("AWS_SECRET_ACCESS_KEY")
 
+    connect = get_spark_config()
+
     return (
-        SparkSession.builder.appName(app_name)
-        .config(
-            "spark.jars.packages",
-            "org.apache.iceberg:iceberg-spark-runtime-4.1_2.13:1.11.0,"
-            "org.apache.iceberg:iceberg-aws-bundle:1.11.0,"
-            "org.apache.hadoop:hadoop-aws:3.4.2",
-        )
-        .config(
-            "spark.sql.extensions",
-            "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions",
-        )
+        SparkSession.builder.remote(connect.connect_server)
+        .appName(app_name)
         # 1. REST Catalog configuration pointing to Iceberg Catalog
         .config("spark.sql.catalog.lakehouse", "org.apache.iceberg.spark.SparkCatalog")
         .config("spark.sql.catalog.lakehouse.type", "rest")
         .config("spark.sql.catalog.lakehouse.uri", catalog_uri)
         .config(
             "spark.sql.catalog.lakehouse.warehouse",
-            f"s3://{get_buckets_config().s3_lakehouse_bucket}/",
+            f"s3://{table_bucket}/",
         )
         # 2. Iceberg S3 FileIO engine configuration for direct S3 writes
         .config(
@@ -82,16 +77,5 @@ def build_spark_session(app_name: str = "ENTSOE_Lakehouse") -> SparkSession:
         .config("spark.sql.catalog.lakehouse.s3.secret-access-key", aws_secret_key)
         .config("spark.sql.catalog.lakehouse.s3.region", aws_region)
         .config("spark.sql.catalog.lakehouse.client.region", aws_region)
-        # 3. Hadoop S3A client configuration for raw reads (e.g., CSV imports)
-        .config("spark.hadoop.fs.s3a.endpoint", s3_endpoint)
-        .config("spark.hadoop.fs.s3a.access.key", aws_access_key)
-        .config("spark.hadoop.fs.s3a.secret.key", aws_secret_key)
-        .config("spark.hadoop.fs.s3a.path.style.access", "true")
-        .config("spark.hadoop.fs.s3a.endpoint.region", aws_region)
-        .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
-        .config(
-            "spark.hadoop.fs.s3a.aws.credentials.provider",
-            "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
-        )
         .getOrCreate()
     )

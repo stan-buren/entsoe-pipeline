@@ -26,7 +26,7 @@ from __future__ import annotations
 import logging
 import sys
 
-from datetime import datetime
+from datetime import UTC, datetime
 
 from entsoe_pipeline import (
     IngestionAttemptLog,
@@ -35,10 +35,11 @@ from entsoe_pipeline import (
     build_spark_session,
     commit_ingestion_attempts,
     get_incremental_files_to_ingest,
+    get_namespaces_config,
     resolve_active_environment,
     setup_logging,
 )
-from entsoe_pipeline.preflight import run_ingest_landing_preflight
+from entsoe_pipeline.preflight import run_staging_preflight
 
 logger = logging.getLogger("entsoe_pipeline.jobs.ingest_landing_csv_to_lakehouse")
 
@@ -50,7 +51,7 @@ def main() -> None:
 
     try:
         # 1. Run readiness preflight checks (S3 gateway & database connectivity)
-        run_ingest_landing_preflight()
+        run_staging_preflight()
 
         # 2. Query metadata database to retrieve landing files pending load
         pending_domains = get_incremental_files_to_ingest()
@@ -83,7 +84,7 @@ def main() -> None:
 
                 s3_keys = [f.s3_key for f in files]
                 total_raw_size_bytes = sum(f.file_size_bytes for f in files)
-                ingested_at = datetime.utcnow()
+                ingested_at = datetime.now(tz=UTC)
 
                 try:
                     # Step A: Load CSV files into a mapped Spark DataFrame
@@ -134,7 +135,7 @@ def main() -> None:
                         log_entry = IngestionAttemptLog(
                             s3_key=f.s3_key,
                             xxhash=f.xxhash,
-                            iceberg_table=f"lakehouse.db.{domain.lower()}",
+                            iceberg_table=f"lakehouse.{get_namespaces_config().staging}.{domain.lower()}",
                             ingested_at=ingested_at,
                             status="FAILED",
                             error_message=str(e)[

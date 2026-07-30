@@ -247,7 +247,7 @@ dependencies = [
     { name = "entsoe-py" },
     { name = "notebooklm-py" },
     { name = "psycopg", extra = ["binary"] },
-    { name = "pyspark", extra = ["connect", "sql"] },
+    { name = "pyspark", extra = ["connect"] },
     { name = "python-dotenv" },
     { name = "pyyaml" },
     { name = "requests" },
@@ -281,7 +281,7 @@ requires-dist = [
     { name = "entsoe-py", specifier = ">=0.8.0" },
     { name = "notebooklm-py", specifier = ">=0.7.0" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.3.4" },
-    { name = "pyspark", extras = ["connect", "sql"], specifier = ">=4.1.1" },
+    { name = "pyspark", extras = ["connect"], specifier = ">=4.1.1" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "requests", specifier = ">=2.34.2" },
@@ -962,11 +962,6 @@ connect = [
     { name = "pandas" },
     { name = "pyarrow" },
     { name = "zstandard" },
-]
-sql = [
-    { name = "numpy" },
-    { name = "pandas" },
-    { name = "pyarrow" },
 ]
 
 [[package]]

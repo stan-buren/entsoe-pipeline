@@ -3730,7 +3730,7 @@ publications:
         db_name: date_time_utc
         type: timestamp
         required: true
-        format: dd/MM/yyyy HH:mm
+        format: yyyy-MM-dd HH:mm:ss
         example: '2022-11-10 00:00:00'
         description: Timestamp of the recorded value in UTC.
       - csv_name: ResolutionCode
@@ -3765,12 +3765,101 @@ publications:
         enum:
           - BZN
         description: Classification code of the area type.
-      - csv_name: MapCode
-        db_name: map_code
+      - csv_name: AreaMapCode
+        db_name: area_map_code
         type: string
         required: true
         example: ES
         description: Energy Identification Code (EIC).
+      - csv_name: ContractType
+        db_name: contract_type
+        type: string
+        required: true
+        example: Day-ahead
+        enum:
+          - Day-ahead - Intraday
+        description: 'Enumeration: Day-ahead - Intraday.'
+      - csv_name: Sequence
+        db_name: sequence
+        type: decimal(18,4)
+        required: false
+        example: 1
+        description: Numeric value for Sequence.
+      - csv_name: Price[Currency/MWh]
+        db_name: price_currency/m_wh
+        type: decimal(18,4)
+        required: true
+        example: 97
+        description: Energy price value.
+      - csv_name: Currency
+        db_name: currency
+        type: string
+        required: true
+        example: EUR
+        description: Value for Currency.
+      - csv_name: UpdateTime(UTC)
+        db_name: update_time_utc
+        type: timestamp
+        required: true
+        format: dd/MM/yyyy HH:mm
+        example: 2018-03-01 04:01
+        description: Timestamp of the recorded value in UTC.
+  EnergyPrices_12.1.D_r3.1:
+    name: Energy Prices [12.1.D]
+    zendesk_url: 
+      https://transparencyplatform.zendesk.com/hc/en-us/articles/47308268140689-EnergyPrices-12-1-D-r3-1
+    columns:
+      - csv_name: InstanceCode
+        db_name: instance_code
+        type: string
+        required: true
+        example: f9c6ede6f064bbc7dd748887d6475e48
+        description: Energy Identification Code (EIC).
+      - csv_name: DateTime(UTC)
+        db_name: date_time_utc
+        type: timestamp
+        required: true
+        format: yyyy-MM-dd HH:mm:ss
+        example: '2022-11-10 00:00:00'
+        description: Timestamp of the recorded value in UTC.
+      - csv_name: ResolutionCode
+        db_name: resolution_code
+        type: string
+        required: true
+        example: PT15M
+        enum:
+          - PT15M
+          - PT30M
+          - PT60M
+        description: Time resolution of the delivered data (e.g., PT15M, PT30M, 
+          PT60M).
+      - csv_name: AreaCode
+        db_name: area_code
+        type: string
+        required: true
+        example: 10Y1001A1001A45N
+        description: Energy Identification Code (EIC) of the bidding zone or 
+          control area.
+      - csv_name: AreaDisplayName
+        db_name: area_display_name
+        type: string
+        required: true
+        example: BZN|ES
+        description: Human-readable name of the area.
+      - csv_name: AreaTypeCode
+        db_name: area_type_code
+        type: string
+        required: true
+        example: BZN
+        enum:
+          - BZN
+        description: Classification code of the area type.
+      - csv_name: AreaMapCode
+        db_name: area_map_code
+        type: string
+        required: true
+        example: ES
+        description: ISO country code or geographical map code of the area.
       - csv_name: ContractType
         db_name: contract_type
         type: string
@@ -3867,8 +3956,8 @@ publications:
           - LFA
           - SCA
         description: Classification code of the area type.
-      - csv_name: MapCode
-        db_name: map_code
+      - csv_name: AreaMapCode
+        db_name: area_map_code
         type: string
         required: true
         example: ES

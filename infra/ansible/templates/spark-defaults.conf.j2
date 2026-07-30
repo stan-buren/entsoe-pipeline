@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+# Apache Spark default configuration
+# Values from Python SSOT (config_env/*.yml + .env) via export_config.py
+
+# Iceberg extensions (static, must be set at cluster startup)
+spark.sql.extensions                        {{ iceberg_extensions }}
+
+# S3A filesystem configuration
+spark.hadoop.fs.s3a.access.key              {{ _cfg.s3_access_key }}
+spark.hadoop.fs.s3a.secret.key              {{ _cfg.s3_secret_key }}
+spark.hadoop.fs.s3a.endpoint                {{ _cfg.seaweedfs_host }}:{{ _cfg.s3_port }}
+spark.hadoop.fs.s3a.path.style.access       true
+spark.hadoop.fs.s3a.connection.ssl.enabled  false
+spark.hadoop.fs.s3a.aws.credentials.provider org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider
+spark.hadoop.fs.s3a.endpoint.region         {{ _cfg.aws_region }}

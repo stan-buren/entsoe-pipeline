@@ -18,8 +18,10 @@ from entsoe_pipeline.preflight.landing import (
     run_ingest_landing_preflight,
     run_prepare_landing_preflight,
 )
+from entsoe_pipeline.preflight.staging import run_staging_preflight
 
 __all__ = [
     "run_ingest_landing_preflight",
     "run_prepare_landing_preflight",
+    "run_staging_preflight",
 ]

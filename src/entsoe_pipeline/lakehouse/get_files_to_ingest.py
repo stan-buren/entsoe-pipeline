@@ -88,15 +88,38 @@ def get_incremental_files_to_ingest() -> dict[str, list[IngestibleFile]]:
             )
             continue
 
-        # Physical path pattern: {environment}/{active_folder}/{logical_domain}/{subpaths...}
+        # Physical path pattern: {environment}/{active_folder}/{segment2}/{segment3}/...
+        # Two cases:
+        #   Hierarchical: parts[2] = domain (e.g. "Market") → match parts[3] against fms_name
+        #   Flat:         parts[2] = direct classifier key (e.g. "OtherMarketInformation")
         logical_domain = parts[2]
-
-        # Resolve formal fms_name contract from classifier dictionary
+        item_candidate = parts[3] if len(parts) >= 4 else None
         fms_name: str | None = None
-        for domain_group in classifier.domains.values():
-            if logical_domain in domain_group:
-                fms_name = domain_group[logical_domain].fms_name
-                break
+
+        # Hierarchical: parts[2] is a top-level domain group
+        if logical_domain in classifier.domains and item_candidate:
+            for item in classifier.domains[logical_domain].values():
+                if item.fms_name == item_candidate:
+                    fms_name = item.fms_name
+                    break
+            # Version suffix fallback: EnergyPrices_12.1.D_r3.1 → EnergyPrices_12.1.D_r3
+            if not fms_name:
+                for item in classifier.domains[logical_domain].values():
+                    if item_candidate.startswith(item.fms_name):
+                        fms_name = item.fms_name
+                        logger.debug(
+                            "Version suffix resolved: '%s' → '%s'",
+                            item_candidate,
+                            fms_name,
+                        )
+                        break
+
+        # Flat fallback: parts[2] is a direct key in some domain group
+        if not fms_name:
+            for domain_group in classifier.domains.values():
+                if logical_domain in domain_group:
+                    fms_name = domain_group[logical_domain].fms_name
+                    break
 
         # Fail-Fast Gate: reject unmapped or unclassified S3 folder contents immediately
         if not fms_name:

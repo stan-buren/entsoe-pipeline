@@ -39,7 +39,7 @@ def merge_dataframe_into_table(
     Args:
         spark: The active SparkSession instance.
         df: The source Spark DataFrame to merge.
-        table_name: Fully qualified target Iceberg table name (e.g. 'lakehouse.db.table').
+        table_name: Fully qualified target Iceberg table name (e.g. 'lakehouse.{namespace}.table').
         keys: List of composite primary key column names.
 
     Raises:

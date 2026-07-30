@@ -1,0 +1,14 @@
+namespaces:
+  staging: staging
+
+metadata:
+  staging:
+    description: |
+      Specifies the Iceberg namespace name within the table bucket for the
+      staging layer. This namespace holds raw CSV data that has been
+      ingested and merged into Iceberg tables via PySpark MERGE INTO. Tables
+      are addressable from Spark as ``lakehouse.{namespace}.{table}``.
+    examples:
+      - "staging"
+    default: "staging"
+    type: "string"

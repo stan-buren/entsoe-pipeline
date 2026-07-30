@@ -2535,7 +2535,7 @@ domains:
         time_resolution: |
           Depending on the specific market rules, the time step (`ResolutionCode`) in the file may be 15 minutes (`PT15M`), 30 minutes (`PT30M`), or 60 minutes (`PT60M`).
         required_columns: |
-          The file contains columns for `InstanceCode`, the exact start time of the interval `DateTime(UTC)`, and the time step `ResolutionCode`. It includes the 16-digit EIC code of the zone `AreaCode`, `AreaDisplayName`, the geographic zone type `AreaTypeCode` (which is strictly BZN for Bidding Zone), and `MapCode`. It also details the `ContractType`, an optional `Sequence`, the `Price[Currency/MWh]`, the `Currency`, and the record update time `UpdateTime(UTC)`.
+          The file contains columns for `InstanceCode`, the exact start time of the interval `DateTime(UTC)`, and the time step `ResolutionCode`. It includes the 16-digit EIC code of the zone `AreaCode`, `AreaDisplayName`, the geographic zone type `AreaTypeCode` (which is strictly BZN for Bidding Zone), and `MapCode` (renamed to `AreaMapCode` in `_r3.1`). It also details the `ContractType`, an optional `Sequence`, the `Price[Currency/MWh]`, the `Currency`, and the record update time `UpdateTime(UTC)`.
         parsing_key_feature: |
           Unlike operational telemetry datasets that duplicate data across multiple geographic concepts, this dataset relies exclusively on the Bidding Zone (`BZN`) as the defined `AreaTypeCode`. Another distinct feature is its categorization of prices by `ContractType` (Day-ahead or Intraday).
         parsing_technical_challenges: |
@@ -2547,6 +2547,41 @@ domains:
             Historically (until March 2017), price data for Poland (PSE SA BZ) were not expected for hours with zero energy exchange with neighbouring countries, which was the case 25% of the time in 2015–2016, leading to structural gaps.
           Whole_Day_API_Responses_and_Time_Zones: |
             Because API responses are strictly grouped by whole days based on local time zones, data engineers cannot request arbitrary UTC hour blocks. ETL pipelines must handle the offset boundaries (like 22:00 or 23:00 UTC) correctly to align with midnight local time, accounting for summer and winter time shifts.
+
+
+
+    EnergyPrices_12.1.D_r3.1:
+      title: "Energy Prices [12.1.D]"
+      oneliner: "Day-ahead and intraday market clearing prices. Patch revision — identical
+        schema to `_r3` except `MapCode` → `AreaMapCode`."
+      description: |
+        Patched revision of `EnergyPrices_12.1.D_r3`, released on 2026-06-02. The only schema change is the rename of `MapCode` to `AreaMapCode` for consistency with other ENTSO-E publications. All 12 columns, enumerations, and data types are otherwise identical per the official Zendesk documentation. The FTP folder contains the same historical range (2014-01 through present, 141 files in PROD, ~886 MB) as `_r3`, with filenames using the `_r3.1` suffix. Both revisions coexist; `_r3` is expected to be deprecated following the same pattern as `ProcuredBalancingCapacity_12.3.F_r3` (deprecated 2026-05-20).
+      compliance: |
+        Article 12.1.D of EU Regulation No 543/2013.
+      suffix: r3.1
+      physical_meaning: |
+        Identical to `_r3`: actual financial prices `Price[Currency/MWh]` in `Currency` (ISO 4217) for `Day-ahead` and `Intraday` markets per bidding zone.
+      technical_specification:
+        format_and_frequency_of_extracts: |
+          Monthly extracts, tab-delimited UTF-8. Filename mask: `YYYY_MM_EnergyPrices_12.1.D_r3.1.csv`.
+        time_resolution: |
+          Same as `_r3`: PT15M, PT30M, or PT60M.
+        required_columns: |
+          Same 12 columns as `_r3`, with one rename: `MapCode` → `AreaMapCode`. Full list: `InstanceCode`, `DateTime(UTC)`, `ResolutionCode`, `AreaCode`, `AreaDisplayName`, `AreaTypeCode` (BZN only), `AreaMapCode`, `ContractType` (Day-ahead, Intraday), `Sequence` [0..1], `Price[Currency/MWh]`, `Currency` (ISO 4217), `UpdateTime(UTC)`.
+        parsing_key_feature: |
+          Identical to `_r3`. `AreaTypeCode` strictly `BZN`. `AreaMapCode` replaces legacy `MapCode`.
+        parsing_technical_challenges: |
+          Same REST API constraints as `_r3`.
+        data_quality_issues: |
+          Same as `_r3`.
+        anomalies:
+          Poland_Zero_Exchange_Gaps: |
+            Same as `_r3`.
+          Whole_Day_API_Responses_and_Time_Zones: |
+            Same as `_r3`.
+      zendesk_url: 
+        https://transparencyplatform.zendesk.com/hc/en-us/articles/47308268140689-EnergyPrices-12-1-D-r3-1
+      zendesk_last_updated: 2026-06-02
 
 
 

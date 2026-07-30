@@ -40,3 +40,5 @@ config/domains/my_entsoe_domains.yml
 .agents/rules/patching-answer-vanishing-bugs.md
 
 
+
+infra/ansible/inventory.local.yml

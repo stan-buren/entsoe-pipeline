@@ -74,6 +74,20 @@ def load_raw_csv_with_schema(
 
     df_mapped = df.select(*select_exprs)
 
+    # Replace empty/whitespace strings with NULL before casting
+    # Prevents CAST failures like ' ' → DECIMAL(18,4)
+    from pyspark.sql.functions import trim, when as spark_when
+
+    _df_columns = {c.name for c in df_mapped.schema.fields}
+    for field in spark_schema.fields:
+        if field.dataType.typeName() != "string" and field.name in _df_columns:
+            df_mapped = df_mapped.withColumn(
+                field.name,
+                spark_when(trim(col(field.name)) == "", None).otherwise(
+                    col(field.name)
+                ),
+            )
+
     # 2. Perform explicit type casting according to Spark target schema
     for field in spark_schema.fields:
         col_name = field.name
