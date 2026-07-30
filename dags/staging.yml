@@ -1,0 +1,33 @@
+id: staging
+namespace: entsoe.pipeline
+
+description: "ENTSO-E Data Pipeline: Landing Zone CSV to Apache Iceberg Staging"
+
+variables:
+  docker_image: entsoe-pipeline:latest
+
+# Docker runner defaults — applied to every io.kestra.plugin.scripts.shell.Commands task in this flow.
+pluginDefaults:
+  - type: io.kestra.plugin.scripts.shell.Commands
+    values:
+      containerImage: "{{ vars.docker_image }}"
+      taskRunner:
+        type: io.kestra.plugin.scripts.runner.docker.Docker
+        networkMode: host
+        user: "1000:1000"
+        volumes:
+          - "{{ envs.project_root }}:/app"
+        pullPolicy: NEVER
+      env:
+        KESTRA_EXECUTION_ID: "{{ execution.id }}"
+      logToFile: true
+      logLevel: INFO
+
+tasks:
+  - id: ingest_to_lakehouse
+    type: io.kestra.plugin.scripts.shell.Commands
+    description: "Ingest pending CSV files from S3 landing zone into Iceberg staging
+      tables. Lazy-initializes S3 Table Bucket and Iceberg namespace before processing."
+    commands:
+      - cd /app
+      - python jobs/staging/ingest_landing_csv_to_lakehouse.py

@@ -1,0 +1,24 @@
+# Ansible Inventory — safe to commit.
+# Replace ansible_host values with your own machine IPs.
+# See host_vars/*.local.yml.example for the full template.
+
+all:
+  hosts:
+    localhost:
+      ansible_connection: local
+  children:
+    compute:
+      hosts:
+        asus:
+          ansible_host: 192.168.0.101     # ← change to your ASUS IP
+    storage:
+      hosts:
+        dell:
+          ansible_host: 192.168.0.102     # ← change to your Dell IP
+    workstation:
+      hosts:
+        hp:
+          ansible_host: 192.168.0.100     # ← change to your HP IP
+  vars:
+    ansible_user: write_user
+    ansible_python_interpreter: /usr/bin/python3

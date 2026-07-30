@@ -30,10 +30,12 @@ from entsoe_pipeline.config.core.lakehouse_parquet_codec import (
     LakehouseParquetCodecConfig,
 )
 from entsoe_pipeline.config.core.limits import RateLimitsConfig
+from entsoe_pipeline.config.core.namespaces import NamespacesConfig
 from entsoe_pipeline.config.core.pipeline import EntsoeEnvConfig, PipelineConfig
 from entsoe_pipeline.config.core.ports import PortsConfig
 from entsoe_pipeline.config.core.project_root import find_project_root
 from entsoe_pipeline.config.core.region import RegionConfig
+from entsoe_pipeline.config.core.spark import SparkConfig
 from entsoe_pipeline.config.core.switch import switch_environment
 from entsoe_pipeline.config.core.urls import UrlsConfig
 from entsoe_pipeline.config.core.volumes import VolumesConfig
@@ -51,10 +53,12 @@ __all__ = [
     "LakehouseConfig",
     "LakehouseParquetCodecConfig",
     "LegacyRule",
+    "NamespacesConfig",
     "PipelineConfig",
     "PortsConfig",
     "RateLimitsConfig",
     "RegionConfig",
+    "SparkConfig",
     "UrlsConfig",
     "VolumesConfig",
     "find_project_root",

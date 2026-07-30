@@ -23,16 +23,20 @@ from pyspark.sql.types import StructType
 
 from entsoe_pipeline.config.config_loader import (
     get_lakehouse_parquet_codec_config,
+    get_namespaces_config,
 )
 
 logger = logging.getLogger("entsoe_pipeline.lakehouse.iceberg_tables")
 
-# REST Catalog database namespace
-_LAKEHOUSE_DB = "lakehouse.db"
+# REST Catalog namespace — read from SSOT (namespaces.yml)
+_LAKEHOUSE_NS = f"lakehouse.{get_namespaces_config().staging}"
 
 
 def ensure_iceberg_table_exists(
-    spark: SparkSession, fms_name: str, df_schema: StructType
+    spark: SparkSession,
+    fms_name: str,
+    df_schema: StructType,
+    business_keys: list[str] | None = None,
 ) -> str:
     """Verifies Iceberg table presence and programmatically creates it if missing.
 
@@ -44,14 +48,16 @@ def ensure_iceberg_table_exists(
         spark: The active SparkSession instance.
         fms_name: Strict FMS contract schema name (e.g. 'OtherMarketInformation_r3').
         df_schema: StructType schema representing target database column fields.
+        business_keys: Optional list of composite primary key column names.
+            When provided, sets Iceberg identifier-fields for efficient MERGE conflict resolution.
 
     Returns:
-        str: Fully qualified target Iceberg table name (e.g. 'lakehouse.db.othermarketinformation_r3').
+        str: Fully qualified target Iceberg table name (e.g. 'lakehouse.{namespace}.othermarketinformation_r3').
 
     Raises:
         ValueError: If the provided df_schema is empty.
     """
-    table_name = f"{_LAKEHOUSE_DB}.{fms_name.lower()}"
+    table_name = f"{_LAKEHOUSE_NS}.`{fms_name.lower().replace('.', '_')}`"
 
     # Check database catalog registry metadata
     if spark.catalog.tableExists(table_name):
@@ -86,8 +92,13 @@ def ensure_iceberg_table_exists(
     cols_ddl = ", ".join(cols_ddl_list)
 
     # 3. Format Apache Iceberg specific metadata table properties
+    identifier_clause = ""
+    if business_keys:
+        key_list = ", ".join(business_keys)
+        identifier_clause = f"'identifier-fields' = '{key_list}',\n        "
+
     tbl_properties = f"""
-        'write.parquet.compression-codec' = '{codec}',
+        {identifier_clause}'write.parquet.compression-codec' = '{codec}',
         'write.parquet.compression-level' = '{level}',
         'write.target-file-size-bytes' = '{target_size_bytes}',
         'write.format.default' = 'parquet'

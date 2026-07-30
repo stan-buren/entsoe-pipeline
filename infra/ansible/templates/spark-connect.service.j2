@@ -1,0 +1,35 @@
+# {{ ansible_managed }}
+# Apache Spark Connect Server
+# Values from Python SSOT (config_env/*.yml + .env) via export_config.py
+
+[Unit]
+Description=Apache Spark Connect Server
+After=network.target spark-master.service
+Requires=spark-master.service
+
+[Service]
+Type=forking
+User={{ ansible_user }}
+Environment=SPARK_HOME=/opt/spark
+Environment=JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+
+ExecStart=/opt/spark/sbin/start-connect-server.sh \
+  --master spark://{{ _cfg.spark_master_host }}:{{ _cfg.spark_master_port }} \
+  --packages {{ spark_packages | join(',') }} \
+  --conf spark.connect.grpc.binding.host={{ ansible_host }} \
+  --conf spark.connect.grpc.binding.port={{ _cfg.spark_connect_port }} \
+  --conf spark.sql.extensions={{ iceberg_extensions }} \
+  --conf spark.hadoop.fs.s3a.access.key={{ _cfg.s3_access_key }} \
+  --conf spark.hadoop.fs.s3a.secret.key={{ _cfg.s3_secret_key }} \
+  --conf spark.hadoop.fs.s3a.endpoint={{ _cfg.seaweedfs_host }}:{{ _cfg.s3_port }} \
+  --conf spark.hadoop.fs.s3a.path.style.access=true \
+  --conf spark.hadoop.fs.s3a.connection.ssl.enabled=false \
+  --conf spark.hadoop.fs.s3a.aws.credentials.provider=org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider \
+  --conf spark.hadoop.fs.s3a.endpoint.region={{ _cfg.aws_region }}
+
+ExecStop=/opt/spark/sbin/stop-connect-server.sh
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

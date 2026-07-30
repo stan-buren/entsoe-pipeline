@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+"""Spark session management and data I/O for the ENTSOE Lakehouse."""
+
 from entsoe_pipeline.spark.entsoe_fms_schemas_mapping import (
     build_spark_schema_from_fms,
     parse_fms_type_to_spark,

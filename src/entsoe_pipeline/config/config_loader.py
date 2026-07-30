@@ -37,10 +37,12 @@ from entsoe_pipeline.config.core import (
     HostsConfig,
     LakehouseConfig,
     LakehouseParquetCodecConfig,
+    NamespacesConfig,
     PipelineConfig,
     PortsConfig,
     RateLimitsConfig,
     RegionConfig,
+    SparkConfig,
     UrlsConfig,
     VolumesConfig,
 )
@@ -383,3 +385,25 @@ def get_lakehouse_parquet_codec_config() -> LakehouseParquetCodecConfig:
         LakehouseParquetCodecConfig: The Parquet writes and compaction settings.
     """
     return LakehouseParquetCodecConfig._from_yaml()
+
+
+@cache
+def get_namespaces_config() -> NamespacesConfig:
+    """Loads and returns the cached NamespacesConfig singleton.
+
+    Returns:
+        NamespacesConfig: Iceberg namespace names per medallion layer.
+    """
+    return NamespacesConfig._from_yaml()
+
+
+@cache
+def get_spark_config() -> SparkConfig:
+    """Loads and returns the cached SparkConfig singleton.
+
+    Returns:
+        SparkConfig: Spark execution backend configuration, containing:
+            - mode (str): Execution mode (``"connect"``).
+            - connect_server (str): Spark Connect gRPC endpoint.
+    """
+    return SparkConfig._from_yaml()

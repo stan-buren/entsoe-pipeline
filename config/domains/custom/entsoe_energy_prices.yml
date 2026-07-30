@@ -1,0 +1,35 @@
+# Custom Selection Configuration: ENTSO-E Energy Prices [12.1.D]
+#
+# Ingests day-ahead and intraday market clearing prices for electrical energy
+# from both the original _r3 and patched _r3.1 schema revisions.
+#
+# Domain:      Market
+# Publication: Energy Prices [12.1.D]
+# Regulation:  EU 543/2013, Article 12.1.D
+#
+# Both revisions coexist on the ENTSO-E FTP server:
+#   _r3   — original r3 schema
+#   _r3.1 — minor patch (same schema, non-breaking changes per ADR-009)
+#
+# The pipeline classifier handles both transparently via startswith() prefix
+# matching (see ADR-009). If ENTSO-E releases _r4, ingestion will fail-fast
+# and require a schema audit.
+#
+# PROD sizes (as of catalog snapshot):
+#   EnergyPrices_12.1.D_r3   — 141 files, ~877 MB
+#   EnergyPrices_12.1.D_r3.1 — 141 files, ~876 MB
+#
+# Data contract: config/entsoe_fms_schemas.yml (12 columns)
+#   InstanceCode, DateTime(UTC), ResolutionCode, AreaCode, AreaDisplayName,
+#   AreaTypeCode (BZN only), MapCode, ContractType (Day-ahead|Intraday),
+#   Sequence, Price[Currency/MWh], Currency, UpdateTime(UTC)
+#
+# Known anomalies:
+#   - Poland (pre-2017-03): ~25% gaps in hours with zero exchange
+#   - REST API returns whole-day blocks in local time, not UTC
+#   - Malta, Bulgaria, Croatia (historical): no power exchange → no prices
+
+selected_domains:
+  - Market:
+      - EnergyPrices_12.1.D_r3
+      - EnergyPrices_12.1.D_r3.1

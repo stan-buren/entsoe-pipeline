@@ -1,0 +1,6 @@
+# HP workstation — safe to commit.
+# Real IP in host_vars/hp.local.yml (gitignored).
+# Copy hp.local.yml.example → hp.local.yml and fill in yours.
+
+spark_worker_cores: 6
+spark_worker_memory_mb: 10240

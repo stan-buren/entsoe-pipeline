@@ -1,0 +1,7 @@
+# ASUS compute node — safe to commit.
+# Real IP in host_vars/asus.local.yml (gitignored).
+# Copy asus.local.yml.example → asus.local.yml and fill in yours.
+
+spark_worker_cores: 4
+spark_worker_memory_mb: 4096
+spark_driver_memory_mb: 1024
