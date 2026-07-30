@@ -17,7 +17,9 @@ metadata:
   connect_server:
     description: |
       Spark Connect gRPC endpoint in the format ``sc://{host}:{port}``.
-      The default port for Spark Connect Server is 15002.
+      The orchestrator container (Kestra on Dell) connects to this endpoint
+      to obtain a remote SparkSession. The default port for Spark Connect
+      Server is 15002, which is bound on the ASUS compute node.
     examples:
       - "sc://asus:15002"
       - "sc://192.168.0.131:15002"

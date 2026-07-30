@@ -32,3 +32,15 @@ metadata:
       It differs from a Data Lake because it uses table format metadata (Apache Iceberg REST Catalog) to manage commits, track history, and perform query pushdown, rather than relying on raw filesystem directory scans.
 
 
+
+  s3_table_bucket:
+    description: |
+      Specifies the S3 Table Bucket name for Iceberg REST Catalog table
+      operations. This is a specialized bucket type in SeaweedFS that is
+      mapped 1:1 with the built-in Iceberg REST Catalog to manage table
+      metadata, snapshots, and transactional commits.
+    examples:
+      - "lakehouse-tables"
+    default: "lakehouse-tables"
+    type: "string"
+
