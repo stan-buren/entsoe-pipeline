@@ -1,6 +1,7 @@
 buckets:
   s3_landing_bucket: your-files-backet-name
   s3_lakehouse_bucket: your-table-backet-name
+  s3_table_bucket: your-s3-table-bucket-name
 
 metadata:
   s3_landing_bucket:
@@ -29,4 +30,5 @@ metadata:
       This is our Data Lakehouse.
       It combines the low-cost, scalable object storage of a Data Lake with the structure, ACID transactional guarantees, schema evolution, and SQL performance of a Data Warehouse.
       It differs from a Data Lake because it uses table format metadata (Apache Iceberg REST Catalog) to manage commits, track history, and perform query pushdown, rather than relying on raw filesystem directory scans.
+
 

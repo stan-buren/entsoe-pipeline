@@ -1,0 +1,25 @@
+spark:
+  mode: connect
+  connect_server: sc://asus:15002
+
+metadata:
+  mode:
+    description: |
+      Specifies how PySpark sessions connect to the execution backend.
+      ``connect`` — thin gRPC client (~50 MB) targeting the Spark Connect
+      Server on the ASUS compute node. The Connect Server bridges gRPC to
+      the existing Spark standalone cluster (Master :7077, Workers on HP
+      and Dell) and inherits all Iceberg/S3A configs from the cluster.
+    examples:
+      - "connect"
+    default: "connect"
+    type: "string"
+  connect_server:
+    description: |
+      Spark Connect gRPC endpoint in the format ``sc://{host}:{port}``.
+      The default port for Spark Connect Server is 15002.
+    examples:
+      - "sc://asus:15002"
+      - "sc://192.168.0.131:15002"
+    default: "sc://asus:15002"
+    type: "string"

@@ -51,6 +51,8 @@ ALLOWED_MID_FILE_IMPORTS: dict[str, set[str]] = {
     "region.py": {"entsoe_pipeline.config.paths"},
     "switch.py": {"entsoe_pipeline.config.paths"},
     "urls.py": {"entsoe_pipeline.config.paths"},
+    "namespaces.py": {"entsoe_pipeline.config.paths"},
+    "spark.py": {"entsoe_pipeline.config.paths"},
     "volumes.py": {"entsoe_pipeline.config.paths"},
     "warning.py": {"entsoe_pipeline.config.paths"},
     "config_loader.py": {
@@ -66,6 +68,7 @@ ALLOWED_MID_FILE_IMPORTS: dict[str, set[str]] = {
     "ftp_map_collector.py": {"entsoe_pipeline.config.paths"},
     "landing_bucket_schema.py": {"entsoe_pipeline.logger"},
     "my_entsoe_domains.py": {"entsoe_pipeline.logger.yml_observability"},
+    "load_raw_csv.py": {"pyspark.sql.functions"},
 }
 
 
