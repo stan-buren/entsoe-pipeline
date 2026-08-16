@@ -54,6 +54,20 @@ From a raw FTP dump of over 218,000 files to a modern data lakehouse with SQL qu
 <br/>
 
 ---
+## See docs:
+
+https://contracts.stan-buren.ru/
+
+---
+## Proof of work
+
+<img width="1470" height="923" alt="Screenshot 2026-08-01 at 14 37 43" src="https://github.com/user-attachments/assets/c3c46adf-f397-4aa0-9402-c07c064b76ca" />
+<img width="1470" height="923" alt="Screenshot 2026-08-16 at 11 49 42" src="https://github.com/user-attachments/assets/a73d6c92-e8c0-40c4-97b0-e10cd8cbfe45" />
+<img width="1470" height="923" alt="Screenshot 2026-08-16 at 11 53 44" src="https://github.com/user-attachments/assets/6100ffff-29af-4057-96c4-7a16c20df146" />
+<img width="1470" height="923" alt="Screenshot 2026-08-16 at 11 53 16" src="https://github.com/user-attachments/assets/3e996876-7fec-4f27-90a4-47b503ddc19a" />
+
+
+---
 
 ## What this project does
 
